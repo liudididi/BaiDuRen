@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.login_demo.AccountMagActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        >
+        <ImageView
+            android:padding="10px"
+            android:id="@+id/account_iv_back"
+            android:layout_width="150px"
+            android:layout_height="90px"
+            android:layout_gravity="center"
+            android:src="@mipmap/left"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:text="账户管理"
+            android:textColor="#2c2c2c"
+            android:textSize="50px"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="30px"
+        android:background="#F2F2F2"
+        ></View>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        >
+        <TextView
+            android:text="手机号"
+            android:textSize="50px"
+            android:layout_marginLeft="50px"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:src="@mipmap/left"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:id="@+id/account_tv_phone"
+            android:text="151003654"
+            android:textSize="50px"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="#F2F2F2"
+            android:layout_alignParentBottom="true"
+            ></View>
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/account_setingpass"
+        android:layout_marginTop="500px"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:layout_below="@+id/ed_mobile"
+        android:layout_marginRight="30px"
+        android:layout_marginLeft="30px"
+        android:background="@drawable/bg_setting_back"
+        android:gravity="center"
+        android:text="设置密码"
+        android:textColor="@color/black"
+        android:textSize="48px" />
+
+    <TextView
+        android:id="@+id/account_settingphone"
+        android:layout_marginTop="50px"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:layout_below="@+id/ed_mobile"
+        android:layout_marginRight="30px"
+        android:layout_marginLeft="30px"
+        android:background="@drawable/bg_setting_while"
+        android:gravity="center"
+        android:text="更换手机号"
+        android:textColor="@color/white"
+        android:textSize="48px" />
+
+</LinearLayout>

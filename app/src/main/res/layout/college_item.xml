@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/tv_college_title"
+            android:text="心理专家为您提供最专业的高考志愿填表"
+            android:textSize="45px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:lines="1"
+            android:ellipsize="end"
+            />
+        <TextView
+            android:id="@+id/tv_college_count"
+            android:text="最新：状元谈失败;不畏过去,不惧将来"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="36px"
+            android:textColor="#000"
+            android:layout_marginTop="30px"
+            android:lines="1"
+            android:ellipsize="end"/>
+
+</LinearLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        id="@+id/tab_home"
+        icon="@drawable/homepage"
+
+        />
+    <tab
+        id="@+id/tab_wish"
+        icon="@drawable/wish"
+        />
+    <tab
+        id="@+id/tab_my"
+        icon="@drawable/my"
+       />
+</tabs>

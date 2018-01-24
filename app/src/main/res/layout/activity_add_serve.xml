@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.login_demo.AddServeActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_add"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        >
+        <ImageView
+            android:padding="10px"
+            android:id="@+id/addserve_iv_back"
+            android:layout_width="150px"
+            android:layout_height="90px"
+            android:layout_gravity="center"
+            android:src="@mipmap/left"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:text="购买增值服务"
+            android:textColor="#2c2c2c"
+            android:textSize="50px"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </RelativeLayout>
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#000"
+        android:layout_below="@id/rl_add"></View>
+
+    <TextView
+        android:id="@+id/serve"
+        android:text="购买增值服务"
+        android:textColor="#2c2c2c"
+        android:textSize="50px"
+        android:layout_below="@id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:layout_margin="60px"
+        />
+    <TextView
+        android:id="@+id/serve_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/serve"
+        android:layout_marginLeft="80px"
+        android:layout_marginRight="40px"
+        android:text="“增值服务”,其真实含义在内容上具有可扩展性,既包括一般意义上的增值服务,也包括更深层的延伸服务.这里所指的更深层的延伸服务,是第三方物流企业成功的关键,指的是三类独特的增值服务——客户增值体验 、物流解决方案和IT服务.这三类增值服务相依相存,能为第三方物流企业产生区别于其他竞争对手的特色业务,能使企业根据客户的需求和具体问题提供合适的解决方案,其实践意义表现在“引导,以客户增值体验为中心,以物流解决方案和IT服务为实现手段,增强增值服务”."/>
+    <TextView
+        android:id="@+id/serve_tv1"
+        android:layout_below="@id/serve_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80px"
+        android:layout_marginRight="40px"
+        android:layout_marginTop="60px"
+        android:text="“增值服务”也可用于零售服务行业,只要是指“特色服务”,在保证基本服务的同时,进行超出常规的,个性化服务.比如:在店铺进行基本服务流程后,提供会员服务、送货上门服务、在节日时送上祝福卡片、在试衣间放置小梳子、拖鞋等."/>
+    <TextView
+        android:layout_below="@id/serve_tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80px"
+        android:layout_marginRight="40px"
+        android:layout_marginTop="60px"
+        android:text="因为“增值服务是超前的、个性的服务体验,所以在大多数都开始使用,便成为一种必须具备的普通的服务流程,便不是再具有所谓的“增值”的功能.比如:当所有人都提供送货上门的服务后,送货上门就不算增值服务,而算是基本服务流程.”"/>
+</RelativeLayout>

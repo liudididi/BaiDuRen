@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="news_info_text">#cecece</color>
+    <color name="white">#ffffff</color>
+    <color name="white_pressed">#d0d0d0</color>
+    <color name="blue">#00418b</color>
+    <color name="transparent">#00000000</color>
+    <color name="percent_10_transparent">#1f000000</color>
+    <color name="trans_color">#80000000</color>
+    <color name="black">#000000</color>
+    <color name="light_greys">#d0d0d0</color>
+    <color name="gray">#808080</color>
+    <color name="gainsboro">#dcdcdc</color>
+    <color name="gary">#10000000</color>
+    <color name="common_text">#333333</color>
+    <color name="common_text_light">#999999</color>
+    <color name="horizontal_line_color">#4D5a5a5a</color>
+    <color name="color_magnesium">#B2B2B2</color>
+    <color name="color_shenhua_blue">#004ea2</color>
+    <color name="alpha_black">#3f000000</color>
+    <color name="large_toast_bg">#cc000000</color>
+    <color name="small_toast_bg">#e6444444</color>
+    <color name="black_half">#50000000</color>
+
+    <!--slidingmenu-->
+    <color name="slidingMenu_bg">#555555</color>
+    <color name="slidingMenu_view_bg">#444444</color>
+
+    <!--common_title-->
+
+    <color name="common_title_bg">#444444</color>
+    <color name="common_bg">#fcfcfc</color>
+    <color name="common_club">#014893</color>
+    <color name="common_club_pressed">#88014893</color>
+    <color name="common_bottom_text">#238c00</color>
+    <!--main_circle-->
+    <color name="main_circle_team_name">#238c00</color>
+    <color name="main_circle_invitation_text">#333333</color>
+    <color name="origin_image_btn_bg">#80333333</color>
+    <color name="main_circle_view_bg">#cfcfcf</color>
+    <color name="main_circle_item_username_text">#333333</color>
+    <color name="main_circle_item_time_text">#b2b2b2</color>
+    <color name="main_circle_item_like_text">#999999</color>
+    <color name="main_circle_item_invitation_title_text">#333333</color>
+    <color name="main_circle_top_invitation_text">#333333</color>
+
+    <!--notification-->
+    <color name="notification_text">#333333</color>
+    <color name="notification_title_bg">#f2f2f2</color>
+    <!--login-->
+    <color name="text_light_gray">#eeeeee</color>
+    <!--reply-->
+    <color name="fragment_reply_item_view_bg">#cfcfcf</color>
+    <color name="fragment_reply_item_reply_bn">#999999</color>
+    <color name="fragment_reply_item_time">#b2b2b2</color>
+    <color name="fragment_reply_item_username">#000000</color>
+    <color name="fragment_reply_item_content">#666666</color>
+    <color name="fragment_reply_item_mine_reply">#747474</color>
+    <!--invitation-->
+    <color name="activity_invitation_detail_reply_content">#000000</color>
+    <color name="activity_invitation_detail_reply_lLay">#f1f1f1</color>
+    <color name="activity_invitation_detail_reply_user">#018dfe</color>
+    <color name="activity_invitation_detail_reply_time">#b2b2b2</color>
+    <color name="activity_invitation_detail_reply_view">#cfcfcf</color>
+    <!--issue-->
+    <color name="activity_issue_hint">#999999</color>
+    <color name="activity_issue_content">#666666</color>
+    <color name="activity_issue_view_bg">#cfcfcf</color>
+    <color name="activity_issue_done_text">#238c00</color>
+    <!--selectActivity-->
+    <color name="activity_select_view_bg">#cfcfcf</color>
+    <color name="activity_select_text">#333333</color>
+    <!-- event-->
+    <color name="common_green">#009F34</color>
+    <!--invitation-->
+    <color name="activity_invitation_detail_bg">#fcfcfc</color>
+    <color name="activity_invitation_floor">#999999</color>
+    <color name="activity_invitation_title">#333333</color>
+    <color name="activity_invitation_view_bg">#b2b2b2</color>
+    <color name="activity_invitation_like_number_text">#656565</color>
+    <!--common_dialog-->
+    <color name="common_dialog_text">#3b96fb</color>
+    <color name="common_dialog_view_bg">#999999</color>
+    <!--report-->
+    <color name="activity_report_bg">#f2f2f2</color>
+    <color name="activity_report_point">#3b96fb</color>
+    <color name="activity_report_type">#000000</color>
+
+    <!--fragment_user-->
+    <color name="fragment_user_attention_line_bg">#fcfcfc</color>
+    <color name="fragment_user_name_text">#333333</color>
+    <color name="fragment_user_introduce_text">#999999</color>
+    <color name="fragment_user_rank_bg">#f9fafa</color>
+    <color name="fragment_user_rank_text">#009f39</color>
+    <color name="fragment_user_view_bg">#d7d7d7</color>
+    <color name="fragment_user_back_text">#999999</color>
+    <!--recent_news-->
+    <color name="activity_recent_news_bg">#f2f2f2</color>
+    <!--attention-->
+    <color name="activity_attention_user_name">#333333</color>
+    <color name="activity_attention_view_bg">#cfcfcf</color>
+    <!--sign_rank-->
+    <color name="activity_sign_rank_tab">#f2f2f2</color>
+    <color name="activity_sign_rank_tab_text">#333333</color>
+    <color name="activity_sign_rank_view_bg">#cfcfcf</color>
+    <!--member_sign-->
+    <color name="activity_member_sign_prompt">#ffffff</color>
+    <color name="activity_member_sign_prompt_text">#333333</color>
+    <color name="activity_member_sign_view_bg">#d7d7d7</color>
+    <color name="activity_member_sign_bn">#00af04</color>
+    <color name="activity_calendar_week">#999999</color>
+    <color name="activity_calendar_week1">#d90000</color>
+    <!--modification_data-->
+    <color name="activity_modification_data_text">#333333</color>
+    <color name="activity_modification_data_text1">#666666</color>
+    <color name="activity_modification_data_view_bg">#d7d7d7</color>
+    <!--common_photograph-->
+    <color name="common_photograph_text">#3b96fb</color>
+    <color name="common_photograph_view_bg">#666666</color>
+    <!--habit-->
+    <color name="activity_modification_habit_text">#999999</color>
+    <!--滚轮选择器-->
+    <color name="activity_dialog_bg">#f7f7f7</color>
+    <color name="activity_dialog_close">#007aff</color>
+    <!--modification_name-->
+    <color name="activity_modification_name_text">#999999</color>
+    <color name="activity_modification_prompt_text">#018dfe</color>
+    <!--point @的人-->
+    <color name="activity_point_search_text">#a2a2a2</color>
+    <color name="activity_point_view_bg">#cfcfcf</color>
+    <color name="activity_point_title_bg">#f1f1f1</color>
+    <color name="activity_point_title_text">#333333</color>
+    <color name="activity_point_confirm_text">#999999</color>
+    <color name="activity_point_confirm_item_text">#666666</color>
+    <color name="activity_face_selector_color">#ff5001</color>
+    <!--attention_explain-->
+    <color name="dialog_attention_explain_title">#018dfe</color>
+    <color name="dialog_attention_explain_content">#979797</color>
+
+    <color name="background">#F7F4F0</color>
+    <color name="title_color">#333333</color>
+
+    <color name="activity_attention_players_text">#666666</color>
+
+    <color name="red">#de2020</color>
+    <color name="search_history_delete">#d6000f</color>
+    <color name="search_history_delete_pressed">#66d6000f</color>
+    <color name="light_red">#e46363</color>
+    <color name="common_font_color">#b2b2b2</color>
+    <color name="news_comment_reply_bg">#f5f5f5</color>
+    <color name="send_btn_bg">#d0d0d0</color>
+    <color name="hot_comment_title">#d61e0f</color>
+    <color name="light_gray">#b2b2b2</color>
+    <color name="lighter_gray">#b7b7b7</color>
+    <color name="notification_title_stroke">#dadada</color>
+
+    <color name="base_theme_highlight">#ff19abf3</color>
+    <color name="notifation_title_bg">#fbfbfb</color>
+    <color name="empty_comment_text_color">#d2d2d2</color>
+    <color name="light_grey">#f5f5f5</color>
+    <color name="half_black">#64000000</color>
+    <color name="light_half_black">#32000000</color>
+
+    <color name="activity_common_bg">#f2f2f2</color>
+    <color name="delete_dialog_text_color">#017bff</color>
+
+    <color name="delete_dialog_shape_color">#33000000</color>
+
+    <color name="horival_line_color">#bbbbbb</color>
+
+    <color name="myeditText">#cdcdcd</color>
+</resources>

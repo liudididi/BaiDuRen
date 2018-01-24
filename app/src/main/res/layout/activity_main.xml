@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.login_demo.MainActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/ll_top"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        >
+
+        <ImageView
+            android:padding="10px"
+            android:id="@+id/iv_left"
+            android:layout_width="150px"
+            android:layout_height="90px"
+            android:layout_gravity="center"
+            android:src="@mipmap/left"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:id="@+id/zc"
+            android:text="注册"
+            android:textColor="#2c2c2c"
+            android:textSize="18sp"
+           android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.5px"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/ll_top"
+        android:background="#cdcdcd"
+        android:id="@+id/view2"></View>
+
+    <include
+
+        layout="@layout/phone_login"
+        android:visibility="visible"
+        ></include>
+    <include
+        layout="@layout/pass_login"
+        android:visibility="gone"></include>
+    <include
+        layout="@layout/pass_register"
+        android:visibility="gone"></include>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.5px"
+        android:background="#cdcdcd"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="125px"></View>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        >
+         <TextView
+             android:textColor="@color/black"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="注册或登录代表您同意"
+             android:textSize="30px"
+              />
+        <TextView
+            android:textColor="#13227a"
+            android:textSize="25px"
+            android:layout_marginTop="5px"
+            android:layout_marginLeft="20px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="摆渡人用户协议"
+            />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/phone"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="122px"
+    android:layout_marginBottom="122px">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/view2"
+        android:layout_marginLeft="36px"
+        android:layout_marginStart="36px"
+        android:layout_marginTop="80px"
+        android:text="手机登录"
+        android:textColor="#2c2c2c"
+        android:textSize="65px"
+        android:id="@+id/textView" />
+
+    <EditText
+        android:maxLines="1"
+        android:layout_width="match_parent"
+        android:layout_height="170px"
+        android:layout_marginRight="30px"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="40px"
+        android:hint="请输入手机号码"
+        android:textSize="45px"
+        android:id="@+id/ed_mobile"
+        android:theme="@style/MyEditText"/>
+
+    <EditText
+        android:maxLines="1"
+        android:id="@+id/ed_phone_captcha"
+        android:layout_width="match_parent"
+        android:layout_height="170px"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/ed_mobile"
+        android:layout_marginTop="10px"
+        android:hint="请输入验证码"
+        android:textSize="45px"
+        android:layout_marginRight="30px"
+        android:layout_marginLeft="30px"
+        android:theme="@style/MyEditText" />
+    <TextView
+        android:id="@+id/tv_phone_captcha"
+        android:layout_width="270px"
+        android:layout_height="90px"
+        android:layout_alignParentRight="true"
+        android:textColor="#fff"
+        android:textSize="40px"
+        android:layout_marginRight="45px"
+        android:background="@drawable/back_guanzhu"
+        android:gravity="center"
+        android:text="获取验证码"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="75px"
+        />
+    <TextView
+        android:id="@+id/tv_Countdown"
+        android:layout_width="270px"
+        android:layout_height="90px"
+        android:layout_alignBaseline="@+id/ed_mobile"
+        android:layout_alignBottom="@+id/ed_mobile"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:textColor="#fff"
+        android:textSize="40px"
+        android:layout_marginRight="45px"
+        android:background="@drawable/back_countdown"
+        android:gravity="center"
+        android:text="0S"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:layout_below="@+id/ed_mobile"
+        android:layout_marginTop="300px"
+        android:layout_marginRight="30px"
+        android:layout_marginLeft="30px"
+        android:background="@drawable/back_guanzhu"
+        android:gravity="center"
+        android:text="快速登录"
+        android:textColor="#e6e6e6"
+        android:textSize="45px" />
+
+    <TextView
+        android:id="@+id/tv_pass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:text="密码登录"
+        android:textColor="#13227a" />
+</RelativeLayout>
