@@ -41,7 +41,6 @@ public class MyQusetUtils {
               okHttpClient=new OkHttpClient.Builder()
                       .addInterceptor(NetInterceptor.REWRITE_RESPONSE_INTERCEPTOR_LOG)
                       .addInterceptor(NetInterceptor.REWRITE_RESPONSE_INTERCEPTOR_OFFLINE)
-                      .addInterceptor(NetInterceptor.REWRITE_RESPONSE_MYINTERCEPTOR)
                       .addNetworkInterceptor(NetInterceptor.REWRITE_RESPONSE_INTERCEPTOR)
                       .connectTimeout(TIMEOUT, TimeUnit.SECONDS)
                       .readTimeout(TIMEOUT, TimeUnit.SECONDS)

@@ -20,6 +20,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.HEAD;
 import retrofit2.http.Header;
+import retrofit2.http.Headers;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
@@ -77,11 +78,33 @@ public interface QuestInterface {
     Flowable<BaseBean> mobileUpdateCaptcha(@Query("mobile") String mobile);
 
 
+    //查询收藏
+    @GET("/app/collection/getCollection")
+    Flowable<BaseBean> getCollection(@Query("mobile") String mobile);
+
+
+    //志愿表轮播图
+    @GET("/app/boardpicture/queryInfo")
+    Flowable<BaseBean<List<SlideshowBean>>> Wish(@Query("board_id") int board_id);
+
     //提交建议的接口
     @POST("/app/proposal/pro")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
     @FormUrlEncoded
     Flowable<BaseBean> suggest(@Field("proposal") String proposal,@Field("contactInformation") String contactInformation );
 
+
+    //获取用户信息
+    @POST("/app/userinfo/getUserinfo")
+    Flowable<BaseBean<UserBean>> getUserinfo(@Header("token") String token);
+
+    @POST("/app/updateMobileVerifyOld")
+    Flowable<BaseBean> updateMobileVerifyOld(@Query("mobile")String mobile,@Query("captcha")String captcha,@Header("token") String token);
+
+
+    @POST("/app/updateMobile")
+
+    Flowable<BaseBean>  updateMobile(@Query("newmobile")String mobile,@Query("captcha")String captcha,@Header("token") String token);
 
 
 /*

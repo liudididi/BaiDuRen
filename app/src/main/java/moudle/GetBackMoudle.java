@@ -58,12 +58,14 @@ public class GetBackMoudle  {
                     }
                 });
         compositeDisposable.add(disposableSubscriber);
+
     }
 
 
     public  interface  UpdataCaptChaBack{
         void  CaptChasuccess(BaseBean listBasebean);
         void  CaptChafail(Throwable t);
+
     }
 
     public  interface  findPwdByMobileBack{

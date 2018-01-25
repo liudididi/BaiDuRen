@@ -54,10 +54,10 @@
             android:layout_height="80px" />
         <ImageView
             android:src="@drawable/right_arrow"
-            android:layout_marginTop="20px"
+            android:layout_marginTop="40px"
             android:layout_marginRight="30px"
-            android:layout_width="80px"
-            android:layout_height="80px"
+            android:layout_width="45px"
+            android:layout_height="45px"
             android:layout_alignParentRight="true"
             />
         <View
@@ -87,10 +87,10 @@
             android:layout_height="80px" />
         <ImageView
             android:src="@drawable/right_arrow"
-            android:layout_marginTop="20px"
+            android:layout_marginTop="40px"
             android:layout_marginRight="30px"
-            android:layout_width="80px"
-            android:layout_height="80px"
+            android:layout_width="45px"
+            android:layout_height="45px"
             android:layout_alignParentRight="true"
             />
         <View

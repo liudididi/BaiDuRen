@@ -27,6 +27,12 @@
             android:layout_height="wrap_content"
             />
     </RelativeLayout>
+   <com.jcodecraeer.xrecyclerview.XRecyclerView
+       android:visibility="gone"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/myschool_xrecycle"
+       ></com.jcodecraeer.xrecyclerview.XRecyclerView>
     <TextView
         android:id="@+id/myschool_hint"
         android:text="暂无收藏"

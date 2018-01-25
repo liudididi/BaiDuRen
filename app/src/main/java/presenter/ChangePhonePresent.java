@@ -41,6 +41,44 @@ public class ChangePhonePresent extends Basepresent {
         });
     }
 
+    public  void  updateMobileVerifyOld(String mobile,String captcha,String token){
+        changePhoneMoudle.updateMobileVerifyOld(mobile, captcha, token, new ChangePhoneMoudle.OldphoneCaptChaBack() {
+            @Override
+            public void CaptChasuccess(BaseBean Basebean) {
+                if(Basebean.code==0){
+                    changePhoneView.oldPhonesuccess(Basebean.msg);
+                }else {
+                    changePhoneView.oldPhonefail(Basebean.msg);
+                }
+            }
+
+            @Override
+            public void CaptChafail(Throwable t) {
+               changePhoneView.oldPhonefail(t.toString());
+            }
+        });
+    }
+
+    public  void  updateMobile(String mobile,String captcha,String token){
+
+        changePhoneMoudle.updateMobile(mobile, captcha, token, new ChangePhoneMoudle.NewphoneCaptChaBack() {
+            @Override
+            public void CaptChasuccess(BaseBean Basebean) {
+                if(Basebean.code==0){
+                    changePhoneView.newPhonesuccess(Basebean.msg);
+                }else {
+                    changePhoneView.newPhonefail(Basebean.msg);
+                }
+            }
+
+            @Override
+            public void CaptChafail(Throwable t) {
+                 changePhoneView.newPhonefail(t.toString());
+            }
+        });
+
+    }
+
     public   void   onDestory(){
         this.onDeach();
        changePhoneMoudle.onDestory();

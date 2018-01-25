@@ -2,12 +2,13 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="210px"
+    android:layout_height="260px"
     android:orientation="vertical"
     android:gravity="center">
 
     <ImageView
+        android:scaleType="center"
         android:id="@+id/sodoku_item_iv"
-        android:layout_width="200px"
-        android:layout_height="200px" />
+        android:layout_width="250px"
+        android:layout_height="250px" />
 </LinearLayout>

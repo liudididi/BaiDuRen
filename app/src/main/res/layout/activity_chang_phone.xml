@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.login_demo.ChangPhoneActivity">
     <RelativeLayout
-        android:id="@+id/ll_top"
+        android:id="@+id/changphone_top"
         android:layout_width="match_parent"
         android:layout_height="120px"
         >
@@ -32,14 +32,18 @@
     </RelativeLayout>
 
     <View
+        android:id="@+id/changephone_view"
+        android:layout_below="@+id/changphone_top"
         android:layout_width="match_parent"
         android:layout_height="30px"
         android:background="#F2F2F2"
         ></View>
 
     <RelativeLayout
+        android:visibility="visible"
+        android:id="@+id/changephone_rv_oldphone"
+        android:layout_below="@+id/changephone_view"
         android:layout_marginTop="20px"
-        android:layout_below="@+id/my_school"
         android:layout_width="match_parent"
         android:layout_height="120px"
         >
@@ -72,8 +76,10 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/changephone_rv_newphone"
         android:layout_marginTop="20px"
-        android:layout_below="@+id/my_school"
+        android:layout_below="@+id/changephone_view"
         android:layout_width="match_parent"
         android:layout_height="120px"
         >
@@ -110,8 +116,8 @@
 
 
     <RelativeLayout
-        android:layout_marginTop="20px"
-        android:layout_below="@+id/my_school"
+        android:id="@+id/changephone_rv_captcha"
+        android:layout_marginTop="290px"
         android:layout_width="match_parent"
         android:layout_height="120px"
         >
@@ -172,7 +178,7 @@
         android:layout_height="120px"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/et_register_pass"
+        android:layout_below="@+id/changephone_rv_captcha"
         android:layout_marginTop="60dp"
         android:background="@drawable/bg_setting_back"
         android:gravity="center"
@@ -182,4 +188,4 @@
         android:layout_marginLeft="30px"
         android:layout_marginRight="30px"/>
 
-</LinearLayout>
+</RelativeLayout>

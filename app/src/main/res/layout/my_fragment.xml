@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -16,7 +16,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/raw_1499917357" />
+        android:src="@mipmap/back" />
     <ImageView
         android:padding="15px"
         android:id="@+id/my_setting"
@@ -46,11 +46,12 @@
             android:layout_marginTop="90px"
             android:background="@drawable/back_login"/>
         <RelativeLayout
+            android:gravity="center"
+            android:layout_height="150px"
             android:id="@+id/my_school"
-            android:layout_marginTop="50px"
-            android:layout_below="@+id/my_login"
+            android:layout_marginTop="195px"
             android:layout_width="match_parent"
-            android:layout_height="100px"
+
             >
             <View
                 android:layout_width="match_parent"
@@ -58,11 +59,11 @@
                 android:layout_height="1px">
             </View>
             <ImageView
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/myschool"
                 android:layout_marginLeft="30px"
-                android:layout_marginTop="20px"
-                android:layout_width="80px"
-                android:layout_height="80px"
+                android:layout_width="100px"
+                android:layout_height="100px"
+                android:layout_marginTop="50px"
                 />
             <TextView
                 android:id="@+id/tv_myschool"
@@ -71,15 +72,15 @@
                 android:textSize="50px"
                 android:gravity="center"
                 android:layout_marginLeft="150px"
-                android:layout_marginTop="20px"
+                android:layout_marginTop="60px"
                 android:layout_width="wrap_content"
                 android:layout_height="80px" />
             <ImageView
                 android:src="@drawable/right_arrow"
-                android:layout_marginTop="20px"
-                android:layout_marginRight="30px"
-                android:layout_width="80px"
-                android:layout_height="80px"
+                android:layout_marginTop="75px"
+                android:layout_marginRight="40px"
+                android:layout_width="45px"
+                android:layout_height="45px"
                 android:layout_alignParentRight="true"
                 />
         </RelativeLayout>
@@ -88,35 +89,38 @@
             android:layout_marginTop="20px"
             android:layout_below="@+id/my_school"
             android:layout_width="match_parent"
-            android:layout_height="100px"
+            android:gravity="center"
+            android:layout_height="150px"
             >
             <View
+                android:layout_marginLeft="150px"
                 android:layout_width="match_parent"
                 android:background="@color/black"
                 android:layout_height="1px">
             </View>
             <ImageView
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/my_major"
                 android:layout_marginLeft="30px"
-                android:layout_marginTop="20px"
-                android:layout_width="80px"
-                android:layout_height="80px"
-                />
+                android:layout_marginTop="50px"
+                android:layout_width="100px"
+                android:layout_height="100px"
+                android:id="@+id/imageView2" />
+
             <TextView
-                android:textColor="@color/black"
-                android:text="我收藏的专业"
-                android:textSize="50px"
-                android:gravity="center"
-                android:layout_marginLeft="150px"
-                android:layout_marginTop="20px"
                 android:layout_width="wrap_content"
-                android:layout_height="80px" />
+                android:layout_height="80px"
+                android:layout_marginLeft="150px"
+                android:layout_marginTop="60px"
+                android:gravity="center"
+                android:text="我收藏的专业"
+                android:textColor="@color/black"
+                android:textSize="50px" />
             <ImageView
                 android:src="@drawable/right_arrow"
-                android:layout_marginTop="20px"
-                android:layout_marginRight="30px"
-                android:layout_width="80px"
-                android:layout_height="80px"
+                android:layout_marginTop="75px"
+                android:layout_marginRight="40px"
+                android:layout_width="45px"
+                android:layout_height="45px"
                 android:layout_alignParentRight="true"
                 />
         </RelativeLayout>
@@ -125,19 +129,20 @@
             android:layout_marginTop="20px"
             android:layout_below="@+id/my_major"
             android:layout_width="match_parent"
-            android:layout_height="100px"
+            android:layout_height="150px"
             >
             <View
+                android:layout_marginLeft="150px"
                 android:layout_width="match_parent"
                 android:background="@color/black"
                 android:layout_height="1px">
             </View>
             <ImageView
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/mywish"
                 android:layout_marginLeft="30px"
-                android:layout_marginTop="20px"
-                android:layout_width="80px"
-                android:layout_height="80px"
+                android:layout_marginTop="50px"
+                android:layout_width="100px"
+                android:layout_height="100px"
                 />
             <TextView
                 android:textColor="@color/black"
@@ -145,15 +150,15 @@
                 android:textSize="50px"
                 android:gravity="center"
                 android:layout_marginLeft="150px"
-                android:layout_marginTop="20px"
+                android:layout_marginTop="60px"
                 android:layout_width="wrap_content"
                 android:layout_height="80px" />
             <ImageView
                 android:src="@drawable/right_arrow"
-                android:layout_marginTop="20px"
-                android:layout_marginRight="30px"
-                android:layout_width="80px"
-                android:layout_height="80px"
+                android:layout_marginTop="75px"
+                android:layout_marginRight="40px"
+                android:layout_width="45px"
+                android:layout_height="45px"
                 android:layout_alignParentRight="true"
                 />
         </RelativeLayout>
@@ -162,19 +167,20 @@
             android:layout_marginTop="20px"
             android:layout_below="@+id/my_washtable"
             android:layout_width="match_parent"
-            android:layout_height="100px"
+            android:layout_height="150px"
             >
             <View
+                android:layout_marginLeft="150px"
                 android:layout_width="match_parent"
                 android:background="@color/black"
                 android:layout_height="1px">
             </View>
             <ImageView
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/character"
                 android:layout_marginLeft="30px"
-                android:layout_marginTop="20px"
-                android:layout_width="80px"
-                android:layout_height="80px"
+                android:layout_marginTop="50px"
+                android:layout_width="100px"
+                android:layout_height="100px"
                 />
             <TextView
                 android:textColor="@color/black"
@@ -182,15 +188,15 @@
                 android:textSize="50px"
                 android:gravity="center"
                 android:layout_marginLeft="150px"
-                android:layout_marginTop="20px"
+                android:layout_marginTop="60px"
                 android:layout_width="wrap_content"
                 android:layout_height="80px" />
             <ImageView
                 android:src="@drawable/right_arrow"
-                android:layout_marginTop="20px"
-                android:layout_marginRight="30px"
-                android:layout_width="80px"
-                android:layout_height="80px"
+                android:layout_marginTop="75px"
+                android:layout_marginRight="40px"
+                android:layout_width="45px"
+                android:layout_height="45px"
                 android:layout_alignParentRight="true"
                 />
         </RelativeLayout>
@@ -202,19 +208,20 @@
             android:layout_marginTop="20px"
             android:layout_below="@+id/my_gradetable"
             android:layout_width="match_parent"
-            android:layout_height="100px"
+            android:layout_height="150px"
             >
             <View
+                android:layout_marginLeft="150px"
                 android:layout_width="match_parent"
                 android:background="@color/black"
                 android:layout_height="1px">
             </View>
             <ImageView
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/help"
                 android:layout_marginLeft="30px"
-                android:layout_marginTop="20px"
-                android:layout_width="80px"
-                android:layout_height="80px"
+                android:layout_marginTop="50px"
+                android:layout_width="100px"
+                android:layout_height="100px"
                 />
             <TextView
                 android:textColor="@color/black"
@@ -222,15 +229,15 @@
                 android:textSize="50px"
                 android:gravity="center"
                 android:layout_marginLeft="150px"
-                android:layout_marginTop="20px"
+                android:layout_marginTop="60px"
                 android:layout_width="wrap_content"
                 android:layout_height="80px" />
             <ImageView
                 android:src="@drawable/right_arrow"
-                android:layout_marginTop="20px"
-                android:layout_marginRight="30px"
-                android:layout_width="80px"
-                android:layout_height="80px"
+                android:layout_marginTop="75px"
+                android:layout_marginRight="40px"
+                android:layout_width="45px"
+                android:layout_height="45px"
                 android:layout_alignParentRight="true"
                 />
         </RelativeLayout>
@@ -240,19 +247,20 @@
             android:layout_marginTop="20px"
             android:layout_below="@+id/my_help"
             android:layout_width="match_parent"
-            android:layout_height="100px"
+            android:layout_height="150px"
             >
             <View
+                android:layout_marginLeft="150px"
                 android:layout_width="match_parent"
                 android:background="@color/black"
                 android:layout_height="1px">
             </View>
             <ImageView
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/addserve"
                 android:layout_marginLeft="30px"
-                android:layout_marginTop="20px"
-                android:layout_width="80px"
-                android:layout_height="80px"
+                android:layout_marginTop="50px"
+                android:layout_width="100px"
+                android:layout_height="100px"
                 />
             <TextView
                 android:textColor="@color/black"
@@ -260,15 +268,15 @@
                 android:textSize="50px"
                 android:gravity="center"
                 android:layout_marginLeft="150px"
-                android:layout_marginTop="20px"
+                android:layout_marginTop="60px"
                 android:layout_width="wrap_content"
                 android:layout_height="80px" />
             <ImageView
                 android:src="@drawable/right_arrow"
-                android:layout_marginTop="20px"
-                android:layout_marginRight="30px"
-                android:layout_width="80px"
-                android:layout_height="80px"
+                android:layout_marginTop="75px"
+                android:layout_marginRight="40px"
+                android:layout_width="45px"
+                android:layout_height="45px"
                 android:layout_alignParentRight="true"
                 />
         </RelativeLayout>
@@ -277,19 +285,20 @@
             android:layout_marginTop="20px"
             android:layout_below="@+id/my_addserve"
             android:layout_width="match_parent"
-            android:layout_height="120px"
+            android:layout_height="150px"
             >
             <View
+                android:layout_marginLeft="150px"
                 android:layout_width="match_parent"
                 android:background="@color/black"
                 android:layout_height="1px">
             </View>
             <ImageView
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/suggest"
                 android:layout_marginLeft="30px"
-                android:layout_marginTop="20px"
-                android:layout_width="80px"
-                android:layout_height="80px"
+                android:layout_marginTop="50px"
+                android:layout_width="100px"
+                android:layout_height="100px"
                 />
             <TextView
                 android:textColor="@color/black"
@@ -297,42 +306,37 @@
                 android:textSize="50px"
                 android:gravity="center"
                 android:layout_marginLeft="150px"
-                android:layout_marginTop="20px"
+                android:layout_marginTop="60px"
                 android:layout_width="wrap_content"
                 android:layout_height="80px" />
             <ImageView
                 android:src="@drawable/right_arrow"
-                android:layout_marginTop="20px"
-                android:layout_marginRight="30px"
-                android:layout_width="80px"
-                android:layout_height="80px"
+                android:layout_marginTop="75px"
+                android:layout_marginRight="40px"
+                android:layout_width="45px"
+                android:layout_height="45px"
                 android:layout_alignParentRight="true"
                 />
-            <View
-                android:layout_alignParentBottom="true"
-                android:layout_width="match_parent"
-                android:background="#BaBaBa"
-                android:layout_height="2px">
-            </View>
         </RelativeLayout>
         <RelativeLayout
             android:id="@+id/my_gradetable"
             android:layout_marginTop="20px"
             android:layout_below="@+id/my_character"
             android:layout_width="match_parent"
-            android:layout_height="100px"
+            android:layout_height="150px"
             >
             <View
+                android:layout_marginLeft="150px"
                 android:layout_width="match_parent"
                 android:background="@color/black"
                 android:layout_height="1px">
             </View>
             <ImageView
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/gradetable"
                 android:layout_marginLeft="30px"
-                android:layout_marginTop="20px"
-                android:layout_width="80px"
-                android:layout_height="80px"
+                android:layout_marginTop="50px"
+                android:layout_width="100px"
+                android:layout_height="100px"
                 />
             <TextView
                 android:textColor="@color/black"
@@ -340,28 +344,46 @@
                 android:textSize="50px"
                 android:gravity="center"
                 android:layout_marginLeft="150px"
-                android:layout_marginTop="20px"
+                android:layout_marginTop="60px"
                 android:layout_width="wrap_content"
                 android:layout_height="80px" />
+
             <ImageView
                 android:src="@drawable/right_arrow"
-                android:layout_marginTop="20px"
-                android:layout_marginRight="30px"
-                android:layout_width="80px"
-                android:layout_height="80px"
+                android:layout_marginTop="75px"
+                android:layout_marginRight="40px"
+                android:layout_width="45px"
+                android:layout_height="45px"
                 android:layout_alignParentRight="true"
                 />
         </RelativeLayout>
 
+        <View
+            android:layout_marginTop="30px"
+            android:layout_below="@+id/my_suggest"
+            android:id="@+id/my_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+          ></View>
+
     </RelativeLayout>
+    <ImageView
+        android:background="@drawable/back_yuan"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="240px"
+        android:layout_width="240px"
+        android:layout_height="240px"
+        android:layout_marginLeft="200px"
+        />
     <com.meg7.widget.CustomShapeImageView
         android:id="@+id/my_icon"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="270px"
+        android:layout_marginTop="260px"
         android:layout_width="200px"
         android:layout_height="200px"
         android:layout_marginLeft="200px"
-        android:src="@drawable/raw_1499917357"
+        android:src="@drawable/boy"
         />
+
 </RelativeLayout>
-</RelativeLayout>
+</ScrollView>

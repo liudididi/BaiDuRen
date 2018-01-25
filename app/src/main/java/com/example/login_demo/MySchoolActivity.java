@@ -5,6 +5,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.jcodecraeer.xrecyclerview.XRecyclerView;
+
 import base.BaseActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -17,6 +19,8 @@ public class MySchoolActivity extends BaseActivity {
     TextView myschoolHint;
     @BindView(R.id.myschool_see)
     TextView myschoolSee;
+    @BindView(R.id.myschool_xrecycle)
+    XRecyclerView myschoolXrecycle;
 
     @Override
     public int getId() {
@@ -39,5 +43,12 @@ public class MySchoolActivity extends BaseActivity {
             case R.id.myschool_hint:
                 break;
         }
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
     }
 }

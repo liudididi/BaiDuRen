@@ -1,40 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="540px"
-    android:layout_height="400px"
+    android:layout_width="400px"
+    android:layout_height="350px"
     >
     <View
         android:id="@+id/view"
         android:layout_width="30px"
         android:layout_height="match_parent">
     </View>
-    <RelativeLayout
+    <LinearLayout
         android:background="@drawable/back_square"
         android:layout_toRightOf="@+id/view"
-        android:layout_width="500px"
-        android:layout_height="400px">
-
+        android:layout_width="400px"
+        android:layout_height="350px"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
         <ImageView
             android:id="@+id/item_school_icon"
-            android:layout_marginTop="50px"
-            android:layout_centerHorizontal="true"
             android:src="@mipmap/ic_launcher"
             android:layout_width="170px"
             android:layout_height="170px" />
-        <TextView
-            android:layout_marginTop="10px"
+       <TextView
             android:id="@+id/item_school_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="北京大学"
             android:textSize="50px"
-            android:textColor="@color/white"
             android:layout_below="@+id/item_school_icon"
-            android:layout_centerHorizontal="true"
             />
         <TextView
-            android:layout_marginTop="10px"
             android:textColor="#Bababa"
             android:id="@+id/item_school_address"
             android:layout_width="wrap_content"
@@ -42,11 +38,8 @@
             android:text="北京大学 综合"
             android:textSize="40px"
             android:layout_below="@+id/item_school_name"
-            android:layout_centerHorizontal="true"
             />
-
-
-    </RelativeLayout>
+    </LinearLayout>
 
 
 </RelativeLayout>

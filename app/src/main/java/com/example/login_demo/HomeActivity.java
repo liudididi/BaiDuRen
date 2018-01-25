@@ -14,10 +14,18 @@ import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
 
 import base.BaseActivity;
+import base.BaseBean;
+import bean.MyUserBean;
+import bean.UserBean;
 import butterknife.BindView;
 import fragment.Home_Fragment;
 import fragment.My_Fragment;
 import fragment.WishFragMent;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
+import io.reactivex.subscribers.DisposableSubscriber;
+import untils.MyQusetUtils;
+import untils.SPUtils;
 
 public class HomeActivity extends BaseActivity {
 
@@ -28,15 +36,17 @@ public class HomeActivity extends BaseActivity {
     private WishFragMent wish_FragMent;
     private Home_Fragment home_fragment;
     private Fragment currentFragment;
+
+
     @Override
     public int getId() {
         return R.layout.activity_home;
     }
-
     @Override
     public void InIt() {
         //初始化Fragment
         inItFragment();
+        MyUserBean.checkLogin();
 
 
         DisplayMetrics dm = getResources().getDisplayMetrics();
@@ -52,10 +62,8 @@ public class HomeActivity extends BaseActivity {
             @Override
             public void onTabSelected(int tabId) {
                 switch (tabId) {
-
                     case R.id.tab_home:
                         switchFragment(home_fragment).commitAllowingStateLoss();
-
                         break;
                     case R.id.tab_wish:
                         switchFragment(wish_FragMent).commitAllowingStateLoss();
@@ -68,6 +76,8 @@ public class HomeActivity extends BaseActivity {
             }
         });
     }
+
+
 
     /**
      * 加载Fragment
@@ -99,5 +109,17 @@ public class HomeActivity extends BaseActivity {
         }
         currentFragment = targetFragment;
         return transaction;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        MyUserBean.onDestory();
     }
 }

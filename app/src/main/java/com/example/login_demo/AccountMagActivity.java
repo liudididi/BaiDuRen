@@ -1,15 +1,20 @@
 package com.example.login_demo;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import base.BaseActivity;
+import bean.MyUserBean;
+import bean.UserBean;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import untils.SPUtils;
 
 public class AccountMagActivity extends BaseActivity {
 
@@ -21,6 +26,7 @@ public class AccountMagActivity extends BaseActivity {
     TextView accountSetingpass;
     @BindView(R.id.account_settingphone)
     TextView accountSettingphone;
+    private  String token;
 
     @Override
     public int getId() {
@@ -29,6 +35,12 @@ public class AccountMagActivity extends BaseActivity {
 
     @Override
     public void InIt() {
+        MyUserBean.checkLogin();
+        UserBean userBeanInstans = MyUserBean.getUserBeanInstans();
+        if(userBeanInstans!=null){
+            accountTvPhone.setText(userBeanInstans.getMobile());
+        }
+
 
     }
 
@@ -46,7 +58,7 @@ public class AccountMagActivity extends BaseActivity {
                 startActivity(intent);
                 break;
             case R.id.account_settingphone:
-              intent(this,ChangPhoneActivity.class);
+                intent(this,ChangPhoneActivity.class);
                 break;
         }
     }

@@ -77,7 +77,7 @@
             android:layout_height="150px"
             android:scaleType="centerCrop"
             android:layout_marginTop="20px"
-            android:src="@drawable/raw_1499917357"
+            android:src="@drawable/boy"
             android:layout_marginRight="10px"
             />
         <ImageView

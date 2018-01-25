@@ -8,4 +8,12 @@ package view;
 public interface ChangePhoneView {
     void  getCaptChaSuccess(String msg);
     void  getCaptChafail(String msg);
+
+    void   oldPhonesuccess(String msg);
+    void   oldPhonefail(String msg);
+
+    void   newPhonesuccess(String msg);
+    void   newPhonefail(String msg);
+
+
 }

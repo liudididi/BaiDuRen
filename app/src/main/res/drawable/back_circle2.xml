@@ -5,8 +5,8 @@
     android:useLevel="false" >
 
     <stroke
-        android:width="4px"
-        android:color="#666ccc"/>
-    <size android:width="300px"
-        android:height="300px" />
+        android:width="9px"
+        android:color="#e6e6e6"/>
+    <size android:width="400sp"
+        android:height="400sp" />
 </shape>

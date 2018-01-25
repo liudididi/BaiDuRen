@@ -7,6 +7,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.UnsupportedEncodingException;
+
 import base.BaseActivity;
 import base.BaseBean;
 import butterknife.BindView;
@@ -28,6 +30,7 @@ public class SuggestActivity extends BaseActivity implements SuggestView {
     TextView suggestTvCommit;
 
     private SuggestPresent suggestPresent;
+    private String s;
 
 
     @Override
@@ -58,7 +61,7 @@ public class SuggestActivity extends BaseActivity implements SuggestView {
             case R.id.suggest_way:
                 break;
             case R.id.suggest_tv_commit:
-                String s = suggestEt.getText().toString();
+                s = suggestEt.getText().toString();
                 String s1 = suggestWay.getText().toString();
                 if(s.equals(""))
                 {

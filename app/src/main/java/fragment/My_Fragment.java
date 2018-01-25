@@ -4,7 +4,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AlertDialog;
+import android.util.DisplayMetrics;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -40,6 +42,7 @@ public class My_Fragment extends Basefragment implements View.OnClickListener {
     private String token;
     private Intent intent;
     private Boolean checLogin;
+    private View my_view;
 
     @Override
     public int getLayoutid() {
@@ -95,10 +98,18 @@ public class My_Fragment extends Basefragment implements View.OnClickListener {
         my_setting = view.findViewById(R.id.my_setting);
 
 
+        my_view = view.findViewById(R.id.my_view);
 
-
+        DisplayMetrics dm = getResources().getDisplayMetrics();
+        int heightPixels = dm.heightPixels;
+        ViewGroup.LayoutParams layoutParams =  my_view.getLayoutParams();
+        layoutParams.width=dm.widthPixels;
+        layoutParams.height=heightPixels/12;
+        my_view.setLayoutParams(layoutParams);
 
     }
+
+
 
     @Override
     public void onClick(View v) {
@@ -191,5 +202,12 @@ public class My_Fragment extends Basefragment implements View.OnClickListener {
     public void onResume() {
         super.onResume();
         token = (String) SPUtils.get(MyApp.context, "token", "");
+        if(token.length()>4){
+            my_login.setText("已登录");
+            my_login.setEnabled(false);
+        }else {
+            my_login.setText("登录");
+            my_login.setEnabled(true);
+        }
     }
 }

@@ -31,6 +31,7 @@ public class NetInterceptor {
             //获取retrofit @headers里面的参数，参数可以自己定义，在本例我自己定义的是cache，跟@headers里面对应就可以了
             String cache = chain.request().header("cache");
             Response originalResponse = chain.proceed(chain.request());
+
             String cacheControl = originalResponse.header("Cache-Control");
             //如果cacheControl为空，就让他TIMEOUT_CONNECT秒的缓存，本例是5秒，方便观察。注意这里的cacheControl是服务器返回的
             if (cacheControl == null) {
@@ -74,6 +75,7 @@ public class NetInterceptor {
         @Override
         public Response intercept(Chain chain) throws IOException {
             Request request = chain.request();
+
             String  token = (String) SPUtils.get(MyApp.context, "token", "");
             String method=request.method();
             if("POST".equals(method)){
@@ -85,7 +87,8 @@ public class NetInterceptor {
                     }
                     body=sb.add("token",token)
                             .build();
-                    request=request.newBuilder().post(body).build();
+                    request=request.newBuilder().post(body)
+                            .build();
                     Log.d(TAG, "| "+request.toString());
                 }else if (request.body() instanceof MultipartBody){
                     MultipartBody body=(MultipartBody)request.body();
@@ -95,8 +98,10 @@ public class NetInterceptor {
                     for (MultipartBody.Part part : parts) {
                         build.addPart(part);
                     }
+
                     request =request.newBuilder().post(build.build())
                             .addHeader("Content-Type","application/json")
+                            .addHeader("charset", "utf-8")
                             .build();
                 }
             }else {
