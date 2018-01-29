@@ -1,18 +1,28 @@
 package com.example.login_demo;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
+import java.util.List;
+
+import adapter.MySchoolRecycle;
 import base.BaseActivity;
+import bean.MajorBean;
+import bean.SchoolBean;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import presenter.MySchoolPresent;
+import untils.SPUtils;
+import view.MySchoolView;
 
-public class MySchoolActivity extends BaseActivity {
+public class MySchoolActivity extends BaseActivity implements MySchoolView {
     @BindView(R.id.myschool_iv_back)
     ImageView myschoolIvBack;
     @BindView(R.id.myschool_hint)
@@ -21,6 +31,7 @@ public class MySchoolActivity extends BaseActivity {
     TextView myschoolSee;
     @BindView(R.id.myschool_xrecycle)
     XRecyclerView myschoolXrecycle;
+    private MySchoolPresent mySchoolPresent;
 
     @Override
     public int getId() {
@@ -29,10 +40,22 @@ public class MySchoolActivity extends BaseActivity {
 
     @Override
     public void InIt() {
-
-
+        //布局初始化
+        myschoolHint.setVisibility(View.VISIBLE);
+        myschoolSee.setVisibility(View.VISIBLE);
+        myschoolXrecycle.setVisibility(View.GONE);
+        String token = getIntent().getStringExtra("token");
+        mySchoolPresent = new MySchoolPresent(this);
+        mySchoolPresent.getSchollCollection(token);
+        //设置布局管理器
+        myschoolXrecycle.setLayoutManager(new LinearLayoutManager(this));
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mySchoolPresent.onDestory();
+    }
 
     @OnClick({R.id.myschool_iv_back, R.id.myschool_hint})
     public void onViewClicked(View view) {
@@ -41,14 +64,36 @@ public class MySchoolActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.myschool_hint:
+                intent(this,MoreSchoolActivity.class);
                 break;
         }
     }
 
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
+    public void getSchoolsuccess(List<SchoolBean> list, String msg) {
+        if(list!=null&&list.size()>=1){
+         myschoolHint.setVisibility(View.GONE);
+         myschoolSee.setVisibility(View.GONE);
+         myschoolXrecycle.setVisibility(View.VISIBLE);
+         MySchoolRecycle mySchoolAdapter=new MySchoolRecycle(this,list);
+         myschoolXrecycle.setAdapter(mySchoolAdapter);
+        }
+    }
+
+    @Override
+    public void getSchoolfail(String msg) {
+      Toast(msg);
+    }
+
+    @Override
+    public void getMajorsuccess(List<MajorBean> list, String msg) {
+
+    }
+
+    @Override
+    public void getMajorfail(String msg) {
+
     }
 }

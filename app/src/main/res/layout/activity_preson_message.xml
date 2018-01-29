@@ -72,22 +72,14 @@
             android:layout_width="wrap_content"
             android:layout_height="80px" />
         <com.meg7.widget.CustomShapeImageView
-            android:layout_toLeftOf="@+id/preson_right"
+            android:id="@+id/preson_picon"
+             android:layout_alignParentRight="true"
             android:layout_width="150px"
             android:layout_height="150px"
             android:scaleType="centerCrop"
             android:layout_marginTop="20px"
             android:src="@drawable/boy"
-            android:layout_marginRight="10px"
-            />
-        <ImageView
-            android:id="@+id/preson_right"
-            android:src="@drawable/right_arrow"
-            android:layout_marginTop="50px"
             android:layout_marginRight="30px"
-            android:layout_width="80px"
-            android:layout_height="80px"
-            android:layout_alignParentRight="true"
             />
     </RelativeLayout>
     <View
@@ -128,7 +120,7 @@
             android:layout_marginRight="30px"
             android:layout_width="wrap_content"
             android:layout_height="80px"
-            android:text="王某"
+            android:text="null"
             android:textSize="50px"
             android:layout_alignParentRight="true"
             />
@@ -165,7 +157,7 @@
             android:layout_marginRight="30px"
             android:layout_width="wrap_content"
             android:layout_height="80px"
-            android:text="女"
+            android:text="男"
             android:textSize="50px"
             android:layout_alignParentRight="true"
             />
@@ -196,7 +188,7 @@
         </View>
         <TextView
             android:textColor="@color/black"
-            android:text="考试类型"
+            android:text="考生类型"
             android:textSize="50px"
             android:gravity="center"
             android:layout_marginLeft="30px"
@@ -210,7 +202,7 @@
             android:layout_marginRight="30px"
             android:layout_width="wrap_content"
             android:layout_height="80px"
-            android:text="文科"
+            android:text="null"
             android:textSize="50px"
             android:layout_alignParentRight="true"
             />
@@ -249,7 +241,7 @@
             android:layout_marginRight="30px"
             android:layout_width="wrap_content"
             android:layout_height="80px"
-            android:text="2017"
+            android:text="null"
             android:textSize="50px"
             android:layout_alignParentRight="true"
             />
@@ -287,7 +279,7 @@
             android:layout_marginRight="30px"
             android:layout_width="wrap_content"
             android:layout_height="80px"
-            android:text="北京市海淀区第十九高中"
+            android:text="null"
             android:textSize="50px"
             android:layout_alignParentRight="true"
             />

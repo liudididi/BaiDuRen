@@ -12,9 +12,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.login_demo.AddServeActivity;
 import com.example.login_demo.CharacterActivity;
 import com.example.login_demo.HelpActivity;
+import com.example.login_demo.MaJorActivity;
 import com.example.login_demo.MainActivity;
 import com.example.login_demo.MyApp;
 import com.example.login_demo.MySchoolActivity;
@@ -25,6 +27,8 @@ import com.example.login_demo.SuggestActivity;
 import com.meg7.widget.CustomShapeImageView;
 
 import base.Basefragment;
+import bean.MyUserBean;
+import bean.UserBean;
 import untils.SPUtils;
 
 /**
@@ -122,6 +126,7 @@ public class My_Fragment extends Basefragment implements View.OnClickListener {
                  checLogin= checLogin();
                 if(checLogin ==true){
                     intent=new Intent(getActivity(), MySchoolActivity.class);
+                    intent.putExtra("token",token);
                     startActivity(intent);
                 }
 
@@ -137,7 +142,9 @@ public class My_Fragment extends Basefragment implements View.OnClickListener {
             case R.id.my_major:
                 checLogin = checLogin();
                 if(checLogin ==true){
-                    Toast.makeText(getActivity(), "我收藏专业", Toast.LENGTH_SHORT).show();
+                   intent=new Intent(getActivity(), MaJorActivity.class);
+                    intent.putExtra("token",token);
+                    startActivity(intent);
                 }
 
                 break;
@@ -203,7 +210,23 @@ public class My_Fragment extends Basefragment implements View.OnClickListener {
         super.onResume();
         token = (String) SPUtils.get(MyApp.context, "token", "");
         if(token.length()>4){
-            my_login.setText("已登录");
+            UserBean userBeanInstans = MyUserBean.getUserBeanInstans();
+            if(userBeanInstans!=null){
+                String mobile=userBeanInstans.getMobile();
+                mobile=mobile.substring(0,3)+"****"+mobile.substring(7,11);
+                my_login.setText(mobile);
+                if(userBeanInstans.getSex()!=null){
+
+                    if(userBeanInstans.getSex().equals("女")){
+                        Glide.with(getActivity()).load(R.drawable.gril).into(my_icon);
+                    }else {
+                        Glide.with(getActivity()).load(R.drawable.boy).into(my_icon);
+                    }
+                }
+
+            }else {
+                my_login.setText("已登录");
+            }
             my_login.setEnabled(false);
         }else {
             my_login.setText("登录");

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
+import com.example.login_demo.MoreSchoolActivity;
 import com.example.login_demo.ParticularsActivity;
 import com.example.login_demo.R;
 
@@ -73,9 +74,11 @@ public class SudokuPagerAdapter extends PagerAdapter {
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent=new Intent(context, ParticularsActivity.class);
-                intent.putExtra("url",list.get(i).getUrl());
-                context.startActivity(intent);
+                if(i==0){
+                    Intent intent=new Intent(context, MoreSchoolActivity.class);
+                    context.startActivity(intent);
+                }
+
             }
         });
         container.addView(view);

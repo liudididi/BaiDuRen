@@ -59,7 +59,9 @@ public class ChangPhoneActivity extends BaseActivity implements ChangePhoneView 
         token = (String) SPUtils.get(MyApp.context, "token", "");
         userBeanInstans = MyUserBean.getUserBeanInstans();
         if (userBeanInstans != null) {
-            changephoneTvPhone.setText(userBeanInstans.getMobile());
+            String mobile = userBeanInstans.getMobile();
+            mobile=mobile.substring(0,3)+"****"+mobile.substring(7,11);
+            changephoneTvPhone.setText(mobile);
         }
         changephoneRvOldphone.setVisibility(View.VISIBLE);
         changephoneRvNewphone.setVisibility(View.GONE);

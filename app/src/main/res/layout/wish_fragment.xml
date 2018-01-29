@@ -15,7 +15,7 @@
     >
 </com.stx.xhb.xbanner.XBanner>
      <LinearLayout
-         android:id="@+id/ll"
+         android:id="@+id/ll_back"
          android:layout_width="match_parent"
          android:layout_height="350px"
          android:orientation="vertical"
@@ -59,7 +59,7 @@
      </LinearLayout>
      <View
          android:id="@+id/view"
-         android:layout_below="@+id/ll"
+         android:layout_below="@+id/ll_back"
          android:background="@color/black"
          android:layout_width="match_parent"
          android:layout_height="2px"></View>
@@ -108,26 +108,29 @@
          android:layout_below="@id/iv"
          >
          <TextView
+             android:id="@+id/wish_monthly"
              android:layout_width="0px"
              android:layout_weight="1"
-             android:layout_height="wrap_content"
+             android:layout_height="match_parent"
              android:text="月考成绩"
              android:gravity="center"
              android:background="@mipmap/monthly"
              android:layout_marginLeft="30px"/>
          <TextView
+             android:id="@+id/wish_midterm"
              android:layout_width="0px"
              android:layout_weight="1"
-             android:layout_height="wrap_content"
+             android:layout_height="match_parent"
              android:text="期中考试成绩"
              android:gravity="center"
              android:background="@mipmap/midterm"
              android:layout_marginLeft="30px"
              android:layout_marginRight="30px"/>
          <TextView
+             android:id="@+id/wish_end"
              android:layout_width="0px"
              android:layout_weight="1"
-             android:layout_height="wrap_content"
+             android:layout_height="match_parent"
              android:text="期末考试成绩"
              android:gravity="center"
              android:background="@mipmap/end"

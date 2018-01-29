@@ -21,7 +21,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class MyQusetUtils {
-  public static final int TIMEOUT=1000*100;
+  public static final int TIMEOUT=1000*60;
   public static  MyQusetUtils myQusetUtils;
   private QuestInterface questInterface;
 
@@ -42,6 +42,7 @@ public class MyQusetUtils {
                       .addInterceptor(NetInterceptor.REWRITE_RESPONSE_INTERCEPTOR_LOG)
                       .addInterceptor(NetInterceptor.REWRITE_RESPONSE_INTERCEPTOR_OFFLINE)
                       .addNetworkInterceptor(NetInterceptor.REWRITE_RESPONSE_INTERCEPTOR)
+                      .addInterceptor(NetInterceptor.REWRITE_RESPONSE_MYINTERCEPTOR)
                       .connectTimeout(TIMEOUT, TimeUnit.SECONDS)
                       .readTimeout(TIMEOUT, TimeUnit.SECONDS)
                       .writeTimeout(TIMEOUT, TimeUnit.SECONDS)

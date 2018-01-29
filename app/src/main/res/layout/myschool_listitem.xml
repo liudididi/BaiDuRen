@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_marginTop="10px"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <View
+        android:background="#F5F5F5"
+        android:id="@+id/schoolitem_view"
+        android:layout_width="match_parent"
+        android:layout_height="20px"
+        ></View>
+<ImageView
+    android:layout_below="@+id/schoolitem_view"
+    android:src="@mipmap/ic_launcher"
+    android:layout_width="200px"
+    android:layout_height="200px"
+    android:padding="20px"
+    android:id="@+id/img_school_icon"
+    />
+    <TextView
+        android:layout_below="@+id/schoolitem_view"
+        android:id="@+id/tv_school_name"
+        android:textSize="50px"
+        android:text="大学"
+        android:layout_marginTop="30px"
+        android:layout_marginLeft="30px"
+        android:layout_toRightOf="@+id/img_school_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="80px"
+        />
+</RelativeLayout>

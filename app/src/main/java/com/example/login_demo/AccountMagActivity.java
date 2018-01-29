@@ -38,7 +38,9 @@ public class AccountMagActivity extends BaseActivity {
         MyUserBean.checkLogin();
         UserBean userBeanInstans = MyUserBean.getUserBeanInstans();
         if(userBeanInstans!=null){
-            accountTvPhone.setText(userBeanInstans.getMobile());
+            String mobile = userBeanInstans.getMobile();
+            mobile=mobile.substring(0,3)+"****"+mobile.substring(7,11);
+            accountTvPhone.setText(mobile);
         }
 
 

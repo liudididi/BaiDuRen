@@ -7,172 +7,73 @@ package bean;
 
 public class UserBean {
 
+
     /**
-     * id : 47
-     * userId : 119
-     * province : null
-     * city : null
-     * area : null
-     * midschool : null
-     * schoolclass : null
-     * grade : null
-     * name : null
-     * sex : null
-     * stutype : null
-     * examyear : null
-     * headportrait : null
-     * minesignature : null
-     * email : null
-     * username : 15176046561
+     * area : 路北区
+     * city : 唐山市
+     * sex : 男
+     * midSchool : 唐山市第一中学（唐山一中）
      * mobile : 15176046561
-     * emailEffective : false
+     * examYear : 2018
+     * schoolClass : null
+     * is_special : true
+     * province : 河北省
+     * user_id : 140
+     * is_email_effective : false
+     * grade : 高一
+     * name : 地地
+     * stuType : 文科
+     * id : 57
+     * username : 15176046561
      */
 
-    private int id;
-    private int userId;
-    private Object province;
-    private Object city;
-    private Object area;
-    private Object midschool;
-    private Object schoolclass;
-    private Object grade;
-    private Object name;
-    private Object sex;
-    private Object stutype;
-    private Object examyear;
-    private Object headportrait;
-    private Object minesignature;
-    private Object email;
-    private String username;
+    private String area;
+    private String city;
+    private String sex;
+    private String midSchool;
     private String mobile;
-    private boolean emailEffective;
+    private String examYear;
+    private String schoolClass;
+    private boolean is_special;
+    private String province;
+    private int user_id;
+    private boolean is_email_effective;
+    private String grade;
+    private String name;
+    private String stuType;
+    private int id;
+    private String username;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public Object getProvince() {
-        return province;
-    }
-
-    public void setProvince(Object province) {
-        this.province = province;
-    }
-
-    public Object getCity() {
-        return city;
-    }
-
-    public void setCity(Object city) {
-        this.city = city;
-    }
-
-    public Object getArea() {
+    public String getArea() {
         return area;
     }
 
-    public void setArea(Object area) {
+    public void setArea(String area) {
         this.area = area;
     }
 
-    public Object getMidschool() {
-        return midschool;
+    public String getCity() {
+        return city;
     }
 
-    public void setMidschool(Object midschool) {
-        this.midschool = midschool;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    public Object getSchoolclass() {
-        return schoolclass;
-    }
-
-    public void setSchoolclass(Object schoolclass) {
-        this.schoolclass = schoolclass;
-    }
-
-    public Object getGrade() {
-        return grade;
-    }
-
-    public void setGrade(Object grade) {
-        this.grade = grade;
-    }
-
-    public Object getName() {
-        return name;
-    }
-
-    public void setName(Object name) {
-        this.name = name;
-    }
-
-    public Object getSex() {
+    public String getSex() {
         return sex;
     }
 
-    public void setSex(Object sex) {
+    public void setSex(String sex) {
         this.sex = sex;
     }
 
-    public Object getStutype() {
-        return stutype;
+    public String getMidSchool() {
+        return midSchool;
     }
 
-    public void setStutype(Object stutype) {
-        this.stutype = stutype;
-    }
-
-    public Object getExamyear() {
-        return examyear;
-    }
-
-    public void setExamyear(Object examyear) {
-        this.examyear = examyear;
-    }
-
-    public Object getHeadportrait() {
-        return headportrait;
-    }
-
-    public void setHeadportrait(Object headportrait) {
-        this.headportrait = headportrait;
-    }
-
-    public Object getMinesignature() {
-        return minesignature;
-    }
-
-    public void setMinesignature(Object minesignature) {
-        this.minesignature = minesignature;
-    }
-
-    public Object getEmail() {
-        return email;
-    }
-
-    public void setEmail(Object email) {
-        this.email = email;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
+    public void setMidSchool(String midSchool) {
+        this.midSchool = midSchool;
     }
 
     public String getMobile() {
@@ -183,11 +84,91 @@ public class UserBean {
         this.mobile = mobile;
     }
 
-    public boolean isEmailEffective() {
-        return emailEffective;
+    public String getExamYear() {
+        return examYear;
     }
 
-    public void setEmailEffective(boolean emailEffective) {
-        this.emailEffective = emailEffective;
+    public void setExamYear(String examYear) {
+        this.examYear = examYear;
+    }
+
+    public String getSchoolClass() {
+        return schoolClass;
+    }
+
+    public void setSchoolClass(String schoolClass) {
+        this.schoolClass = schoolClass;
+    }
+
+    public boolean isIs_special() {
+        return is_special;
+    }
+
+    public void setIs_special(boolean is_special) {
+        this.is_special = is_special;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
+    }
+
+    public boolean isIs_email_effective() {
+        return is_email_effective;
+    }
+
+    public void setIs_email_effective(boolean is_email_effective) {
+        this.is_email_effective = is_email_effective;
+    }
+
+    public String getGrade() {
+        return grade;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getStuType() {
+        return stuType;
+    }
+
+    public void setStuType(String stuType) {
+        this.stuType = stuType;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

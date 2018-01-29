@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="500px"
+    android:padding="20px">
+
+    <ImageView
+        android:id="@+id/dialog_iv"
+        android:layout_width="60px"
+        android:layout_height="60px"
+        android:src="@drawable/cross"
+        android:layout_alignParentRight="true"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="为了您所上大学数据更加精准,"
+            android:layout_marginTop="40px"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="可以填写更具体的意向,我们将会为您"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="分析出更加具体的志愿表"/>
+        <TextView
+            android:id="@+id/dialog_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="点击前往"
+            android:layout_marginTop="100px"/>
+    </LinearLayout>
+</RelativeLayout>

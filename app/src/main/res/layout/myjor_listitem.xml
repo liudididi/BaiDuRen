@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<View
+    android:id="@+id/majoritem_view"
+    android:layout_width="match_parent"
+    android:layout_height="30px"
+    android:background="#F5F5F5"
+    ></View>
+    <TextView
+        android:layout_marginTop="20px"
+        android:id="@+id/majoritem_tv_big"
+        android:layout_marginLeft="50px"
+        android:layout_below="@+id/majoritem_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="50px"
+        android:textColor="@color/black"
+        android:text="野生动物与自然保护区管理"
+        />
+    <TextView
+        android:textColor="@color/black"
+        android:id="@+id/majoritem_tv_small"
+        android:layout_marginLeft="50px"
+        android:layout_below="@+id/majoritem_tv_big"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="35px"
+        android:text="野生动物与自然保护区管理"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="30px"
+        android:layout_below="@+id/majoritem_tv_small"
+        ></View>
+
+
+</RelativeLayout>

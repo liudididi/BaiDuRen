@@ -4,7 +4,9 @@ import java.util.List;
 
 import base.BaseBean;
 import base.Basepresent;
+import bean.CanSchoolBean;
 import bean.SlideshowBean;
+import moudle.GradeMoudle;
 import moudle.WishMoudle;
 import view.WishView;
 
@@ -37,6 +39,23 @@ public class WishPresent extends Basepresent {
                 wishView.Wishfail(t);
             }
         });
+    }
+
+    //能上的学校
+    public void CanSchoolPresente(String province, String classify, String score_min, String score_max, String page, String limit)
+    {
+        wishMoudle.canSchool(province, classify, score_min, score_max, page, limit, new WishMoudle.CanSchoolBack() {
+            @Override
+            public void CanSchoolsuccess(BaseBean<CanSchoolBean> canSchoolBeanBaseBean) {
+                wishView.CanSchoolsuccess(canSchoolBeanBaseBean);
+            }
+
+            @Override
+            public void CanSchoolfail(Throwable t) {
+                wishView.CanSchoolfail(t);
+            }
+        });
+
     }
 
     public   void   onDestory(){

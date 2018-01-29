@@ -42,11 +42,25 @@
         <activity android:name=".SearchParticularsActivity" />
         <activity android:name=".UserAgreenActivity" />
         <activity android:name=".AccountMagActivity" />
-        <activity android:name=".ChangPhoneActivity"></activity>
-
+        <activity android:name=".ChangPhoneActivity" />
         <activity android:name=".AddServeActivity" />
         <activity android:name=".SuggestActivity" />
-        <activity android:name=".HelpActivity"></activity>
+        <activity android:name=".HelpActivity" />
+        <activity android:name=".MaJorActivity" />
+        <activity
+            android:name=".perfectMessageActivity"
+            android:launchMode="singleTask" />
+        <activity android:name=".MoreSchoolActivity" />
+        <activity android:name=".SelectProviceActivity" />
+        <activity android:name=".SelectCitysActivity" />
+        <activity android:name=".SelectAreasActivity" />
+        <activity android:name=".ReportedActivity" />
+        <activity android:name=".PrimaryActivity" />
+        <activity android:name=".ExamMessageActivity" />
+        <activity android:name=".GradeActivity" />
+        <activity android:name=".SelectSchoolActivity" />
+        <activity android:name=".More_SchoolActivity" />
+        <activity android:name=".EstimateGradeActivity"></activity>
     </application>
 
 </manifest>

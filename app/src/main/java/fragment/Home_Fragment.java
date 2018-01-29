@@ -20,6 +20,7 @@ import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.bumptech.glide.Glide;
+import com.example.login_demo.EstimateGradeActivity;
 import com.example.login_demo.ParticularsActivity;
 import com.example.login_demo.R;
 import com.example.login_demo.SearchParticularsActivity;
@@ -71,6 +72,7 @@ public class Home_Fragment extends Basefragment implements SlideshowView, Observ
     private ArrayList<ImageView> iv_list;
     private RelativeLayout rl_search;
     private ViewFlipper viewflipper;
+    private LinearLayout home_enter;
 
 
     @Override
@@ -132,6 +134,8 @@ public class Home_Fragment extends Basefragment implements SlideshowView, Observ
         rv_recommend = view.findViewById(R.id.rv_recommend);
         ll_dot = view.findViewById(R.id.ll_dot);
         viewflipper = view.findViewById(R.id.viewflipper);
+
+        home_enter = view.findViewById(R.id.home_enter);
         list = new ArrayList<>();
         iv_list = new ArrayList<>();
 
@@ -141,6 +145,14 @@ public class Home_Fragment extends Basefragment implements SlideshowView, Observ
     }
 
     private void initOnClick() {
+
+        home_enter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(), EstimateGradeActivity.class);
+                startActivity(intent);
+            }
+        });
         ViewTreeObserver vto =xbanner.getViewTreeObserver();
         vto.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override

@@ -1,29 +1,30 @@
 package untils;
 
 import java.util.List;
-import java.util.Map;
 
 
 import base.BaseBean;
+import bean.AreaBean;
+import bean.CanSchoolBean;
+import bean.CityBean;
+import bean.InquireBean;
+import bean.MajorBean;
 import bean.NewsBean;
+import bean.ProviceBean;
+import bean.SchoolBean;
+import bean.SelectSchoolBean;
 import bean.SlideshowBean;
 import bean.UserBean;
 import io.reactivex.Flowable;
-import io.reactivex.Observable;
 
-import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
-import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
-import retrofit2.http.HEAD;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
-import retrofit2.http.Multipart;
 import retrofit2.http.POST;
-import retrofit2.http.Part;
 import retrofit2.http.Query;
 
 /**
@@ -44,8 +45,8 @@ public interface QuestInterface {
     Flowable<BaseBean<NewsBean>> News(@Query("category") String category, @Query("province") String province, @Query("page") String page, @Query("limit") String limit);
 
     //登录接口
-    @POST("/app/login")
-    Flowable<BaseBean> Login(@Body RequestBody requestBody);
+    @POST("/app/userinfo/modifyUserinfo")
+    Flowable<BaseBean> modifyUserinfo(@Body RequestBody requestBody );
 
     @POST("/app/loginByMobilePwd")
     @FormUrlEncoded
@@ -78,10 +79,57 @@ public interface QuestInterface {
     Flowable<BaseBean> mobileUpdateCaptcha(@Query("mobile") String mobile);
 
 
-    //查询收藏
-    @GET("/app/collection/getCollection")
-    Flowable<BaseBean> getCollection(@Query("mobile") String mobile);
+    //获取省份
+    @POST("/app/provinces/prov")
+    Flowable<BaseBean<List<ProviceBean>>> getprovinces();
 
+
+    //获取城市
+    @GET("/app/cities/cityMobil")
+    Flowable<BaseBean<List<CityBean>>> getcitys(@Query("provinceid") String provinceid);
+
+
+    //修改用户信息
+    @POST("/app/userinfo/modifyUserinfoMoble")
+    Flowable<BaseBean> modifyUserinfoMoble(@Query("provice") String provice,@Query("city") String city,@Query("area") String area,@Query("midSchool") String midSchool,@Query("grade") String grade,@Query("schoolClass") String schoolClass,@Query("name") String name,@Query("sex") String sex,@Query("examYear") String examYear,@Query("stuType") String stuType,@Query("isSpecial") boolean isSpecial,@Header("token") String token);
+
+    //获取学校
+    @GET("/app/highschool/selhighschoolMobil")
+    Flowable<BaseBean<List<SelectSchoolBean>>> getschools(@Query("province") String province,@Query("city") String city,@Query("area") String area);
+
+
+
+
+
+
+
+    //填写成绩表
+    @POST("/app/result/insertUserResult")
+    Flowable<BaseBean>  grade(@Query("testType")Integer testType,@Query("time")Integer time,@Query("chinese")Double chinese,@Query("math")Double math,@Query("languages")Double languages,@Query("physics")Double physics,@Query("chemistry")Double chemistry,@Query("biology")Double biology,@Query("history")Double history,@Query("geography")Double geography,@Query("politics")Double politics,@Query("specialty")Double specialty,@Header("token") String token);
+
+    //查询成绩表
+    @GET("/app/result/getResult")
+    Flowable<BaseBean<InquireBean>>  inquiregrade(@Query("testType")Integer testType, @Query("testTime")Integer testTime, @Header("token") String token);
+
+    //能上的学校
+    @GET("/app/universitytimescore/timescoreMobil")
+    Flowable<BaseBean<CanSchoolBean>>  canschool(@Query("province")String province, @Query("classify")String classify, @Query("score_min") String score_min, @Query("score_max") String score_max, @Query("page") String page, @Query("limit") String limit);
+
+
+
+
+    //获取曲县
+    @GET("/app/areas/areaMobil")
+    Flowable<BaseBean<List<AreaBean>>> getareas(@Query("cityid") String cityid);
+
+    //查询学校收藏
+    @GET("/app/collection/getCollection")
+    Flowable<BaseBean<List<SchoolBean>>> getCollection(@Query("type") int type, @Header("token") String token);
+
+
+    //查询学校收藏
+    @GET("/app/collection/getCollection")
+    Flowable<BaseBean<List<MajorBean>>>   getmajorCollection(@Query("type") int type, @Header("token") String token);
 
     //志愿表轮播图
     @GET("/app/boardpicture/queryInfo")

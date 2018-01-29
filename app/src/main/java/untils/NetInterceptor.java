@@ -1,5 +1,6 @@
 package untils;
 
+import android.os.Build;
 import android.util.Log;
 
 
@@ -71,12 +72,9 @@ public class NetInterceptor {
 
 
     public static final Interceptor REWRITE_RESPONSE_MYINTERCEPTOR=new Interceptor() {
-        public String TAG = "LogInterceptor";
         @Override
         public Response intercept(Chain chain) throws IOException {
             Request request = chain.request();
-
-            String  token = (String) SPUtils.get(MyApp.context, "token", "");
             String method=request.method();
             if("POST".equals(method)){
                 FormBody.Builder sb = new FormBody.Builder();
@@ -85,20 +83,17 @@ public class NetInterceptor {
                     for (int i = 0; i < body.size(); i++) {
                         sb.add(body.encodedName(i) , body.encodedValue(i));
                     }
-                    body=sb.add("token",token)
+                    body=sb.build();
+                    request=request.newBuilder()
+                            .post(body)
                             .build();
-                    request=request.newBuilder().post(body)
-                            .build();
-                    Log.d(TAG, "| "+request.toString());
                 }else if (request.body() instanceof MultipartBody){
                     MultipartBody body=(MultipartBody)request.body();
                     MultipartBody.Builder build = new MultipartBody.Builder().setType(MultipartBody.FORM);
-                    build  .addFormDataPart("token",token);
                     List<MultipartBody.Part> parts = body.parts();
                     for (MultipartBody.Part part : parts) {
                         build.addPart(part);
                     }
-
                     request =request.newBuilder().post(build.build())
                             .addHeader("Content-Type","application/json")
                             .addHeader("charset", "utf-8")
@@ -107,10 +102,12 @@ public class NetInterceptor {
             }else {
                 HttpUrl httpUrl = request.url()
                         .newBuilder()
-                        .addQueryParameter("token",token)
                         .build();
                 System.out.println("====httpurl"+httpUrl);
-                request = request.newBuilder().get().url(httpUrl).build();
+
+              request = request.newBuilder()
+                      .addHeader("Connection","close")
+                      .get().url(httpUrl).build();
             }
             return  chain.proceed(request);
         }

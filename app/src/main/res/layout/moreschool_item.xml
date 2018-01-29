@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="240px">
+
+
+    <com.meg7.widget.CustomShapeImageView
+        android:id="@+id/moreschool_iv"
+        android:layout_width="150px"
+        android:layout_height="150px"
+        android:layout_margin="30px"
+        android:layout_centerVertical="true"/>
+    <LinearLayout
+        android:id="@+id/more_school_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+         android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/moreschool_iv">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="30px"
+            android:layout_marginRight="70px">
+            <TextView
+                android:id="@+id/more_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="北京工业大学"/>
+            <TextView
+                android:id="@+id/more_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="北京市"
+                android:lines="1"
+                android:layout_marginLeft="50px"/>
+        </LinearLayout>
+        <TextView
+            android:id="@+id/more_zh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="综合排名"/>
+    </LinearLayout>
+    <ImageView
+        android:layout_width="45px"
+        android:layout_height="45px"
+        android:src="@drawable/right_arrow"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20px"
+        />
+
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#ccc"
+        android:layout_below="@id/rl"
+        ></View>
+</RelativeLayout>

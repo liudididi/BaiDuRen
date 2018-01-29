@@ -3,6 +3,7 @@ package view;
 import java.util.List;
 
 import base.BaseBean;
+import bean.CanSchoolBean;
 import bean.SlideshowBean;
 
 /**
@@ -12,4 +13,8 @@ import bean.SlideshowBean;
 public interface WishView {
     void  Wishsuccess(BaseBean<List<SlideshowBean>> listBaseBean);
     void  Wishfail(Throwable t);
+
+    //能上的大学
+    void CanSchoolsuccess(BaseBean<CanSchoolBean> canSchoolBeanBaseBean);
+    void CanSchoolfail(Throwable t);
 }

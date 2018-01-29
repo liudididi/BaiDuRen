@@ -1,5 +1,6 @@
 package com.example.login_demo;
 
+import android.os.PersistableBundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -77,7 +78,10 @@ public class HomeActivity extends BaseActivity {
         });
     }
 
-
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+        //super.onSaveInstanceState(outState, outPersistentState);
+    }
 
     /**
      * 加载Fragment
