@@ -9,7 +9,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="120px"
-        >
+        android:id="@+id/relativeLayout">
         <ImageView
             android:padding="10px"
             android:id="@+id/character_iv_back"
@@ -27,4 +27,27 @@
             android:layout_height="wrap_content"
             />
     </RelativeLayout>
+    <RelativeLayout
+        android:layout_below="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/img_none"
+            android:layout_width="500px"
+            android:layout_height="400px"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/none" />
+        <TextView
+            android:layout_below="@+id/img_none"
+            android:id="@+id/tv_tishi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="延 缓 开 设"
+            android:textSize="40px" />
+    </RelativeLayout>
+
+
 </RelativeLayout>

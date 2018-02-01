@@ -40,7 +40,7 @@ public abstract  class BaseActivity extends AutoLayoutActivity{
         //禁止横屏
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 // 状态栏颜色
-        initztl("#2c2c2c");
+        initztl("#3B9EFF");
         setContentView(getId());
         ButterKnife.bind(this);
 

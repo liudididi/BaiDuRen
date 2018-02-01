@@ -46,6 +46,7 @@ public class ReportedActivity extends BaseActivity {
                 break;
                 //高级志愿表
             case R.id.reported_advanced:
+                intent(this,AdvancedActivity.class);
                 break;
                 //精选志愿表
             case R.id.reported_accurate:

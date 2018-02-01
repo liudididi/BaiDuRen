@@ -74,11 +74,12 @@ public class SetTingActivity extends BaseActivity {
                    intent=new Intent(this,AccountMagActivity.class);
                     startActivity(intent);
                 }
-
-
                 break;
             //关于摆渡人
             case R.id.setting_baiduren:
+                intent=new Intent(this,AsForBaiDuRenActivity.class);
+                startActivity(intent);
+
                 break;
                 //版本介绍
             case R.id.setting_verson:
@@ -90,8 +91,21 @@ public class SetTingActivity extends BaseActivity {
                 break;
             //退出登录
             case R.id.setting_back:
-                SPUtils.remove(MyApp.context,"token");
-                finish();
+                new AlertDialog.Builder(this)
+                        .setTitle("提示")
+                        .setMessage("您确定要退出登录吗？退出登录后，您将无法使用部分高级功能")
+                        .setPositiveButton("确认退出", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                SPUtils.remove(MyApp.context,"token");
+                                SPUtils.remove(MyApp.context,"tbmaxfen");
+                                SPUtils.remove(MyApp.context,"tbarea");
+                                SPUtils.remove(MyApp.context,"tbsubtype");
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("取消", null)
+                        .show();
                 break;
         }
     }

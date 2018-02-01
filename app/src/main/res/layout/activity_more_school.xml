@@ -52,21 +52,28 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/mschool_title">
+        <View
+            android:layout_centerVertical="true"
+            android:layout_width="2px"
+            android:layout_height="80px"
+            android:layout_centerHorizontal="true"
+             android:background="@mipmap/back"
+            ></View>
 
         <Spinner
             android:id="@+id/mschool_area"
-            android:layout_width="300px"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="120px"
+            android:layout_marginLeft="160px"
             android:layout_marginTop="35px"
             android:textSize="50px" />
         <Spinner
             android:id="@+id/mschool_sort"
-            android:layout_width="300px"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="250px"
+            android:layout_alignParentRight="true"
             android:layout_marginTop="35px"
-            android:layout_toRightOf="@+id/mschool_area"
+           android:layout_marginRight="180px"
             android:textSize="50px"
             />
         <View
@@ -80,4 +87,14 @@
         android:layout_below="@+id/mschool_tiaojian"
         android:id="@+id/mschool_xlist"
         ></com.jcodecraeer.xrecyclerview.XRecyclerView>
+
+    <ImageView
+        android:visibility="gone"
+        android:id="@+id/mschool_none"
+        android:src="@drawable/none"
+        android:layout_width="500px"
+        android:layout_height="450px"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        />
 </RelativeLayout>

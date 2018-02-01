@@ -1,6 +1,7 @@
 package com.example.login_demo;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -31,7 +32,6 @@ public class ParticularsActivity extends BaseActivity {
     public void InIt() {
         Intent intent = getIntent();
         String url = intent.getStringExtra("url");
-
         pg1 = findViewById(R.id.progressBar1);
         webView.setWebChromeClient(new WebChromeClient(){
             @Override
@@ -70,9 +70,9 @@ public class ParticularsActivity extends BaseActivity {
         webSettings.setDisplayZoomControls(true);
         // 设置默认字体大小
         webSettings.setDefaultFontSize(12);
-        webView.getSettings().setSupportZoom(true);
-        //webView.loadUrl("http://blog.csdn.net/rocrocflying/article/details/49850095");
-        webView.loadUrl(url);
+
+        webView.loadUrl("http://39.106.32.50/#/entrancenews?newsId=2");
+        //webView.loadUrl(url);
 
         webView.setWebViewClient(new WebViewClient(){
             @Override

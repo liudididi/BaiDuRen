@@ -103,8 +103,6 @@ public class NetInterceptor {
                 HttpUrl httpUrl = request.url()
                         .newBuilder()
                         .build();
-                System.out.println("====httpurl"+httpUrl);
-
               request = request.newBuilder()
                       .addHeader("Connection","close")
                       .get().url(httpUrl).build();

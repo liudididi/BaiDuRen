@@ -6,12 +6,18 @@ import java.util.List;
 import base.BaseBean;
 import bean.AreaBean;
 import bean.CanSchoolBean;
+import bean.CheckSchoolBean;
 import bean.CityBean;
+import bean.HotBean;
 import bean.InquireBean;
 import bean.MajorBean;
+import bean.MoreJobBean;
 import bean.NewsBean;
 import bean.ProviceBean;
+import bean.RanKingSchoolBean;
 import bean.SchoolBean;
+import bean.SearchBean;
+import bean.SelectMajorBean;
 import bean.SelectSchoolBean;
 import bean.SlideshowBean;
 import bean.UserBean;
@@ -34,7 +40,33 @@ import retrofit2.http.Query;
 
 public interface QuestInterface {
 
+    //大学排序
+    @GET("/app/hotlist/queryHot")
+    Flowable<BaseBean<List<HotBean>>> queryHot();
+    @POST("/app/hotlist/save")
+    Flowable<BaseBean> hotsave(@Query("hot_name") String name);
+    //院校库
+    @GET("/app/school/check")
+    Flowable<BaseBean<List<CheckSchoolBean>>> checkschool(@Query("address") String address, @Query("schooltype") String schooltype, @Query("two") String two, @Query("nine") String nine, @Query("plan") String plan, @Query("student") String student, @Query("recruit") String recruit);
 
+    //大学排序
+    @GET("/app/university/selUnivMobil")
+    Flowable<BaseBean<RanKingSchoolBean>> ranking(@Query("page") int page, @Query("limit") int limit);
+
+    //首页查询
+    @GET("/app/search/majorCollege")
+    Flowable<BaseBean<List<SearchBean>>> searchmajorCollege(@Query("name") String name);
+    //倒计时
+    @GET("/app/countdown/query")
+    Flowable<BaseBean> Countdown();
+
+    //专业库
+    @GET("/app/major/getAllMajorForMoble")
+    Flowable<BaseBean<List<SelectMajorBean>>> selectAllMajor(@Query("majorType") String majorType);
+
+    //职业库
+    @GET("/app/job/getAllJobForMobile")
+    Flowable<BaseBean<List<MoreJobBean>>> selectAllJob();
 
     //轮播图接口
     @GET("/app/boardpicture/queryInfo")

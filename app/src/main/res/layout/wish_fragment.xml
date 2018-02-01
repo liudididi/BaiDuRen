@@ -15,6 +15,135 @@
     >
 </com.stx.xhb.xbanner.XBanner>
      <LinearLayout
+         android:id="@+id/wish_ll1"
+         android:layout_width="match_parent"
+         android:layout_height="400px"
+       android:orientation="vertical"
+         android:visibility="visible"
+         android:gravity="center"
+         >
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="高考倒计时"
+             android:textSize="55px"
+             android:textColor="#fff"/>
+         <LinearLayout
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:orientation="horizontal"
+             android:gravity="center_vertical">
+         <TextView
+             android:id="@+id/wish_day1"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="高考倒计时"
+             android:textSize="65px"
+             android:layout_marginTop="20px"
+             android:layout_marginBottom="20px"
+             android:textColor="#fff"/>
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="天"
+                 android:textSize="45px"
+                 android:textColor="#fff"
+                 />
+         </LinearLayout>
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="革命尚未成功，同志仍需努力"
+             android:textSize="45px"
+             android:textColor="#fff"/>
+     </LinearLayout>
+     <LinearLayout
+         android:id="@+id/wish_ll2"
+         android:layout_width="match_parent"
+         android:layout_height="400px"
+         android:orientation="vertical"
+         android:visibility="gone"
+         android:gravity="center"
+         >
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="自由倒计时"
+             android:textSize="55px"
+             android:textColor="#fff"/>
+         <LinearLayout
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:orientation="horizontal"
+             android:gravity="center_vertical">
+             <TextView
+                 android:id="@+id/wish_day2"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="高考倒计时"
+                 android:textSize="65px"
+                 android:layout_marginTop="20px"
+                 android:layout_marginBottom="20px"
+                 android:textColor="#fff"/>
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="天"
+                 android:textSize="45px"
+                 android:textColor="#fff"
+                 />
+         </LinearLayout>
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="继续努力，马上就要解放啦"
+             android:textSize="45px"
+             android:textColor="#fff"/>
+     </LinearLayout>
+     <LinearLayout
+         android:id="@+id/wish_ll3"
+         android:layout_width="match_parent"
+         android:layout_height="400px"
+         android:orientation="vertical"
+         android:visibility="gone"
+         android:gravity="center"
+         >
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="圆梦倒计时"
+             android:textSize="55px"
+             android:textColor="#fff"/>
+         <LinearLayout
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:orientation="horizontal"
+             android:gravity="center_vertical">
+             <TextView
+                 android:id="@+id/wish_day3"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="高考倒计时"
+                 android:textSize="65px"
+                 android:layout_marginTop="20px"
+                 android:layout_marginBottom="20px"
+                 android:textColor="#fff"/>
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="天"
+                 android:textSize="45px"
+                 android:textColor="#fff"
+                 />
+         </LinearLayout>
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="恭喜呦，胜利在向你招手"
+             android:textSize="45px"
+             android:textColor="#fff"/>
+     </LinearLayout>
+     <LinearLayout
          android:id="@+id/ll_back"
          android:layout_width="match_parent"
          android:layout_height="350px"
@@ -81,17 +210,30 @@
 
 
   <android.support.v7.widget.RecyclerView
-      android:layout_marginTop="60px"
-      android:id="@+id/wish_school_recycle"
-      android:layout_below="@+id/view2"
-      android:layout_width="match_parent"
-      android:layout_height="350px"
-      android:layout_marginBottom="60px"
-      >
-  </android.support.v7.widget.RecyclerView>
+     android:layout_marginTop="60px"
+     android:id="@+id/wish_school_recycle"
+     android:layout_below="@+id/view2"
+     android:layout_width="match_parent"
+     android:layout_height="400px"
+     android:layout_marginBottom="60px"
+     >
+ </android.support.v7.widget.RecyclerView>
+
+     <ImageView
+         android:visibility="gone"
+         android:layout_centerHorizontal="true"
+         android:layout_marginTop="60px"
+         android:id="@+id/wish_school_none"
+         android:layout_below="@+id/view2"
+         android:layout_width="500px"
+         android:layout_height="400px"
+         android:src="@drawable/none"
+         android:layout_marginBottom="60px"
+         >
+     </ImageView>
+
      <ImageView
          android:id="@+id/iv"
-
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
          android:layout_below="@id/wish_school_recycle"

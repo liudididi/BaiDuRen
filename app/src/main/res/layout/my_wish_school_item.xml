@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="400px"
-    android:layout_height="350px"
+    android:layout_width="450px"
+    android:layout_height="400px"
     >
     <View
         android:id="@+id/view"
@@ -10,36 +10,44 @@
         android:layout_height="match_parent">
     </View>
     <LinearLayout
+
         android:background="@drawable/back_square"
         android:layout_toRightOf="@+id/view"
-        android:layout_width="400px"
-        android:layout_height="350px"
+        android:layout_width="450px"
+        android:layout_height="400px"
         android:orientation="vertical"
         android:gravity="center"
         >
-        <ImageView
+        <com.meg7.widget.CustomShapeImageView
             android:id="@+id/item_school_icon"
             android:src="@mipmap/ic_launcher"
-            android:layout_width="170px"
-            android:layout_height="170px" />
+            android:layout_width="200px"
+            android:layout_height="200px"
+            />
        <TextView
             android:id="@+id/item_school_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="400px"
+            android:layout_height="100px"
             android:text="北京大学"
-            android:textSize="50px"
+           android:gravity="center_horizontal"
+            android:textSize="40px"
+           android:maxLines="2"
+           android:layout_marginTop="10px"
             android:layout_below="@+id/item_school_icon"
             />
         <TextView
+            android:maxLines="1"
+            android:ellipsize="end"
             android:textColor="#Bababa"
             android:id="@+id/item_school_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="北京大学 综合"
-            android:textSize="40px"
+            android:textSize="32px"
             android:layout_below="@+id/item_school_name"
             />
     </LinearLayout>
+
 
 
 </RelativeLayout>

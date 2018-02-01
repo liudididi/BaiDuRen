@@ -8,6 +8,8 @@
     android:layout_height="match_parent"
     >
 <RelativeLayout
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -52,6 +54,7 @@
     android:text="选择高考省份"
     />
     <LinearLayout
+
         android:layout_marginTop="20px"
         android:layout_marginRight="50px"
         android:layout_marginLeft="50px"
@@ -62,13 +65,15 @@
         android:layout_below="@+id/es_tv"
         android:layout_width="match_parent"
         android:layout_height="100px">
+
         <Spinner
+            android:gravity="center_horizontal"
             android:id="@+id/estimate_sparea"
             android:layout_width="match_parent"
-            android:layout_height="130px"
+            android:layout_height="100px"
             android:layout_marginRight="50px"
-            >
-        </Spinner>
+            android:dropDownWidth="wrap_content"
+            android:spinnerMode="dropdown"></Spinner>
 
     </LinearLayout>
 
@@ -86,7 +91,7 @@
 
        <TextView
            android:padding="2px"
-           android:background="@drawable/bg_subject2"
+           android:background="@drawable/bg_subject3"
            android:layout_marginLeft="50px"
            android:layout_marginRight="50px"
            android:layout_marginTop="20px"
@@ -103,6 +108,7 @@
         android:textSize="50px"
         android:text="理科"
         android:gravity="center"
+        android:background="@drawable/bg_subject2"
         android:layout_below="@+id/es_tv1"
         android:layout_toRightOf="@+id/estimate_tvwen"
         android:layout_width="500px"
@@ -164,7 +170,8 @@
         android:layout_height="120px"
         android:background="@drawable/bg_subject2">
         <EditText
-            android:id="@+id/estunate_gradefen"
+            android:inputType="number"
+            android:id="@+id/estimate_edgradefen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -215,7 +222,8 @@
             android:layout_height="120px"
             android:background="@drawable/bg_subject2">
             <EditText
-                android:id="@+id/estunate_gradepaiming"
+                android:inputType="number"
+                android:id="@+id/estimate_edgradepaiming"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -248,7 +256,7 @@
 
     <TextView
         android:padding="2px"
-        android:background="@drawable/bg_subject2"
+        android:background="@drawable/bg_subject3"
         android:layout_marginLeft="50px"
         android:layout_marginRight="50px"
         android:layout_marginTop="20px"
@@ -264,6 +272,7 @@
         android:padding="2px"
         android:textSize="50px"
         android:text="专科"
+        android:background="@drawable/bg_subject2"
         android:gravity="center"
         android:layout_below="@+id/es_tv4"
         android:layout_toRightOf="@+id/estimate_tvwen"
@@ -274,7 +283,7 @@
         android:layout_marginTop="20px"
         />
     <TextView
-        android:layout_marginTop="20px"
+        android:layout_marginTop="60px"
         android:layout_marginLeft="50px"
         android:layout_marginRight="50px"
         android:layout_below="@+id/estimate_tvzhuan"

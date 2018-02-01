@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:background="#f2f2f2"
+    android:layout_marginLeft="50px"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100px">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_alignParentBottom="true"
+        ></View>
+<TextView
+    android:gravity="center_vertical"
+    android:layout_marginLeft="50px"
+    android:id="@+id/tv_item"
+    android:paddingRight="50px"
+    android:paddingLeft="50px"
+    android:textSize="50px"
+    android:text="北京大学"
+    android:layout_width="match_parent"
+    android:layout_height="100px" />
+</RelativeLayout>

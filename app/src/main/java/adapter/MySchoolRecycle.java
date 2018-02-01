@@ -7,10 +7,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.login_demo.R;
+import com.meg7.widget.CustomShapeImageView;
 
 import java.util.List;
 
+import base.BaseApi;
 import bean.SchoolBean;
 
 /**
@@ -33,12 +36,19 @@ public class MySchoolRecycle extends RecyclerView.Adapter {
         View view = View.inflate(context, R.layout.myschool_listitem, null);
         MySchoolViewHolder mySchoolViewHolder=new MySchoolViewHolder(view);
         return mySchoolViewHolder;
+
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         MySchoolViewHolder mySchoolViewHolder= (MySchoolViewHolder) holder;
-        mySchoolViewHolder.tv_school_name.setText(list.get(position).getName());
+        mySchoolViewHolder.schoolitem_name.setText(list.get(position).getName());
+        mySchoolViewHolder.schoolitem_typerank.setText(list.get(position).getTypeRank());
+        mySchoolViewHolder.schoolitem_address.setText(list.get(position).getAddress());
+        String url = list.get(position).getUrl();
+        if(url!=null){
+            Glide.with(context).load(BaseApi.ImgApi+url).into(mySchoolViewHolder.schoolitem_url);
+        }
     }
 
     @Override
@@ -47,12 +57,16 @@ public class MySchoolRecycle extends RecyclerView.Adapter {
     }
 
     class  MySchoolViewHolder extends  RecyclerView.ViewHolder {
-        private ImageView   img_school_icon;
-        private TextView    tv_school_name;
+        private TextView    schoolitem_name;
+        private TextView    schoolitem_address;
+        private TextView    schoolitem_typerank;
+        private CustomShapeImageView schoolitem_url;
         public MySchoolViewHolder(View itemView) {
             super(itemView);
-            img_school_icon=itemView.findViewById(R.id.img_school_icon);
-            tv_school_name=itemView.findViewById(R.id.tv_school_name);
+            schoolitem_name=itemView.findViewById(R.id.schoolitem_name);
+            schoolitem_address=itemView.findViewById(R.id.schoolitem_address);
+            schoolitem_typerank=itemView.findViewById(R.id.schoolitem_typerank);
+            schoolitem_url=itemView.findViewById(R.id.schoolitem_url);
         }
     }
 }

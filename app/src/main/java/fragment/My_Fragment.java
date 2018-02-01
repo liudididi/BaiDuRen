@@ -22,6 +22,7 @@ import com.example.login_demo.MyApp;
 import com.example.login_demo.MySchoolActivity;
 import com.example.login_demo.PresonMessageActivity;
 import com.example.login_demo.R;
+import com.example.login_demo.ReportedActivity;
 import com.example.login_demo.SetTingActivity;
 import com.example.login_demo.SuggestActivity;
 import com.meg7.widget.CustomShapeImageView;
@@ -137,7 +138,6 @@ public class My_Fragment extends Basefragment implements View.OnClickListener {
                     intent=new Intent(getActivity(), PresonMessageActivity.class);
                     startActivity(intent);
                 }
-
                 break;
             case R.id.my_major:
                 checLogin = checLogin();
@@ -151,7 +151,9 @@ public class My_Fragment extends Basefragment implements View.OnClickListener {
             case R.id.my_washtable:
                 checLogin = checLogin();
                 if(checLogin ==true){
-                    Toast.makeText(getActivity(), "我的志愿表", Toast.LENGTH_SHORT).show();
+                    intent=new Intent(getActivity(), ReportedActivity.class);
+                    startActivity(intent);
+
                 }
 
                 break;
@@ -165,7 +167,7 @@ public class My_Fragment extends Basefragment implements View.OnClickListener {
             case R.id.my_gradetable:
                 checLogin = checLogin();
                 if(checLogin ==true){
-                    Toast.makeText(getActivity(), "我的成绩单", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "我的成绩表", Toast.LENGTH_SHORT).show();
                 }
                 break;
             case R.id.my_help:
@@ -184,6 +186,8 @@ public class My_Fragment extends Basefragment implements View.OnClickListener {
 
         }
     }
+
+
 
     private Boolean checLogin() {
        if(token.length()<4){
@@ -210,18 +214,21 @@ public class My_Fragment extends Basefragment implements View.OnClickListener {
         super.onResume();
         token = (String) SPUtils.get(MyApp.context, "token", "");
         if(token.length()>4){
+            MyUserBean.checkLogin();
             UserBean userBeanInstans = MyUserBean.getUserBeanInstans();
             if(userBeanInstans!=null){
                 String mobile=userBeanInstans.getMobile();
                 mobile=mobile.substring(0,3)+"****"+mobile.substring(7,11);
                 my_login.setText(mobile);
                 if(userBeanInstans.getSex()!=null){
-
                     if(userBeanInstans.getSex().equals("女")){
                         Glide.with(getActivity()).load(R.drawable.gril).into(my_icon);
                     }else {
                         Glide.with(getActivity()).load(R.drawable.boy).into(my_icon);
                     }
+                }
+                else {
+                    Glide.with(getActivity()).load(R.drawable.boy).into(my_icon);
                 }
 
             }else {

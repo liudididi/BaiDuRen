@@ -288,7 +288,7 @@
             />
         <Spinner
             android:id="@+id/pf_spgrade"
-            android:layout_width="190px"
+            android:layout_width="230px"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:textSize="50px"

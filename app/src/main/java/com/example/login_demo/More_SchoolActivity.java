@@ -23,6 +23,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import presenter.WishPresent;
+import untils.SPUtils;
 import view.WishView;
 
 public class More_SchoolActivity extends BaseActivity implements WishView {
@@ -38,7 +39,9 @@ public class More_SchoolActivity extends BaseActivity implements WishView {
     TextView moreScore;
     @BindView(R.id.more_rv)
     RecyclerView moreRv;
-
+    private String tbmaxfen;
+    private String tbarea;
+    private String tbsubtype;
 
     private WishPresent wishPresent;
 
@@ -48,10 +51,48 @@ public class More_SchoolActivity extends BaseActivity implements WishView {
     }
 
     @Override
-    public void InIt() {
+    protected void onResume() {
+        super.onResume();
 
+        tbmaxfen = (String) SPUtils.get(MyApp.context, "tbmaxfen", "");
+        tbarea = (String) SPUtils.get(MyApp.context, "tbarea", "");
+        tbsubtype = (String) SPUtils.get(MyApp.context, "tbsubtype", "");
+
+        if(tbmaxfen!=null&&tbmaxfen!=""){
+            moreScore.setText(tbmaxfen+"分");
+        }else
+        {
+            moreScore.setText(500+"分");
+        }
+        if(tbarea!=null&&tbmaxfen!=""){
+            moreAddress.setText(tbarea);
+        }else {
+            moreAddress.setText("北京市");
+        }
+        if(tbsubtype!=null&&tbmaxfen!=""){
+            moreClassify.setText(tbsubtype);
+        }else
+        {
+            moreClassify.setText("文科");
+        }
+
+
+
+
+    }
+
+    @Override
+    public void InIt() {
         wishPresent = new WishPresent(this);
-        wishPresent.CanSchoolPresente("北京", "文科", "100", "500", "1", "10");
+        tbmaxfen = (String) SPUtils.get(MyApp.context, "tbmaxfen", "");
+        tbarea = (String) SPUtils.get(MyApp.context, "tbarea", "");
+        tbsubtype = (String) SPUtils.get(MyApp.context, "tbsubtype", "");
+        if(tbarea!=null&&tbarea!=""&&tbmaxfen!=""&&tbmaxfen!=null&&tbsubtype!=null&&tbsubtype!=""){
+            wishPresent.CanSchoolPresente(tbarea,tbsubtype,"0",tbmaxfen,"1","10");
+        }else {
+            wishPresent.CanSchoolPresente("北京","文科","0","500","1","10");
+
+        }
         View view = LayoutInflater.from(this).inflate(R.layout.dialog_item, null);
         final AlertDialog dialog = new AlertDialog.Builder(this)
                 .setView(view).show();

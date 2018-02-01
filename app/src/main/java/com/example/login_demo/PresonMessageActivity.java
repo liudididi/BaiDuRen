@@ -84,6 +84,8 @@ public class PresonMessageActivity extends BaseActivity {
                                 }else {
                                     Glide.with(PresonMessageActivity.this).load(R.drawable.boy).into(presonIcon);
                                 }
+                            }else {
+                                Glide.with(PresonMessageActivity.this).load(R.drawable.boy).into(presonIcon);
                             }
                            if(data.getStuType()!=null){
                                presonType.setText(data.getStuType());

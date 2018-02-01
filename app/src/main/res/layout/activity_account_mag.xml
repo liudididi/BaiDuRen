@@ -75,7 +75,7 @@
         android:background="@drawable/bg_setting_back"
         android:gravity="center"
         android:text="设置密码"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="48px" />
 
     <TextView
@@ -86,7 +86,7 @@
         android:layout_below="@+id/ed_mobile"
         android:layout_marginRight="30px"
         android:layout_marginLeft="30px"
-        android:background="@drawable/bg_setting_while"
+        android:background="@drawable/bg_setting_back"
         android:gravity="center"
         android:text="更换手机号"
         android:textColor="@color/white"

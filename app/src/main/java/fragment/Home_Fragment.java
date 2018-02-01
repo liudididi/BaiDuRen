@@ -7,6 +7,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -21,8 +22,10 @@ import android.widget.ViewFlipper;
 
 import com.bumptech.glide.Glide;
 import com.example.login_demo.EstimateGradeActivity;
+import com.example.login_demo.MyApp;
 import com.example.login_demo.ParticularsActivity;
 import com.example.login_demo.R;
+import com.example.login_demo.ReportedActivity;
 import com.example.login_demo.SearchParticularsActivity;
 import com.stx.xhb.xbanner.XBanner;
 import com.stx.xhb.xbanner.transformers.Transformer;
@@ -44,6 +47,7 @@ import bean.SlideshowBean;
 import bean.SlideshowChildBean;
 import presenter.SlideshowPresenter;
 
+import untils.SPUtils;
 import view.ObservableScrollView;
 import view.SlideshowView;
 
@@ -73,6 +77,13 @@ public class Home_Fragment extends Basefragment implements SlideshowView, Observ
     private RelativeLayout rl_search;
     private ViewFlipper viewflipper;
     private LinearLayout home_enter;
+    private TextView homegrade;
+    private String tbmaxfen;
+    private String tbarea;
+    private String tbsubtype;
+    private TextView homearea;
+    private TextView homesubtype;
+    private LinearLayout home_table;
 
 
     @Override
@@ -119,6 +130,32 @@ public class Home_Fragment extends Basefragment implements SlideshowView, Observ
 
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        tbmaxfen = (String) SPUtils.get(MyApp.context, "tbmaxfen", "");
+        tbarea = (String) SPUtils.get(MyApp.context, "tbarea", "");
+        tbsubtype = (String) SPUtils.get(MyApp.context, "tbsubtype", "");
+
+        if(tbmaxfen!=null&&tbmaxfen!=""){
+            homegrade.setText(tbmaxfen);
+          }else
+        {
+            homegrade.setText("500");
+        }
+        if(tbarea!=null&&tbmaxfen!=""){
+         homearea.setText(tbarea);
+        }else {
+            homearea.setText("北京市");
+        }
+        if(tbsubtype!=null&&tbmaxfen!=""){
+         homesubtype.setText(tbsubtype);
+        }else
+        {
+            homesubtype.setText("文科");
+        }
+    }
+
     private void inin() {
 
         xbanner = view.findViewById(R.id.xbanner);
@@ -135,8 +172,21 @@ public class Home_Fragment extends Basefragment implements SlideshowView, Observ
         ll_dot = view.findViewById(R.id.ll_dot);
         viewflipper = view.findViewById(R.id.viewflipper);
 
+        homegrade = view.findViewById(R.id.home_ed_grade);
+        homearea = view.findViewById(R.id.home_area);
+        homesubtype = view.findViewById(R.id.home_subtype);
+
         home_enter = view.findViewById(R.id.home_enter);
-        list = new ArrayList<>();
+
+        home_table = view.findViewById(R.id.home_table);
+        home_table.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(),ReportedActivity.class);
+                startActivity(intent);
+            }
+        });
+                list = new ArrayList<>();
         iv_list = new ArrayList<>();
 
         //点击事件
@@ -220,7 +270,7 @@ public class Home_Fragment extends Basefragment implements SlideshowView, Observ
             @Override
             public void onItemClick(XBanner banner, int position) {
                Intent intent= new Intent(getContext(), ParticularsActivity.class);
-              intent.putExtra("url",listBaseBean.data.get(position).getUrl());
+                 intent.putExtra("url",listBaseBean.data.get(position).getUrl());
                 getContext().startActivity(intent);
             }
         });

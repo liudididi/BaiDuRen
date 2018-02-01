@@ -64,14 +64,14 @@
                 android:id="@+id/more_classify"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="理科"
+                android:text="文科"
                 android:layout_marginLeft="30px"
                 android:layout_marginRight="30px"/>
             <TextView
                 android:id="@+id/more_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="680分"/>
+                android:text="500分"/>
         </LinearLayout>
         <TextView
             android:layout_width="wrap_content"

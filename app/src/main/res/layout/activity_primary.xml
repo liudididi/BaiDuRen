@@ -10,6 +10,7 @@
         android:id="@+id/rl_primary"
         android:layout_width="match_parent"
         android:layout_height="120px"
+        android:background="#fff"
         >
         <ImageView
             android:padding="10px"
@@ -32,13 +33,14 @@
         android:id="@+id/view1"
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:background="#000"
+        android:background="#ccc"
         android:layout_below="@id/rl_primary"></View>
     <RelativeLayout
         android:id="@+id/rl_estimate"
         android:layout_width="match_parent"
         android:layout_height="140px"
         android:layout_below="@id/view1"
+        android:background="#fff"
         >
 
         <TextView
@@ -60,8 +62,8 @@
             android:layout_marginRight="100px"
             android:textSize="35px"/>
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="40px"
+            android:layout_height="40px"
             android:src="@drawable/right_arrow"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
@@ -72,7 +74,7 @@
         android:id="@+id/view2"
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:background="#000"
+        android:background="#ccc"
         android:layout_below="@id/rl_estimate"></View>
     <TextView
         android:id="@+id/primary_tv"
@@ -81,12 +83,13 @@
         android:layout_below="@id/view2"
         android:gravity="center"
         android:textSize="40px"
+        android:background="#fff"
         android:text="填写更详细的信息,将为您生成更加准确的高级志愿表"/>
     <View
         android:id="@+id/view3"
         android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="#000"
+        android:layout_height="20px"
+        android:background="#FAFAFA"
         android:layout_below="@id/primary_tv"></View>
     <TextView
         android:id="@+id/primary_tv1"
@@ -96,17 +99,16 @@
         android:gravity="center"
         android:textColor="#2c2c2c"
         android:textSize="50px"
+        android:background="#fff"
         android:text="—符合成绩和意愿的学校专业—"/>
     <View
         android:id="@+id/view4"
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:background="#000"
+        android:background="#ccc"
         android:layout_below="@id/primary_tv1"></View>
-
-
-
     <LinearLayout
+        android:background="#fff"
         android:id="@+id/primary_ll"
         android:layout_width="match_parent"
         android:layout_height="120px"
@@ -123,7 +125,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="冲刺推荐"
-
                 android:textSize="50px"
                 android:layout_centerInParent="true"/>
             <View
@@ -131,7 +132,7 @@
                 android:layout_height="50px"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:background="#000"
+                android:background="#ccc"
                 ></View>
             <View
                 android:id="@+id/view_sprint"
@@ -139,7 +140,7 @@
                 android:layout_height="5px"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:background="#cc00"
+                android:background="#3B9DFE"
                 android:visibility="visible">
             </View>
         </RelativeLayout>
@@ -161,7 +162,7 @@
                 android:layout_height="50px"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:background="#000"
+                android:background="#ccc"
                 ></View>
             <View
                 android:id="@+id/view_reliable"
@@ -169,7 +170,7 @@
                 android:layout_height="5px"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:background="#cc00"
+                android:background="#3B9DFE"
                 android:visibility="gone"/>
         </RelativeLayout>
         <RelativeLayout
@@ -192,7 +193,7 @@
                 android:layout_height="5px"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:background="#cc00"
+                android:background="#3B9DFE"
                 android:visibility="gone"/>
         </RelativeLayout>
     </LinearLayout>
@@ -200,6 +201,28 @@
         android:id="@+id/view5"
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:background="#000"
+        android:background="#ccc"
         android:layout_below="@id/primary_ll"></View>
+    <ImageView
+        android:layout_marginTop="100px"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/none"
+        android:layout_marginLeft="50px"
+        android:layout_width="500px"
+        android:layout_height="450px"
+        android:id="@+id/prima_tishi"
+        android:layout_below="@id/view5"
+        />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/primary_rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/view5"
+        android:layout_marginLeft="40px"
+        android:layout_marginRight="40px"
+        android:layout_marginTop="10px"
+        android:background="#fff"
+        >
+    </android.support.v7.widget.RecyclerView>
+
 </RelativeLayout>

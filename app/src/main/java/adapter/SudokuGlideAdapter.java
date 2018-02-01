@@ -11,8 +11,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.login_demo.MentalityActivity;
+import com.example.login_demo.MoreJorbActivity;
+import com.example.login_demo.MoreMajorActivity;
+import com.example.login_demo.MoreSchoolActivity;
 import com.example.login_demo.ParticularsActivity;
 import com.example.login_demo.R;
+import com.example.login_demo.RankingActivity;
 
 import java.util.ArrayList;
 
@@ -53,15 +58,40 @@ public class SudokuGlideAdapter extends BaseAdapter {
 
     @Override
     public View getView(final int i, View view, ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(context).inflate(R.layout.sodoku_gride_item,null);
-        ImageView sodoku_item_iv=inflate.findViewById(R.id.sodoku_item_iv);
 
+        if(view==null){
+            view = LayoutInflater.from(context).inflate(R.layout.sodoku_gride_item,null);
+        }
+        ImageView sodoku_item_iv=view.findViewById(R.id.sodoku_item_iv);
+        sodoku_item_iv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(list.get(i).getName().equals("院校库")){
+                  Intent intent=new Intent(context, MoreSchoolActivity.class);
+                  context.startActivity(intent);
+                } else if(list.get(i).getName().equals("专业库")){
+                    Intent intent=new Intent(context, MoreMajorActivity.class);
+                    context.startActivity(intent);
+                }  else if(list.get(i).getName().equals("心理测评"))
+                {
+                    Intent intent=new Intent(context, MentalityActivity.class);
+                    context.startActivity(intent);
 
+                }
+                else if(list.get(i).getName().equals("大学排名"))
+                {
+                    Intent intent=new Intent(context, RankingActivity.class);
+                    context.startActivity(intent);
+                }
+                else if(list.get(i).getName().equals("职业库"))
+                {
+                    Intent intent=new Intent(context, MoreJorbActivity.class);
+                    context.startActivity(intent);
+                }
+
+            }
+        });
         Glide.with(context).load(BaseApi.ImgApi+list.get(i).getExtimg()).into(sodoku_item_iv);
-
-
-
-
-        return inflate;
+        return view;
     }
 }

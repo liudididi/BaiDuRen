@@ -60,7 +60,14 @@
         <activity android:name=".GradeActivity" />
         <activity android:name=".SelectSchoolActivity" />
         <activity android:name=".More_SchoolActivity" />
-        <activity android:name=".EstimateGradeActivity"></activity>
+        <activity android:name=".EstimateGradeActivity" />
+        <activity android:name=".AdvancedActivity" />
+        <activity android:name=".HomeSeekActivity" />
+        <activity android:name=".MoreMajorActivity" />
+        <activity android:name=".MentalityActivity" />
+        <activity android:name=".RankingActivity" />
+        <activity android:name=".AsForBaiDuRenActivity" />
+        <activity android:name=".MoreJorbActivity"></activity>
     </application>
 
 </manifest>

@@ -7,47 +7,26 @@ package bean;
 
 public class SchoolBean {
 
+
     /**
-     * userId : null
-     * type : null
-     * name : 北大
-     * topFlag : null
-     * grouping : null
-     * collectionTime : null
-     * topTime : null
-     * remarks : null
-     * standby : null
-     * standby2 : null
-     * standby3 : null
+     * name : 清华大学
+     * ranking : 全国2
+     * typeRank : 理工1
+     * address : 北京市
+     * father : 教育部
+     * univType : 大学
+     * url : /images/school/201201090552434112.jpg
+     * info : null
      */
 
-    private Object userId;
-    private Object type;
     private String name;
-    private Object topFlag;
-    private Object grouping;
-    private Object collectionTime;
-    private Object topTime;
-    private Object remarks;
-    private Object standby;
-    private Object standby2;
-    private Object standby3;
-
-    public Object getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Object userId) {
-        this.userId = userId;
-    }
-
-    public Object getType() {
-        return type;
-    }
-
-    public void setType(Object type) {
-        this.type = type;
-    }
+    private String ranking;
+    private String typeRank;
+    private String address;
+    private String father;
+    private String univType;
+    private String url;
+    private Object info;
 
     public String getName() {
         return name;
@@ -57,67 +36,59 @@ public class SchoolBean {
         this.name = name;
     }
 
-    public Object getTopFlag() {
-        return topFlag;
+    public String getRanking() {
+        return ranking;
     }
 
-    public void setTopFlag(Object topFlag) {
-        this.topFlag = topFlag;
+    public void setRanking(String ranking) {
+        this.ranking = ranking;
     }
 
-    public Object getGrouping() {
-        return grouping;
+    public String getTypeRank() {
+        return typeRank;
     }
 
-    public void setGrouping(Object grouping) {
-        this.grouping = grouping;
+    public void setTypeRank(String typeRank) {
+        this.typeRank = typeRank;
     }
 
-    public Object getCollectionTime() {
-        return collectionTime;
+    public String getAddress() {
+        return address;
     }
 
-    public void setCollectionTime(Object collectionTime) {
-        this.collectionTime = collectionTime;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public Object getTopTime() {
-        return topTime;
+    public String getFather() {
+        return father;
     }
 
-    public void setTopTime(Object topTime) {
-        this.topTime = topTime;
+    public void setFather(String father) {
+        this.father = father;
     }
 
-    public Object getRemarks() {
-        return remarks;
+    public String getUnivType() {
+        return univType;
     }
 
-    public void setRemarks(Object remarks) {
-        this.remarks = remarks;
+    public void setUnivType(String univType) {
+        this.univType = univType;
     }
 
-    public Object getStandby() {
-        return standby;
+    public String getUrl() {
+        return url;
     }
 
-    public void setStandby(Object standby) {
-        this.standby = standby;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
-    public Object getStandby2() {
-        return standby2;
+    public Object getInfo() {
+        return info;
     }
 
-    public void setStandby2(Object standby2) {
-        this.standby2 = standby2;
-    }
-
-    public Object getStandby3() {
-        return standby3;
-    }
-
-    public void setStandby3(Object standby3) {
-        this.standby3 = standby3;
+    public void setInfo(Object info) {
+        this.info = info;
     }
 }

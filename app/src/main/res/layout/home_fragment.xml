@@ -115,19 +115,29 @@
                     android:gravity="center"
                      android:layout_centerInParent="true"
                     >
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal"
+                        android:layout_width="400px"
                         android:layout_height="wrap_content"
                         >
+                        <ImageView
+                            android:layout_marginLeft="50px"
+                            android:layout_marginTop="30px"
+                            android:layout_width="50px"
+                            android:layout_height="50px"
+                           android:src="@drawable/compile"
+                            />
                     <TextView
-                        android:drawableLeft="@drawable/compile"
+                        android:paddingLeft="15px"
                         android:id="@+id/home_ed_grade"
-                        android:text="点击输入成绩"
+                        android:text="500"
                         android:textColor="#3B9EFF"
-                        android:textSize="40px"
-                        android:layout_width="wrap_content"
+                        android:textSize="70px"
+                        android:gravity="left"
+                        android:layout_width="180px"
                         android:layout_height="wrap_content" />
-                    </RelativeLayout>
+                    </LinearLayout>
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -135,10 +145,12 @@
                     android:layout_marginTop="20px">
                     <TextView
                     android:text="北京"
+                        android:id="@+id/home_area"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                     <TextView
-                        android:text="理科"
+                        android:text="文科"
+                        android:id="@+id/home_subtype"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="60px"/>
@@ -154,6 +166,7 @@
                     android:layout_marginTop="30px"
                     android:layout_centerHorizontal="true"/>
                 <LinearLayout
+                    android:id="@+id/home_table"
                     android:layout_width="match_parent"
                     android:layout_height="150px"
                     android:orientation="vertical"
@@ -223,7 +236,7 @@
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_hot"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="320px"
                 android:layout_below="@id/view2"
                 >
             </android.support.v7.widget.RecyclerView>

@@ -93,7 +93,11 @@ public class ChangPhoneActivity extends BaseActivity implements ChangePhoneView 
         switch (view.getId()) {
             case R.id.changephone_tv_captcha:
                 if(oldphone==false){
-                    mobile=userBeanInstans.getMobile();
+                    if(userBeanInstans!=null){
+                        mobile=userBeanInstans.getMobile();
+                    }else {
+                        Toast("检查您的网络");
+                    }
                 }else {
                     mobile = changephoneEdPhone.getText().toString();
                     if (TextUtils.isEmpty(mobile)) {

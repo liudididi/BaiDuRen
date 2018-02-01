@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +31,8 @@ public class MaJorActivity extends BaseActivity implements  MySchoolView {
     TextView majorHint;
     @BindView(R.id.major_see)
     TextView majorSee;
+    @BindView(R.id.major_re)
+    RelativeLayout  majorre;
     private MySchoolPresent mySchoolPresent;
 
     @Override
@@ -41,8 +44,6 @@ public class MaJorActivity extends BaseActivity implements  MySchoolView {
     public void InIt() {
         String token = getIntent().getStringExtra("token");
         mySchoolPresent = new MySchoolPresent(this);
-        majorHint.setVisibility(View.VISIBLE);
-        majorSee.setVisibility(View.VISIBLE);
         majorXrecycle.setVisibility(View.GONE);
         majorXrecycle.setLayoutManager(new LinearLayoutManager(this));
         mySchoolPresent.getmajorCollection(token);
@@ -56,7 +57,7 @@ public class MaJorActivity extends BaseActivity implements  MySchoolView {
                 finish();
                 break;
             case R.id.major_see:
-
+                Toast("专业库");
                 break;
         }
     }
@@ -73,12 +74,14 @@ public class MaJorActivity extends BaseActivity implements  MySchoolView {
 
     @Override
     public void getMajorsuccess(List<MajorBean> list, String msg) {
-      if(list!=null){
-          majorHint.setVisibility(View.GONE);
-          majorSee.setVisibility(View.GONE);
+      if(list!=null&&list.size()>0){
+          majorre.setVisibility(View.GONE);
           majorXrecycle.setVisibility(View.VISIBLE);
           MyMajorlRecycle adpter=new MyMajorlRecycle(this,list);
           majorXrecycle.setAdapter(adpter);
+      }else {
+          majorre.setVisibility(View.VISIBLE);
+          majorXrecycle.setVisibility(View.GONE);
       }
     }
 

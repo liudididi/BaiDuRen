@@ -40,36 +40,90 @@
         android:id="@+id/reported_primary"
         android:layout_width="match_parent"
         android:layout_height="450px"
-        android:text="已生成初级志愿表"
+        android:text="您已生成初级志愿表"
         android:layout_below="@id/view1"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:background="@drawable/back_square"
+        android:textSize="60px"
+        android:textColor="@color/white"
+        android:background="@drawable/chuji"
         android:layout_marginLeft="50px"
         android:layout_marginRight="50px"
         android:layout_marginTop="50px"/>
     <TextView
+        android:id="@+id/reported_chu"
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:text="可根据生源地+学分智能生成 初级志愿表"
+        android:layout_below="@id/view1"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:textSize="40px"
+        android:textColor="@color/white"
+        android:background="@drawable/chuji"
+        android:layout_marginLeft="50px"
+        android:layout_marginRight="50px"
+        android:layout_marginTop="395px"/>
+
+    <TextView
+        android:textSize="60px"
+        android:textColor="@color/white"
         android:id="@+id/reported_advanced"
         android:layout_width="match_parent"
         android:layout_height="450px"
-        android:text="已生成高级志愿表"
+        android:text="您已生成高级志愿表"
         android:layout_below="@id/reported_primary"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:background="@drawable/back_square"
+        android:background="@drawable/gaoji"
         android:layout_marginLeft="50px"
         android:layout_marginRight="50px"
         android:layout_marginTop="50px"/>
+
+
+
+    <TextView
+        android:textSize="40px"
+        android:textColor="@color/white"
+        android:id="@+id/reported_gao"
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:text="可根据意愿城市+预估学费等智能生成高级志愿表"
+        android:layout_below="@id/reported_primary"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:background="@drawable/gaoji"
+        android:layout_marginLeft="50px"
+        android:layout_marginRight="50px"
+        android:layout_marginTop="395px"/>
     <TextView
         android:id="@+id/reported_accurate"
         android:layout_width="match_parent"
         android:layout_height="450px"
-        android:text="已生成精准志愿表"
+        android:text="您已生成精准志愿表"
+        android:textSize="60px"
+        android:textColor="@color/white"
         android:layout_below="@id/reported_advanced"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:background="@drawable/back_square"
+        android:background="@drawable/jingzhun"
         android:layout_marginLeft="50px"
         android:layout_marginRight="50px"
         android:layout_marginTop="50px"/>
+
+
+    <TextView
+        android:textSize="40px"
+        android:id="@+id/reported_jing"
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:text="可根据个人职业特质+兴趣等智能生成精准志愿表"
+        android:textColor="@color/white"
+        android:layout_below="@id/reported_advanced"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:background="@drawable/jingzhun"
+        android:layout_marginLeft="50px"
+        android:layout_marginRight="50px"
+        android:layout_marginTop="395px"/>
 </RelativeLayout>

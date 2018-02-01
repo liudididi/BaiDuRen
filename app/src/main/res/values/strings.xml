@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">Login_Demo</string>
+    <string name="app_name">摆渡人</string>
     <string name="title_activity_home">HomeActivity</string>
 </resources>

@@ -35,16 +35,32 @@
        android:layout_height="wrap_content"
        android:id="@+id/myschool_xrecycle"
        ></com.jcodecraeer.xrecyclerview.XRecyclerView>
+
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/myschool_re"
+        android:layout_below="@+id/myschool_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="500px"
+        android:layout_height="400px"
+        android:layout_marginTop="450px"
+        android:src="@drawable/none"
+        android:layout_centerHorizontal="true"
+        />
     <TextView
         android:id="@+id/myschool_hint"
-        android:text="暂无收藏"
+        android:text="您暂时没有收藏记录"
+        android:textSize="40px"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="500px"
+        android:layout_marginTop="800px"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <TextView
-       android:layout_centerHorizontal="true"
+        android:layout_centerHorizontal="true"
         android:id="@+id/myschool_see"
         android:layout_width="500px"
         android:layout_height="120px"
@@ -52,9 +68,10 @@
         android:layout_below="@+id/myschool_hint"
         android:layout_marginRight="30px"
         android:layout_marginLeft="30px"
-        android:background="@drawable/bg_setting_back"
+        android:background="@drawable/back_login"
         android:gravity="center"
         android:text="马上去看看"
-        android:textColor="@color/black"
+        android:textColor="#26C6DA"
         android:textSize="45px" />
+    </RelativeLayout>
 </RelativeLayout>

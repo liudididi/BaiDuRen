@@ -1,9 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.login_demo.SearchParticularsActivity">
+    <RelativeLayout
+        android:id="@+id/rl_search"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        >
+        <ImageView
+            android:padding="10px"
+            android:id="@+id/sh_iv_back"
+            android:layout_width="150px"
+            android:layout_height="90px"
+            android:layout_gravity="center"
+            android:src="@mipmap/left"
+            android:layout_centerVertical="true"/>
+        <EditText
+            android:maxLines="1"
+            android:id="@+id/sh_edparch"
+            android:textSize="50px"
+            android:hint="搜索院校或专业"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="120px"
+            android:layout_toRightOf="@id/sh_iv_back"
+            android:layout_marginRight="150px"
 
-</android.support.constraint.ConstraintLayout>
+            />
+
+        <TextView
+            android:id="@+id/sh_tvsearch"
+            android:layout_width="150px"
+            android:layout_height="120px"
+            android:gravity="center"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text="搜索"
+            android:textColor="#2c2c2c"
+            android:textSize="50px" />
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/black"
+            ></View>
+    </RelativeLayout>
+    <android.support.v7.widget.RecyclerView
+        android:visibility="gone"
+        android:layout_marginLeft="50px"
+        android:layout_marginRight="50px"
+        android:layout_below="@id/rl_search"
+        android:id="@+id/sh_recycle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
+    <ImageView
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_width="500px"
+        android:layout_height="400px"
+        android:id="@+id/sh_imgnone"
+        android:src="@drawable/none"
+        />
+
+<RelativeLayout
+    android:layout_below="@id/rl_search"
+    android:id="@+id/sh_rlrecommend"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_marginLeft="50px"
+        android:id="@+id/shtv1"
+        android:layout_width="wrap_content"
+        android:layout_height="80px"
+        android:layout_marginTop="50px"
+        android:text="热搜学校"
+        android:textColor="@color/black"
+        android:textSize="60px" />
+
+<GridView
+    android:layout_marginTop="50px"
+    android:id="@+id/grid_school"
+    android:numColumns="3"
+    android:layout_below="@+id/shtv1"
+    android:layout_width="match_parent"
+    android:layout_height="400px"/>
+
+    <TextView
+        android:layout_marginLeft="50px"
+        android:id="@+id/shtv"
+        android:layout_below="@+id/grid_school"
+        android:layout_width="wrap_content"
+        android:layout_height="80px"
+        android:layout_marginTop="50px"
+        android:text="热搜专业"
+        android:textColor="@color/black"
+        android:textSize="60px" />
+    <GridView
+        android:layout_marginTop="50px"
+        android:id="@+id/grid_major"
+        android:numColumns="3"
+        android:layout_below="@+id/shtv"
+        android:layout_width="match_parent"
+        android:layout_height="400px">
+
+</GridView>
+
+
+
+
+
+
+
+
+
+</RelativeLayout>
+
+</RelativeLayout>

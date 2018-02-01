@@ -21,7 +21,7 @@
         app:bb_tabXmlResource="@xml/bottombar_tabs"
         app:bb_behavior="shy"
         app:bb_inActiveTabAlpha="0.6"
-        app:bb_inActiveTabColor="#8a8a8a"
-
+        app:bb_inActiveTabColor="#BaBaBa"
+        app:bb_activeTabColor="#3B9EFF"
         />
 </android.support.design.widget.CoordinatorLayout>

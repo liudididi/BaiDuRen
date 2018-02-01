@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="400px"
-    android:layout_height="350px"
+    android:layout_width="510px"
+    android:layout_height="400px"
     >
     <View
         android:id="@+id/view"
@@ -10,10 +10,11 @@
         android:layout_height="match_parent">
     </View>
     <LinearLayout
+        android:id="@+id/ll"
         android:background="@drawable/back_square"
         android:layout_toRightOf="@+id/view"
-        android:layout_width="400px"
-        android:layout_height="350px"
+        android:layout_width="450px"
+        android:layout_height="400px"
         android:orientation="vertical"
         android:gravity="center"
         >
@@ -33,5 +34,10 @@
 
     </LinearLayout>
 
+    <View
 
+        android:layout_width="30px"
+        android:layout_toRightOf="@id/ll"
+        android:layout_height="match_parent">
+    </View>
 </RelativeLayout>

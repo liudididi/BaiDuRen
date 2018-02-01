@@ -1,6 +1,8 @@
 package com.example.login_demo;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
@@ -73,6 +75,7 @@ public class perfectMessageActivity extends BaseActivity implements perfectMessa
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void InIt() {
         initnum();
@@ -88,9 +91,12 @@ public class perfectMessageActivity extends BaseActivity implements perfectMessa
         art_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, artlist);
         art_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         pfSpart.setAdapter(art_adapter);
+
+        pfSpart.setDropDownVerticalOffset(80);
         grade_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, gradelist);
         grade_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         pfSpgrade.setAdapter(grade_adapter);
+        pfSpgrade.setDropDownVerticalOffset(80);
         pfSpgrade.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override

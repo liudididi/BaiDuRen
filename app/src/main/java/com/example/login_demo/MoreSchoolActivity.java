@@ -1,6 +1,9 @@
 package com.example.login_demo;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,20 +15,25 @@ import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import adapter.MoreSchoolRecycle;
 import base.BaseActivity;
+import bean.CheckSchoolBean;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import presenter.MoreSchoolPresent;
+import view.MoreSchoolView;
 
-public class MoreSchoolActivity extends BaseActivity {
-
-
+public class MoreSchoolActivity extends BaseActivity  implements MoreSchoolView {
     @BindView(R.id.mschool_iv_back)
     ImageView mschoolIvBack;
     @BindView(R.id.mschool_search)
     ImageView mschoolSearch;
     @BindView(R.id.mschool_area)
     Spinner mschoolArea;
+
+    @BindView(R.id.mschool_none)
+    ImageView img_none;
     @BindView(R.id.mschool_sort)
     Spinner mschoolSort;
     @BindView(R.id.mschool_xlist)
@@ -36,19 +44,29 @@ public class MoreSchoolActivity extends BaseActivity {
     private ArrayAdapter<String> sort_adapter;
     private  String  area;
     private  String  sort;
+    private MoreSchoolPresent moreSchoolPresent;
+    private MoreSchoolRecycle adpter;
 
     @Override
     public int getId() {
         return R.layout.activity_more_school;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void InIt() {
         initList();
+
+        mschoolXlist.setPullRefreshEnabled(false);
+        mschoolXlist.setLayoutManager(new LinearLayoutManager(this));
+        moreSchoolPresent = new MoreSchoolPresent(this);
+
+        moreSchoolPresent.checkschool(area,sort+"类");
         //地区Spinner
         area_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arealist);
         area_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mschoolArea.setAdapter(area_adapter);
+        mschoolArea.setDropDownVerticalOffset(80);
         mschoolArea.setSelection(0, false);
         //改变值
         mschoolArea.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -59,7 +77,9 @@ public class MoreSchoolActivity extends BaseActivity {
                 //拿到被选择项的值
                 String  str = (String) mschoolArea.getSelectedItem();
                 area=str;
-                Toast(area);
+
+                moreSchoolPresent.checkschool(area,sort+"类");
+
             }
 
             @Override
@@ -72,6 +92,7 @@ public class MoreSchoolActivity extends BaseActivity {
         sort_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, sortlist);
         sort_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mschoolSort.setAdapter(sort_adapter);
+        mschoolSort.setDropDownVerticalOffset(80);
         mschoolSort.setSelection(0, false);
         //改变值
         mschoolSort.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -82,7 +103,9 @@ public class MoreSchoolActivity extends BaseActivity {
                 //拿到被选择项的值
                 String  str = (String) mschoolSort.getSelectedItem();
                 sort=str;
-                Toast(sort);
+                moreSchoolPresent.checkschool(area,sort+"类");
+
+
             }
 
             @Override
@@ -96,7 +119,6 @@ public class MoreSchoolActivity extends BaseActivity {
 
     private void initList() {
         arealist = new ArrayList<>();
-        arealist.add("地区");
         arealist.add("北京市");
         arealist.add("天津市");
         arealist.add("河北省");
@@ -131,7 +153,6 @@ public class MoreSchoolActivity extends BaseActivity {
         arealist.add("台湾");
         arealist.add("澳门");
         sortlist = new ArrayList<>();
-        sortlist.add("类别");
         sortlist.add("综合");
         sortlist.add("理工");
         sortlist.add("师范");
@@ -146,7 +167,8 @@ public class MoreSchoolActivity extends BaseActivity {
         sortlist.add("林业");
         sortlist.add("体育");
 
-
+   area="北京市";
+   sort="综合";
     }
 
     @OnClick({R.id.mschool_iv_back, R.id.mschool_search})
@@ -157,6 +179,8 @@ public class MoreSchoolActivity extends BaseActivity {
                 break;
             case R.id.mschool_search:
 
+                intent(this,SearchParticularsActivity.class);
+
                 break;
         }
     }
@@ -166,5 +190,31 @@ public class MoreSchoolActivity extends BaseActivity {
         super.onDestroy();
         arealist=null;
         sortlist=null;
+        moreSchoolPresent.onDestory();
+    }
+
+    @Override
+    public void CheckSuccess(List<CheckSchoolBean> list) {
+        if(list!=null&list.size()>0){
+            img_none.setVisibility(View.GONE);
+            mschoolXlist.setVisibility(View.VISIBLE);
+
+            if(adpter==null){
+                adpter = new MoreSchoolRecycle(this,list);
+                mschoolXlist.setAdapter(adpter);
+            }else {
+                adpter.Refsh(list);
+            }
+        }else {
+
+            img_none.setVisibility(View.VISIBLE);
+            mschoolXlist.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    public void CheckFail(String msg) {
+
+
     }
 }

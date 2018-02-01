@@ -9,6 +9,7 @@
 
     <EditText
         android:maxLines="1"
+        android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="170px"
         android:layout_marginRight="30px"
@@ -24,6 +25,7 @@
 
     <EditText
         android:maxLines="1"
+        android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="170px"
         android:layout_alignParentEnd="true"

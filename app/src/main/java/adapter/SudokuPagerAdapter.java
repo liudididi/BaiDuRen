@@ -71,16 +71,7 @@ public class SudokuPagerAdapter extends PagerAdapter {
             SudokuGlideAdapter sudokuGlideAdapter=new SudokuGlideAdapter(list1,context);
             gridview.setAdapter(sudokuGlideAdapter);
         }
-        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                if(i==0){
-                    Intent intent=new Intent(context, MoreSchoolActivity.class);
-                    context.startActivity(intent);
-                }
 
-            }
-        });
         container.addView(view);
         return view;
     }

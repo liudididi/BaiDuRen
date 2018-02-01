@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
@@ -31,6 +32,8 @@ public class MySchoolActivity extends BaseActivity implements MySchoolView {
     TextView myschoolSee;
     @BindView(R.id.myschool_xrecycle)
     XRecyclerView myschoolXrecycle;
+    @BindView(R.id.myschool_re)
+    RelativeLayout  myschoolre;
     private MySchoolPresent mySchoolPresent;
 
     @Override
@@ -40,15 +43,13 @@ public class MySchoolActivity extends BaseActivity implements MySchoolView {
 
     @Override
     public void InIt() {
-        //布局初始化
-        myschoolHint.setVisibility(View.VISIBLE);
-        myschoolSee.setVisibility(View.VISIBLE);
         myschoolXrecycle.setVisibility(View.GONE);
         String token = getIntent().getStringExtra("token");
         mySchoolPresent = new MySchoolPresent(this);
         mySchoolPresent.getSchollCollection(token);
         //设置布局管理器
         myschoolXrecycle.setLayoutManager(new LinearLayoutManager(this));
+        myschoolXrecycle.setPullRefreshEnabled(false);
     }
 
     @Override
@@ -57,28 +58,29 @@ public class MySchoolActivity extends BaseActivity implements MySchoolView {
         mySchoolPresent.onDestory();
     }
 
-    @OnClick({R.id.myschool_iv_back, R.id.myschool_hint})
+    @OnClick({R.id.myschool_iv_back, R.id.myschool_see})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.myschool_iv_back:
                 finish();
                 break;
-            case R.id.myschool_hint:
+            case R.id.myschool_see:
                 intent(this,MoreSchoolActivity.class);
                 break;
         }
     }
 
-
-
     @Override
     public void getSchoolsuccess(List<SchoolBean> list, String msg) {
         if(list!=null&&list.size()>=1){
-         myschoolHint.setVisibility(View.GONE);
-         myschoolSee.setVisibility(View.GONE);
+         myschoolre.setVisibility(View.GONE);
          myschoolXrecycle.setVisibility(View.VISIBLE);
          MySchoolRecycle mySchoolAdapter=new MySchoolRecycle(this,list);
          myschoolXrecycle.setAdapter(mySchoolAdapter);
+        }else {
+            //布局初始化
+            myschoolre.setVisibility(View.VISIBLE);
+            myschoolXrecycle.setVisibility(View.GONE);
         }
     }
 

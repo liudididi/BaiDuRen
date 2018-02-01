@@ -31,11 +31,13 @@
         android:layout_marginTop="40px"
         android:hint="请输入手机号码"
         android:textSize="45px"
+        android:inputType="number"
         android:id="@+id/ed_mobile"
         android:theme="@style/MyEditText"/>
 
     <EditText
         android:maxLines="1"
+        android:inputType="number"
         android:id="@+id/ed_phone_captcha"
         android:layout_width="match_parent"
         android:layout_height="170px"

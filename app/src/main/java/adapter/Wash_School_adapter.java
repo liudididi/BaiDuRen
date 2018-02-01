@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.login_demo.More_SchoolActivity;
 import com.example.login_demo.R;
+import com.meg7.widget.CustomShapeImageView;
 
 import java.util.List;
 
@@ -99,7 +100,7 @@ public class Wash_School_adapter  extends RecyclerView.Adapter{
 
     class  School_viewHoder extends  RecyclerView.ViewHolder {
 
-        ImageView item_school_icon;
+        CustomShapeImageView item_school_icon;
          TextView item_school_name;
           TextView item_school_address;
 
