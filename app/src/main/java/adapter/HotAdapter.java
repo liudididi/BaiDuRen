@@ -8,7 +8,9 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.login_demo.MajorDetailActivity;
 import com.example.login_demo.R;
+import com.example.login_demo.SchoolDetailActivity;
 
 import java.util.List;
 
@@ -55,9 +57,16 @@ public class HotAdapter extends BaseAdapter {
            @Override
            public void onClick(View v) {
                if(list.get(position).getHotType().equals("0")){
-                   Toast.makeText(context, "学校详情"+list.get(position).getHotName(), Toast.LENGTH_SHORT).show();
+
+                   Intent intent=new Intent(context, SchoolDetailActivity.class);
+                   intent.putExtra("schoolname",list.get(position).getHotName());
+                   context.startActivity(intent);
                }else {
-                   Toast.makeText(context, "专业详情"+list.get(position).getHotName(), Toast.LENGTH_SHORT).show();
+
+                   Intent intent=new Intent(context, MajorDetailActivity.class);
+                   intent.putExtra("majorid",list.get(position).getStandby1());
+                   intent.putExtra("major",list.get(position).getHotName());
+                   context.startActivity(intent);
                }
            }
        });

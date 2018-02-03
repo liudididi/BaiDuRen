@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
+
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -45,13 +46,13 @@
         android:layout_below="@id/mmajor_title"
         >
         <RelativeLayout
-            android:id="@+id/rl_sprint"
+            android:id="@+id/mmajor_tvben"
+
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="120px"
             >
             <TextView
-                android:id="@+id/mmajor_tvben"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="本科"
@@ -70,7 +71,7 @@
                 android:layout_height="5px"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:background="@color/red"
+                android:background="#3B9EFF"
                 android:visibility="visible">
             </View>
             <View
@@ -82,13 +83,12 @@
                 ></View>
         </RelativeLayout>
         <RelativeLayout
-            android:id="@+id/rl_reliable"
+            android:id="@+id/mmajor_tvzhuan"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="120px"
             >
             <TextView
-                android:id="@+id/mmajor_tvzhuan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="专科"
@@ -101,7 +101,7 @@
                 android:layout_height="5px"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:background="@color/red"
+                android:background="#3B9EFF"
                 android:visibility="gone"/>
             <View
                 android:layout_marginBottom="2px"
@@ -112,17 +112,42 @@
                 ></View>
         </RelativeLayout>
     </LinearLayout>
-    <ExpandableListView
-        android:scrollbars="none"
-        android:layout_marginTop="10px"
-        android:paddingLeft="50px"
-        android:paddingRight="50px"
+    <RelativeLayout
         android:layout_below="@+id/mmajorll"
-        android:id="@+id/tree_view_simple"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-    </ExpandableListView>
+        android:layout_height="match_parent">
+        <View
+            android:layout_width="50px"
+            android:layout_height="match_parent"
+            android:background="#F3F3F3"
+            >
+        </View>
+        <View
+            android:background="#F3F3F3"
+            android:id="@+id/vv"
+            android:layout_width="match_parent"
+            android:layout_height="15px"></View>
+
+        <View
+            android:layout_alignParentRight="true"
+            android:layout_width="50px"
+            android:layout_height="match_parent"
+            android:background="#F3F3F3"
+            >
+        </View>
+        <ExpandableListView
+            android:layout_below="@+id/vv"
+            android:layout_marginRight="50px"
+            android:layout_marginLeft="50px"
+            android:scrollbars="none"
+            android:layout_marginTop="10px"
+            android:id="@+id/tree_view_simple"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+        </ExpandableListView>
+    </RelativeLayout>
+
     <ProgressBar
         android:visibility="visible"
         android:id="@+id/mmajor_pb"

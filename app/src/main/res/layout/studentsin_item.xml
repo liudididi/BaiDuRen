@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="300px"
+        android:layout_centerVertical="true">
+        <com.meg7.widget.CustomShapeImageView
+            android:id="@+id/studentsin_iv"
+            android:layout_width="200px"
+            android:layout_height="200px"
+            android:layout_margin="50px"
+            />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:layout_marginRight="100px"
+            android:layout_toRightOf="@id/studentsin_iv">
+            <TextView
+                android:id="@+id/studentsin_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="北京联合大学"
+                android:textSize="50px"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textColor="#000"/>
+            <TextView
+                android:id="@+id/studentsin_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="综合高校"
+                android:layout_marginTop="20px"/>
+        </LinearLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/right_arrow"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="50px"/>
+    </RelativeLayout>
+    <View
+        android:layout_below="@id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#ccc">
+
+    </View>
+</RelativeLayout>

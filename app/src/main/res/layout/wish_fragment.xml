@@ -209,20 +209,19 @@
          android:layout_height="2px"></View>
 
 
-  <android.support.v7.widget.RecyclerView
-     android:layout_marginTop="60px"
-     android:id="@+id/wish_school_recycle"
-     android:layout_below="@+id/view2"
-     android:layout_width="match_parent"
-     android:layout_height="400px"
-     android:layout_marginBottom="60px"
-     >
- </android.support.v7.widget.RecyclerView>
+     <android.support.v7.widget.RecyclerView
+         android:id="@+id/wish_school_recycle"
+         android:layout_width="match_parent"
+         android:layout_height="400px"
+         android:layout_alignParentLeft="true"
+         android:layout_alignParentStart="true"
+         android:layout_below="@+id/view2"
+         android:layout_marginTop="22dp"></android.support.v7.widget.RecyclerView>
 
      <ImageView
+          android:layout_marginTop="30px"
          android:visibility="gone"
          android:layout_centerHorizontal="true"
-         android:layout_marginTop="60px"
          android:id="@+id/wish_school_none"
          android:layout_below="@+id/view2"
          android:layout_width="500px"
@@ -234,9 +233,10 @@
 
      <ImageView
          android:id="@+id/iv"
+         android:layout_marginTop="500px"
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
-         android:layout_below="@id/wish_school_recycle"
+         android:layout_below="@+id/view2"
          android:src="@mipmap/fill_out"
          android:scaleType="centerCrop"
          android:layout_marginBottom="40px"

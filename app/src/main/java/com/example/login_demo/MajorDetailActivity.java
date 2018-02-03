@@ -1,0 +1,184 @@
+package com.example.login_demo;
+
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
+
+import base.BaseActivity;
+import base.BaseBean;
+import bean.MyUserBean;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import fragment.Majorgk_Fragment;
+import fragment.Majorqj_Fragment;
+import fragment.Majorschool_Fragment;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
+import io.reactivex.subscribers.DisposableSubscriber;
+import untils.MyQusetUtils;
+import untils.SPUtils;
+
+public class MajorDetailActivity extends BaseActivity {
+
+
+    @BindView(R.id.md_tvtitle)
+    TextView mdTvtitle;
+    @BindView(R.id.mschool_iv_back)
+    ImageView mschoolIvBack;
+    @BindView(R.id.md_vgk)
+    View mdVgk;
+    @BindView(R.id.md_rlgk)
+    RelativeLayout mdRlgk;
+    @BindView(R.id.md_vqj)
+    View mdVqj;
+    @BindView(R.id.md_rlqj)
+    RelativeLayout mdRlqj;
+    @BindView(R.id.md_vyx)
+    View mdVyx;
+    @BindView(R.id.md_rlyx)
+    RelativeLayout mdRlyx;
+    @BindView(R.id.md_fl)
+    FrameLayout mdfl;
+    @BindView(R.id.img_collect)
+    ImageView imgCollect;
+    @BindView(R.id.mmajorll)
+    LinearLayout mmajorll;
+    private String major;
+    public static String majorid;
+    private Majorgk_Fragment majorgk_fragment;
+    private Fragment currentFragment;
+    private Majorqj_Fragment majorqj_fragment;
+    private Majorschool_Fragment majorschool_fragment;
+    private String token;
+    private DisposableSubscriber<BaseBean> disposableSubscriber;
+
+    @Override
+    public int getId() {
+        return R.layout.activity_major_detail;
+    }
+
+    @Override
+    public void InIt() {
+        major = getIntent().getStringExtra("major");
+        majorid = getIntent().getStringExtra("majorid");
+        mdTvtitle.setText(major);
+        initfragment();
+        switchFragment(majorgk_fragment).commitAllowingStateLoss();
+    }
+
+    private void initfragment() {
+        majorgk_fragment = new Majorgk_Fragment();
+        majorqj_fragment = new Majorqj_Fragment();
+        majorschool_fragment = new Majorschool_Fragment();
+
+    }
+
+
+
+
+    private FragmentTransaction switchFragment(Fragment targetFragment) {
+        FragmentTransaction transaction = getSupportFragmentManager()
+                .beginTransaction();
+        if (!targetFragment.isAdded()) {
+            //第一次使用switchFragment()时currentFragment为null，所以要判断一下
+            if (currentFragment != null) {
+                transaction.hide(currentFragment);
+            }
+            transaction.add(R.id.md_fl, targetFragment, targetFragment.getClass().getName());
+        } else {
+            transaction
+                    .hide(currentFragment)
+                    .show(targetFragment);
+        }
+        currentFragment = targetFragment;
+        return transaction;
+    }
+
+    @OnClick({R.id.mschool_iv_back, R.id.md_rlgk, R.id.md_rlqj, R.id.md_rlyx,R.id.img_collect})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.mschool_iv_back:
+                finish();
+                break;
+            case R.id.img_collect:
+                 collect();
+                break;
+            case R.id.md_rlgk:
+                mdVgk.setVisibility(View.VISIBLE);
+                mdVqj.setVisibility(View.GONE);
+                mdVyx.setVisibility(View.GONE);
+                switchFragment(majorgk_fragment).commitAllowingStateLoss();
+
+                break;
+            case R.id.md_rlqj:
+                mdVgk.setVisibility(View.GONE);
+                mdVqj.setVisibility(View.VISIBLE);
+                mdVyx.setVisibility(View.GONE);
+                switchFragment(majorqj_fragment).commitAllowingStateLoss();
+
+                break;
+            case R.id.md_rlyx:
+                mdVgk.setVisibility(View.GONE);
+                mdVqj.setVisibility(View.GONE);
+                mdVyx.setVisibility(View.VISIBLE);
+                switchFragment(majorschool_fragment).commitAllowingStateLoss();
+                break;
+        }
+    }
+
+    private void collect() {
+        token = (String) SPUtils.get(MyApp.context, "token", "");
+        if(token.length()>4){
+          collecta("1",major,token);
+        }else {
+            Toast("登录后才能收藏哦~");
+        }
+    }
+
+    public   void collecta(String type,String name,String token){
+
+        disposableSubscriber = MyQusetUtils.getInstance()
+                .getQuestInterface().collect(type, name, token)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribeWith(new DisposableSubscriber<BaseBean>() {
+                    @Override
+                    public void onNext(BaseBean baseBean) {
+                        Toast.makeText(MyApp.context, baseBean.msg, Toast.LENGTH_SHORT).show();
+                        if(baseBean.msg.equals("收藏成功")){
+                            Glide.with(MajorDetailActivity.this).load(R.drawable.collect_yes).into(imgCollect);
+                        }else {
+                            Glide.with(MajorDetailActivity.this).load(R.drawable.collect_none).into(imgCollect);
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable t) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(disposableSubscriber!=null){
+            disposableSubscriber.dispose();
+        }
+    }
+}

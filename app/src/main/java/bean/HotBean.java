@@ -9,14 +9,14 @@ public class HotBean {
 
 
     /**
-     * hotName : 北京大学
-     * hotType : 0
+     * hotName : 软件工程
+     * hotType : 1
      * hotBody : null
-     * hotTotal : 14
+     * hotTotal : 1
      * hotDate : null
      * hotState : null
      * hotTop : null
-     * standby1 : null
+     * standby1 : 080902
      * standby2 : null
      * standby3 : null
      */
@@ -28,7 +28,7 @@ public class HotBean {
     private Object hotDate;
     private Object hotState;
     private Object hotTop;
-    private Object standby1;
+    private String standby1;
     private Object standby2;
     private Object standby3;
 
@@ -88,11 +88,11 @@ public class HotBean {
         this.hotTop = hotTop;
     }
 
-    public Object getStandby1() {
+    public String getStandby1() {
         return standby1;
     }
 
-    public void setStandby1(Object standby1) {
+    public void setStandby1(String standby1) {
         this.standby1 = standby1;
     }
 

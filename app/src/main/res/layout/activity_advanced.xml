@@ -197,15 +197,16 @@
         android:background="#ccc"
         android:layout_below="@id/primary_ll"></View>
 
-        <TextView
+        <ImageView
             android:visibility="gone"
+            android:layout_marginTop="100px"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/none"
             android:layout_marginLeft="50px"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="500px"
+            android:layout_height="450px"
             android:id="@+id/ad_tishi"
-            android:textSize="60px"
             android:layout_below="@id/view5"
-            android:text="无符合条件的院校"
             />
     <android.support.v7.widget.RecyclerView
         android:id="@+id/advanced_rl"
@@ -218,17 +219,17 @@
         android:background="#fff"
         >
     </android.support.v7.widget.RecyclerView>
+
     <RelativeLayout
         android:id="@+id/advanced_rl2"
         android:layout_width="match_parent"
         android:layout_height="350px"
-        android:layout_below="@id/advanced_rl"
+        android:layout_below="@id/view5"
         android:orientation="vertical"
         android:background="@drawable/bg_advanced"
         android:padding="40px"
-        android:layout_marginTop="20px"
+        android:layout_marginTop="1200px"
         android:layout_marginBottom="10px"
-
         >
         <TextView
             android:layout_width="wrap_content"

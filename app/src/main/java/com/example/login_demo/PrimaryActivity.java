@@ -71,15 +71,31 @@ public class PrimaryActivity extends BaseActivity implements WishView {
         primary_sprint.setTextColor(Color.BLACK);
         list = new ArrayList<>();
         wishPresent = new WishPresent(this);
-        tbmaxfen = (String) SPUtils.get(MyApp.context, "tbmaxfen", "");
-        tbarea = (String) SPUtils.get(MyApp.context, "tbarea", "");
-        tbsubtype = (String) SPUtils.get(MyApp.context, "tbsubtype", "");
-        if (tbarea != null && tbarea !=""&& tbmaxfen !=""&&tbmaxfen != null && tbsubtype != null && tbsubtype != "") {
+
+
+        String inarea = getIntent().getStringExtra("inarea");
+
+        if(inarea!=null){
+            tbarea=inarea;
+           tbmaxfen= getIntent().getStringExtra("inmaxfen");
+           tbsubtype= getIntent().getStringExtra("insubtype");
             wishPresent.CanSchoolPresente(tbarea, tbsubtype, "0", tbmaxfen, "1", "5");
-        } else {
-            wishPresent.CanSchoolPresente("北京", "文科", "0", "500", "1", "5");
-            primaryMinute.setText("北京" + "文科" + "500" + "分");
+        }else {
+
+            tbmaxfen = (String) SPUtils.get(MyApp.context, "tbmaxfen", "");
+            tbarea = (String) SPUtils.get(MyApp.context, "tbarea", "");
+            tbsubtype = (String) SPUtils.get(MyApp.context, "tbsubtype", "");
+            if (tbarea != null && tbarea !=""&& tbmaxfen !=""&&tbmaxfen != null && tbsubtype != null && tbsubtype != "") {
+                wishPresent.CanSchoolPresente(tbarea, tbsubtype, "0", tbmaxfen, "1", "5");
+            } else {
+                wishPresent.CanSchoolPresente("北京", "文科", "0", "500", "1", "5");
+                primaryMinute.setText("北京" + "文科" + "500" + "分");
+            }
+
         }
+
+
+
 
 
     }
@@ -87,25 +103,20 @@ public class PrimaryActivity extends BaseActivity implements WishView {
     @Override
     protected void onResume() {
         super.onResume();
+        tbmaxfen = (String) SPUtils.get(MyApp.context, "tbmaxfen", "500");
 
-        tbmaxfen = (String) SPUtils.get(MyApp.context, "tbmaxfen", "");
-        tbarea = (String) SPUtils.get(MyApp.context, "tbarea", "");
-        tbsubtype = (String) SPUtils.get(MyApp.context, "tbsubtype", "");
+        tbarea = (String) SPUtils.get(MyApp.context, "tbarea", "北京市");
+        tbsubtype = (String) SPUtils.get(MyApp.context, "tbsubtype", "文科");
 
-        if (tbmaxfen != null && tbmaxfen != "") {
-
-        } else {
-            tbmaxfen = "500";
+        if(tbmaxfen==null&&tbmaxfen.equals("")){
+            tbmaxfen="500";
         }
-        if (tbarea != null && tbmaxfen != "") {
 
-        } else {
-            tbarea = "北京市";
+        if(tbarea==null&&tbarea.equals("")){
+            tbarea="北京市";
         }
-        if (tbsubtype != null && tbmaxfen != "") {
-
-        } else {
-            tbsubtype = "文科";
+        if(tbsubtype==null&&tbsubtype.equals("")){
+            tbsubtype="文科";
         }
         primaryMinute.setText(tbarea + tbsubtype + tbmaxfen + "分");
 

@@ -215,11 +215,9 @@ public class My_Fragment extends Basefragment implements View.OnClickListener {
         token = (String) SPUtils.get(MyApp.context, "token", "");
         if(token.length()>4){
             MyUserBean.checkLogin();
+            my_login.setText("已登录");
             UserBean userBeanInstans = MyUserBean.getUserBeanInstans();
             if(userBeanInstans!=null){
-                String mobile=userBeanInstans.getMobile();
-                mobile=mobile.substring(0,3)+"****"+mobile.substring(7,11);
-                my_login.setText(mobile);
                 if(userBeanInstans.getSex()!=null){
                     if(userBeanInstans.getSex().equals("女")){
                         Glide.with(getActivity()).load(R.drawable.gril).into(my_icon);
@@ -230,9 +228,6 @@ public class My_Fragment extends Basefragment implements View.OnClickListener {
                 else {
                     Glide.with(getActivity()).load(R.drawable.boy).into(my_icon);
                 }
-
-            }else {
-                my_login.setText("已登录");
             }
             my_login.setEnabled(false);
         }else {

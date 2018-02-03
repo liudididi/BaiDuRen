@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -23,9 +24,9 @@ public class MoreMajorActivity extends BaseActivity implements SelectMajorView {
     @BindView(R.id.mschool_iv_back)
     ImageView mschoolIvBack;
     @BindView(R.id.mmajor_tvben)
-    TextView mmajorTvben;
+    RelativeLayout mmajorTvben;
     @BindView(R.id.mmajor_tvzhuan)
-    TextView mmajorTvzhuan;
+    RelativeLayout mmajorTvzhuan;
     @BindView(R.id.mmajor_vzhuan)
     View mmajorVzhuan;
     @BindView(R.id.mmajor_vben)

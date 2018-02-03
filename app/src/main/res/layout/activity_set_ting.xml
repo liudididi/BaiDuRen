@@ -40,12 +40,35 @@
                 />
         </RelativeLayout>
         <com.meg7.widget.CustomShapeImageView
+            android:id="@+id/setting_icon"
             android:layout_marginTop="50px"
             android:src="@drawable/boy"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/setting_title"
             android:layout_width="200px"
             android:layout_height="200px" />
+
+        <TextView
+            android:textSize="50px"
+            android:layout_marginTop="20px"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:id="@+id/setting_name"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/setting_icon"
+            />
+        <TextView
+        android:textSize="33px"
+        android:layout_marginTop="20px"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:id="@+id/setting_school"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/setting_name"
+        />
+
     </RelativeLayout>
     <LinearLayout
         android:id="@+id/setting_ll"

@@ -8,8 +8,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.login_demo.MajorDetailActivity;
 import com.example.login_demo.MyApp;
 import com.example.login_demo.R;
+import com.example.login_demo.SchoolDetailActivity;
 import com.example.login_demo.perfectMessageActivity;
 
 import java.util.List;
@@ -54,12 +56,15 @@ public class Search_Adapter extends RecyclerView.Adapter {
             @Override
             public void onClick(View v) {
            if(list.get(position).getType()==0){
-               //跳转学习详情
-               Toast.makeText(context, "学校详情", Toast.LENGTH_SHORT).show();
+               Intent intent=new Intent(context, SchoolDetailActivity.class);
+               intent.putExtra("schoolname",list.get(position).getName());
+               context.startActivity(intent);
            }else {
 
-               //跳转专业详情
-               Toast.makeText(context, "专业详情", Toast.LENGTH_SHORT).show();
+               Intent intent=new Intent(context, MajorDetailActivity.class);
+               intent.putExtra("majorid",list.get(position).getId());
+               intent.putExtra("major",list.get(position).getName());
+               context.startActivity(intent);
 
            }
 

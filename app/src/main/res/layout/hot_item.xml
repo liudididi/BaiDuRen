@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    android:paddingLeft="30px"
+    android:paddingLeft="20px"
     android:paddingTop="30px"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="360px"
     android:layout_height="130px">
 <TextView
+    android:layout_marginRight="20px"
     android:id="@+id/hot_name"
     android:text="北京大学"
     android:textSize="35px"

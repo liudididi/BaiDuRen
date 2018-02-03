@@ -1,6 +1,7 @@
 package adapter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.Gravity;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.login_demo.MajorDetailActivity;
 import com.example.login_demo.R;
 
 import java.util.List;
@@ -93,8 +95,10 @@ public class ZiChildExpandableListViewAdapter extends BaseExpandableListAdapter 
         genericView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Toast.makeText(activity, ""+classes.get(groupPosition).getChild().get(childPosition).getMajorName(), Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(activity, MajorDetailActivity.class);
+                intent.putExtra("majorid",classes.get(groupPosition).getChild().get(childPosition).getMajorId());
+                intent.putExtra("major",classes.get(groupPosition).getChild().get(childPosition).getMajorName());
+                activity.startActivity(intent);
 
             }
         });

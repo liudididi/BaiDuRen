@@ -140,7 +140,7 @@
             android:background="@drawable/back_register"
             android:layout_below="@id/suggest_way"
             android:text="提交"
-            android:textColor="#cccccc"
+            android:textColor="#fff"
             android:layout_margin="40px"
             android:gravity="center"/>
 </RelativeLayout>

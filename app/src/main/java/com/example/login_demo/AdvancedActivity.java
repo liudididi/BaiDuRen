@@ -55,7 +55,7 @@ public class AdvancedActivity extends BaseActivity implements WishView {
     @BindView(R.id.advanced_rl)
     RecyclerView advancedRl;
     @BindView(R.id.ad_tishi)
-    TextView adTishi;
+   ImageView adTishi;
 
     private String tbmaxfen;
     private String tbarea;
@@ -72,9 +72,11 @@ public class AdvancedActivity extends BaseActivity implements WishView {
     @Override
     public void InIt() {
         wishPresent = new WishPresent(this);
-        tbmaxfen = (String) SPUtils.get(MyApp.context, "tbmaxfen", "");
-        tbarea = (String) SPUtils.get(MyApp.context, "tbarea", "");
-        tbsubtype = (String) SPUtils.get(MyApp.context, "tbsubtype", "");
+        tbmaxfen = (String) SPUtils.get(MyApp.context, "tbmaxfen", "500");
+
+        tbarea = (String) SPUtils.get(MyApp.context, "tbarea", "北京市");
+        tbsubtype = (String) SPUtils.get(MyApp.context, "tbsubtype", "文科");
+
         if (tbarea != null && tbarea != "" && tbmaxfen != "" && tbmaxfen != null && tbsubtype != null && tbsubtype != "") {
             wishPresent.CanSchoolPresente(tbarea, tbsubtype, "0", tbmaxfen, "1", "5");
         } else {
@@ -91,27 +93,21 @@ public class AdvancedActivity extends BaseActivity implements WishView {
     protected void onResume() {
         super.onResume();
 
-        tbmaxfen = (String) SPUtils.get(MyApp.context, "tbmaxfen", "");
-        tbarea = (String) SPUtils.get(MyApp.context, "tbarea", "");
-        tbsubtype = (String) SPUtils.get(MyApp.context, "tbsubtype", "");
+        tbmaxfen = (String) SPUtils.get(MyApp.context, "tbmaxfen", "500");
 
-        if (tbmaxfen != null && tbmaxfen != "") {
+        tbarea = (String) SPUtils.get(MyApp.context, "tbarea", "北京市");
+        tbsubtype = (String) SPUtils.get(MyApp.context, "tbsubtype", "文科");
 
-        } else {
-            tbmaxfen = "500";
-        }
-        if (tbarea != null && tbmaxfen != "") {
-
-        } else {
-            tbarea = "北京市";
-        }
-        if (tbsubtype != null && tbmaxfen != "") {
-
-        } else {
-            tbsubtype = "文科";
+        if(tbmaxfen==null&&tbmaxfen.equals("")){
+            tbmaxfen="500";
         }
 
-
+        if(tbarea==null&&tbarea.equals("")){
+            tbarea="北京市";
+        }
+        if(tbsubtype==null&&tbsubtype.equals("")){
+            tbsubtype="文科";
+        }
     }
 
     @OnClick({R.id.advanced_iv_back, R.id.advanced_minute, R.id.advanced_rl_sprint, R.id.advanced_rl_reliable, R.id.advanced_rl_minimum})

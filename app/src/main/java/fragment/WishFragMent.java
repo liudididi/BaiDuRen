@@ -50,9 +50,9 @@ public class WishFragMent extends Basefragment implements WishView, CountdownVie
     private TextView wish_monthly;
     private TextView wish_midterm;
     private TextView wish_end;
-    private String tbmaxfen;
-    private String tbarea;
-    private String tbsubtype;
+    private String tbmaxfen=null;
+    private String tbarea=null;
+    private String tbsubtype=null;
     private WishPresent wishPresent;
     private LinearLayout wish_ll1;
     private LinearLayout wish_ll2;
@@ -76,27 +76,24 @@ public class WishFragMent extends Basefragment implements WishView, CountdownVie
     @Override
     public void onResume() {
         super.onResume();
-        tbmaxfen = (String) SPUtils.get(MyApp.context, "tbmaxfen", "");
-        tbarea = (String) SPUtils.get(MyApp.context, "tbarea", "");
-        tbsubtype = (String) SPUtils.get(MyApp.context, "tbsubtype", "");
+        tbmaxfen = (String) SPUtils.get(MyApp.context, "tbmaxfen", "500");
 
-        if(tbmaxfen!=null&&tbmaxfen!=""){
+        tbarea = (String) SPUtils.get(MyApp.context, "tbarea", "北京市");
+        tbsubtype = (String) SPUtils.get(MyApp.context, "tbsubtype", "文科");
 
-        }else
-        {
+        if(tbmaxfen==null&&tbmaxfen.equals("")){
             tbmaxfen="500";
         }
-        if(tbarea!=null&&tbmaxfen!=""){
 
-        }else {
+        if(tbarea==null&&tbarea.equals("")){
             tbarea="北京市";
         }
-        if(tbsubtype!=null&&tbmaxfen!=""){
-
-        }else
-        {
+        if(tbsubtype==null&&tbsubtype.equals("")){
             tbsubtype="文科";
         }
+
+        wish_school_none.setVisibility(View.GONE);
+
         wishPresent.CanSchoolPresente(tbarea,tbsubtype,"0",tbmaxfen,"1","5");
 
 
@@ -148,9 +145,6 @@ public class WishFragMent extends Basefragment implements WishView, CountdownVie
         }else {
             wishPresent.CanSchoolPresente("北京","文科","0","500","1","5");
         }
-
-
-
         onClick();
     }
 
@@ -255,7 +249,7 @@ public class WishFragMent extends Basefragment implements WishView, CountdownVie
         List<CanSchoolBean.ListBean> list1 = canSchoolBeanBaseBean.data.getList();
         if(list1!=null&&list1.size()>0){
             wish_school_none.setVisibility(View.GONE);
-
+            school_recycle.setVisibility(View.VISIBLE);
             for (int i = 0; i < list1.size(); i++) {
                 list.add(new CanSchoolBean2(list1.get(i).getUrl(),list1.get(i).getName(),list1.get(i).getAddress(),list1.get(i).getRanking()));
             }
@@ -265,8 +259,8 @@ public class WishFragMent extends Basefragment implements WishView, CountdownVie
             school_recycle.setLayoutManager(linearLayoutManager);
             school_recycle.setAdapter(wash_school_adapter);
         }else {
-
             wish_school_none.setVisibility(View.VISIBLE);
+            school_recycle.setVisibility(View.GONE);
         }
 
     }

@@ -1,12 +1,14 @@
 package adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.login_demo.MajorDetailActivity;
 import com.example.login_demo.R;
 
 import java.util.List;
@@ -37,9 +39,19 @@ public class MyMajorlRecycle extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         MaJorViewHolder myjorviewholder= (MaJorViewHolder) holder;
         myjorviewholder.major_tv_big.setText(list.get(position).getName());
+        myjorviewholder.major_tv_big.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(context, MajorDetailActivity.class);
+      /*          intent.putExtra("majorid", list.get(position).getStandby());
+                intent.putExtra("major",classes.get(groupPosition).getChild().get(childPosition).getMajorName());*/
+               context.startActivity(intent);
+            }
+        });
+
     }
 
     @Override

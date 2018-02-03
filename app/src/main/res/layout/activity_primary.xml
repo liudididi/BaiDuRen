@@ -204,6 +204,7 @@
         android:background="#ccc"
         android:layout_below="@id/primary_ll"></View>
     <ImageView
+        android:visibility="gone"
         android:layout_marginTop="100px"
         android:layout_centerHorizontal="true"
         android:src="@drawable/none"

@@ -1,12 +1,14 @@
 package adapter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.login_demo.JobDetailsActivity;
 import com.example.login_demo.R;
 
 import java.util.List;
@@ -92,8 +94,9 @@ public class MoreJobZiChildExpandableListViewAdapter extends BaseExpandableListA
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(activity, ""+classes.get(groupPosition).getJobListThree().get(childPosition).getJob(), Toast.LENGTH_SHORT).show();
-
+                 Intent intent=new Intent(activity, JobDetailsActivity.class);
+                intent.putExtra("jobname",classes.get(groupPosition).getJobListThree().get(childPosition).getJob());
+                activity.startActivity(intent);
             }
         });
         return genericView;

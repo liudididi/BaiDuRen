@@ -178,6 +178,9 @@ public class EstimateGradeActivity extends BaseActivity {
              SPUtils.put(MyApp.context,"tbmaxfen",tbmaxfen);
              SPUtils.put(MyApp.context,"tbsubtype",tbsubtype);
              Intent intent=new Intent(EstimateGradeActivity.this,PrimaryActivity.class);
+             intent.putExtra("inarea",tbarea);
+             intent.putExtra("inmaxfen",tbmaxfen);
+             intent.putExtra("insubtype",tbsubtype);
              startActivity(intent);
              finish();
              break;

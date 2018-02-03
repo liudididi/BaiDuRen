@@ -11,15 +11,23 @@ import bean.CityBean;
 import bean.HotBean;
 import bean.InquireBean;
 import bean.MajorBean;
+import bean.MajorSchoolBean;
+import bean.MajorgkBean;
 import bean.MoreJobBean;
 import bean.NewsBean;
+import bean.OneTableBean;
 import bean.ProviceBean;
+import bean.ProvinceBean;
 import bean.RanKingSchoolBean;
 import bean.SchoolBean;
+import bean.ScoreBean1;
+import bean.ScoreBean2;
 import bean.SearchBean;
 import bean.SelectMajorBean;
 import bean.SelectSchoolBean;
 import bean.SlideshowBean;
+import bean.StudentsinBean;
+import bean.StudyBean;
 import bean.UserBean;
 import io.reactivex.Flowable;
 
@@ -39,6 +47,45 @@ import retrofit2.http.Query;
  */
 
 public interface QuestInterface {
+
+    //特长生艺术院校
+    @GET("/app/school/check")
+    Flowable<BaseBean<List<StudentsinBean>>> studentsschool(@Query("address") String address, @Query("schooltype") String  schooltype);
+
+   //添加收藏
+
+    @POST("/app/collection/insertCollection")
+    Flowable<BaseBean> collect(@Query("type") String type,@Query("name") String name,@Header("token") String token);
+
+    //一份一段表
+    @GET("/app/onetoone/getallonetoone")
+    Flowable<BaseBean<List<OneTableBean>>> onetable(@Query("type") String type, @Query("province") String province);
+
+    //获取大学
+    @GET("/app/university/univCompareOneMobil")
+    Flowable<BaseBean<List<ScoreBean1>>> score1(@Query("province") String province, @Query("classify") String classify);
+
+    //获取分数
+    @GET("/app/universitytimescore/proscoreMobil")
+    Flowable<BaseBean<List<ScoreBean2>>> score2(@Query("province") String province, @Query("university") String university);
+
+    //省控线查询
+    @GET("/app/universityprovincescore/proscoreMobil")
+    Flowable<BaseBean<List<ProvinceBean>>> province(@Query("province") String province);
+
+
+    //专业详情概况
+    @GET("/app/major/getMajorIntroduction")
+    Flowable<BaseBean<MajorgkBean>> getmajorgk(@Query("majorId") String majorId);
+
+    //专业详情学院
+    @GET("/app/major/getMajorSchoolByMajorId")
+    Flowable<BaseBean<List<MajorSchoolBean>>> getmajorschool(@Query("majorId") String majorId,@Query("year") String year);
+
+    //学习资料
+    @GET("/app/studymaterials/querymaterials")
+    Flowable<BaseBean<StudyBean>> study(@Query("category") String category, @Query("province") String province, @Query("subject") String subject, @Query("grade") String grade, @Query("page") String page, @Query("limit") String limit);
+
 
     //大学排序
     @GET("/app/hotlist/queryHot")

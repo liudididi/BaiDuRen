@@ -9,7 +9,12 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.meg7.widget.CustomShapeImageView;
+
 import base.BaseActivity;
+import bean.MyUserBean;
+import bean.UserBean;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -29,6 +34,12 @@ public class SetTingActivity extends BaseActivity {
     RelativeLayout settingUseragreen;
     @BindView(R.id.setting_back)
     TextView settingBack;
+    @BindView(R.id.setting_name)
+    TextView settingname;
+    @BindView(R.id.setting_school)
+    TextView settingschool;
+    @BindView(R.id.setting_icon)
+    CustomShapeImageView setting_icon;
     private  String token;
     private  Intent intent;
 
@@ -61,6 +72,39 @@ public class SetTingActivity extends BaseActivity {
             return true;
         }
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        UserBean userBeanInstans = MyUserBean.getUserBeanInstans();
+        if(userBeanInstans!=null){
+            String sex = userBeanInstans.getSex();
+            if(sex!=null){
+                if(sex.equals("女")){
+                    Glide.with(this).load(R.drawable.gril).into(setting_icon);
+                }else {
+                    Glide.with(this).load(R.drawable.boy).into(setting_icon);
+                }
+            }else {
+                Glide.with(this).load(R.drawable.boy).into(setting_icon);
+            }
+            String name = userBeanInstans.getName();
+           if(name!=null){
+               settingname.setText(name);
+           }else {
+               settingname.setText("");
+           }
+            String midSchool = userBeanInstans.getMidSchool();
+            if(midSchool!=null){
+                settingschool.setText(midSchool);
+            }else {
+                settingschool.setText("");
+            }
+
+        }
+    }
+
     @OnClick({R.id.setting_iv_back, R.id.setting_account, R.id.setting_baiduren, R.id.setting_verson, R.id.setting_useragreen, R.id.setting_back})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -101,6 +145,7 @@ public class SetTingActivity extends BaseActivity {
                                 SPUtils.remove(MyApp.context,"tbmaxfen");
                                 SPUtils.remove(MyApp.context,"tbarea");
                                 SPUtils.remove(MyApp.context,"tbsubtype");
+                                MyUserBean.setUserBean(null);
                                 finish();
                             }
                         })

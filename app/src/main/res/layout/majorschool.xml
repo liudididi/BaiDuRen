@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:id="@+id/qj_r3"
+        android:layout_width="match_parent"
+        android:layout_height="150px">
+        <View
+            android:layout_marginLeft="50px"
+            android:layout_marginTop="50px"
+            android:background="#3B9EFF"
+            android:id="@+id/fmgk_v3"
+            android:layout_width="10px"
+            android:layout_height="60px">
+        </View>
+        <TextView
+            android:id="@+id/fmgk_tv3"
+            android:layout_toRightOf="@+id/fmgk_v3"
+            android:textSize="50px"
+            android:textColor="@color/black"
+            android:layout_marginLeft="50px"
+            android:layout_marginTop="50px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="在招院校"
+            />
+
+
+        <TextView
+            android:id="@+id/qj_tv2"
+            android:layout_toRightOf="@+id/fmgk_tv3"
+            android:textSize="50px"
+            android:layout_marginLeft="50px"
+            android:layout_marginTop="55px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="UNIVERSITIES"
+            />
+        <TextView
+            android:id="@+id/marjorschool_tvnum"
+            android:layout_width="wrap_content"
+            android:layout_height="150px"
+            android:layout_alignParentRight="true"
+            android:text="0所"
+            android:gravity="center"
+            android:textSize="40px"
+            android:layout_marginRight="50px"
+            />
+        <View
+            android:id="@+id/qj_v4"
+            android:layout_marginTop="20px"
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_below="@+id/qj_tv2"
+            ></View>
+        <View
+            android:layout_below="@+id/qj_v4"
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="@color/black"
+            android:layout_marginTop="50px"
+            ></View>
+    </RelativeLayout>
+
+
+
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/qj_r3"
+        android:id="@+id/majorschool_xrecycle"
+        ></com.jcodecraeer.xrecyclerview.XRecyclerView>
+
+    <ProgressBar
+        android:visibility="visible"
+        android:id="@+id/majorshool_pb"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20px"
+        android:layout_marginTop="10px"
+        android:layout_width="100px"
+        android:layout_height="100px"
+        />
+    <ImageView
+        android:visibility="gone"
+        android:id="@+id/majorschool_none"
+        android:layout_width="500px"
+        android:layout_height="400px"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/none"
+
+        />
+
+
+
+</RelativeLayout>

@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.login_demo.More_SchoolActivity;
 import com.example.login_demo.R;
+import com.example.login_demo.SchoolDetailActivity;
 import com.meg7.widget.CustomShapeImageView;
 
 import java.util.List;
@@ -49,14 +50,15 @@ public class Wash_School_adapter  extends RecyclerView.Adapter{
                 break;
             case 1:
                 view = View.inflate(context, R.layout.my_wish_school_item, null);
-                holder=new School_viewHoder(view);
+
+                        holder=new School_viewHoder(view);
                 break;
         }
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         switch (getItemViewType(position))
         {
             case 0:
@@ -69,10 +71,20 @@ public class Wash_School_adapter  extends RecyclerView.Adapter{
                 });
                 break;
             case 1:
-                School_viewHoder school_viewHoder= (School_viewHoder) holder;
+                final School_viewHoder school_viewHoder= (School_viewHoder) holder;
                 Glide.with(context).load(BaseApi.ImgApi+list.get(position).getImgurl()).into(school_viewHoder.item_school_icon);
                 school_viewHoder.item_school_name.setText(list.get(position).getName());
                 school_viewHoder.item_school_address.setText(list.get(position).getAddress()+"  "+list.get(position).getTypeRank());
+
+
+                school_viewHoder.view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent=new Intent(context, SchoolDetailActivity.class);
+                        intent.putExtra("schoolname",list.get(position).getName());
+                        context.startActivity(intent);
+                    }
+                });
                 break;
         }
 
@@ -103,12 +115,14 @@ public class Wash_School_adapter  extends RecyclerView.Adapter{
         CustomShapeImageView item_school_icon;
          TextView item_school_name;
           TextView item_school_address;
+          View view;
 
        public School_viewHoder(View itemView) {
            super(itemView);
            item_school_icon = itemView.findViewById(R.id.item_school_icon);
            item_school_name = itemView.findViewById(R.id.item_school_name);
            item_school_address = itemView.findViewById(R.id.item_school_address);
+           view=itemView;
        }
    }
     class  School_viewHoder1 extends  RecyclerView.ViewHolder {

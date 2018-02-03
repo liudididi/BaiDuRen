@@ -1,6 +1,7 @@
 package adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.login_demo.R;
+import com.example.login_demo.SchoolDetailActivity;
 import com.meg7.widget.CustomShapeImageView;
 
 import java.util.List;
@@ -46,33 +48,41 @@ public class MoreSchoolRecycle extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         String  fujia="";
         MySchoolViewHolder mySchoolViewHolder= (MySchoolViewHolder) holder;
         mySchoolViewHolder.schoolitem_name.setText(list.get(position).getName());
         mySchoolViewHolder.schoolitem_typerank.setText(list.get(position).getRanking());
         mySchoolViewHolder.schoolitem_address.setText(list.get(position).getAddress());
-        String url = list.get(position).getUrl();
+        final String url = list.get(position).getUrl();
         String two = list.get(position).getTwo();
         String defenseStudent = list.get(position).getDefenseStudent();
         String nine = list.get(position).getNine();
         String recruit = list.get(position).getRecruit();
         if(two!=null){
-            fujia+="    "+two;
+            fujia+=" "+two;
         }
         if(defenseStudent!=null){
-            fujia+="    "+defenseStudent;
+            fujia+=" "+defenseStudent;
         }
         if(nine!=null){
-            fujia+="    "+nine;
+            fujia+=" "+nine;
         }
         if(recruit!=null){
-            fujia+="    "+recruit;
+            fujia+=" "+recruit;
         }
         if(url!=null){
             Glide.with(context).load(BaseApi.ImgApi+url).into(mySchoolViewHolder.schoolitem_url);
         }
         mySchoolViewHolder.schoolitem_fujia.setText(fujia);
+        mySchoolViewHolder.view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(context, SchoolDetailActivity.class);
+                intent.putExtra("schoolname",list.get(position).getName());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -86,11 +96,13 @@ public class MoreSchoolRecycle extends RecyclerView.Adapter {
         private TextView    schoolitem_typerank;
         private TextView    schoolitem_fujia;
         private CustomShapeImageView schoolitem_url;
+        private  View view;
 
 
 
         public MySchoolViewHolder(View itemView) {
             super(itemView);
+            view=itemView;
             schoolitem_name=itemView.findViewById(R.id.schoolitem_name);
             schoolitem_address=itemView.findViewById(R.id.schoolitem_address);
             schoolitem_typerank=itemView.findViewById(R.id.schoolitem_typerank);

@@ -61,6 +61,8 @@ public class MoreSchoolActivity extends BaseActivity  implements MoreSchoolView 
         mschoolXlist.setLayoutManager(new LinearLayoutManager(this));
         moreSchoolPresent = new MoreSchoolPresent(this);
 
+
+
         moreSchoolPresent.checkschool(area,sort+"类");
         //地区Spinner
         area_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arealist);

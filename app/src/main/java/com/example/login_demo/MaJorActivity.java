@@ -1,5 +1,6 @@
 package com.example.login_demo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
@@ -57,7 +58,7 @@ public class MaJorActivity extends BaseActivity implements  MySchoolView {
                 finish();
                 break;
             case R.id.major_see:
-                Toast("专业库");
+                intent(this,MoreMajorActivity.class);
                 break;
         }
     }

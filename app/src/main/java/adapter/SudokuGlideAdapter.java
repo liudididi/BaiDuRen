@@ -15,9 +15,14 @@ import com.example.login_demo.MentalityActivity;
 import com.example.login_demo.MoreJorbActivity;
 import com.example.login_demo.MoreMajorActivity;
 import com.example.login_demo.MoreSchoolActivity;
+import com.example.login_demo.OneTableActivity;
 import com.example.login_demo.ParticularsActivity;
+import com.example.login_demo.ProvinceActivity;
 import com.example.login_demo.R;
 import com.example.login_demo.RankingActivity;
+import com.example.login_demo.ScoreActivity;
+import com.example.login_demo.StudentsinActivity;
+import com.example.login_demo.StudyActivity;
 
 import java.util.ArrayList;
 
@@ -87,7 +92,33 @@ public class SudokuGlideAdapter extends BaseAdapter {
                 {
                     Intent intent=new Intent(context, MoreJorbActivity.class);
                     context.startActivity(intent);
+                } else if(list.get(i).getName().equals("省控线"))
+                {
+                    Intent intent=new Intent(context, ProvinceActivity.class);
+                    context.startActivity(intent);
                 }
+                else if(list.get(i).getName().equals("学习资料"))
+                {
+                    Intent intent=new Intent(context, StudyActivity.class);
+                    context.startActivity(intent);
+                }
+                else if(list.get(i).getName().equals("分数线"))
+                {
+                    Intent intent=new Intent(context, ScoreActivity.class);
+                    context.startActivity(intent);
+                }
+                else if(list.get(i).getName().equals("一分一表"))
+                {
+                    Intent intent=new Intent(context, OneTableActivity.class);
+                    context.startActivity(intent);
+                }
+
+                else if(list.get(i).getName().equals("特长生"))
+                {
+                    Intent intent=new Intent(context, StudentsinActivity.class);
+                    context.startActivity(intent);
+                }
+
 
             }
         });

@@ -50,7 +50,7 @@ public class LogInMoudle {
                 });
 
         compositeDisposable.add(disposableSubscriber);
-    }
+}
 
 
 

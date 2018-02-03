@@ -67,7 +67,15 @@
         <activity android:name=".MentalityActivity" />
         <activity android:name=".RankingActivity" />
         <activity android:name=".AsForBaiDuRenActivity" />
-        <activity android:name=".MoreJorbActivity"></activity>
+        <activity android:name=".MoreJorbActivity" />
+        <activity android:name=".ProvinceActivity" />
+        <activity android:name=".StudyActivity" />
+        <activity android:name=".MajorDetailActivity" />
+        <activity android:name=".JobDetailsActivity" />
+        <activity android:name=".OneTableActivity" />
+        <activity android:name=".ScoreActivity" />
+        <activity android:name=".SchoolDetailActivity"></activity>
+        <activity android:name=".StudentsinActivity"></activity>
     </application>
 
 </manifest>

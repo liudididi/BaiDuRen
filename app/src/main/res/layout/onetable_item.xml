@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="300px"
+         >
+        <LinearLayout
+            android:id="@+id/onetable_ll"
+            android:layout_width="200px"
+            android:layout_height="200px"
+            android:orientation="vertical"
+            android:layout_centerVertical="true"
+            android:layout_margin="50px"
+            android:gravity="center"
+            android:background="@drawable/back_circle3"
+            >
+            <TextView
+                android:id="@+id/onetable_tv_years"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2017"
+                android:textSize="35px"
+                android:textColor="#fff"/>
+            <TextView
+                android:id="@+id/onetable_tv_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="北京"
+                android:textSize="35px"
+                android:textColor="#fff"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_toRightOf="@id/onetable_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerVertical="true"
+            >
+            <TextView
+                android:id="@+id/onetable_tv_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:textSize="40px"/>
+            <TextView
+                android:id="@+id/onetable_tv_years2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="35px"
+                android:layout_marginTop="20px"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="45px"
+            android:layout_height="45px"
+            android:src="@drawable/right_arrow"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="50px"
+            />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#ccc"
+        android:layout_below="@id/rl"></View>
+</RelativeLayout>
