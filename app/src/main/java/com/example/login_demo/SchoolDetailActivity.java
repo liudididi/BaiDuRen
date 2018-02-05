@@ -2,6 +2,8 @@ package com.example.login_demo;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -13,6 +15,7 @@ import base.BaseActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import fragment.School_Summary;
 
 public class SchoolDetailActivity extends BaseActivity {
 
@@ -44,7 +47,8 @@ public class SchoolDetailActivity extends BaseActivity {
     TextView schooldZsjz;
     @BindView(R.id.school_fl)
     FrameLayout schoolFl;
-
+    private School_Summary school_summary;
+    private Fragment currentFragment;
     @Override
     public int getId() {
         return R.layout.activity_school_detail;
@@ -52,13 +56,31 @@ public class SchoolDetailActivity extends BaseActivity {
 
     @Override
     public void InIt() {
-
+         initfragment();
         String schoolname = getIntent().getStringExtra("schoolname");
         schooldName.setText(schoolname);
-
+       
     }
-
-
+    private FragmentTransaction switchFragment(Fragment targetFragment) {
+        FragmentTransaction transaction = getSupportFragmentManager()
+                .beginTransaction();
+        if (!targetFragment.isAdded()) {
+            //第一次使用switchFragment()时currentFragment为null，所以要判断一下
+            if (currentFragment != null) {
+                transaction.hide(currentFragment);
+            }
+            transaction.add(R.id.school_fl, targetFragment, targetFragment.getClass().getName());
+        } else {
+            transaction
+                    .hide(currentFragment)
+                    .show(targetFragment);
+        }
+        currentFragment = targetFragment;
+        return transaction;
+    }
+    private void initfragment() {
+        school_summary = new School_Summary();
+    }
 
 
     @OnClick({R.id.schoold_iv_back, R.id.schoold_lq, R.id.schoold_jj, R.id.schoold_zsjz})
@@ -94,7 +116,7 @@ public class SchoolDetailActivity extends BaseActivity {
                 schooldZsjz.setBackgroundResource(R.drawable.back_schoold);
 
 
-
+                switchFragment(school_summary).commitAllowingStateLoss();
                 break;
             case R.id.schoold_zsjz:
 

@@ -5,6 +5,7 @@ import java.util.List;
 import base.BaseBean;
 import bean.NewsBean;
 import bean.SlideshowBean;
+import bean.TitleBean;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
@@ -120,15 +121,15 @@ public class SlideshowMoudle {
     }
 
     //高考头条专题回调接口
-    public void College(String category, String province, String page, String limit, final CollegeBack collegeBack)
+    public void College(String page, String limit, final CollegeBack collegeBack)
     {
-        DisposableSubscriber<BaseBean<NewsBean>> disposableSubscriber = MyQusetUtils.getInstance().getQuestInterface().News(category, province, page, limit)
+        DisposableSubscriber<BaseBean<TitleBean>> disposableSubscriber = MyQusetUtils.getInstance().getQuestInterface().TitleNews(page, limit)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableSubscriber<BaseBean<NewsBean>>() {
+                .subscribeWith(new DisposableSubscriber<BaseBean<TitleBean>>() {
                     @Override
-                    public void onNext(BaseBean<NewsBean> listBaseBean) {
-                        collegeBack.Collegesuccess(listBaseBean);
+                    public void onNext(BaseBean<TitleBean> titleBeanBaseBean) {
+                        collegeBack.Collegesuccess(titleBeanBaseBean);
                     }
 
                     @Override
@@ -146,7 +147,7 @@ public class SlideshowMoudle {
     }
     //高考头条专题
     public  interface  CollegeBack{
-        void   Collegesuccess(BaseBean<NewsBean> listBaseBean);
+        void   Collegesuccess(BaseBean<TitleBean> titleBeanBaseBean);
         void   Collegefail(Throwable t);
     }
     //精选推荐专题

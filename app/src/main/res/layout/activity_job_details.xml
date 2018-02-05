@@ -86,10 +86,12 @@
             android:layout_height="wrap_content"
             android:text="职业详情"
             android:textSize="40px"
-            android:textColor="@color/black"
+            android:textColor="#3B9EFF"
             android:layout_marginLeft="70px"
             />
         <TextView
+            android:textSize="43px"
+            android:textColor="@color/black"
             android:layout_marginTop="40px"
             android:id="@+id/jobd_tvxq"
             android:layout_marginLeft="70px"
@@ -119,10 +121,12 @@
             android:layout_height="wrap_content"
             android:text="教育培训"
             android:textSize="40px"
-            android:textColor="@color/black"
+            android:textColor="#3B9EFF"
             android:layout_marginLeft="70px"
             />
         <TextView
+            android:textSize="43px"
+            android:textColor="@color/black"
             android:layout_marginTop="40px"
             android:id="@+id/jobd_tvpx"
             android:layout_marginLeft="70px"
@@ -153,10 +157,12 @@
             android:layout_height="wrap_content"
             android:text="招聘经验要求分析"
             android:textSize="40px"
-            android:textColor="@color/black"
+            android:textColor="#3B9EFF"
             android:layout_marginLeft="70px"
             />
         <TextView
+            android:textSize="43px"
+            android:textColor="@color/black"
             android:layout_marginTop="40px"
             android:id="@+id/jobd_tvzpjy"
             android:layout_marginLeft="70px"

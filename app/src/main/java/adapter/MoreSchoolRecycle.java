@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -28,6 +29,8 @@ public class MoreSchoolRecycle extends RecyclerView.Adapter {
     private Context context;
     private List<CheckSchoolBean> list;
 
+    public  CollectBack collectBack;
+
     public MoreSchoolRecycle(Context context, List<CheckSchoolBean> list) {
         this.context = context;
         this.list = list;
@@ -50,7 +53,7 @@ public class MoreSchoolRecycle extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         String  fujia="";
-        MySchoolViewHolder mySchoolViewHolder= (MySchoolViewHolder) holder;
+        final MySchoolViewHolder mySchoolViewHolder= (MySchoolViewHolder) holder;
         mySchoolViewHolder.schoolitem_name.setText(list.get(position).getName());
         mySchoolViewHolder.schoolitem_typerank.setText(list.get(position).getRanking());
         mySchoolViewHolder.schoolitem_address.setText(list.get(position).getAddress());
@@ -75,6 +78,13 @@ public class MoreSchoolRecycle extends RecyclerView.Adapter {
             Glide.with(context).load(BaseApi.ImgApi+url).into(mySchoolViewHolder.schoolitem_url);
         }
         mySchoolViewHolder.schoolitem_fujia.setText(fujia);
+
+        mySchoolViewHolder.schoolitem_collect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                collectBack.collecBack(mySchoolViewHolder.schoolitem_collect,list.get(position).getName(),position);
+            }
+        });
         mySchoolViewHolder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,6 +106,7 @@ public class MoreSchoolRecycle extends RecyclerView.Adapter {
         private TextView    schoolitem_typerank;
         private TextView    schoolitem_fujia;
         private CustomShapeImageView schoolitem_url;
+        private ImageView  schoolitem_collect;
         private  View view;
 
 
@@ -108,6 +119,16 @@ public class MoreSchoolRecycle extends RecyclerView.Adapter {
             schoolitem_typerank=itemView.findViewById(R.id.schoolitem_typerank);
             schoolitem_fujia=itemView.findViewById(R.id.schoolitem_fujia);
             schoolitem_url=itemView.findViewById(R.id.schoolitem_url);
+            schoolitem_collect=itemView.findViewById(R.id.schoolitem_collect);
         }
+    }
+
+
+    public  interface  CollectBack{
+        void   collecBack(ImageView imgcollect,String name,int postion);
+    }
+
+    public void setCollectBack(CollectBack collectBack) {
+        this.collectBack = collectBack;
     }
 }

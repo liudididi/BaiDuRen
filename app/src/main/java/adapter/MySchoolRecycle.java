@@ -33,6 +33,12 @@ public class MySchoolRecycle extends RecyclerView.Adapter {
         this.list = list;
     }
 
+    public  void  Reftch(List<SchoolBean> newlist){
+        list.clear();
+        list=newlist;
+        this.notifyDataSetChanged();
+    }
+
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = View.inflate(context, R.layout.myschool_listitem, null);
@@ -45,9 +51,9 @@ public class MySchoolRecycle extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         MySchoolViewHolder mySchoolViewHolder= (MySchoolViewHolder) holder;
         mySchoolViewHolder.schoolitem_name.setText(list.get(position).getName());
-        mySchoolViewHolder.schoolitem_typerank.setText(list.get(position).getTypeRank());
-        mySchoolViewHolder.schoolitem_address.setText(list.get(position).getAddress());
-        String url = list.get(position).getUrl();
+        mySchoolViewHolder.schoolitem_typerank.setText(list.get(position).getVlaue2());
+        mySchoolViewHolder.schoolitem_address.setText(list.get(position).getValue1());
+        String url = list.get(position).getValue3();
         if(url!=null){
             Glide.with(context).load(BaseApi.ImgApi+url).into(mySchoolViewHolder.schoolitem_url);
         }

@@ -9,45 +9,25 @@ public class MajorBean {
 
 
     /**
-     * userId : null
-     * type : null
-     * name : 计算机科学与技术
-     * topFlag : null
-     * grouping : null
-     * collectionTime : null
-     * topTime : null
-     * remarks : null
-     * standby : null
-     * standby2 : null
-     * standby3 : null
+     * value1 : 临床医学类
+     * name : 中医学
+     * id : 620103
+     * type : 1
+     * vlaue2 : 医药卫生大类
      */
 
-    private Object userId;
-    private Object type;
+    private String value1;
     private String name;
-    private Object topFlag;
-    private Object grouping;
-    private Object collectionTime;
-    private Object topTime;
-    private Object remarks;
-    private Object standby;
-    private Object standby2;
-    private Object standby3;
+    private String id;
+    private String type;
+    private String vlaue2;
 
-    public Object getUserId() {
-        return userId;
+    public String getValue1() {
+        return value1;
     }
 
-    public void setUserId(Object userId) {
-        this.userId = userId;
-    }
-
-    public Object getType() {
-        return type;
-    }
-
-    public void setType(Object type) {
-        this.type = type;
+    public void setValue1(String value1) {
+        this.value1 = value1;
     }
 
     public String getName() {
@@ -58,67 +38,27 @@ public class MajorBean {
         this.name = name;
     }
 
-    public Object getTopFlag() {
-        return topFlag;
+    public String getId() {
+        return id;
     }
 
-    public void setTopFlag(Object topFlag) {
-        this.topFlag = topFlag;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public Object getGrouping() {
-        return grouping;
+    public String getType() {
+        return type;
     }
 
-    public void setGrouping(Object grouping) {
-        this.grouping = grouping;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public Object getCollectionTime() {
-        return collectionTime;
+    public String getVlaue2() {
+        return vlaue2;
     }
 
-    public void setCollectionTime(Object collectionTime) {
-        this.collectionTime = collectionTime;
-    }
-
-    public Object getTopTime() {
-        return topTime;
-    }
-
-    public void setTopTime(Object topTime) {
-        this.topTime = topTime;
-    }
-
-    public Object getRemarks() {
-        return remarks;
-    }
-
-    public void setRemarks(Object remarks) {
-        this.remarks = remarks;
-    }
-
-    public Object getStandby() {
-        return standby;
-    }
-
-    public void setStandby(Object standby) {
-        this.standby = standby;
-    }
-
-    public Object getStandby2() {
-        return standby2;
-    }
-
-    public void setStandby2(Object standby2) {
-        this.standby2 = standby2;
-    }
-
-    public Object getStandby3() {
-        return standby3;
-    }
-
-    public void setStandby3(Object standby3) {
-        this.standby3 = standby3;
+    public void setVlaue2(String vlaue2) {
+        this.vlaue2 = vlaue2;
     }
 }

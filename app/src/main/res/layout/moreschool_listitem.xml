@@ -55,12 +55,14 @@
                 android:text="附加信息"/>
         </RelativeLayout>
         <ImageView
-            android:layout_width="45px"
-            android:layout_height="45px"
-            android:src="@drawable/right_arrow"
+            android:id="@+id/schoolitem_collect"
+            android:padding="10px"
+            android:layout_width="100px"
+            android:layout_height="100px"
+            android:src="@drawable/collect_none"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="20px"
+            android:layout_marginRight="40px"
             />
 
     </RelativeLayout>

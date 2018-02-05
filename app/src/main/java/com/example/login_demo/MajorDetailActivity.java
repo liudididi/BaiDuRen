@@ -13,8 +13,11 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
+import java.util.List;
+
 import base.BaseActivity;
 import base.BaseBean;
+import bean.CollerMajorBean;
 import bean.MyUserBean;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -61,6 +64,7 @@ public class MajorDetailActivity extends BaseActivity {
     private Majorschool_Fragment majorschool_fragment;
     private String token;
     private DisposableSubscriber<BaseBean> disposableSubscriber;
+    private DisposableSubscriber<BaseBean<List<CollerMajorBean>>> disposableSubscriber2;
 
     @Override
     public int getId() {
@@ -74,6 +78,8 @@ public class MajorDetailActivity extends BaseActivity {
         mdTvtitle.setText(major);
         initfragment();
         switchFragment(majorgk_fragment).commitAllowingStateLoss();
+        token = (String) SPUtils.get(MyApp.context, "token", "");
+        iscollect();
     }
 
     private void initfragment() {
@@ -137,9 +143,8 @@ public class MajorDetailActivity extends BaseActivity {
     }
 
     private void collect() {
-        token = (String) SPUtils.get(MyApp.context, "token", "");
         if(token.length()>4){
-          collecta("1",major,token);
+          collecta("1",majorid,token);
         }else {
             Toast("登录后才能收藏哦~");
         }
@@ -180,5 +185,43 @@ public class MajorDetailActivity extends BaseActivity {
         if(disposableSubscriber!=null){
             disposableSubscriber.dispose();
         }
+        if(disposableSubscriber2!=null){
+            disposableSubscriber2.dispose();
+        }
+    }
+
+    public void iscollect() {
+        disposableSubscriber2 = MyQusetUtils.getInstance()
+                .getQuestInterface().getiscollet(majorid, token)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io()).subscribeWith(new DisposableSubscriber<BaseBean<List<CollerMajorBean>>>() {
+                    @Override
+                    public void onNext(BaseBean<List<CollerMajorBean>> listBaseBean) {
+
+                        if(listBaseBean.code==0){
+                            List<CollerMajorBean> data = listBaseBean.data;
+                            if(data!=null&&data.size()>0){
+                                String collectionTime = data.get(0).getCollectionTime();
+
+                                if(collectionTime!=null&&collectionTime.length()>2){
+                                    Glide.with(MajorDetailActivity.this).load(R.drawable.collect_yes).into(imgCollect);
+                                }else {
+                                    Glide.with(MajorDetailActivity.this).load(R.drawable.collect_none).into(imgCollect);
+                                }
+                            }
+
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable t) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
     }
 }

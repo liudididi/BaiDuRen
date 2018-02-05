@@ -5,6 +5,7 @@ import java.util.List;
 import base.BaseBean;
 import bean.NewsBean;
 import bean.SlideshowBean;
+import bean.TitleBean;
 
 /**
  * Created by 祝文 on 2018/1/20.
@@ -25,6 +26,6 @@ public interface SlideshowView {
     void   Recommendsuccess(BaseBean<NewsBean> listBaseBean);
     void   Recommendfail(Throwable t);
     //高考头条专题
-    void   Collegesuccess(BaseBean<NewsBean> listBaseBean);
+    void   Collegesuccess(BaseBean<TitleBean> titleBeanBaseBean);
     void   Collegefail(Throwable t);
 }

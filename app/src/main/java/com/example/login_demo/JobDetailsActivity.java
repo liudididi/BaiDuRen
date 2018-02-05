@@ -4,12 +4,17 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+
 import base.BaseActivity;
+import bean.JobInforBean;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import presenter.GetJobinfoPresent;
+import view.GetJobinfoView;
 
-public class JobDetailsActivity extends BaseActivity {
+public class JobDetailsActivity extends BaseActivity implements GetJobinfoView {
 
     @BindView(R.id.jobd_tvjob)
     TextView jobdTvjob;
@@ -21,6 +26,7 @@ public class JobDetailsActivity extends BaseActivity {
     TextView jobdTvzpjy;
     @BindView(R.id.jobd_iv_back)
     ImageView jobdIvBack;
+    private GetJobinfoPresent getJobinfoPresent;
 
     @Override
     public int getId() {
@@ -33,14 +39,34 @@ public class JobDetailsActivity extends BaseActivity {
 
         jobdTvjob.setText(jobname);
 
+        getJobinfoPresent = new GetJobinfoPresent(this);
+        getJobinfoPresent.getJobInfo(jobname);
     }
 
-
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        getJobinfoPresent.onDestory();
+    }
 
     @OnClick(R.id.jobd_iv_back)
     public void onViewClicked() {
 
         finish();
+    }
+
+    @Override
+    public void GetJobinfoSuccess(List<JobInforBean> list) {
+        if(list!=null&&list.size()>0){
+            JobInforBean jobInforBean = list.get(0);
+            jobdTvxq.setText(jobInforBean.getJobInfo());
+            jobdTvpx.setText(jobInforBean.getJobEducation());
+            jobdTvzpjy.setText(jobInforBean.getJobRequirement());
+        }
+    }
+
+    @Override
+    public void GetJobinfoFail(String msg) {
+
     }
 }

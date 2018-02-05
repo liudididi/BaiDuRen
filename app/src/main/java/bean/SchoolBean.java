@@ -9,24 +9,36 @@ public class SchoolBean {
 
 
     /**
-     * name : 清华大学
-     * ranking : 全国2
-     * typeRank : 理工1
-     * address : 北京市
-     * father : 教育部
-     * univType : 大学
-     * url : /images/school/201201090552434112.jpg
-     * info : null
+     * value1 : 北京市
+     * value3 : /images/school/201202161100413470.jpg
+     * name : 北京大学
+     * id :
+     * type : 大学
+     * vlaue2 : 全国1
      */
 
+    private String value1;
+    private String value3;
     private String name;
-    private String ranking;
-    private String typeRank;
-    private String address;
-    private String father;
-    private String univType;
-    private String url;
-    private Object info;
+    private String id;
+    private String type;
+    private String vlaue2;
+
+    public String getValue1() {
+        return value1;
+    }
+
+    public void setValue1(String value1) {
+        this.value1 = value1;
+    }
+
+    public String getValue3() {
+        return value3;
+    }
+
+    public void setValue3(String value3) {
+        this.value3 = value3;
+    }
 
     public String getName() {
         return name;
@@ -36,59 +48,27 @@ public class SchoolBean {
         this.name = name;
     }
 
-    public String getRanking() {
-        return ranking;
+    public String getId() {
+        return id;
     }
 
-    public void setRanking(String ranking) {
-        this.ranking = ranking;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getTypeRank() {
-        return typeRank;
+    public String getType() {
+        return type;
     }
 
-    public void setTypeRank(String typeRank) {
-        this.typeRank = typeRank;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public String getAddress() {
-        return address;
+    public String getVlaue2() {
+        return vlaue2;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getFather() {
-        return father;
-    }
-
-    public void setFather(String father) {
-        this.father = father;
-    }
-
-    public String getUnivType() {
-        return univType;
-    }
-
-    public void setUnivType(String univType) {
-        this.univType = univType;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public Object getInfo() {
-        return info;
-    }
-
-    public void setInfo(Object info) {
-        this.info = info;
+    public void setVlaue2(String vlaue2) {
+        this.vlaue2 = vlaue2;
     }
 }

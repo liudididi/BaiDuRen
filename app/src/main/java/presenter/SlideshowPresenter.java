@@ -6,6 +6,7 @@ import base.BaseBean;
 import base.Basepresent;
 import bean.NewsBean;
 import bean.SlideshowBean;
+import bean.TitleBean;
 import moudle.SlideshowMoudle;
 import view.SlideshowView;
 
@@ -86,11 +87,11 @@ public class SlideshowPresenter extends Basepresent {
         });
     }
     //高考头条
-    public void CollegePresenter(String category, String province, String page, String limit)
+    public void CollegePresenter(String page, String limit)
     {
-        slideshowMoudle.College(category, province, page, limit, new SlideshowMoudle.CollegeBack() {
+        slideshowMoudle.College( page, limit, new SlideshowMoudle.CollegeBack() {
             @Override
-            public void Collegesuccess(BaseBean<NewsBean> listBaseBean) {
+            public void Collegesuccess(BaseBean<TitleBean> listBaseBean) {
                 slideshowView.Collegesuccess(listBaseBean);
             }
 

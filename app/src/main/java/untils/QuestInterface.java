@@ -8,8 +8,10 @@ import bean.AreaBean;
 import bean.CanSchoolBean;
 import bean.CheckSchoolBean;
 import bean.CityBean;
+import bean.CollerMajorBean;
 import bean.HotBean;
 import bean.InquireBean;
+import bean.JobInforBean;
 import bean.MajorBean;
 import bean.MajorSchoolBean;
 import bean.MajorgkBean;
@@ -27,7 +29,9 @@ import bean.SelectMajorBean;
 import bean.SelectSchoolBean;
 import bean.SlideshowBean;
 import bean.StudentsinBean;
+import bean.StudentsinNewsBean;
 import bean.StudyBean;
+import bean.TitleBean;
 import bean.UserBean;
 import io.reactivex.Flowable;
 
@@ -47,6 +51,24 @@ import retrofit2.http.Query;
  */
 
 public interface QuestInterface {
+
+    //特长生艺考资讯
+    @GET("/app/news/newsInfo")
+    Flowable<BaseBean<StudentsinNewsBean>> studentsnews(@Query("category") String category, @Query("province") String  province, @Query("page") String  page, @Query("limit") String  limit);
+
+    //查询专业是否收藏
+    @GET("/app/major/getMajorThreeById")
+    Flowable<BaseBean<List<CollerMajorBean>>> getiscollet(@Query("majorId") String majorid, @Header("token") String token);
+
+
+    //职业详情
+    @GET("/app/jobinfo/getjobinfo")
+    Flowable<BaseBean<List<JobInforBean>>> getjobinfo(@Query("jobName") String jobName);
+
+    //高考头条新闻接口
+    @GET("/app/news/newsTopLine")
+    Flowable<BaseBean<TitleBean>> TitleNews(@Query("page") String page, @Query("limit") String limit);
+
 
     //特长生艺术院校
     @GET("/app/school/check")

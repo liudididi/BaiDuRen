@@ -5,6 +5,7 @@ import java.util.List;
 import base.BaseBean;
 import base.Basepresent;
 import bean.StudentsinBean;
+import bean.StudentsinNewsBean;
 import moudle.StudentsinMoudle;
 import view.StudentsinView;
 
@@ -35,6 +36,20 @@ public class StudentsinPresent extends Basepresent {
             @Override
             public void Studentsinfail(Throwable t) {
                 studentsinView.Studentsinfail(t);
+            }
+        });
+    }
+    public void StudentsinNewsPresent(String category, String province, String page, String limit)
+    {
+        studentsinMoudle.StudentsinNews(category, province, page, limit, new StudentsinMoudle.StudentsinNewsBack() {
+            @Override
+            public void StudentsinNewssuccess(BaseBean<StudentsinNewsBean> studentsinNewsBeanBaseBean) {
+                studentsinView.StudentsinNewssuccess(studentsinNewsBeanBaseBean);
+            }
+
+            @Override
+            public void StudentsinNewsfail(Throwable t) {
+                studentsinView.StudentsinNewsfail(t);
             }
         });
     }

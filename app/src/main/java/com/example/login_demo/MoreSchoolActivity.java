@@ -9,7 +9,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
 import java.util.ArrayList;
@@ -17,14 +19,20 @@ import java.util.List;
 
 import adapter.MoreSchoolRecycle;
 import base.BaseActivity;
+import base.BaseBean;
 import bean.CheckSchoolBean;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
+import io.reactivex.subscribers.DisposableSubscriber;
 import presenter.MoreSchoolPresent;
+import untils.MyQusetUtils;
+import untils.SPUtils;
 import view.MoreSchoolView;
 
-public class MoreSchoolActivity extends BaseActivity  implements MoreSchoolView {
+public class MoreSchoolActivity extends BaseActivity  implements MoreSchoolView, MoreSchoolRecycle.CollectBack {
     @BindView(R.id.mschool_iv_back)
     ImageView mschoolIvBack;
     @BindView(R.id.mschool_search)
@@ -46,6 +54,7 @@ public class MoreSchoolActivity extends BaseActivity  implements MoreSchoolView 
     private  String  sort;
     private MoreSchoolPresent moreSchoolPresent;
     private MoreSchoolRecycle adpter;
+    private String token;
 
     @Override
     public int getId() {
@@ -56,7 +65,7 @@ public class MoreSchoolActivity extends BaseActivity  implements MoreSchoolView 
     @Override
     public void InIt() {
         initList();
-
+        token = (String) SPUtils.get(MyApp.context, "token", "");
         mschoolXlist.setPullRefreshEnabled(false);
         mschoolXlist.setLayoutManager(new LinearLayoutManager(this));
         moreSchoolPresent = new MoreSchoolPresent(this);
@@ -200,9 +209,9 @@ public class MoreSchoolActivity extends BaseActivity  implements MoreSchoolView 
         if(list!=null&list.size()>0){
             img_none.setVisibility(View.GONE);
             mschoolXlist.setVisibility(View.VISIBLE);
-
             if(adpter==null){
                 adpter = new MoreSchoolRecycle(this,list);
+                adpter.setCollectBack(this);
                 mschoolXlist.setAdapter(adpter);
             }else {
                 adpter.Refsh(list);
@@ -217,6 +226,41 @@ public class MoreSchoolActivity extends BaseActivity  implements MoreSchoolView 
     @Override
     public void CheckFail(String msg) {
 
+
+    }
+
+    @Override
+    public void collecBack(final ImageView imgcollect, String name, int postion) {
+
+        if(token==null||token.length()<4){
+            Toast("用户未登录");
+            return;
+        }
+          MyQusetUtils.getInstance()
+                    .getQuestInterface().collect("0", name, token)
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribeOn(Schedulers.io())
+                    .subscribeWith(new DisposableSubscriber<BaseBean>() {
+                        @Override
+                        public void onNext(BaseBean baseBean) {
+                            Toast.makeText(MyApp.context, baseBean.msg, Toast.LENGTH_SHORT).show();
+                            if(baseBean.msg.equals("收藏成功")){
+                                Glide.with(MoreSchoolActivity.this).load(R.drawable.collect_yes).into(imgcollect);
+                            }else {
+                                Glide.with(MoreSchoolActivity.this).load(R.drawable.collect_none).into(imgcollect);
+                            }
+                        }
+
+                        @Override
+                        public void onError(Throwable t) {
+
+                        }
+
+                        @Override
+                        public void onComplete() {
+
+                        }
+                    });
 
     }
 }

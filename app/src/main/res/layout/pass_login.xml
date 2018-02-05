@@ -92,7 +92,7 @@
         android:background="@drawable/back_guanzhu"
         android:gravity="center"
         android:text="登录"
-        android:textColor="#e6e6e6"
+        android:textColor="@color/white"
         android:textSize="48px"
         android:layout_marginLeft="30px"
         android:layout_marginRight="30px"/>

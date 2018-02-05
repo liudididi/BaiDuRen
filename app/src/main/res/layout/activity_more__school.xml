@@ -40,11 +40,13 @@
         android:orientation="vertical"
         android:layout_below="@id/view1"
         android:gravity="center"
+        android:background="@drawable/can"
         >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="推荐你能上的学校"
+            android:textColor="#fff"
             android:textSize="50px"
             />
         <LinearLayout
@@ -59,15 +61,18 @@
                 android:id="@+id/more_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="北京"/>
+                android:text="北京"
+                android:textColor="#fff"/>
             <TextView
                 android:id="@+id/more_classify"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="文科"
+                android:textColor="#fff"
                 android:layout_marginLeft="30px"
                 android:layout_marginRight="30px"/>
             <TextView
+                android:textColor="#fff"
                 android:id="@+id/more_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -76,6 +81,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#fff"
             android:text="建议您填写具体意向，生成更具象志愿表"
             android:textSize="40px"
             />

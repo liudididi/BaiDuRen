@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
+    android:background="@color/white"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -550,6 +551,7 @@
             android:background="@drawable/bg_confirm"
             android:text="确定"
             android:gravity="center"
+            android:textColor="@color/white"
             android:layout_marginTop="70px"
             android:layout_marginLeft="50px"
             android:layout_marginRight="50px"

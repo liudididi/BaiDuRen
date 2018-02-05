@@ -27,17 +27,17 @@
             <LinearLayout
                 android:id="@+id/ll_college"
                 android:layout_width="match_parent"
-                android:layout_height="180px"
+                android:layout_height="190px"
                 android:orientation="horizontal"
                 android:layout_below="@id/view5"
                 android:gravity="center_vertical"
                 >
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="180px"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_margin="10px"
-
+                    android:gravity="center"
+                    android:layout_marginTop="10px"
                     >
                     <TextView
                         android:text="高考"
@@ -67,22 +67,37 @@
                 <View
                     android:layout_width="2px"
                     android:layout_height="130px"
-                    android:layout_margin="10px"
+                   android:layout_marginTop="20px"
+                    android:layout_marginBottom="10px"
                     android:background="@color/black"
-
+                    android:layout_marginRight="30px"
                    ></View>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical">
+                    <ViewFlipper
+                        android:id="@+id/viewflipper2"
+                        android:layout_width="match_parent"
+                        android:layout_height="90px"
+                        android:autoStart="true"
+                        android:flipInterval="5000"
+                        android:inAnimation="@anim/anim_marquee_in"
+                        android:outAnimation="@anim/anim_marquee_out">
+                    </ViewFlipper>
                 <ViewFlipper
                     android:id="@+id/viewflipper"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="90px"
                     android:autoStart="true"
                     android:flipInterval="5000"
-
+                    android:layout_marginBottom="20px"
                     android:inAnimation="@anim/anim_marquee_in"
                     android:outAnimation="@anim/anim_marquee_out">
-
                 </ViewFlipper>
+                </LinearLayout>
             </LinearLayout>
             <View
                 android:id="@+id/view6"
@@ -123,7 +138,7 @@
                         >
                         <ImageView
                             android:layout_marginLeft="50px"
-                            android:layout_marginTop="30px"
+                            android:layout_marginTop="18px"
                             android:layout_width="50px"
                             android:layout_height="50px"
                            android:src="@drawable/compile"
@@ -161,7 +176,7 @@
                     android:id="@+id/home_tv_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="你已生成0份志愿表"
+                    android:text="你已生成2份志愿表"
                     android:layout_below="@id/ll"
                     android:layout_marginTop="30px"
                     android:layout_centerHorizontal="true"/>
@@ -186,7 +201,8 @@
                     android:layout_height="wrap_content"
                     android:text="为你量身定制最优志愿表"
                     android:textColor="#ffff"
-                    android:textSize="40px"/>
+                    android:textSize="30px"
+                    android:layout_marginTop="10px"/>
                 </LinearLayout>
             </RelativeLayout>
             <View

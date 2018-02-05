@@ -9,7 +9,7 @@
         android:width="1px"
         ></stroke>
     <solid
-        android:color="#ccc"
+        android:color="#EBF4FD"
         ></solid>
     <size
         android:width="300px"

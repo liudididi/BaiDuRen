@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+
+
+<RelativeLayout
+
+      android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:id="@+id/ss_r1"
+        android:layout_below="@+id/fmgk_v"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <View
+            android:layout_marginLeft="50px"
+            android:layout_marginTop="50px"
+            android:background="#3B9EFF"
+            android:id="@+id/fmgk_v1"
+            android:layout_width="10px"
+            android:layout_height="60px">
+        </View>
+        <TextView
+            android:id="@+id/fmgk_tv"
+            android:layout_toRightOf="@+id/fmgk_v1"
+            android:textSize="50px"
+            android:textColor="@color/black"
+            android:layout_marginLeft="50px"
+            android:layout_marginTop="50px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="校园介绍"
+            />
+
+        <TextView
+            android:id="@+id/qj_tv"
+            android:layout_toRightOf="@+id/fmgk_tv"
+            android:textSize="50px"
+            android:layout_marginLeft="50px"
+            android:layout_marginTop="55px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="INTRODUCE"
+            />
+
+        <TextView
+            android:text="null"
+            android:id="@+id/ss_tvjs"
+            android:layout_marginTop="50px"
+            android:layout_marginLeft="112px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/qj_tv"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="30px"
+        android:background="@color/white"
+        android:id="@+id/ss_r2"
+        android:layout_below="@+id/ss_r1"
+        android:layout_width="match_parent"
+        android:layout_height="150px">
+        <View
+            android:layout_marginLeft="50px"
+            android:layout_marginTop="50px"
+            android:background="#3B9EFF"
+            android:id="@+id/ss_v1"
+            android:layout_width="10px"
+            android:layout_height="60px">
+        </View>
+        <TextView
+            android:id="@+id/ss_tv1"
+            android:layout_toRightOf="@+id/ss_v1"
+            android:textSize="50px"
+            android:textColor="@color/black"
+            android:layout_marginLeft="50px"
+            android:layout_marginTop="50px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="报考指南"
+            />
+
+        <TextView
+            android:id="@+id/ss_tv"
+            android:layout_toRightOf="@+id/ss_tv1"
+            android:textSize="50px"
+            android:layout_marginLeft="50px"
+            android:layout_marginTop="55px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GUIDE"
+            />
+        <View
+            android:id="@+id/ss_v2"
+            android:layout_marginTop="20px"
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            ></View>
+    </RelativeLayout>
+    <RelativeLayout
+        android:background="@color/white"
+        android:id="@+id/ss_sfbz"
+        android:layout_below="@+id/ss_r2"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        >
+        <ImageView
+            android:layout_marginLeft="40px"
+            android:layout_marginTop="30px"
+            android:layout_width="60px"
+            android:layout_height="60px"
+           android:src="@drawable/money"
+            />
+
+        <TextView
+            android:textColor="@color/black"
+            android:text="收费标准"
+            android:textSize="50px"
+            android:gravity="center"
+            android:layout_marginLeft="120px"
+            android:layout_marginTop="20px"
+            android:layout_width="wrap_content"
+            android:layout_height="80px" />
+        <ImageView
+            android:src="@drawable/right_lan"
+            android:layout_marginTop="35px"
+            android:layout_marginRight="30px"
+            android:layout_width="45px"
+            android:layout_height="45px"
+            android:layout_alignParentRight="true"
+            />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:id="@+id/ss_jjzz"
+
+        android:layout_below="@+id/ss_sfbz"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        >
+        <ImageView
+            android:layout_marginLeft="40px"
+            android:layout_marginTop="30px"
+            android:layout_width="60px"
+            android:layout_height="60px"
+            android:src="@drawable/jiangbei"
+            />
+
+        <TextView
+            android:textColor="@color/black"
+            android:text="奖金资助"
+            android:textSize="50px"
+            android:gravity="center"
+            android:layout_marginLeft="120px"
+            android:layout_marginTop="20px"
+            android:layout_width="wrap_content"
+            android:layout_height="80px" />
+        <ImageView
+            android:src="@drawable/right_lan"
+            android:layout_marginTop="35px"
+            android:layout_marginRight="30px"
+            android:layout_width="45px"
+            android:layout_height="45px"
+            android:layout_alignParentRight="true"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="30px"
+        android:background="@color/white"
+        android:id="@+id/ss_r3"
+        android:layout_below="@+id/ss_jjzz"
+        android:layout_width="match_parent"
+        android:layout_height="150px">
+        <View
+            android:layout_marginLeft="50px"
+            android:layout_marginTop="50px"
+            android:background="#3B9EFF"
+            android:id="@+id/ss_v3"
+            android:layout_width="10px"
+            android:layout_height="60px">
+        </View>
+        <TextView
+            android:id="@+id/ss_tv3"
+            android:layout_toRightOf="@+id/ss_v3"
+            android:textSize="50px"
+            android:textColor="@color/black"
+            android:layout_marginLeft="50px"
+            android:layout_marginTop="50px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="校园生活"
+            />
+
+        <TextView
+            android:id="@+id/ss_tv4"
+            android:layout_toRightOf="@+id/ss_tv3"
+            android:textSize="50px"
+            android:layout_marginLeft="50px"
+            android:layout_marginTop="55px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CAMPUS LIFE"
+            />
+        <View
+            android:id="@+id/ss_v4"
+            android:layout_marginTop="20px"
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            ></View>
+    </RelativeLayout>
+    <RelativeLayout
+        android:background="@color/white"
+        android:id="@+id/ss_stys"
+        android:layout_below="@+id/ss_r3"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        >
+        <ImageView
+            android:layout_marginLeft="40px"
+            android:layout_marginTop="30px"
+            android:layout_width="60px"
+            android:layout_height="60px"
+            android:src="@drawable/yinshi"
+            />
+
+        <TextView
+            android:textColor="@color/black"
+            android:text="食堂饮食"
+            android:textSize="50px"
+            android:gravity="center"
+            android:layout_marginLeft="120px"
+            android:layout_marginTop="20px"
+            android:layout_width="wrap_content"
+            android:layout_height="80px" />
+        <ImageView
+            android:src="@drawable/right_lan"
+            android:layout_marginTop="35px"
+            android:layout_marginRight="30px"
+            android:layout_width="45px"
+            android:layout_height="45px"
+            android:layout_alignParentRight="true"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:background="@color/white"
+        android:id="@+id/ss_sshj"
+        android:layout_below="@+id/ss_stys"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        >
+        <ImageView
+            android:layout_marginLeft="40px"
+            android:layout_marginTop="30px"
+            android:layout_width="60px"
+            android:layout_height="60px"
+            android:src="@drawable/sushe"
+            />
+
+        <TextView
+            android:layout_marginTop="20px"
+            android:textColor="@color/black"
+            android:text="宿舍环境"
+            android:textSize="50px"
+            android:gravity="center"
+            android:layout_marginLeft="120px"
+            android:layout_width="wrap_content"
+            android:layout_height="80px" />
+        <ImageView
+            android:src="@drawable/right_lan"
+            android:layout_marginTop="35px"
+            android:layout_marginRight="30px"
+            android:layout_width="45px"
+            android:layout_height="45px"
+            android:layout_alignParentRight="true"
+            />
+    </RelativeLayout>
+
+
+
+
+    <RelativeLayout
+        android:layout_marginTop="30px"
+        android:background="@color/white"
+        android:id="@+id/ss_r4"
+        android:layout_below="@+id/ss_sshj"
+        android:layout_width="match_parent"
+        android:layout_height="150px">
+        <View
+            android:layout_marginLeft="50px"
+            android:layout_marginTop="50px"
+            android:background="#3B9EFF"
+            android:id="@+id/ss_v5"
+            android:layout_width="10px"
+            android:layout_height="60px">
+        </View>
+        <TextView
+            android:id="@+id/ss_tv5"
+            android:layout_toRightOf="@+id/ss_v5"
+            android:textSize="50px"
+            android:textColor="@color/black"
+            android:layout_marginLeft="50px"
+            android:layout_marginTop="50px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="科研教学"
+            />
+
+        <TextView
+            android:id="@+id/ss_tv6"
+            android:layout_toRightOf="@+id/ss_tv5"
+            android:textSize="50px"
+            android:layout_marginLeft="50px"
+            android:layout_marginTop="55px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SCIENTIFIC RESEARCH"
+            />
+        <View
+            android:id="@+id/ss_v6"
+            android:layout_marginTop="20px"
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            ></View>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="5px"
+        android:id="@+id/ss_r5"
+        android:layout_width="match_parent"
+        android:layout_height="130px"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/ss_r4"
+        android:background="@color/white">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"></View>
+
+        <TextView
+            android:id="@+id/ss_tvshd"
+            android:layout_width="200px"
+            android:layout_height="80px"
+            android:layout_marginLeft="80px"
+            android:layout_marginTop="30px"
+            android:gravity="center"
+            android:text="271"
+            android:textColor="#3B9EFF"
+            android:textSize="50px" />
+
+        <TextView
+            android:id="@+id/ss_tv7"
+            android:layout_width="200px"
+            android:layout_height="60px"
+            android:layout_marginLeft="30px"
+            android:layout_marginTop="40px"
+            android:layout_toRightOf="@+id/ss_tvshd"
+            android:gravity="left"
+            android:text="硕士点"
+            android:textSize="40px" />
+
+        <View
+            android:background="@color/trans_color"
+            android:layout_width="3px"
+            android:layout_height="100px"
+            android:layout_marginLeft="40px"
+            android:layout_marginTop="15px"
+            android:layout_toRightOf="@+id/ss_tv7"></View>
+
+        <TextView
+            android:id="@+id/ss_tv8"
+            android:layout_width="200px"
+            android:layout_height="50px"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30px"
+            android:layout_marginTop="40px"
+            android:gravity="left"
+            android:text="博士点"
+            android:textSize="40px" />
+
+        <TextView
+            android:id="@+id/ss_bsd"
+            android:layout_width="200px"
+            android:layout_height="80px"
+            android:layout_marginRight="50px"
+            android:layout_marginTop="30px"
+            android:layout_toLeftOf="@id/ss_tv8"
+            android:gravity="center"
+            android:text="253"
+            android:textColor="#3B9EFF"
+            android:textSize="50px" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_marginTop="5px"
+        android:id="@+id/ss_r6"
+        android:layout_width="match_parent"
+        android:layout_height="130px"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/ss_r5"
+        android:background="@color/white">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"></View>
+
+        <TextView
+            android:id="@+id/ss_zdsys"
+            android:layout_width="200px"
+            android:layout_height="80px"
+            android:layout_marginLeft="80px"
+            android:layout_marginTop="30px"
+            android:gravity="center"
+            android:text="11"
+            android:textColor="#FF6700"
+            android:textSize="50px" />
+
+        <TextView
+            android:id="@+id/ss_tv9"
+            android:layout_width="200px"
+            android:layout_height="80px"
+            android:layout_marginLeft="30px"
+            android:layout_marginTop="30px"
+            android:layout_toRightOf="@+id/ss_zdsys"
+            android:gravity="center"
+            android:text="重点实验室"
+            android:textSize="40px" />
+
+        <View
+            android:background="@color/trans_color"
+            android:layout_width="3px"
+            android:layout_height="100px"
+            android:layout_marginLeft="40px"
+            android:layout_marginTop="15px"
+            android:layout_toRightOf="@+id/ss_tv9"
+            ></View>
+
+        <TextView
+            android:id="@+id/ss_tv10"
+            android:layout_width="200px"
+            android:layout_height="80px"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="50px"
+            android:layout_marginTop="30px"
+            android:gravity="center"
+            android:text="重点学科"
+            android:textSize="40px" />
+
+        <TextView
+            android:id="@+id/ss_zdxk"
+            android:layout_width="200px"
+            android:layout_height="80px"
+            android:layout_marginRight="30px"
+            android:layout_marginTop="30px"
+            android:layout_toLeftOf="@id/ss_tv10"
+            android:gravity="center"
+            android:text="13"
+            android:textColor="#FF6700"
+            android:textSize="50px" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="10px"
+        android:layout_width="match_parent"
+        android:layout_height="200px"
+        android:layout_below="@id/ss_r6"
+        android:background="@color/white">
+
+        <com.meg7.widget.CustomShapeImageView
+            android:layout_width="150px"
+            android:layout_centerVertical="true"
+            android:layout_height="150px"
+            android:layout_marginLeft="50px"
+            android:src="@drawable/gril" />
+
+
+        <com.meg7.widget.CustomShapeImageView
+             android:layout_centerVertical="true"
+            android:layout_width="150px"
+            android:layout_height="150px"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="50px"
+            android:src="@drawable/boy" />
+<TextView
+    android:text="VS"
+    android:id="@+id/ss_tvvs"
+    android:textColor="#3B9EFF"
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
+    android:gravity="bottom"
+    android:layout_width="100px"
+    android:layout_height="100px"
+    android:textSize="70px"
+    />
+
+         <TextView
+             android:layout_marginRight="50px"
+             android:textColor="#3B9EFF"
+             android:gravity="bottom"
+             android:layout_centerVertical="true"
+             android:textSize="50px"
+             android:text="67%"
+             android:layout_toLeftOf="@+id/ss_tvvs"
+             android:layout_width="wrap_content"
+             android:layout_height="100px" />
+
+        <TextView
+             android:layout_marginLeft="50px"
+            android:textColor="#3B9EFF"
+            android:gravity="bottom"
+            android:layout_centerVertical="true"
+            android:textSize="50px"
+            android:text="33%"
+            android:layout_toRightOf="@+id/ss_tvvs"
+            android:layout_width="wrap_content"
+            android:layout_height="100px" />
+    </RelativeLayout>
+
+</RelativeLayout>
+</ScrollView>

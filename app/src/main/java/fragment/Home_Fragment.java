@@ -45,6 +45,7 @@ import bean.NewsBean;
 import bean.RecommendBean;
 import bean.SlideshowBean;
 import bean.SlideshowChildBean;
+import bean.TitleBean;
 import presenter.SlideshowPresenter;
 
 import untils.SPUtils;
@@ -76,6 +77,7 @@ public class Home_Fragment extends Basefragment implements SlideshowView, Observ
     private ArrayList<ImageView> iv_list;
     private RelativeLayout rl_search;
     private ViewFlipper viewflipper;
+    private ViewFlipper viewflipper2;
     private LinearLayout home_enter;
     private TextView homegrade;
     private String tbmaxfen;
@@ -84,6 +86,7 @@ public class Home_Fragment extends Basefragment implements SlideshowView, Observ
     private TextView homearea;
     private TextView homesubtype;
     private LinearLayout home_table;
+    private TextView home_tv_title;
 
 
     @Override
@@ -103,7 +106,7 @@ public class Home_Fragment extends Basefragment implements SlideshowView, Observ
         //精选推荐
         slideshowPresenter.RecommenPresenter("精选推荐","全国","1","6");
         //高考头条
-        slideshowPresenter.CollegePresenter("高考新闻","全国","1","6");
+        slideshowPresenter.CollegePresenter("1","4");
 
         inin();
         //加点
@@ -133,6 +136,7 @@ public class Home_Fragment extends Basefragment implements SlideshowView, Observ
     @Override
     public void onResume() {
         super.onResume();
+
         tbmaxfen = (String) SPUtils.get(MyApp.context, "tbmaxfen", "");
         tbarea = (String) SPUtils.get(MyApp.context, "tbarea", "");
         tbsubtype = (String) SPUtils.get(MyApp.context, "tbsubtype", "");
@@ -171,7 +175,7 @@ public class Home_Fragment extends Basefragment implements SlideshowView, Observ
         rv_recommend = view.findViewById(R.id.rv_recommend);
         ll_dot = view.findViewById(R.id.ll_dot);
         viewflipper = view.findViewById(R.id.viewflipper);
-
+        viewflipper2 = view.findViewById(R.id.viewflipper2);
         homegrade = view.findViewById(R.id.home_ed_grade);
         homearea = view.findViewById(R.id.home_area);
         homesubtype = view.findViewById(R.id.home_subtype);
@@ -179,6 +183,7 @@ public class Home_Fragment extends Basefragment implements SlideshowView, Observ
         home_enter = view.findViewById(R.id.home_enter);
 
         home_table = view.findViewById(R.id.home_table);
+         //home_tv_title= view.findViewById(R.id.home_tv_title);
         home_table.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -346,24 +351,69 @@ public class Home_Fragment extends Basefragment implements SlideshowView, Observ
 
     //高考新闻
     @Override
-    public void Collegesuccess(BaseBean<NewsBean> listBaseBean) {
-        NewsBean data = listBaseBean.data;
-        List<NewsBean.ListBean> list = data.getList();
+    public void Collegesuccess(BaseBean<TitleBean> listBaseBean) {
+        ArrayList<String> list1=new ArrayList<>();
+        ArrayList<String> list2=new ArrayList<>();
+        TitleBean data = listBaseBean.data;
+        List<TitleBean.ListBean> list = data.getList();
         for (int i = 0; i < list.size(); i++) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.college_item, null);
-            TextView tv_college_title=inflate.findViewById(R.id.tv_college_title);
-            TextView tv_college_count=inflate.findViewById(R.id.tv_college_count);
-            tv_college_title.setText(list.get(i).getTitle());
-            tv_college_count.setText(list.get(i).getGeneral());
+            if(list.get(i).getStatus().equals("2"))
+            {
+                list1.add(list.get(i).getTitle());
 
+            }
+            if(list.get(i).getStatus().equals("1"))
+            {
+                list2.add(list.get(i).getTitle());
+            }
+
+        }
+
+
+        for (int i = 0; i < list1.size(); i++) {
+            View inflate2 = LayoutInflater.from(getContext()).inflate(R.layout.college_item2, null);
+            TextView home_tv_title=inflate2.findViewById(R.id.home_tv_title);
+            home_tv_title.setText("● "+ list1.get(i).toString());
+            viewflipper2.addView(inflate2);
+        }
+        if(list1.size()==1)
+        {
+            viewflipper2.stopFlipping();
+        }
+        else
+        {
+            viewflipper2.startFlipping();
+        }
+        for (int i = 0; i < list2.size(); i++) {
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.college_item, null);
+            TextView tv_college_count=inflate.findViewById(R.id.tv_college_count);
+            tv_college_count.setText("● "+ list2.get(i).toString());
             viewflipper.addView(inflate);
         }
         viewflipper.startFlipping();
+
+
     }
 
     @Override
     public void Collegefail(Throwable t) {
 
+    }
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if(hidden)
+        {
+            viewflipper.stopFlipping();
+
+        }
+      else
+        {
+            viewflipper.startFlipping();
+
+
+        }
     }
 
     @Override

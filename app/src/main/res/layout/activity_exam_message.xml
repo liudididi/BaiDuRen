@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fff"
     tools:context="com.example.login_demo.ExamMessageActivity">
     <RelativeLayout
         android:id="@+id/rl_ExamMessage"
@@ -28,12 +29,18 @@
             android:layout_height="wrap_content"
             />
     </RelativeLayout>
-
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#ccc"
+        android:layout_below="@id/rl_ExamMessage"
+        ></View>
     <GridView
         android:id="@+id/message_gv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/rl_ExamMessage"
+        android:layout_below="@id/view"
         android:numColumns="2"
         >
     </GridView>
@@ -45,6 +52,7 @@
         android:layout_alignParentBottom="true"
         android:background="@drawable/bg_create"
         android:gravity="center"
+        android:textColor="#fff"
         android:layout_marginLeft="50px"
         android:layout_marginRight="50px"
         android:layout_marginTop="60px"

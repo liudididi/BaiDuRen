@@ -60,7 +60,7 @@
         android:gravity="center"
         android:textSize="40px"
         android:textColor="@color/white"
-        android:background="@drawable/chuji"
+
         android:layout_marginLeft="50px"
         android:layout_marginRight="50px"
         android:layout_marginTop="395px"/>
@@ -92,7 +92,6 @@
         android:layout_below="@id/reported_primary"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:background="@drawable/gaoji"
         android:layout_marginLeft="50px"
         android:layout_marginRight="50px"
         android:layout_marginTop="395px"/>
@@ -122,7 +121,6 @@
         android:layout_below="@id/reported_advanced"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:background="@drawable/jingzhun"
         android:layout_marginLeft="50px"
         android:layout_marginRight="50px"
         android:layout_marginTop="395px"/>

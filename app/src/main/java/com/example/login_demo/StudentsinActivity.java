@@ -20,9 +20,11 @@ import java.util.List;
 
 import adapter.Spinner_Adapter;
 import adapter.StudentsinAdapter;
+import adapter.StudentsinNewsAdapter;
 import base.BaseActivity;
 import base.BaseBean;
 import bean.StudentsinBean;
+import bean.StudentsinNewsBean;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -84,6 +86,7 @@ public class StudentsinActivity extends BaseActivity implements StudentsinView{
     private String address="北京市";
     private String schooltype="艺术类";
     private List<StudentsinBean> data;
+    private List<StudentsinNewsBean.ListBean> list;
 
     @Override
     public int getId() {
@@ -214,6 +217,11 @@ public class StudentsinActivity extends BaseActivity implements StudentsinView{
                 viewStudentin1.setVisibility(View.VISIBLE);
                 viewStudentin.setVisibility(View.GONE);
                 studentsinPresent.StudentsinPresent(address,schooltype);
+                if(list!=null)
+                {
+                    list.clear();
+                }
+
                 break;
             case R.id.studentin_rl_two:
                 ll.setVisibility(View.GONE);
@@ -222,22 +230,33 @@ public class StudentsinActivity extends BaseActivity implements StudentsinView{
                 studentinTvTwo.setTextColor(Color.BLACK);
                 viewStudentin1.setVisibility(View.GONE);
                 viewStudentin.setVisibility(View.VISIBLE);
+
                 data.clear();
+                student2_tv1.setTextColor(Color.BLACK);
+                student2_tv2.setTextColor(Color.GRAY);
+                student2_tv3.setTextColor(Color.GRAY);
+                studentsinPresent.StudentsinNewsPresent("艺考百科","全国","1","10");
                 break;
             case R.id.student2_rl1:
                 student2_tv1.setTextColor(Color.BLACK);
                 student2_tv2.setTextColor(Color.GRAY);
                 student2_tv3.setTextColor(Color.GRAY);
+                list.clear();
+                studentsinPresent.StudentsinNewsPresent("艺考百科","全国","1","10");
                 break;
             case R.id.student2_rl2:
                 student2_tv1.setTextColor(Color.GRAY);
                 student2_tv2.setTextColor(Color.BLACK);
                 student2_tv3.setTextColor(Color.GRAY);
+                list.clear();
+                studentsinPresent.StudentsinNewsPresent("历年真题","全国","1","10");
                 break;
             case R.id.student2_rl3:
                 student2_tv1.setTextColor(Color.GRAY);
                 student2_tv2.setTextColor(Color.GRAY);
                 student2_tv3.setTextColor(Color.BLACK);
+                list.clear();
+                studentsinPresent.StudentsinNewsPresent("艺考资讯","全国","1","10");
                 break;
         }
     }
@@ -255,12 +274,35 @@ public class StudentsinActivity extends BaseActivity implements StudentsinView{
         }
        else
         {
+
             studentsin_iv.setVisibility(View.VISIBLE);
         }
     }
 
     @Override
     public void Studentsinfail(Throwable t) {
+
+    }
+
+    //特长生资讯接口
+    @Override
+    public void StudentsinNewssuccess(BaseBean<StudentsinNewsBean> studentsinNewsBeanBaseBean) {
+        list = studentsinNewsBeanBaseBean.data.getList();
+        if(list.size()>0&& list !=null)
+        {
+            studentsin_iv.setVisibility(View.GONE);
+            StudentsinNewsAdapter studentsinAdapter=new StudentsinNewsAdapter(list,StudentsinActivity.this);
+            studentsin_rv.setLayoutManager(new LinearLayoutManager(StudentsinActivity.this));
+            studentsin_rv.setAdapter(studentsinAdapter);
+        }
+        else
+        {
+            studentsin_iv.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    public void StudentsinNewsfail(Throwable t) {
 
     }
 }

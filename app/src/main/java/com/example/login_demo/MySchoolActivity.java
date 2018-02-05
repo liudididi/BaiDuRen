@@ -2,6 +2,7 @@ package com.example.login_demo;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 import android.widget.ImageView;
@@ -23,7 +24,7 @@ import presenter.MySchoolPresent;
 import untils.SPUtils;
 import view.MySchoolView;
 
-public class MySchoolActivity extends BaseActivity implements MySchoolView {
+public class MySchoolActivity extends BaseActivity implements MySchoolView, XRecyclerView.LoadingListener {
     @BindView(R.id.myschool_iv_back)
     ImageView myschoolIvBack;
     @BindView(R.id.myschool_hint)
@@ -35,6 +36,8 @@ public class MySchoolActivity extends BaseActivity implements MySchoolView {
     @BindView(R.id.myschool_re)
     RelativeLayout  myschoolre;
     private MySchoolPresent mySchoolPresent;
+    private MySchoolRecycle mySchoolAdapter;
+    private String token;
 
     @Override
     public int getId() {
@@ -44,12 +47,13 @@ public class MySchoolActivity extends BaseActivity implements MySchoolView {
     @Override
     public void InIt() {
         myschoolXrecycle.setVisibility(View.GONE);
-        String token = getIntent().getStringExtra("token");
+        token = getIntent().getStringExtra("token");
         mySchoolPresent = new MySchoolPresent(this);
         mySchoolPresent.getSchollCollection(token);
         //设置布局管理器
         myschoolXrecycle.setLayoutManager(new LinearLayoutManager(this));
-        myschoolXrecycle.setPullRefreshEnabled(false);
+        myschoolXrecycle.setRefreshProgressStyle(15);
+        myschoolXrecycle.setLoadingListener(this);
     }
 
     @Override
@@ -75,8 +79,12 @@ public class MySchoolActivity extends BaseActivity implements MySchoolView {
         if(list!=null&&list.size()>=1){
          myschoolre.setVisibility(View.GONE);
          myschoolXrecycle.setVisibility(View.VISIBLE);
-         MySchoolRecycle mySchoolAdapter=new MySchoolRecycle(this,list);
-         myschoolXrecycle.setAdapter(mySchoolAdapter);
+            if(mySchoolAdapter==null){
+                mySchoolAdapter = new MySchoolRecycle(this,list);
+                myschoolXrecycle.setAdapter(mySchoolAdapter);
+            }else {
+                mySchoolAdapter.Reftch(list);
+            }
         }else {
             //布局初始化
             myschoolre.setVisibility(View.VISIBLE);
@@ -96,6 +104,25 @@ public class MySchoolActivity extends BaseActivity implements MySchoolView {
 
     @Override
     public void getMajorfail(String msg) {
+
+    }
+
+    @Override
+    public void onRefresh() {
+       Handler handler=new Handler();
+       handler.postDelayed(new Runnable() {
+           @Override
+           public void run() {
+               mySchoolPresent.getSchollCollection(token);
+               myschoolXrecycle.refreshComplete();
+           }
+       }, 1000);
+
+    }
+
+    @Override
+    public void onLoadMore() {
+
 
     }
 }

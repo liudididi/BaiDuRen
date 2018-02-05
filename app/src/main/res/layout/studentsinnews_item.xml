@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="300px"
+        android:layout_centerVertical="true">
+        <ImageView
+            android:id="@+id/studentsinnews_iv"
+            android:layout_width="200px"
+            android:layout_height="200px"
+            android:layout_margin="50px"
+            android:scaleType="center"
+            />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:layout_marginRight="100px"
+            android:layout_toRightOf="@id/studentsinnews_iv">
+            <TextView
+                android:id="@+id/studentsinnews_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="北京联合大学"
+                android:textSize="40px"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textColor="#000"/>
+            <TextView
+                android:id="@+id/studentsinnews_cont"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="综合高校"
+                android:layout_marginTop="40px"
+                android:maxLines="2"
+                android:textSize="30px"
+                android:ellipsize="end"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+    <View
+        android:layout_below="@id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#ccc">
+
+    </View>
+</RelativeLayout>
