@@ -56,10 +56,9 @@
         </RelativeLayout>
         <ImageView
             android:id="@+id/schoolitem_collect"
-            android:padding="10px"
-            android:layout_width="100px"
-            android:layout_height="100px"
-            android:src="@drawable/collect_none"
+            android:layout_width="50px"
+            android:layout_height="50px"
+            android:src="@drawable/right_arrow"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="40px"

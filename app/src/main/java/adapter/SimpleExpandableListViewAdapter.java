@@ -100,8 +100,8 @@ public class SimpleExpandableListViewAdapter extends BaseExpandableListAdapter {
         return true;
     }
 
-    private TextView getGenericView(String string) {
-        AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(
+    private View getGenericView(String string) {
+      /*  AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
 
@@ -114,9 +114,12 @@ public class SimpleExpandableListViewAdapter extends BaseExpandableListAdapter {
         textView.setText(string);
         textView.setTextSize(20);
         textView.setTextColor(Color.BLACK);
-        return textView;
+        return textView;*/
 
-
+        View inflate = View.inflate(activity, R.layout.yiji_item, null);
+        TextView tv_item=inflate.findViewById(R.id.tv_item);
+        tv_item.setText(string);
+        return inflate;
 
     }
 

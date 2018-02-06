@@ -52,8 +52,9 @@ public class MySchoolActivity extends BaseActivity implements MySchoolView, XRec
         mySchoolPresent.getSchollCollection(token);
         //设置布局管理器
         myschoolXrecycle.setLayoutManager(new LinearLayoutManager(this));
-        myschoolXrecycle.setRefreshProgressStyle(15);
+        myschoolXrecycle.setRefreshProgressStyle(16);
         myschoolXrecycle.setLoadingListener(this);
+        myschoolXrecycle.setLoadingMoreEnabled(false);
     }
 
     @Override

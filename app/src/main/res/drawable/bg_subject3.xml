@@ -8,7 +8,7 @@
         android:width="3px"
         ></stroke>
     <solid
-        android:color="#EEEEEE"
+        android:color="#EBF4FD"
         ></solid>
     <size
         android:width="300px"

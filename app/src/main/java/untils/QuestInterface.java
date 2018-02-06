@@ -9,6 +9,8 @@ import bean.CanSchoolBean;
 import bean.CheckSchoolBean;
 import bean.CityBean;
 import bean.CollerMajorBean;
+import bean.CollerSchoolBean;
+import bean.GailvBean;
 import bean.HotBean;
 import bean.InquireBean;
 import bean.JobInforBean;
@@ -22,6 +24,7 @@ import bean.ProviceBean;
 import bean.ProvinceBean;
 import bean.RanKingSchoolBean;
 import bean.SchoolBean;
+import bean.SchoolEnrollBean;
 import bean.ScoreBean1;
 import bean.ScoreBean2;
 import bean.SearchBean;
@@ -59,7 +62,18 @@ public interface QuestInterface {
     //查询专业是否收藏
     @GET("/app/major/getMajorThreeById")
     Flowable<BaseBean<List<CollerMajorBean>>> getiscollet(@Query("majorId") String majorid, @Header("token") String token);
+   //一本录取率
 
+
+    @GET("/app/universitytimescore/getscoreCompareMobil")
+    Flowable<BaseBean<List<GailvBean>>> getscoreCompareMobil(@Query("province") String province,@Query("classify") String classify,@Query("university") String university);
+    //大学录取专业招生计划
+    @GET("/app/enrolmentinfo/num")
+    Flowable<BaseBean<List<SchoolEnrollBean>>> schoolenroll(@Query("name") String name, @Query("province") String province, @Query("type") String type);
+
+    //查询专业是否收藏
+    @GET("/app/university/getUnivCollection")
+    Flowable<BaseBean<List<CollerSchoolBean>>> getchoolisscollet(@Query("name") String name, @Header("token") String token);
 
     //职业详情
     @GET("/app/jobinfo/getjobinfo")

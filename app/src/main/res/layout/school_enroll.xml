@@ -1,50 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<RelativeLayout
-    android:background="@color/white"
-    android:id="@+id/se_rl"
-    android:layout_width="match_parent"
-    android:layout_height="420px">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/se_rl"
+        android:layout_width="match_parent"
+        android:layout_height="450px"
+        android:background="#fff"
+       >
+        <RelativeLayout
+            android:background="@color/white"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            >
 
-    <ImageView
-        android:layout_marginTop="20px"
-        android:id="@+id/se_img"
-        android:src="@drawable/circle"
-        android:layout_marginLeft="100px"
-        android:layout_width="300px"
-        android:layout_height="300px"
-        />
-<TextView
-    android:layout_marginTop="100px"
-    android:layout_marginLeft="190px"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="60%"
-    android:textSize="70px"
-    />
-    <TextView
-        android:layout_marginLeft="120px"
-        android:layout_below="@+id/se_img"
-        android:layout_width="wrap_content"
-        android:layout_height="80px"
-        android:text="一本录取率"
-        android:textSize="50px"
-        />
-    
-    <TextView
-        android:layout_marginTop="60px"
-        android:layout_width="2px"
-        android:layout_height="200px"
-        android:layout_centerHorizontal="true"
+            <TextView
+                android:id="@+id/school_enroll_tv"
+                android:layout_width="300px"
+                android:layout_height="300px"
+                android:text="60%"
+                android:textSize="70px"
+                android:gravity="center"
+                android:background="@drawable/circle"
+                android:layout_centerInParent="true"
+                />
+            <TextView
+                android:id="@+id/school_enroll_tvtime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="一本录取率"
+                android:textSize="40px"
+                android:layout_marginTop="10px"
+                android:layout_centerInParent="true"
+                android:layout_below="@id/school_enroll_tv"
 
-        />
-</RelativeLayout>
+                />
+            <TextView
+                android:layout_marginTop="60px"
+                android:layout_width="1px"
+                android:layout_height="300px"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="#ccc"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/ll"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="80px"
+            >
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"/>
+            <untils.Histogram
+                android:id="@+id/column_one"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"/>
+
+            <untils.Histogram
+                android:id="@+id/column_two"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"/>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"/>
+        </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#ccc"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="78px"
+                android:layout_marginLeft="80px"
+                android:layout_marginRight="80px"></View>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_alignParentBottom="true"
+                android:gravity="center_horizontal"
+                android:layout_marginBottom="20px">
+                <TextView
+                    android:text="预测分"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="40px"
+                  />
+                <TextView
+                    android:text="预估分"
+                    android:layout_marginLeft="38px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="40px"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
 
     <RelativeLayout
-        android:layout_marginTop="30px"
+        android:layout_marginTop="1px"
         android:background="@color/white"
         android:id="@+id/se_r2"
         android:layout_below="@+id/se_rl"
@@ -88,9 +162,277 @@
             ></View>
     </RelativeLayout>
 
+        <RelativeLayout
+            android:background="#fff"
+            android:id="@+id/se_r3"
+            android:layout_width="match_parent"
+            android:layout_height="800px"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/se_r2">
+
+            <LinearLayout
+                android:id="@+id/se_l3"
+                android:layout_width="wrap_content"
+                android:layout_height="100px"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="20px">
+                <TextView
+                    android:layout_width="50px"
+                    android:layout_height="55px"
+                    android:background="@drawable/bg_num"
+                    android:layout_marginRight="10px"/>
+
+                <RelativeLayout
+                    android:layout_width="220px"
+                    android:layout_height="60px"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/bg_subject2"
+                    >
+                    <TextView
+                        android:id="@+id/tv_pici"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textSize="30px"
+                        android:text="本科一批"/>
+                    <ImageView
+                        android:id="@+id/iv_right"
+                        android:layout_width="25px"
+                        android:layout_height="25px"
+                        android:src="@drawable/right"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="20px"
+                        android:visibility="visible"/>
+                    <ImageView
+                        android:id="@+id/iv_next"
+                        android:layout_width="25px"
+                        android:layout_height="25px"
+                        android:src="@drawable/next"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="20px"
+                        android:visibility="gone"/>
+                </RelativeLayout>
+                <TextView
+                    android:layout_width="50px"
+                    android:layout_height="55px"
+                    android:background="@drawable/bg_num2"
+                    android:layout_marginRight="10px"
+                    android:layout_marginLeft="50px"/>
+                <RelativeLayout
+                    android:layout_width="220px"
+                    android:layout_height="60px"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/bg_subject2"
+                    android:layout_marginRight="50px"
+                    >
+                    <TextView
+                        android:id="@+id/tv_skx"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textSize="30px"
+                        android:text="省控线"/>
+                    <ImageView
+                        android:id="@+id/iv_right2"
+                        android:layout_width="25px"
+                        android:layout_height="25px"
+                        android:src="@drawable/right"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="20px"
+                        android:visibility="visible"/>
+                    <ImageView
+                        android:id="@+id/iv_next2"
+                        android:layout_width="25px"
+                        android:layout_height="25px"
+                        android:src="@drawable/next"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="20px"
+                        android:visibility="gone"/>
+                </RelativeLayout>
+            </LinearLayout>
 
 
+<LinearLayout
+    android:orientation="vertical"
+    android:id="@+id/zhexian_ll"
+    android:layout_below="@+id/se_l3"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+
+</LinearLayout>
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="30px"
+    android:text="分数"
+    android:layout_marginTop="50px"
+    android:layout_marginLeft="60px"
+    />
+            <RelativeLayout
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="120px">
+ <ImageView
+     android:id="@+id/se_img12"
+     android:layout_width="50px"
+     android:layout_height="50px"
+     android:layout_centerVertical="true"
+     android:src="@drawable/location"
+     />
+                <TextView
+                    android:layout_marginLeft="10px"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/se_img12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/se_tv12"
+                    android:textSize="40px"
+                    android:text="所在地区:"
+                    />
 
 
+                <TextView
+                    android:layout_marginLeft="20px"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/se_tv12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/se_tvarea"
+                    android:textSize="40px"
+                    android:text="北京"
+                    />
 
+                <TextView
+                    android:layout_marginLeft="30px"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/se_tvarea"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/se_tv13"
+                    android:textSize="40px"
+                    android:text="科目 :"
+                    />
+
+
+                <TextView
+                    android:layout_marginLeft="10px"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/se_tv13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/se_tvtype"
+                    android:textSize="40px"
+                    android:text="科目 :"
+                    />
+
+                <TextView
+                    android:layout_marginLeft="30px"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/se_tvtype"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/se_tv14"
+                    android:textSize="40px"
+                    android:text="分数 :"
+                    />
+                <TextView
+                    android:layout_marginLeft="10px"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/se_tv14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/se_tvmaxfen"
+                    android:textSize="40px"
+                    android:text="分数 :"
+                    />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+    <RelativeLayout
+        android:layout_marginTop="30px"
+        android:background="@color/white"
+        android:id="@+id/se_r4"
+        android:layout_below="@+id/se_r3"
+        android:layout_width="match_parent"
+        android:layout_height="150px">
+        <View
+            android:layout_marginLeft="50px"
+            android:layout_marginTop="50px"
+            android:background="#3B9EFF"
+            android:id="@+id/se_v3"
+            android:layout_width="10px"
+            android:layout_height="60px">
+        </View>
+        <TextView
+            android:id="@+id/se_tv3"
+            android:layout_toRightOf="@+id/se_v3"
+            android:textSize="50px"
+            android:textColor="@color/black"
+            android:layout_marginLeft="50px"
+            android:layout_marginTop="50px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="专业招生计划"
+            />
+
+        <TextView
+            android:id="@+id/ss_tv7"
+            android:layout_toRightOf="@+id/se_tv3"
+            android:textSize="50px"
+            android:layout_marginLeft="50px"
+            android:layout_marginTop="55px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ENROLMENT PLAN"
+            />
+        <View
+            android:id="@+id/ss_v7"
+            android:layout_marginTop="20px"
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            ></View>
+    </RelativeLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/se_rv"
+        android:layout_below="@id/se_r4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </android.support.v7.widget.RecyclerView>
+        <ListView
+
+            android:id="@+id/school_lv1"
+            android:layout_width="220px"
+            android:layout_height="320px"
+            android:layout_marginTop="100px"
+            android:layout_below="@+id/se_r2"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="385px"
+            android:background="@drawable/bg_subject2"
+            android:visibility="gone"
+            >
+        </ListView>
+        <ListView
+            android:id="@+id/school_lv2"
+            android:layout_width="220px"
+            android:layout_height="260px"
+            android:layout_marginTop="100px"
+            android:layout_below="@+id/se_r2"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="50px"
+            android:background="@drawable/bg_subject2"
+            android:visibility="gone"
+            >
+        </ListView>
 </RelativeLayout>
+</ScrollView>

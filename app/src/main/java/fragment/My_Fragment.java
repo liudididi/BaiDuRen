@@ -231,6 +231,7 @@ public class My_Fragment extends Basefragment implements View.OnClickListener {
             }
             my_login.setEnabled(false);
         }else {
+            Glide.with(getActivity()).load(R.drawable.boy).into(my_icon);
             my_login.setText("登录");
             my_login.setEnabled(true);
         }

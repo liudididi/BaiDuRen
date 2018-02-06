@@ -32,7 +32,7 @@ import untils.MyQusetUtils;
 import untils.SPUtils;
 import view.MoreSchoolView;
 
-public class MoreSchoolActivity extends BaseActivity  implements MoreSchoolView, MoreSchoolRecycle.CollectBack {
+public class MoreSchoolActivity extends BaseActivity  implements MoreSchoolView  {
     @BindView(R.id.mschool_iv_back)
     ImageView mschoolIvBack;
     @BindView(R.id.mschool_search)
@@ -211,7 +211,7 @@ public class MoreSchoolActivity extends BaseActivity  implements MoreSchoolView,
             mschoolXlist.setVisibility(View.VISIBLE);
             if(adpter==null){
                 adpter = new MoreSchoolRecycle(this,list);
-                adpter.setCollectBack(this);
+
                 mschoolXlist.setAdapter(adpter);
             }else {
                 adpter.Refsh(list);
@@ -229,38 +229,4 @@ public class MoreSchoolActivity extends BaseActivity  implements MoreSchoolView,
 
     }
 
-    @Override
-    public void collecBack(final ImageView imgcollect, String name, int postion) {
-
-        if(token==null||token.length()<4){
-            Toast("用户未登录");
-            return;
-        }
-          MyQusetUtils.getInstance()
-                    .getQuestInterface().collect("0", name, token)
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribeOn(Schedulers.io())
-                    .subscribeWith(new DisposableSubscriber<BaseBean>() {
-                        @Override
-                        public void onNext(BaseBean baseBean) {
-                            Toast.makeText(MyApp.context, baseBean.msg, Toast.LENGTH_SHORT).show();
-                            if(baseBean.msg.equals("收藏成功")){
-                                Glide.with(MoreSchoolActivity.this).load(R.drawable.collect_yes).into(imgcollect);
-                            }else {
-                                Glide.with(MoreSchoolActivity.this).load(R.drawable.collect_none).into(imgcollect);
-                            }
-                        }
-
-                        @Override
-                        public void onError(Throwable t) {
-
-                        }
-
-                        @Override
-                        public void onComplete() {
-
-                        }
-                    });
-
-    }
 }

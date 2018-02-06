@@ -60,6 +60,7 @@ public class Majorschool_Fragment extends Basefragment implements MajorSchoolVie
         marjorschool_tvnum = view.findViewById(R.id.marjorschool_tvnum);
         majorshool_pb = view.findViewById(R.id.majorshool_pb);
         majorschool_none = view.findViewById(R.id.majorschool_none);
+
     }
 
 

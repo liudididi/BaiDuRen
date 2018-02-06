@@ -173,4 +173,7 @@
     <color name="horival_line_color">#bbbbbb</color>
 
     <color name="myeditText">#cdcdcd</color>
+
+    <color name="zhu1">#FF6700</color>
+    <color name="zhu2">#3B9EFF</color>
 </resources>

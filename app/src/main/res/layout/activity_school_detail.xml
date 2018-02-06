@@ -18,6 +18,7 @@
     android:layout_width="match_parent"
     android:layout_height="750px">
     <ImageView
+        android:id="@+id/schooldIvdoor"
          android:src="@drawable/bgsetting"
         android:scaleType="centerCrop"
         android:layout_width="match_parent"
@@ -47,7 +48,7 @@
             />
     </RelativeLayout>
     <com.meg7.widget.CustomShapeImageView
-        android:id="@+id/school_icon"
+        android:id="@+id/schoold_icon"
         android:layout_marginTop="250px"
         android:src="@drawable/boy"
         android:layout_marginLeft="70px"
@@ -64,7 +65,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/schoold_name"
         android:textColor="#fff"
-        android:layout_toRightOf="@+id/school_icon"
+        android:layout_toRightOf="@+id/schoold_icon"
         />
 
     <TextView
@@ -76,11 +77,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/schoold_address"
-        android:layout_toRightOf="@+id/school_icon"
+        android:layout_toRightOf="@+id/schoold_icon"
         />
 
 
     <TextView
+        android:visibility="invisible"
         android:gravity="center"
         android:layout_marginLeft="30px"
         android:text="211"
@@ -91,9 +93,10 @@
         android:layout_width="130px"
         android:layout_height="wrap_content"
         android:id="@+id/schoold_two"
-        android:layout_toRightOf="@+id/school_icon"
+        android:layout_toRightOf="@+id/schoold_icon"
         />
     <TextView
+        android:visibility="invisible"
         android:gravity="center"
         android:layout_marginLeft="30px"
         android:text="911"
@@ -108,6 +111,7 @@
         />
 
     <TextView
+        android:visibility="invisible"
         android:gravity="center"
         android:layout_marginLeft="30px"
         android:text="研究生院"
@@ -122,6 +126,7 @@
         />
 
     <TextView
+        android:visibility="invisible"
         android:gravity="center"
         android:layout_marginLeft="30px"
         android:text="国防生"
@@ -137,7 +142,8 @@
 
 
     <TextView
-        android:layout_toRightOf="@+id/school_icon"
+        android:visibility="invisible"
+        android:layout_toRightOf="@+id/schoold_icon"
         android:gravity="center"
         android:layout_marginLeft="30px"
         android:text="卓越计划"
@@ -151,7 +157,7 @@
         />
 
 
-    <TextView
+    <!--<TextView
         android:layout_toRightOf="@+id/schoold_zyjh"
         android:gravity="center"
         android:layout_marginLeft="30px"
@@ -163,7 +169,7 @@
         android:layout_width="190px"
         android:layout_height="60px"
         android:id="@+id/schoold_zhpj"
-        />
+        />-->
 </RelativeLayout>
 
     <View
@@ -219,17 +225,11 @@
             />
 
     </RelativeLayout>
-    <View
-        android:id="@+id/schoold_v2"
-        android:layout_below="@+id/schoold_rl2"
-        android:layout_width="match_parent"
-        android:layout_height="20px"
-        android:background="#f3f3f3"
-        ></View>
+
 
     <FrameLayout
         android:id="@+id/school_fl"
-        android:layout_below="@+id/schoold_v2"
+        android:layout_below="@+id/schoold_rl2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></FrameLayout>
 </RelativeLayout>

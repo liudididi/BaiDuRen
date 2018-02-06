@@ -1,6 +1,10 @@
 package fragment;
 
+import android.view.View;
+import android.widget.TextView;
+
 import com.example.login_demo.R;
+import com.example.login_demo.SchoolDetailActivity;
 
 import base.Basefragment;
 
@@ -10,6 +14,10 @@ import base.Basefragment;
  */
 
 public class School_Summary  extends Basefragment {
+
+    private TextView ss_tvshd;
+    private TextView ss_bsd;
+
     @Override
     public int getLayoutid() {
         return R.layout.school_summary;
@@ -17,6 +25,19 @@ public class School_Summary  extends Basefragment {
 
     @Override
     public void initView() {
+        initid();
+        if(SchoolDetailActivity.bhsd!=null){
+            ss_bsd.setText(SchoolDetailActivity.bhsd);
+        }
+        if(SchoolDetailActivity.shsd!=null){
+            ss_tvshd.setText(SchoolDetailActivity.shsd);
+        }
 
+    }
+
+    private void initid() {
+
+        ss_tvshd = view.findViewById(R.id.ss_tvshd);
+        ss_bsd = view.findViewById(R.id.ss_bsd);
     }
 }

@@ -25,7 +25,7 @@ public class SPUtils {
     {
 
         SharedPreferences sp = context.getSharedPreferences(FILE_NAME,
-                Context.MODE_PRIVATE);
+                Context.MODE_MULTI_PROCESS);
         SharedPreferences.Editor editor = sp.edit();
 
         if (object instanceof String)
