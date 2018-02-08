@@ -23,6 +23,7 @@ import bean.CollerSchoolBean;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import fragment.School_Brochures;
 import fragment.School_Enroll;
 import fragment.School_Summary;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -69,11 +70,12 @@ public class SchoolDetailActivity extends BaseActivity {
     private School_Summary school_summary;
     private Fragment currentFragment;
     private String token;
-    private String schoolname;
+    public static String schoolname;
     private DisposableSubscriber<BaseBean<List<CollerSchoolBean>>> disposableSubscriber;
     public  static  String shsd=null;
     public  static  String bhsd=null;
     private School_Enroll school_enroll;
+    private School_Brochures school_brochures;
 
 
     @Override
@@ -113,6 +115,8 @@ public class SchoolDetailActivity extends BaseActivity {
     private void initfragment() {
         school_summary = new School_Summary();
         school_enroll = new School_Enroll();
+
+        school_brochures = new School_Brochures();
     }
 
 
@@ -162,6 +166,9 @@ public class SchoolDetailActivity extends BaseActivity {
 
                 schooldZsjz.setTextColor(Color.WHITE);
                 schooldZsjz.setBackgroundResource(R.drawable.back_schooldlan);
+
+                switchFragment(school_brochures).commitAllowingStateLoss();
+
                 break;
 
 

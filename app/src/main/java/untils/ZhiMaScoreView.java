@@ -41,7 +41,7 @@ public class ZhiMaScoreView extends View {
     private int monthCount  = 6;
     private int selectMonth = 6;//选中的月份
 
-    private String[] monthText = new String[]{"2013年", "2014年", "2015年", "2016年", "2017年", "2018年"};
+    private String[] monthText = new String[]{"2016年", "2015年"};
 
     private  List<Integer> listfen;
 
@@ -193,7 +193,7 @@ public class ZhiMaScoreView extends View {
 
     }
 
-
+/*
     @Override
     public boolean onTouchEvent(MotionEvent event)
     {
@@ -202,6 +202,7 @@ public class ZhiMaScoreView extends View {
         switch(event.getAction())
         {
             case MotionEvent.ACTION_DOWN:
+
                 break;
             case MotionEvent.ACTION_MOVE:
                 break;
@@ -214,7 +215,7 @@ public class ZhiMaScoreView extends View {
                 break;
         }
         return true;
-    }
+    }*/
 
     private void onActionUpEvent(MotionEvent event)
     {
@@ -288,8 +289,7 @@ public class ZhiMaScoreView extends View {
             canvas.drawCircle(scorePoints.get(i).x, scorePoints.get(i).y, dipToPx(3), brokenPaint);
             brokenPaint.setColor(Color.WHITE);
             brokenPaint.setStyle(Paint.Style.FILL);
-            if(i == selectMonth - 1)
-            {
+
                 brokenPaint.setColor(0xffd0f3f2);
                 canvas.drawCircle(scorePoints.get(i).x, scorePoints.get(i).y, dipToPx(8f), brokenPaint);
                 brokenPaint.setColor(0xff81dddb);
@@ -301,7 +301,7 @@ public class ZhiMaScoreView extends View {
                 textPaint.setColor(0xffffffff);
                 //绘制浮动文字
                 canvas.drawText(String.valueOf(listfen.get(i).intValue()), scorePoints.get(i).x, scorePoints.get(i).y - dipToPx(5f) - textSize, textPaint);
-            }
+
             brokenPaint.setColor(0xffffffff);
             canvas.drawCircle(scorePoints.get(i).x, scorePoints.get(i).y, dipToPx(1.5f), brokenPaint);
             brokenPaint.setStyle(Paint.Style.STROKE);
@@ -366,14 +366,13 @@ public class ZhiMaScoreView extends View {
         {
             coordinateX = newWith * ((float) (i) / (monthCount - 1)) + (viewWith * 0.15f);
 
-            if(i == selectMonth - 1)
-            {
+
 
                 textPaint.setStyle(Paint.Style.STROKE);
                 textPaint.setColor(brokenLineColor);
 
 
-            }
+
             //绘制月份
             canvas.drawText(monthText[i], coordinateX, viewHeight * 0.7f + dipToPx(4) + textSize + dipToPx(5), textPaint);
 

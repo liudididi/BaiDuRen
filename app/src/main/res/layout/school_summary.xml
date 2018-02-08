@@ -473,6 +473,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/ss_r7"
         android:layout_marginTop="10px"
         android:layout_width="match_parent"
         android:layout_height="200px"
@@ -528,6 +529,153 @@
             android:layout_width="wrap_content"
             android:layout_height="100px" />
     </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="10px"
+        android:background="@color/white"
+        android:layout_below="@+id/ss_r7"
+        android:layout_width="match_parent"
+        android:layout_height="500px">
+
+
+        <RelativeLayout
+            android:layout_toLeftOf="@+id/ss_ll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/ss_rlbin"
+            >
+
+
+        </RelativeLayout>
+
+<LinearLayout
+    android:id="@+id/ss_ll"
+    android:layout_centerVertical="true"
+    android:layout_alignParentRight="true"
+    android:orientation="vertical"
+    android:layout_marginRight="100px"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <LinearLayout
+
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="40px"
+            android:layout_height="40px"
+            android:background="#0000FF"
+            />
+        <TextView
+            android:textSize="40px"
+            android:layout_marginLeft="30px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="华北地区"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="40px"
+            android:layout_height="40px"
+            android:background="#FFFF2E"
+            />
+        <TextView
+            android:textSize="40px"
+            android:layout_marginLeft="30px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="东北地区"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="40px"
+            android:layout_height="40px"
+            android:background="#47DDE6"
+            />
+        <TextView
+            android:textSize="40px"
+            android:layout_marginLeft="30px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="华东地区"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="40px"
+            android:layout_height="40px"
+            android:background="#A75DFA"
+            />
+        <TextView
+            android:textSize="40px"
+            android:layout_marginLeft="30px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="华南地区"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="40px"
+            android:layout_height="40px"
+            android:background="#0AFF0A"
+            />
+        <TextView
+            android:textSize="40px"
+            android:layout_marginLeft="30px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="西北地区"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="40px"
+            android:layout_height="40px"
+            android:background="@color/red"
+            />
+        <TextView
+            android:textSize="40px"
+            android:layout_marginLeft="30px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="西南地区"
+            />
+    </LinearLayout>
+</LinearLayout>
+
+
+
+    </RelativeLayout>
+
 
 </RelativeLayout>
 </ScrollView>

@@ -4,6 +4,7 @@ import java.util.List;
 
 import base.BaseBean;
 import bean.GailvBean;
+import bean.LuquXianBean;
 import bean.SchoolEnrollBean;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -71,8 +72,35 @@ public  void  getscoreCompareMobil(String province, String classify, String  sch
 
 
 
+//查询录取分数线
+
+public  void  getskx(String province, String university, String classify, String time,String line, final SLuquXianBeanBack sLuquXianBeanBack){
 
 
+    DisposableSubscriber<BaseBean<List<LuquXianBean>>> disposableSubscriber = MyQusetUtils.getInstance().getQuestInterface()
+            .getlqx(province, university, classify, time, line)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeWith(new DisposableSubscriber<BaseBean<List<LuquXianBean>>>() {
+                @Override
+                public void onNext(BaseBean<List<LuquXianBean>> listBaseBean) {
+                    sLuquXianBeanBack.LuquXianBeansuccess(listBaseBean);
+                }
+
+                @Override
+                public void onError(Throwable t) {
+                    sLuquXianBeanBack.LuquXianBeanfail(t);
+                }
+
+                @Override
+                public void onComplete() {
+
+                }
+            });
+
+    compositeDisposable.add(disposableSubscriber);
+
+}
 
     //大学录取的专业招生计划的接口
     public interface SchoolEnrollBack
@@ -81,6 +109,12 @@ public  void  getscoreCompareMobil(String province, String classify, String  sch
         void SchoolEnrollfail(Throwable t);
     }
 
+
+    public interface SLuquXianBeanBack
+    {
+        void LuquXianBeansuccess(BaseBean<List<LuquXianBean>>  BaseBean);
+        void LuquXianBeanfail(Throwable t);
+    }
 
     public interface GailvBeanBack
     {

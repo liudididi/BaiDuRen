@@ -58,8 +58,10 @@ public class GradeActivity extends BaseActivity implements GradeView{
     private String token;
     private GradePresent gradePresent;
     private Intent intent;
+    private String month;
 
-
+    private boolean flag=true;
+    private boolean flag2=true;
     @Override
     public int getId() {
         return R.layout.activity_grade;
@@ -69,7 +71,7 @@ public class GradeActivity extends BaseActivity implements GradeView{
     public void InIt() {
 
         intent = getIntent();
-        String month = intent.getStringExtra("month");
+        month = intent.getStringExtra("month");
         String form = intent.getStringExtra("form");
         gradeMonth.setText(month + form);
 
@@ -91,7 +93,19 @@ public class GradeActivity extends BaseActivity implements GradeView{
                 finish();
                 break;
             case R.id.grade_confirm:
-                 double v1 = Double.parseDouble(gradeLanguage.getText().toString());
+                if(flag==true)
+                {
+                    if(gradeSpeciality.getText().toString().equals("")||gradePolitics.getText().toString().equals("")||
+                            gradeGeography.getText().toString().equals("")||gradeHistory.getText().toString().equals("")||
+                            gradeBiology.getText().toString().equals("")||gradeChemistry.getText().toString().equals("")||
+                            gradePhysics.getText().toString().equals("")||gradeEnglish.getText().toString().equals("")||
+                            gradeMathematics.getText().toString().equals("")||gradeLanguage.getText().toString().equals(""))
+                    {
+                        Toast.makeText(this, "分数不能为空", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    double v1 = Double.parseDouble(gradeLanguage.getText().toString());
                     double v2 = Double.parseDouble(gradeMathematics.getText().toString());
                     double v3 = Double.parseDouble(gradeEnglish.getText().toString());
                     double v4 = Double.parseDouble(gradePhysics.getText().toString());
@@ -101,15 +115,36 @@ public class GradeActivity extends BaseActivity implements GradeView{
                     double v8 = Double.parseDouble(gradeGeography.getText().toString());
                     double v9= Double.parseDouble(gradePolitics.getText().toString());
                     double v10 = Double.parseDouble(gradeSpeciality.getText().toString());
-                gradePresent.GradePresente(form_int,month_index,v1,v2,v3,v4,v5,v6,v7,v8,v9,v10,token);
+                    System.out.println("特长生+"+gradeSpeciality.getText().toString());
 
-                    break;
+                        gradePresent.GradePresente(form_int,month_index,v1,v2,v3,v4,v5,v6,v7,v8,v9,v10,token);
+                        Intent intent=new Intent(GradeActivity.this,GradeColumnActivity.class);
+                        intent.putExtra("yue",month);
+                        intent.putExtra("num1",v1);
+                        intent.putExtra("num2",v2);
+                        intent.putExtra("num3",v3);
+                        intent.putExtra("num4",v4);
+                        intent.putExtra("num5",v5);
+                        intent.putExtra("num6",v6);
+                        intent.putExtra("num7",v7);
+                        intent.putExtra("num8",v8);
+                        intent.putExtra("num9",v9);
+                        intent.putExtra("num10",v10);
+                        startActivity(intent);
+
+                }
+                else
+                {
+                    Toast.makeText(this, "无法生成折线图", Toast.LENGTH_SHORT).show();
+                }
+                break;
         }
     }
 
     @Override
     public void Gradesuccess(BaseBean baseBean) {
         finish();
+
         Toast.makeText(this, "添加成功", Toast.LENGTH_SHORT).show();
     }
 
@@ -135,6 +170,9 @@ public class GradeActivity extends BaseActivity implements GradeView{
             gradeGeography.setText(inquireBeanBaseBean.data.getGeography()+"");
             gradePolitics.setText( inquireBeanBaseBean.data.getPolitics()+"");
             gradeSpeciality.setText(inquireBeanBaseBean.data.getSpecialty()+"");
+            System.out.println("特长生查询+"+inquireBeanBaseBean.data.getSpecialty()+"");
+
+            flag=true;
         }
 
 
@@ -143,6 +181,7 @@ public class GradeActivity extends BaseActivity implements GradeView{
     @Override
     public void Inquirefail(Throwable t) {
         Toast.makeText(this, "查询失败", Toast.LENGTH_SHORT).show();
+        flag=false;
     }
 
     @Override

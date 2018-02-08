@@ -11,7 +11,7 @@
     <application
         android:name=".MyApp"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -76,6 +76,25 @@
         <activity android:name=".ScoreActivity" />
         <activity android:name=".SchoolDetailActivity"></activity>
         <activity android:name=".StudentsinActivity"></activity>
+        <activity android:name=".GradeColumnActivity"></activity>
+        <activity android:name=".SchoolBrouesDetailsActivity"></activity>
+
+
+        <service
+            android:name=".DownApkServer"
+            android:exported="true"
+            />
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.myFileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+
     </application>
 
 </manifest>

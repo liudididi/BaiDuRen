@@ -45,7 +45,6 @@
             ></View>
     </RelativeLayout>
     <RelativeLayout
-        android:background="@drawable/bg_subject2"
         android:id="@+id/mschool_tiaojian"
         android:layout_width="match_parent"
         android:layout_height="120px"

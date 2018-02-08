@@ -127,6 +127,10 @@ public class SetTingActivity extends BaseActivity {
                 break;
                 //版本介绍
             case R.id.setting_verson:
+                Toast("版本介绍");
+                Intent intent=new Intent(SetTingActivity.this,DownApkServer.class);
+                intent.putExtra("downUrl","http://bdrvip.com:9096/app/bdr_beta_1.0.1.apk");
+                startService(intent);
                 break;
             //用户协议
             case R.id.setting_useragreen:

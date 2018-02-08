@@ -24,6 +24,7 @@ import adapter.Spinner_Adapter2;
 import base.BaseBean;
 import base.Basefragment;
 import bean.GailvBean;
+import bean.LuquXianBean;
 import bean.SchoolEnrollBean;
 import presenter.SchoolEnrollPresent;
 import untils.Histogram;
@@ -60,6 +61,7 @@ public class School_Enroll  extends Basefragment implements SchoolEnrollView{
     private LinearLayout zhexian_ll;
     private TextView school_enroll_tv;
     private TextView school_enroll_tvtime;
+    private String schoolname;
 
     @Override
     public int getLayoutid() {
@@ -70,17 +72,19 @@ public class School_Enroll  extends Basefragment implements SchoolEnrollView{
     public void initView() {
 
         init();
-        String schoolname = getActivity().getIntent().getStringExtra("schoolname");
+        schoolname = getActivity().getIntent().getStringExtra("schoolname");
         tbarea = (String) SPUtils.get(MyApp.context, "tbarea", "北京市");
         tbsubtype = (String) SPUtils.get(MyApp.context, "tbsubtype", "文科");
         tbmaxfen = (String) SPUtils.get(MyApp.context, "tbmaxfen", "500");
         schoolEnrollPresent = new SchoolEnrollPresent(this);
         schoolEnrollPresent.SchoolEnrollPresent(schoolname,tbarea,tbsubtype);
-        schoolEnrollPresent.getscoreCompareMobil(tbarea,tbsubtype,schoolname);
+        schoolEnrollPresent.getscoreCompareMobil(tbarea,tbsubtype, schoolname);
         tv_tvarea.setText(tbarea);
         se_tvtype.setText(tbsubtype);
         se_tvmaxfen.setText(tbmaxfen);
 
+
+        schoolEnrollPresent.getluquxian(tbarea, schoolname,tbsubtype,tv_pici.getText().toString(),tv_skx.getText().toString());
 
         Histogram column_one =  view.findViewById(R.id.column_one);
         Histogram column_two =  view.findViewById(R.id.column_two);
@@ -159,6 +163,8 @@ public class School_Enroll  extends Basefragment implements SchoolEnrollView{
                 msg=true;
                 iv_right.setVisibility(View.VISIBLE);
                 iv_next.setVisibility(View.GONE);
+                schoolEnrollPresent.getluquxian(tbarea, schoolname,tbsubtype,tv_pici.getText().toString(),tv_skx.getText().toString());
+
             }
         });
         school_lv2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -170,6 +176,7 @@ public class School_Enroll  extends Basefragment implements SchoolEnrollView{
                 msg2=true;
                 iv_right2.setVisibility(View.VISIBLE);
                 iv_next2.setVisibility(View.GONE);
+                schoolEnrollPresent.getluquxian(tbarea, schoolname,tbsubtype,tv_pici.getText().toString(),tv_skx.getText().toString());
             }
         });
 
@@ -182,38 +189,8 @@ public class School_Enroll  extends Basefragment implements SchoolEnrollView{
 
     private void init() {
             initid();
-
-        zhiMaScoreView = new ZhiMaScoreView(getActivity());
-        List<Integer> listfen=new ArrayList<>();
-        listfen.add(0);
-        listfen.add(0);
-        listfen.add(0);
-        listfen.add(0);
-        listfen.add(0);
-        listfen.add(0);
-        zhiMaScoreView.setlistfen(listfen);
-        zhiMaScoreView.setMaxScore(700);
-        zhiMaScoreView.setMinScore(0);
-        zhexian_ll.addView(zhiMaScoreView);
         school_enroll_tv = view.findViewById(R.id.school_enroll_tv);
-        school_enroll_tv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                zhexian_ll.removeAllViews();
-                zhiMaScoreView = new ZhiMaScoreView(getActivity());
-                List<Integer> listfen=new ArrayList<>();
-                listfen.add(500);
-                listfen.add(590);
-                listfen.add(600);
-                listfen.add(650);
-                listfen.add(620);
-                listfen.add(500);
-                zhiMaScoreView.setlistfen(listfen);
-                zhiMaScoreView.setMaxScore(700);
-                zhiMaScoreView.setMinScore(500);
-                zhexian_ll.addView(zhiMaScoreView);
-            }
-        });
+
 
     }
 
@@ -282,6 +259,47 @@ public class School_Enroll  extends Basefragment implements SchoolEnrollView{
     @Override
     public void GetlvBeanfail(String msg) {
         Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void LuquXianBeansuccess(List<LuquXianBean> listBaseBean) {
+        zhexian_ll.removeAllViews();
+         int max=0;
+         int min=0;
+        zhiMaScoreView = new ZhiMaScoreView(getActivity());
+        List<Integer> listfen=new ArrayList<>();
+        listfen.add(0);
+        listfen.add(0);
+        if(listBaseBean!=null&&listBaseBean.size()>0){
+            for (int i = 0; i <listBaseBean.size() ; i++) {
+                if(listBaseBean.get(i).getScore()!=null){
+                    System.out.println("===="+listBaseBean.get(i).getScore());
+                    listfen.set(i,Integer.parseInt(listBaseBean.get(0).getScore()));
+                }
+            }
+        }
+        if(listfen.get(0)>=listfen.get(1)){
+            max=listfen.get(0)+100;
+            min=listfen.get(1)-50;
+        }else {
+            max=listfen.get(1)+100;
+            min=listfen.get(0)-50;
+        }
+        if(min<0){
+            min=0;
+        }
+        if(max>700){
+            max=700;
+        }
+        zhiMaScoreView.setlistfen(listfen);
+        zhiMaScoreView.setMaxScore(max);
+        zhiMaScoreView.setMinScore(min);
+        zhexian_ll.addView(zhiMaScoreView);
+    }
+
+    @Override
+    public void LuquXianBeanfail(String msg) {
+
     }
 
     @Override

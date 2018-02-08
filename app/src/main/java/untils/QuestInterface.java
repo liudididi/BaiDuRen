@@ -14,6 +14,7 @@ import bean.GailvBean;
 import bean.HotBean;
 import bean.InquireBean;
 import bean.JobInforBean;
+import bean.LuquXianBean;
 import bean.MajorBean;
 import bean.MajorSchoolBean;
 import bean.MajorgkBean;
@@ -24,6 +25,7 @@ import bean.ProviceBean;
 import bean.ProvinceBean;
 import bean.RanKingSchoolBean;
 import bean.SchoolBean;
+import bean.SchoolBrochuresBean;
 import bean.SchoolEnrollBean;
 import bean.ScoreBean1;
 import bean.ScoreBean2;
@@ -54,6 +56,14 @@ import retrofit2.http.Query;
  */
 
 public interface QuestInterface {
+
+    //招生简章
+    @GET("/app/admissionplanmobile/adInfoMobil")
+    Flowable<BaseBean<List<SchoolBrochuresBean>>> schoolbrochures(@Query("name") String name);
+
+    //获取录取分数线
+    @GET("/app/universitytimescore/scores")
+    Flowable<BaseBean<List<LuquXianBean>>> getlqx(@Query("province") String province,@Query("university") String university,@Query("classify") String classify,@Query("time") String time,@Query("line") String line);
 
     //特长生艺考资讯
     @GET("/app/news/newsInfo")

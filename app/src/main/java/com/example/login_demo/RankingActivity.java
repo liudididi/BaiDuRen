@@ -25,7 +25,6 @@ import view.RankingView;
 
 public class RankingActivity extends BaseActivity implements RankingView{
 
-
     @BindView(R.id.ranking_iv_back)
     ImageView rankingIvBack;
     @BindView(R.id.ranking_rv)
@@ -43,7 +42,6 @@ public class RankingActivity extends BaseActivity implements RankingView{
     public void InIt() {
         ranKingPresent = new RanKingPresent(this);
         ranKingPresent.RanKingPresent(page,10);
-
         rankingRv.setPullRefreshEnabled(false);
         rankingRv.setLoadingMoreEnabled(true);
     }

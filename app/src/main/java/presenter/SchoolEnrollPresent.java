@@ -5,6 +5,7 @@ import java.util.List;
 import base.BaseBean;
 import base.Basepresent;
 import bean.GailvBean;
+import bean.LuquXianBean;
 import bean.SchoolEnrollBean;
 import moudle.SchoolEnrollMoudle;
 import view.SchoolEnrollView;
@@ -55,9 +56,27 @@ public class SchoolEnrollPresent extends Basepresent {
                 schoolEnrollView.GetlvBeanfail(t.toString());
             }
         });
+    }
 
 
+    public  void  getluquxian(String province, String university, String classify, String time,String line){
 
+        schoolEnrollMoudle.getskx(province, university, classify, time, line, new SchoolEnrollMoudle.SLuquXianBeanBack() {
+            @Override
+            public void LuquXianBeansuccess(BaseBean<List<LuquXianBean>> BaseBean) {
+                 if(BaseBean.code==0){
+                     schoolEnrollView.LuquXianBeansuccess(BaseBean.data);
+                 }else {
+                     schoolEnrollView.LuquXianBeanfail(BaseBean.msg);
+                 }
+
+            }
+
+            @Override
+            public void LuquXianBeanfail(Throwable t) {
+                schoolEnrollView.LuquXianBeanfail(t.toString());
+            }
+        });
 
     }
 

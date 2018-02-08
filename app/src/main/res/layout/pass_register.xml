@@ -39,11 +39,12 @@
         android:theme="@style/MyEditText"
         android:id="@+id/zc_ed_captcha" />
     <TextView
+
         android:id="@+id/zc_captcha"
         android:layout_width="270px"
         android:layout_height="90px"
         android:layout_alignParentRight="true"
-        android:textColor="#e6e6e6"
+        android:textColor="#fff"
         android:textSize="40px"
         android:layout_marginRight="45px"
         android:background="@drawable/back_guanzhu"
@@ -111,7 +112,7 @@
         android:background="@drawable/back_register"
         android:gravity="center"
         android:text="注册"
-        android:textColor="#e6e6e6"
+        android:textColor="#fff"
         android:textSize="46px"
         android:layout_marginLeft="30px"
         android:layout_marginRight="30px"/>

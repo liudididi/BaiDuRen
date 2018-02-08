@@ -4,6 +4,7 @@ import java.util.List;
 
 import base.BaseBean;
 import bean.GailvBean;
+import bean.LuquXianBean;
 import bean.SchoolEnrollBean;
 
 /**
@@ -16,4 +17,10 @@ public interface SchoolEnrollView {
 
     void GetlvBeansuccess(List<GailvBean> listBaseBean);
     void GetlvBeanfail(String msg);
+
+
+
+
+    void LuquXianBeansuccess(List<LuquXianBean> listBaseBean);
+    void LuquXianBeanfail(String msg);
 }
