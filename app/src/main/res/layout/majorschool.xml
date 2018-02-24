@@ -79,8 +79,6 @@
         android:id="@+id/majorshool_pb"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="20px"
-        android:layout_marginTop="10px"
         android:layout_width="100px"
         android:layout_height="100px"
         />

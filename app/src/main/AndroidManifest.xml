@@ -74,16 +74,18 @@
         <activity android:name=".JobDetailsActivity" />
         <activity android:name=".OneTableActivity" />
         <activity android:name=".ScoreActivity" />
-        <activity android:name=".SchoolDetailActivity"></activity>
-        <activity android:name=".StudentsinActivity"></activity>
-        <activity android:name=".GradeColumnActivity"></activity>
-        <activity android:name=".SchoolBrouesDetailsActivity"></activity>
-
-
+        <activity android:name=".SchoolDetailActivity" />
+        <activity android:name=".StudentsinActivity" />
+        <activity android:name=".GradeColumnActivity" />
+        <activity android:name=".SchoolBrouesDetailsActivity" />
+        <activity android:name=".GradePolyLineActivity"></activity>
+        <activity android:name=".Help2Activity"
+            />
+        <activity android:name=".Help3Activity"></activity>
         <service
             android:name=".DownApkServer"
-            android:exported="true"
-            />
+            android:exported="true" />
+
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.myFileProvider"

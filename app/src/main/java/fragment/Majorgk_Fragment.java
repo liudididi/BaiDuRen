@@ -114,7 +114,6 @@ public class Majorgk_Fragment  extends Basefragment implements MajorgkView{
                }
 
          if(majorgkBean.getDirectionEmployment()!=null){
-
                    jyfx=majorgkBean.getDirectionEmployment();
          }
 

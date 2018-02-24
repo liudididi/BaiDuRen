@@ -71,8 +71,9 @@ public class ParticularsActivity extends BaseActivity {
         // 设置默认字体大小
         webSettings.setDefaultFontSize(12);
 
-        webView.loadUrl("http://39.106.32.50/#/entrancenews?newsId=2");
-        //webView.loadUrl(url);
+        //webView.loadUrl("http://39.106.32.50/#/entrancenews?newsId=2");
+
+        webView.loadUrl(url);
 
         webView.setWebViewClient(new WebViewClient(){
             @Override

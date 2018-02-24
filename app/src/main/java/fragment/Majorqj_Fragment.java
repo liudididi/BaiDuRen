@@ -32,5 +32,8 @@ public class Majorqj_Fragment  extends Basefragment{
             qj_tvfx.setText(Majorgk_Fragment.jyfx);
         }
 
+
+
+
     }
 }

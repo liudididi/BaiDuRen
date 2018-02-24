@@ -5,11 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context="com.example.login_demo.AsForBaiDuRenActivity">
     <RelativeLayout
         android:id="@+id/asfor_rl"
         android:layout_width="match_parent"
         android:layout_height="120px"
+        android:background="#fff"
         >
         <ImageView
             android:padding="10px"
@@ -28,186 +30,18 @@
             android:layout_height="wrap_content"
             />
     </RelativeLayout>
-
-
-    <RelativeLayout
-        android:id="@+id/asfor_one"
-        android:layout_marginTop="20px"
-        android:layout_below="@+id/asfor_rl"
+    <View
+        android:id="@+id/view2"
         android:layout_width="match_parent"
-        android:layout_height="140px"
-        >
-        <View
-            android:id="@+id/asfor_view"
-            android:layout_width="match_parent"
-            android:layout_height="20px"
-            android:background="#F2F2F2"
-            ></View>
-        <TextView
-            android:layout_below="@id/asfor_view"
-            android:textColor="@color/black"
-            android:text="1.摆渡人是什么"
-            android:textSize="50px"
-            android:gravity="center"
-            android:layout_marginLeft="30px"
-            android:layout_marginTop="30px"
-            android:layout_width="wrap_content"
-            android:layout_height="80px" />
-        <ImageView
-            android:layout_below="@id/asfor_view"
-            android:src="@drawable/right_arrow"
-            android:layout_marginTop="45px"
-            android:layout_marginRight="30px"
-            android:layout_width="45px"
-            android:layout_height="45px"
-            android:layout_alignParentRight="true"
-            />
-    </RelativeLayout>
-    <RelativeLayout
-        android:id="@+id/asfor_two"
-        android:layout_marginTop="20px"
-        android:layout_below="@+id/asfor_one"
-        android:layout_width="match_parent"
-        android:layout_height="140px"
-        >
-        <View
-            android:id="@+id/asfor_view1"
-            android:layout_width="match_parent"
-            android:layout_height="20px"
-            android:background="#F2F2F2"
-            ></View>
-        <TextView
-            android:layout_below="@id/asfor_view1"
-            android:textColor="@color/black"
-            android:text="2.为什么选择摆渡人"
-            android:textSize="50px"
-            android:gravity="center"
-            android:layout_marginLeft="30px"
-            android:layout_marginTop="30px"
-            android:layout_width="wrap_content"
-            android:layout_height="80px" />
-        <ImageView
-            android:layout_below="@id/asfor_view1"
-            android:src="@drawable/right_arrow"
-            android:layout_marginTop="45px"
-            android:layout_marginRight="30px"
-            android:layout_width="45px"
-            android:layout_height="45px"
-            android:layout_alignParentRight="true"
-            />
-    </RelativeLayout>
-
-
-    <RelativeLayout
-        android:id="@+id/asfor_three"
-        android:layout_marginTop="20px"
-        android:layout_below="@+id/asfor_two"
-        android:layout_width="match_parent"
-        android:layout_height="140px"
-        >
-        <View
-            android:id="@+id/asfor_view2"
-            android:layout_width="match_parent"
-            android:layout_height="20px"
-            android:background="#F2F2F2"
-            ></View>
-        <TextView
-            android:layout_below="@id/asfor_view2"
-            android:textColor="@color/black"
-            android:text="3.我们的品牌故事"
-            android:textSize="50px"
-            android:gravity="center"
-            android:layout_marginLeft="30px"
-            android:layout_marginTop="30px"
-            android:layout_width="wrap_content"
-            android:layout_height="80px" />
-        <ImageView
-            android:layout_below="@id/asfor_view2"
-            android:src="@drawable/right_arrow"
-            android:layout_marginTop="45px"
-            android:layout_marginRight="30px"
-            android:layout_width="45px"
-            android:layout_height="45px"
-            android:layout_alignParentRight="true"
-            />
-    </RelativeLayout>
-
-
-    <RelativeLayout
-        android:id="@+id/asfor_four"
-        android:layout_marginTop="20px"
-        android:layout_below="@+id/asfor_three"
-        android:layout_width="match_parent"
-        android:layout_height="140px"
-        >
-        <View
-            android:id="@+id/asfor_view3"
-            android:layout_width="match_parent"
-            android:layout_height="20px"
-            android:background="#F2F2F2"
-            ></View>
-        <TextView
-            android:layout_below="@id/asfor_view3"
-            android:textColor="@color/black"
-            android:text="4.联系我们"
-            android:textSize="50px"
-            android:gravity="center"
-            android:layout_marginLeft="30px"
-            android:layout_marginTop="30px"
-            android:layout_width="wrap_content"
-            android:layout_height="80px" />
-        <ImageView
-            android:layout_below="@id/asfor_view3"
-            android:src="@drawable/right_arrow"
-            android:layout_marginTop="45px"
-            android:layout_marginRight="30px"
-            android:layout_width="45px"
-            android:layout_height="45px"
-            android:layout_alignParentRight="true"
-            />
-    </RelativeLayout>
-
-
-
-    <RelativeLayout
-        android:id="@+id/asfor_five"
-        android:layout_marginTop="20px"
-        android:layout_below="@+id/asfor_four"
-        android:layout_width="match_parent"
-        android:layout_height="140px"
-        >
-        <View
-            android:id="@+id/asfor_view4"
-            android:layout_width="match_parent"
-            android:layout_height="20px"
-            android:background="#F2F2F2"
-            ></View>
-        <TextView
-            android:layout_below="@id/asfor_view4"
-            android:textColor="@color/black"
-            android:text="5.免责声明"
-            android:textSize="50px"
-            android:gravity="center"
-            android:layout_marginLeft="30px"
-            android:layout_marginTop="30px"
-            android:layout_width="wrap_content"
-            android:layout_height="80px" />
-        <ImageView
-            android:layout_below="@id/asfor_view4"
-            android:src="@drawable/right_arrow"
-            android:layout_marginTop="45px"
-            android:layout_marginRight="30px"
-            android:layout_width="45px"
-            android:layout_height="45px"
-            android:layout_alignParentRight="true"
-            />
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_below="@+id/asfor_five"
-        android:background="#F2F2F2"
+        android:layout_height="10px"
+        android:background="#ccc"
+        android:layout_below="@id/asfor_rl">
+    </View>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/asfor_rv"
+        android:layout_below="@id/view2"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </RelativeLayout>
-
+    </android.support.v7.widget.RecyclerView>
 </RelativeLayout>

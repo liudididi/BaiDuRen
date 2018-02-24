@@ -10,7 +10,6 @@
         android:layout_height="match_parent">
     </View>
     <LinearLayout
-
         android:background="@drawable/back_square"
         android:layout_toRightOf="@+id/view"
         android:layout_width="450px"
@@ -32,13 +31,14 @@
            android:gravity="center_horizontal"
             android:textSize="40px"
            android:maxLines="2"
+           android:textColor="#333333"
            android:layout_marginTop="10px"
             android:layout_below="@+id/item_school_icon"
             />
         <TextView
             android:maxLines="1"
             android:ellipsize="end"
-            android:textColor="#Bababa"
+            android:textColor="#666666"
             android:id="@+id/item_school_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -205,38 +205,31 @@ public class PieChatView extends View {
     //画文字
     private void drawText(Canvas mCanvas, float textAngle, String kinds, float needDrawAngle) {
         Rect rect = new Rect();
-        mTextPaint.setTextSize(sp2px(15));
+        mTextPaint.setTextSize(sp2px(10));
         mTextPaint.getTextBounds(kinds, 0, kinds.length(), rect);
         if (textAngle >= 0 && textAngle <= 90) { //画布坐标系第一象限(数学坐标系第四象限)
-            if (needDrawAngle < minAngle) { //如果小于某个度数,就把文字画在饼状图外面
+
                 mCanvas.drawText(kinds, (float) (mRadius * 1.2 * Math.cos(Math.toRadians(textAngle))), (float) (mRadius * 1.2 * Math.sin(Math.toRadians(textAngle)))+rect.height()/2, mTextPaint);
-            } else {
-                mCanvas.drawText(kinds, (float) (mRadius * 0.75 * Math.cos(Math.toRadians(textAngle))), (float) (mRadius * 0.75 * Math.sin(Math.toRadians(textAngle)))+rect.height()/2, mTextPaint);
-            }
+
 
             //mCanvas.drawText(kinds, (float) (mRadius * 0.75 * Math.cos(Math.toRadians(textAngle))), (float) (mRadius * 0.75 * Math.sin(Math.toRadians(textAngle)))+rect.height()/2, mTextPaint);
         } else if (textAngle > 90 && textAngle <= 180) { //画布坐标系第二象限(数学坐标系第三象限)
-            if (needDrawAngle < minAngle) {
+
                 mCanvas.drawText(kinds, (float) (-mRadius * 1.2 * Math.cos(Math.toRadians(180 - textAngle))), (float) (mRadius * 1.2 * Math.sin(Math.toRadians(180 - textAngle)))+rect.height()/2, mTextPaint);
-            } else {
-                mCanvas.drawText(kinds, (float) (-mRadius * 0.75 * Math.cos(Math.toRadians(180 - textAngle))), (float) (mRadius * 0.75 * Math.sin(Math.toRadians(180 - textAngle)))+rect.height()/2, mTextPaint);
-            }
+
+
 
           //  mCanvas.drawText(kinds, (float) (-mRadius * 0.75 * Math.cos(Math.toRadians(180 - textAngle))), (float) (mRadius * 0.75 * Math.sin(Math.toRadians(180 - textAngle)))+rect.height()/2, mTextPaint);
         } else if (textAngle > 180 && textAngle <= 270) { //画布坐标系第三象限(数学坐标系第二象限)
-            if (needDrawAngle < minAngle) {
+
                 mCanvas.drawText(kinds, (float) (-mRadius * 1.2 * Math.cos(Math.toRadians(textAngle - 180))), (float) (-mRadius * 1.2 * Math.sin(Math.toRadians(textAngle - 180)))+rect.height()/2, mTextPaint);
-            } else {
-                mCanvas.drawText(kinds, (float) (-mRadius * 0.75 * Math.cos(Math.toRadians(textAngle - 180))), (float) (-mRadius * 0.75 * Math.sin(Math.toRadians(textAngle - 180)))+rect.height()/2, mTextPaint);
-            }
+
 
            // mCanvas.drawText(kinds, (float) (-mRadius * 0.75 * Math.cos(Math.toRadians(textAngle - 180))), (float) (-mRadius * 0.75 * Math.sin(Math.toRadians(textAngle - 180)))+rect.height()/2, mTextPaint);
         } else { //画布坐标系第四象限(数学坐标系第一象限)
-            if (needDrawAngle < minAngle) {
+
                 mCanvas.drawText(kinds, (float) (mRadius * 1.2 * Math.cos(Math.toRadians(360 - textAngle))), (float) (-mRadius * 1.2 * Math.sin(Math.toRadians(360 - textAngle)))+rect.height()/2, mTextPaint);
-            } else {
-                mCanvas.drawText(kinds, (float) (mRadius * 0.75 * Math.cos(Math.toRadians(360 - textAngle))), (float) (-mRadius * 0.75 * Math.sin(Math.toRadians(360 - textAngle)))+rect.height()/2, mTextPaint);
-            }
+
 
            // mCanvas.drawText(kinds, (float) (mRadius * 0.75 * Math.cos(Math.toRadians(360 - textAngle))), (float) (-mRadius * 0.75 * Math.sin(Math.toRadians(360 - textAngle)))+rect.height()/2, mTextPaint);
         }

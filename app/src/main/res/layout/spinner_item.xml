@@ -5,6 +5,7 @@
     android:orientation="vertical">
 
     <TextView
+        android:gravity="center_vertical"
         android:id="@+id/spinner_tv"
         android:layout_width="match_parent"
         android:layout_height="100px"

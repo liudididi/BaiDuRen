@@ -27,7 +27,7 @@ public class ExamMessageActivity extends BaseActivity {
     @BindView(R.id.tv_create)
     TextView tv_create;
     private String token;
-
+    private int form_int;
 
     @Override
     public int getId() {
@@ -54,10 +54,13 @@ public class ExamMessageActivity extends BaseActivity {
         messageGv.setAdapter(examGlideAdapter);
         final Intent intent = getIntent();
 
-
+        form_int = intent.getIntExtra("form_int", 0);
 
 
         messageGv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+
+
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
@@ -70,12 +73,11 @@ public class ExamMessageActivity extends BaseActivity {
                 if(aBoolean==true)
                 {
                     String form = intent.getStringExtra("form");
-                    int form_int = intent.getIntExtra("form_int", 0);
                     Intent intent1=new Intent(ExamMessageActivity.this,GradeActivity.class);
                     intent1.putExtra("month",list.get(i).toString());
                     intent1.putExtra("form",form);
 
-                    intent1.putExtra("form_int",form_int);
+                    intent1.putExtra("form_int", form_int);
                     intent1.putExtra("month_index",i+1);
                     startActivity(intent1);
                 }
@@ -111,6 +113,9 @@ public class ExamMessageActivity extends BaseActivity {
                 break;
             case R.id.tv_create:
                 //TODO  生成数据折线对比图
+                Intent intent=new Intent(this,GradePolyLineActivity.class);
+                intent.putExtra("testType",form_int);
+                startActivity(intent);
                 break;
         }
     }

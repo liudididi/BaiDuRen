@@ -6,8 +6,8 @@ package base;
  */
 
 public class BaseApi {
-   public  static  String Api="http://192.168.1.153:8098/";
+   public  static  String Api="http://192.168.1.30:8098/";
     //线上Api
-    // public  static  String Api="http://39.106.32.50:9098/";
+   //  public  static  String Api="http://39.106.32.50:9098/";
     public  static  String ImgApi="http://39.106.32.50:9096/";
 }

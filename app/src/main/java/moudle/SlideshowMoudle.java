@@ -21,7 +21,8 @@ public class SlideshowMoudle {
     //首页轮播图模块
     public void Slideshow(int board_id, final SlideshowBack slideshowBack)
     {
-        DisposableSubscriber<BaseBean<List<SlideshowBean>>> disposableSubscriber = MyQusetUtils.getInstance().getQuestInterface().Slideshow(board_id)
+        DisposableSubscriber<BaseBean<List<SlideshowBean>>> disposableSubscriber =
+                MyQusetUtils.getInstance().getQuestInterface().Slideshow(board_id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new DisposableSubscriber<BaseBean<List<SlideshowBean>>>() {
@@ -72,7 +73,8 @@ public class SlideshowMoudle {
     //首页热门专题回调接口
     public void HotTop(String category, String province, String page, String limit, final HotTopBack hotTopBack)
     {
-        DisposableSubscriber<BaseBean<NewsBean>> disposableSubscriber = MyQusetUtils.getInstance().getQuestInterface().News(category, province, page, limit)
+        DisposableSubscriber<BaseBean<NewsBean>> disposableSubscriber = MyQusetUtils.getInstance()
+                .getQuestInterface().News(category, province, page, limit)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new DisposableSubscriber<BaseBean<NewsBean>>() {
@@ -97,7 +99,8 @@ public class SlideshowMoudle {
     //首页精选专题回调接口
     public void Recommend(String category, String province, String page, String limit, final RecommendBack recommendBack)
     {
-        DisposableSubscriber<BaseBean<NewsBean>> disposableSubscriber = MyQusetUtils.getInstance().getQuestInterface().News(category, province, page, limit)
+        DisposableSubscriber<BaseBean<NewsBean>> disposableSubscriber = MyQusetUtils.getInstance()
+                .getQuestInterface().News(category, province, page, limit)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new DisposableSubscriber<BaseBean<NewsBean>>() {

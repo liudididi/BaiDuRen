@@ -1,30 +1,30 @@
 package com.example.login_demo;
 
 import android.os.Bundle;
-import android.view.View;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
+import java.util.List;
+
+import adapter.HelpAdapter;
 import base.BaseActivity;
+import base.BaseBean;
+import bean.HelpBean;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import presenter.HelpPresenter;
+import view.HelpView;
 
-public class AsForBaiDuRenActivity extends BaseActivity {
+public class AsForBaiDuRenActivity extends BaseActivity implements HelpView {
 
 
+    @BindView(R.id.asfor_rv)
+    RecyclerView asfor_rv;
     @BindView(R.id.asfor_iv_back)
     ImageView asforIvBack;
-    @BindView(R.id.asfor_one)
-    RelativeLayout asforOne;
-    @BindView(R.id.asfor_two)
-    RelativeLayout asforTwo;
-    @BindView(R.id.asfor_three)
-    RelativeLayout asforThree;
-    @BindView(R.id.asfor_four)
-    RelativeLayout asforFour;
-    @BindView(R.id.asfor_five)
-    RelativeLayout asforFive;
+    private HelpPresenter helpPresenter;
 
     @Override
     public int getId() {
@@ -34,35 +34,33 @@ public class AsForBaiDuRenActivity extends BaseActivity {
     @Override
     public void InIt() {
 
+        helpPresenter = new HelpPresenter(this);
+        helpPresenter.HelpPresenter("0", "1");
+    }
+
+
+    @Override
+    public void Helpsuccess(BaseBean<List<HelpBean>> listBaseBean) {
+        List<HelpBean> data = listBaseBean.data;
+        asfor_rv.setLayoutManager(new LinearLayoutManager(AsForBaiDuRenActivity.this));
+        asfor_rv.setAdapter(new HelpAdapter(data, AsForBaiDuRenActivity.this));
+    }
+
+    @Override
+    public void Helpfail(Throwable t) {
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        helpPresenter.onDestory();
     }
 
 
 
-    @OnClick({R.id.asfor_iv_back, R.id.asfor_one, R.id.asfor_two, R.id.asfor_three, R.id.asfor_four, R.id.asfor_five})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.asfor_iv_back:
-                finish();
-                break;
-            case R.id.asfor_one:
-                //摆渡人是什么
-
-                break;
-            case R.id.asfor_two:
-                //为什么选择摆渡人
-
-                break;
-            case R.id.asfor_three:
-                //我们的品牌故事
-                break;
-            case R.id.asfor_four:
-                //联系我们
-
-                break;
-            case R.id.asfor_five:
-                //免责声明
-
-                break;
-        }
+    @OnClick(R.id.asfor_iv_back)
+    public void onViewClicked() {
+        finish();
     }
 }

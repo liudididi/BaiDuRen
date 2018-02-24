@@ -50,7 +50,6 @@ public class Wash_School_adapter  extends RecyclerView.Adapter{
                 break;
             case 1:
                 view = View.inflate(context, R.layout.my_wish_school_item, null);
-
                         holder=new School_viewHoder(view);
                 break;
         }

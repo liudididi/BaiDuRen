@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#f3f3f3"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:scrollbars="none">
  <RelativeLayout
@@ -151,34 +152,35 @@
          android:gravity="center"
          android:layout_below="@id/ws_xbanner"
          android:layout_margin="30px"
-         android:background="@mipmap/back"
+         android:background="@drawable/wish_back"
          >
          <TextView
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:text="智能填报志愿"
              android:textColor="#ffff"
-             android:textSize="50px"
+             android:textSize="42px"
              />
          <TextView
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:text="AI智能定制最优志愿表"
-             android:textColor="#e6e6e6"
-             android:textSize="28px"
-             android:layout_marginTop="10px"
+             android:textColor="#ffff"
+             android:textSize="32px"
+             android:layout_marginTop="32px"
              />
          <LinearLayout
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:orientation="horizontal"
              android:gravity="center_vertical"
-             android:layout_marginTop="50px">
+             android:layout_marginTop="80px">
              <TextView
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
-                 android:text="你已生成1份志愿表"
-                 android:textColor="#fff"/>
+                 android:text="你已生成2份志愿表"
+                 android:textColor="#fff"
+                 android:textSize="38px"/>
              <ImageView
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
@@ -189,22 +191,23 @@
      <View
          android:id="@+id/view"
          android:layout_below="@+id/ll_back"
-         android:background="@color/black"
+         android:background="#F3F3F3"
+         android:layout_height="20px"
          android:layout_width="match_parent"
-         android:layout_height="2px"></View>
+       ></View>
      <TextView
          android:id="@+id/tv_can"
          android:textSize="50px"
          android:layout_below="@id/view"
          android:layout_width="match_parent"
          android:layout_height="100px"
-         android:text="—能上的学校—"
-         android:textColor="#000"
+         android:text="—  能上的学校  —"
+         android:textColor="#333333"
          android:gravity="center"/>
      <View
          android:id="@+id/view2"
          android:layout_below="@+id/tv_can"
-         android:background="@color/black"
+         android:background="#666666"
          android:layout_width="match_parent"
          android:layout_height="2px"></View>
 
@@ -255,6 +258,8 @@
              android:layout_weight="1"
              android:layout_height="match_parent"
              android:text="月考成绩"
+             android:textSize="34px"
+             android:textColor="#333333"
              android:gravity="center"
              android:background="@mipmap/monthly"
              android:layout_marginLeft="30px"/>
@@ -265,6 +270,8 @@
              android:layout_height="match_parent"
              android:text="期中考试成绩"
              android:gravity="center"
+             android:textSize="34px"
+             android:textColor="#333333"
              android:background="@mipmap/midterm"
              android:layout_marginLeft="30px"
              android:layout_marginRight="30px"/>
@@ -275,6 +282,8 @@
              android:layout_height="match_parent"
              android:text="期末考试成绩"
              android:gravity="center"
+             android:textSize="34px"
+             android:textColor="#333333"
              android:background="@mipmap/end"
              android:layout_marginRight="30px"/>
      </LinearLayout>

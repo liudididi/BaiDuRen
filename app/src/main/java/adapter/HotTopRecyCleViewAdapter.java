@@ -1,6 +1,7 @@
 package adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.login_demo.ParticularsActivity;
 import com.example.login_demo.R;
 
 import java.util.ArrayList;
@@ -35,11 +37,19 @@ public class HotTopRecyCleViewAdapter extends RecyclerView.Adapter<HotTopRecyCle
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
         //设置圆角图片
        // Glide.with(context).load(list.get(position).img).transform(new GlideCircleTransform(context)).into(holder.iv_hottop);
-         Glide.with(context).load(list.get(position).img).into(holder.iv_hottop);
-        holder.tv_hottop.setText (list.get(position).tv_title);
+        Glide.with(context).load(list.get(position).img).into(holder.iv_hottop);
+
+        holder.view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(context, ParticularsActivity.class);
+                intent.putExtra("url", "http://39.106.32.50/#/entrancenews?newsId="+list.get(position).newsId);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -50,12 +60,13 @@ public class HotTopRecyCleViewAdapter extends RecyclerView.Adapter<HotTopRecyCle
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         private final ImageView iv_hottop;
-        private final TextView tv_hottop;
 
+       private  View view;
         public MyViewHolder(View itemView) {
             super(itemView);
+            this.view=itemView;
             iv_hottop = itemView.findViewById(R.id.iv_hottop);
-            tv_hottop = itemView.findViewById(R.id.tv_hottop);
+
         }
     }
 }

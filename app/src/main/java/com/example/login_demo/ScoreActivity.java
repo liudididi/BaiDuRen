@@ -88,16 +88,19 @@ public class ScoreActivity extends BaseActivity implements ScoreView{
 
         initView();
         scorePresent = new ScorePresent(this);
+        registerReceiver();
         tbsubtype = (String) SPUtils.get(MyApp.context, "tbsubtype", "文科");
 
         scorePresent.ScorePresent("北京",tbsubtype);
         scorePresent.Score2Present("北京","北京大学");
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         tbsubtype = (String) SPUtils.get(MyApp.context, "tbsubtype", "文科");
+
 
     }
 
@@ -378,5 +381,6 @@ public class ScoreActivity extends BaseActivity implements ScoreView{
     protected void onDestroy() {
         super.onDestroy();
         scorePresent.onDestory();
+        unregisterReceiver();
     }
 }

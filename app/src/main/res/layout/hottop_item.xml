@@ -13,12 +13,4 @@
         android:scaleType="fitXY"
         android:src="@mipmap/ic_launcher"
         android:layout_margin="10px"/>
-    <TextView
-        android:id="@+id/tv_hottop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="高考那些坑"
-        android:textSize="36px"
-        android:textColor="#515151"
-         />
 </LinearLayout>

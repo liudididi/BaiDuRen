@@ -20,6 +20,7 @@ import base.BaseApi;
 import base.BaseBean;
 import bean.CollerMajorBean;
 import bean.CollerSchoolBean;
+import bean.TeachBean;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -86,11 +87,17 @@ public class SchoolDetailActivity extends BaseActivity {
     @Override
     public void InIt() {
         initfragment();
+        registerReceiver();
         token = (String) SPUtils.get(MyApp.context, "token", "");
         schoolname = getIntent().getStringExtra("schoolname");
         schooldName.setText(schoolname);
         iscollect();
+        info();
         switchFragment(school_enroll).commitAllowingStateLoss();
+
+    }
+
+    private void info() {
 
     }
 
@@ -306,5 +313,6 @@ public class SchoolDetailActivity extends BaseActivity {
         if(disposableSubscriber!=null){
             disposableSubscriber.dispose();
         }
+        unregisterReceiver();
     }
 }

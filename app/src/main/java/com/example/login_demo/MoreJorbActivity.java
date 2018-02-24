@@ -40,9 +40,15 @@ public class MoreJorbActivity extends BaseActivity  implements MorJobView {
     public void InIt() {
         moreJobPresent = new MoreJobPresent(this);
         moreJobPresent.selectAllJob();
+        registerReceiver();
     }
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        moreJobPresent.onDestory();
+        unregisterReceiver();
+    }
 
     @OnClick(R.id.mschool_iv_back)
     public void onViewClicked() {

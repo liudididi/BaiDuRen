@@ -162,10 +162,16 @@
                 ></View>
         </RelativeLayout>
     </LinearLayout>
-    <FrameLayout
-        android:id="@+id/md_fl"
-        android:layout_marginTop="10px"
+    <ScrollView
         android:layout_below="@+id/mmajorll"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></FrameLayout>
+        android:layout_height="match_parent">
+        <FrameLayout
+            android:id="@+id/md_fl"
+            android:layout_marginTop="10px"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></FrameLayout>
+
+    </ScrollView>
+
 </RelativeLayout>

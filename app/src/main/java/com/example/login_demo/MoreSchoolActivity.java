@@ -65,13 +65,11 @@ public class MoreSchoolActivity extends BaseActivity  implements MoreSchoolView 
     @Override
     public void InIt() {
         initList();
+        registerReceiver();
         token = (String) SPUtils.get(MyApp.context, "token", "");
         mschoolXlist.setPullRefreshEnabled(false);
         mschoolXlist.setLayoutManager(new LinearLayoutManager(this));
         moreSchoolPresent = new MoreSchoolPresent(this);
-
-
-
         moreSchoolPresent.checkschool(area,sort+"类");
         //地区Spinner
         area_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arealist);
@@ -177,9 +175,8 @@ public class MoreSchoolActivity extends BaseActivity  implements MoreSchoolView 
         sortlist.add("艺术");
         sortlist.add("林业");
         sortlist.add("体育");
-
-   area="北京市";
-   sort="综合";
+         area="北京市";
+        sort="综合";
     }
 
     @OnClick({R.id.mschool_iv_back, R.id.mschool_search})
@@ -202,6 +199,7 @@ public class MoreSchoolActivity extends BaseActivity  implements MoreSchoolView 
         arealist=null;
         sortlist=null;
         moreSchoolPresent.onDestory();
+        unregisterReceiver();
     }
 
     @Override
@@ -229,4 +227,9 @@ public class MoreSchoolActivity extends BaseActivity  implements MoreSchoolView 
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
 }

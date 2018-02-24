@@ -85,8 +85,15 @@ public class AdvancedActivity extends BaseActivity implements WishView {
         }
         advancedSprint.setTextColor(Color.BLACK);
         list = new ArrayList<>();
+         registerReceiver();
 
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        wishPresent.onDestory();
+        unregisterReceiver();
     }
 
     @Override

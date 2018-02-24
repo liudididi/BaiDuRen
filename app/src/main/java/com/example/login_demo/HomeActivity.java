@@ -1,37 +1,33 @@
 package com.example.login_demo;
 
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.widget.FrameLayout;
 
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
 
 import base.BaseActivity;
-import base.BaseBean;
 import bean.MyUserBean;
-import bean.UserBean;
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import fragment.Home_Fragment;
 import fragment.My_Fragment;
 import fragment.WishFragMent;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
-import io.reactivex.subscribers.DisposableSubscriber;
-import untils.MyQusetUtils;
-import untils.SPUtils;
 
 public class HomeActivity extends BaseActivity {
 
     @BindView(R.id.bottomBar)
     BottomBar bottomBar;
+    @BindView(R.id.frame_main)
+    FrameLayout frameMain;
 
     private My_Fragment my_fragment;
     private WishFragMent wish_FragMent;
@@ -39,23 +35,25 @@ public class HomeActivity extends BaseActivity {
     private Fragment currentFragment;
 
 
+
     @Override
     public int getId() {
         return R.layout.activity_home;
     }
+
     @Override
     public void InIt() {
         //初始化Fragment
         inItFragment();
+        registerReceiver();
         MyUserBean.checkLogin();
-
-
         DisplayMetrics dm = getResources().getDisplayMetrics();
         int heightPixels = dm.heightPixels;
-        CoordinatorLayout.LayoutParams layoutParams= (CoordinatorLayout.LayoutParams) bottomBar.getLayoutParams();
-        layoutParams.width=dm.widthPixels;
-        layoutParams.height=heightPixels/12;
+        CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) bottomBar.getLayoutParams();
+        layoutParams.width = dm.widthPixels;
+        layoutParams.height = heightPixels / 12;
         bottomBar.setLayoutParams(layoutParams);
+
         /**
          * 底部点击事件
          */
@@ -78,6 +76,8 @@ public class HomeActivity extends BaseActivity {
         });
     }
 
+
+
     @Override
     public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
         //super.onSaveInstanceState(outState, outPersistentState);
@@ -92,8 +92,12 @@ public class HomeActivity extends BaseActivity {
         home_fragment = new Home_Fragment();
     }
 
+
+
+
     /**
      * 切换fragment
+     *
      * @param targetFragment
      * @return
      */
@@ -125,5 +129,8 @@ public class HomeActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
         MyUserBean.onDestory();
+        unregisterReceiver();
     }
+
+
 }

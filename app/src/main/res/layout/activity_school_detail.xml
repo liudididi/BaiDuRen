@@ -99,7 +99,7 @@
         android:visibility="invisible"
         android:gravity="center"
         android:layout_marginLeft="30px"
-        android:text="911"
+        android:text="985"
         android:background="@drawable/back_two"
         android:textSize="40px"
         android:layout_below="@+id/schoold_address"

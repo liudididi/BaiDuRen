@@ -48,6 +48,7 @@
 <TextView
     android:text="null"
     android:id="@+id/qj_tvqj"
+    android:textSize="35px"
     android:layout_marginTop="50px"
     android:layout_marginLeft="112px"
     android:layout_width="match_parent"
@@ -122,6 +123,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/qj_v2"
             android:text="null"
+            android:textSize="35px"
             />
 
         <View

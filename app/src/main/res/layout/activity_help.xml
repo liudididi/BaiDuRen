@@ -10,6 +10,7 @@
         android:id="@+id/rl_help"
         android:layout_width="match_parent"
         android:layout_height="120px"
+        android:background="#fff"
         >
         <ImageView
             android:padding="10px"
@@ -35,69 +36,9 @@
         android:background="#ccc"
         android:layout_below="@id/rl_help">
     </View>
-
-    <RelativeLayout
-        android:id="@+id/my_help"
-        android:layout_marginTop="20px"
-        android:layout_below="@+id/view2"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/help_rv"
+        android:layout_below="@id/view2"
         android:layout_width="match_parent"
-        android:layout_height="120px"
-        >
-        <TextView
-            android:textColor="@color/black"
-            android:text="1.如何使用APP？"
-            android:textSize="50px"
-            android:gravity="center"
-            android:layout_marginLeft="50px"
-            android:layout_marginTop="20px"
-            android:layout_width="wrap_content"
-            android:layout_height="80px" />
-        <ImageView
-            android:src="@drawable/right_arrow"
-            android:layout_marginTop="40px"
-            android:layout_marginRight="30px"
-            android:layout_width="45px"
-            android:layout_height="45px"
-            android:layout_alignParentRight="true"
-            />
-        <View
-            android:layout_alignParentBottom="true"
-            android:layout_width="match_parent"
-            android:layout_height="10px"
-            android:background="#ccc">
-        </View>
-    </RelativeLayout>
-    <RelativeLayout
-
-        android:layout_marginTop="20px"
-        android:layout_below="@+id/my_help"
-        android:layout_width="match_parent"
-        android:layout_height="120px"
-
-        >
-
-        <TextView
-            android:textColor="@color/black"
-            android:text="2.如何进行性格测试？"
-            android:textSize="50px"
-            android:gravity="center"
-            android:layout_marginLeft="50px"
-            android:layout_marginTop="20px"
-            android:layout_width="wrap_content"
-            android:layout_height="80px" />
-        <ImageView
-            android:src="@drawable/right_arrow"
-            android:layout_marginTop="40px"
-            android:layout_marginRight="30px"
-            android:layout_width="45px"
-            android:layout_height="45px"
-            android:layout_alignParentRight="true"
-            />
-        <View
-            android:layout_alignParentBottom="true"
-            android:layout_width="match_parent"
-            android:layout_height="10px"
-            android:background="#ccc">
-        </View>
-    </RelativeLayout>
+        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
 </RelativeLayout>

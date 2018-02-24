@@ -166,8 +166,7 @@ public class ProvinceActivity extends BaseActivity implements ProvinceView{
                 provincePresent.ProvincePresent(s);
             }
         });
-
-
+         registerReceiver();
         provincePresent = new ProvincePresent(this);
         provincePresent.ProvincePresent("北京");
     }
@@ -190,6 +189,7 @@ public class ProvinceActivity extends BaseActivity implements ProvinceView{
     protected void onDestroy() {
         super.onDestroy();
         provincePresent.onDestory();
+        unregisterReceiver();
     }
 
     @Override

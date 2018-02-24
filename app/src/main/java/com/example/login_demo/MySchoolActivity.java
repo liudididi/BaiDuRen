@@ -71,6 +71,7 @@ public class MySchoolActivity extends BaseActivity implements MySchoolView, XRec
                 break;
             case R.id.myschool_see:
                 intent(this,MoreSchoolActivity.class);
+                finish();
                 break;
         }
     }
@@ -95,7 +96,7 @@ public class MySchoolActivity extends BaseActivity implements MySchoolView, XRec
 
     @Override
     public void getSchoolfail(String msg) {
-      Toast(msg);
+      Toast("网络慢，请重试");
     }
 
     @Override

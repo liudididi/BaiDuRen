@@ -28,6 +28,7 @@
             android:layout_height="wrap_content"
             android:text="查看更多"
             android:textSize="50px"
+           android:textColor="#666666"
             android:layout_marginTop="30px"
             android:layout_below="@+id/item_school_icon"
             />

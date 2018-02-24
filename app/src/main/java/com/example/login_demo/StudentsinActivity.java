@@ -164,7 +164,9 @@ public class StudentsinActivity extends BaseActivity implements StudentsinView{
         tv2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                 data.clear();
+                if(data!=null){
+                    data.clear();
+                }
                 schooltype = list2.get(i).toString();
                 studentsinPresent.StudentsinPresent(address,schooltype);
 
@@ -178,8 +180,6 @@ public class StudentsinActivity extends BaseActivity implements StudentsinView{
         final ArrayList<String> list3 = new ArrayList<>();
         list3.add("是");
         list3.add("否");
-
-
         area_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list3);
         area_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         tv3.setAdapter(area_adapter);

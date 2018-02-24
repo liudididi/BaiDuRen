@@ -10,7 +10,10 @@ import bean.CheckSchoolBean;
 import bean.CityBean;
 import bean.CollerMajorBean;
 import bean.CollerSchoolBean;
+import bean.ForecastBean;
 import bean.GailvBean;
+import bean.GradePolyBean;
+import bean.HelpBean;
 import bean.HotBean;
 import bean.InquireBean;
 import bean.JobInforBean;
@@ -33,9 +36,11 @@ import bean.SearchBean;
 import bean.SelectMajorBean;
 import bean.SelectSchoolBean;
 import bean.SlideshowBean;
+import bean.StudentFromBean;
 import bean.StudentsinBean;
 import bean.StudentsinNewsBean;
 import bean.StudyBean;
+import bean.TeachBean;
 import bean.TitleBean;
 import bean.UserBean;
 import io.reactivex.Flowable;
@@ -56,6 +61,26 @@ import retrofit2.http.Query;
  */
 
 public interface QuestInterface {
+ //学生来源
+ @GET(" /app/stufrom/from")
+ Flowable<BaseBean<List<StudentFromBean>>> studentfrom(@Query("name") String name);
+
+
+ //成绩折线图
+ @GET("/app/result/getUserResultPng")
+ Flowable<BaseBean<List<GradePolyBean>>> getUserResultPng(@Query("testType") int testType, @Query("course") String course, @Header("token") String token );
+
+
+ //获取预估对比分数
+ @GET("/app/universitytimescore/getscoreCompareMobil")
+ Flowable<BaseBean<List<ForecastBean>>> forecast(@Query("province") String province, @Query("classify") String classify, @Query("university") String university);
+ //学校info
+ @GET("/app/scientificteach/teach")
+ Flowable<BaseBean<List<TeachBean>>> schoolteach(@Query("name") String name);
+ //查询帮助和购买
+ @GET("/app/help/helping")
+ Flowable<BaseBean<List<HelpBean>>> helping(@Query("type") String type, @Query("pid") String pid);
+
 
     //招生简章
     @GET("/app/admissionplanmobile/adInfoMobil")
@@ -73,15 +98,13 @@ public interface QuestInterface {
     @GET("/app/major/getMajorThreeById")
     Flowable<BaseBean<List<CollerMajorBean>>> getiscollet(@Query("majorId") String majorid, @Header("token") String token);
    //一本录取率
-
-
     @GET("/app/universitytimescore/getscoreCompareMobil")
     Flowable<BaseBean<List<GailvBean>>> getscoreCompareMobil(@Query("province") String province,@Query("classify") String classify,@Query("university") String university);
     //大学录取专业招生计划
     @GET("/app/enrolmentinfo/num")
     Flowable<BaseBean<List<SchoolEnrollBean>>> schoolenroll(@Query("name") String name, @Query("province") String province, @Query("type") String type);
 
-    //查询专业是否收藏
+    //查询学校是否收藏
     @GET("/app/university/getUnivCollection")
     Flowable<BaseBean<List<CollerSchoolBean>>> getchoolisscollet(@Query("name") String name, @Header("token") String token);
 

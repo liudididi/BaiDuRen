@@ -177,8 +177,8 @@
 <ImageView
     android:layout_marginLeft="10px"
     android:layout_marginTop="6px"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="30px"
+    android:layout_height="30px"
     android:src="@drawable/back_circleblcak"
     />
         <TextView
@@ -193,6 +193,8 @@
         <TextView
             android:layout_marginTop="40px"
             android:id="@+id/fmgk_tvssdl"
+
+            android:textSize="35px"
             android:layout_marginLeft="70px"
             android:layout_below="@+id/fmgk_v2"
             android:layout_width="match_parent"
@@ -210,8 +212,8 @@
         <ImageView
             android:layout_marginLeft="10px"
             android:layout_marginTop="6px"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="30px"
+            android:layout_height="30px"
             android:src="@drawable/back_circleblcak"
             />
         <TextView
@@ -230,6 +232,7 @@
             android:layout_below="@+id/fmgk_v4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="35px"
             />
     </RelativeLayout>
 
@@ -244,8 +247,8 @@
         <ImageView
             android:layout_marginLeft="10px"
             android:layout_marginTop="6px"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="30px"
+            android:layout_height="30px"
             android:src="@drawable/back_circleblcak"
             />
         <TextView
@@ -264,6 +267,7 @@
             android:layout_below="@+id/fmgk_v5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="35px"
             />
     </RelativeLayout>
     <RelativeLayout
@@ -314,6 +318,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="110px"
+        android:textSize="35px"
         />
 
 </RelativeLayout>

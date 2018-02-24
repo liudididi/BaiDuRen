@@ -149,7 +149,7 @@
             android:layout_width="270px"
             android:layout_height="90px"
             android:layout_alignParentRight="true"
-            android:textColor="#e6e6e6"
+            android:textColor="#fff"
             android:textSize="40px"
             android:layout_marginRight="45px"
             android:background="@drawable/back_guanzhu"

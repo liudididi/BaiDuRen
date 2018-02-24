@@ -71,6 +71,7 @@ public class PrimaryActivity extends BaseActivity implements WishView {
         primary_sprint.setTextColor(Color.BLACK);
         list = new ArrayList<>();
         wishPresent = new WishPresent(this);
+        registerReceiver();
 
 
         String inarea = getIntent().getStringExtra("inarea");
@@ -98,6 +99,13 @@ public class PrimaryActivity extends BaseActivity implements WishView {
 
 
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        wishPresent.onDestory();
+        unregisterReceiver();
     }
 
     @Override

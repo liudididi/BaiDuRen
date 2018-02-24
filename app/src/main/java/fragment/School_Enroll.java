@@ -23,13 +23,16 @@ import adapter.Spinner_Adapter;
 import adapter.Spinner_Adapter2;
 import base.BaseBean;
 import base.Basefragment;
+import bean.ForecastBean;
 import bean.GailvBean;
 import bean.LuquXianBean;
 import bean.SchoolEnrollBean;
+import presenter.ForecastPresent;
 import presenter.SchoolEnrollPresent;
 import untils.Histogram;
 import untils.SPUtils;
 import untils.ZhiMaScoreView;
+import view.ForecastView;
 import view.SchoolEnrollView;
 
 /**
@@ -37,7 +40,7 @@ import view.SchoolEnrollView;
  * 邮箱：461211527@qq.com.
  */
 
-public class School_Enroll  extends Basefragment implements SchoolEnrollView{
+public class School_Enroll  extends Basefragment implements SchoolEnrollView, ForecastView{
 
     private RecyclerView se_rv;
     private SchoolEnrollPresent schoolEnrollPresent;
@@ -62,6 +65,7 @@ public class School_Enroll  extends Basefragment implements SchoolEnrollView{
     private TextView school_enroll_tv;
     private TextView school_enroll_tvtime;
     private String schoolname;
+    private ForecastPresent forecastPresent;
 
     @Override
     public int getLayoutid() {
@@ -79,6 +83,13 @@ public class School_Enroll  extends Basefragment implements SchoolEnrollView{
         schoolEnrollPresent = new SchoolEnrollPresent(this);
         schoolEnrollPresent.SchoolEnrollPresent(schoolname,tbarea,tbsubtype);
         schoolEnrollPresent.getscoreCompareMobil(tbarea,tbsubtype, schoolname);
+
+
+        Histogram column_two =  view.findViewById(R.id.column_two);
+        column_two.setData(Integer.parseInt(tbmaxfen), 750);
+        column_two.mPaint.setColor(getResources().getColor(R.color.zhu2)); //改变柱状图的颜色
+        forecastPresent = new ForecastPresent(this);
+        forecastPresent.ForecastPresent(tbarea,tbsubtype,schoolname);
         tv_tvarea.setText(tbarea);
         se_tvtype.setText(tbsubtype);
         se_tvmaxfen.setText(tbmaxfen);
@@ -86,12 +97,7 @@ public class School_Enroll  extends Basefragment implements SchoolEnrollView{
 
         schoolEnrollPresent.getluquxian(tbarea, schoolname,tbsubtype,tv_pici.getText().toString(),tv_skx.getText().toString());
 
-        Histogram column_one =  view.findViewById(R.id.column_one);
-        Histogram column_two =  view.findViewById(R.id.column_two);
-        column_one.setData( 400, 750);
-        column_two.setData(650, 750);
-        column_one.mPaint.setColor(getResources().getColor(R.color.zhu1)); //改变柱状图的颜色
-        column_two.mPaint.setColor(getResources().getColor(R.color.zhu2)); //改变柱状图的颜色
+
 
         final ArrayList<String> list=new ArrayList<>();
         list.add("本科一批");
@@ -299,7 +305,31 @@ public class School_Enroll  extends Basefragment implements SchoolEnrollView{
 
     @Override
     public void LuquXianBeanfail(String msg) {
+        zhexian_ll.removeAllViews();
+        int max=0;
+        int min=0;
+        zhiMaScoreView = new ZhiMaScoreView(getActivity());
+        List<Integer> listfen=new ArrayList<>();
+        listfen.add(0);
+        listfen.add(0);
 
+        if(listfen.get(0)>=listfen.get(1)){
+            max=listfen.get(0)+100;
+            min=listfen.get(1)-50;
+        }else {
+            max=listfen.get(1)+100;
+            min=listfen.get(0)-50;
+        }
+        if(min<0){
+            min=0;
+        }
+        if(max>700){
+            max=700;
+        }
+        zhiMaScoreView.setlistfen(listfen);
+        zhiMaScoreView.setMaxScore(max);
+        zhiMaScoreView.setMinScore(min);
+        zhexian_ll.addView(zhiMaScoreView);
     }
 
     @Override
@@ -307,5 +337,26 @@ public class School_Enroll  extends Basefragment implements SchoolEnrollView{
         super.onDestroy();
 
         schoolEnrollPresent.onDestory();
+        forecastPresent.onDestory();
+    }
+
+    @Override
+    public void Forecastsuccess(BaseBean<List<ForecastBean>> listBaseBean) {
+        List<ForecastBean> data = listBaseBean.data;
+
+        if(data!=null&&data.size()>0)
+        {
+            String scoreAvg = data.get(0).getScoreAvg();
+            Histogram column_one =  view.findViewById(R.id.column_one);
+            column_one.setData( Integer.parseInt(scoreAvg), 750);
+            column_one.mPaint.setColor(getResources().getColor(R.color.zhu1)); //改变柱状图的颜色
+
+        }
+
+    }
+
+    @Override
+    public void Forecastfail(Throwable t) {
+
     }
 }

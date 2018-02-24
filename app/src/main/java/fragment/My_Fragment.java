@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.login_demo.AddServeActivity;
 import com.example.login_demo.CharacterActivity;
+import com.example.login_demo.GradePolyLineActivity;
 import com.example.login_demo.HelpActivity;
 import com.example.login_demo.MaJorActivity;
 import com.example.login_demo.MainActivity;
@@ -167,11 +168,14 @@ public class My_Fragment extends Basefragment implements View.OnClickListener {
             case R.id.my_gradetable:
                 checLogin = checLogin();
                 if(checLogin ==true){
-                    Toast.makeText(getActivity(), "我的成绩表", Toast.LENGTH_SHORT).show();
+                    Intent intent=new Intent(getContext(),GradePolyLineActivity.class);
+                    startActivity(intent);
                 }
                 break;
             case R.id.my_help:
-                getContext().startActivity(new Intent(getContext(), HelpActivity.class));
+                Intent in=new Intent(getContext(), HelpActivity.class);
+                in.putExtra("pid","2");
+                getContext().startActivity(in);
                 break;
             case R.id.my_addserve:
                 getContext().startActivity(new Intent(getContext(), AddServeActivity.class));
