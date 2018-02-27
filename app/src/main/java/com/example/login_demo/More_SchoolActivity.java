@@ -143,7 +143,12 @@ public class More_SchoolActivity extends BaseActivity implements WishView {
 
     @Override
     public void CanSchoolfail(Throwable t) {
+        if(tbarea!=null&&tbarea!=""&&tbmaxfen!=""&&tbmaxfen!=null&&tbsubtype!=null&&tbsubtype!=""){
+            wishPresent.CanSchoolPresente(tbarea,tbsubtype,"0",tbmaxfen,"1","10");
+        }else {
+            wishPresent.CanSchoolPresente("北京","文科","0","500","1","10");
 
+        }
     }
     @OnClick({R.id.more_iv_back })
     public void onViewClicked(View view) {

@@ -21,6 +21,7 @@ public class MoreJobMoudle  {
     public  void  selectAllJob(final MoreJobChaBack moreJobChaBack){
         DisposableSubscriber<BaseBean<List<MoreJobBean>>> disposableSubscriber = MyQusetUtils.getInstance()
                 .getQuestInterface().selectAllJob()
+
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribeWith(new DisposableSubscriber<BaseBean<List<MoreJobBean>>>() {

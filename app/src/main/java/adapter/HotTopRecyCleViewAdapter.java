@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.Priority;
 import com.example.login_demo.ParticularsActivity;
 import com.example.login_demo.R;
 
@@ -40,13 +41,16 @@ public class HotTopRecyCleViewAdapter extends RecyclerView.Adapter<HotTopRecyCle
     public void onBindViewHolder(MyViewHolder holder, final int position) {
         //设置圆角图片
        // Glide.with(context).load(list.get(position).img).transform(new GlideCircleTransform(context)).into(holder.iv_hottop);
-        Glide.with(context).load(list.get(position).img).into(holder.iv_hottop);
+        Glide.with(context).load(list.get(position).img)
+                .priority( Priority.HIGH )
+                .into(holder.iv_hottop);
 
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent= new Intent(context, ParticularsActivity.class);
                 intent.putExtra("url", "http://39.106.32.50/#/entrancenews?newsId="+list.get(position).newsId);
+                intent.putExtra("particulars_title", list.get(position).tv_title);
                 context.startActivity(intent);
             }
         });

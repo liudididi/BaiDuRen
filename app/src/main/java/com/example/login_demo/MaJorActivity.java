@@ -35,6 +35,7 @@ public class MaJorActivity extends BaseActivity implements  MySchoolView {
     @BindView(R.id.major_re)
     RelativeLayout  majorre;
     private MySchoolPresent mySchoolPresent;
+    private String token;
 
     @Override
     public int getId() {
@@ -43,7 +44,7 @@ public class MaJorActivity extends BaseActivity implements  MySchoolView {
 
     @Override
     public void InIt() {
-        String token = getIntent().getStringExtra("token");
+        token = getIntent().getStringExtra("token");
         mySchoolPresent = new MySchoolPresent(this);
         majorXrecycle.setVisibility(View.GONE);
         majorXrecycle.setLayoutManager(new LinearLayoutManager(this));
@@ -88,6 +89,6 @@ public class MaJorActivity extends BaseActivity implements  MySchoolView {
 
     @Override
     public void getMajorfail(String msg) {
-        Toast(msg);
+        mySchoolPresent.getmajorCollection(token);
     }
 }

@@ -6,7 +6,6 @@ import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import java.util.List;
 
@@ -35,6 +34,13 @@ public class MoreMajorActivity extends BaseActivity implements SelectMajorView {
     ExpandableListView treeViewSimple;
     @BindView(R.id.mmajor_pb)
     ProgressBar mmajorPb;
+    @BindView(R.id.tree_view_zhuan)
+    ExpandableListView treeViewZhuan;
+    private int zb = 0;
+
+
+    private   Boolean ben=false;
+    private  Boolean zhuan=false;
 
 
     private SelectMajorPresent selectMajorPresent;
@@ -64,12 +70,20 @@ public class MoreMajorActivity extends BaseActivity implements SelectMajorView {
     @Override
     public void SelectMajorSuccess(List<SelectMajorBean> list) {
         mmajorPb.setVisibility(View.GONE);
-        if (adapter == null) {
+        if(zb==0){
+            ben=true;
+            treeViewSimple.setVisibility(View.VISIBLE);
+            treeViewZhuan.setVisibility(View.GONE);
             adapter = new SimpleExpandableListViewAdapter(list, this);
             treeViewSimple.setAdapter(adapter);
-        } else {
-            adapter.Refresh(list);
+        }else {
+            zhuan=true;
+            treeViewSimple.setVisibility(View.GONE);
+            treeViewZhuan.setVisibility(View.VISIBLE);
+            SimpleExpandableListViewAdapter  adapter = new SimpleExpandableListViewAdapter(list, this);
+            treeViewZhuan.setAdapter(adapter);
         }
+
         // 设置适配器
 
 
@@ -77,6 +91,11 @@ public class MoreMajorActivity extends BaseActivity implements SelectMajorView {
 
     @Override
     public void SelectMajorFail(String msg) {
+        if (zb == 0) {
+            selectMajorPresent.selectAllMajor("0");
+        } else {
+            selectMajorPresent.selectAllMajor("1");
+        }
 
     }
 
@@ -90,17 +109,34 @@ public class MoreMajorActivity extends BaseActivity implements SelectMajorView {
             case R.id.mmajor_tvben:
                 mmajorVben.setVisibility(View.VISIBLE);
                 mmajorVzhuan.setVisibility(View.GONE);
-                mmajorPb.setVisibility(View.VISIBLE);
-                selectMajorPresent.selectAllMajor("0");
+                if(ben){
+                    treeViewZhuan.setVisibility(View.GONE);
+                    treeViewSimple.setVisibility(View.VISIBLE);
+                    return;
+                }
+                if (zb == 1) {
+                    mmajorPb.setVisibility(View.VISIBLE);
+                    selectMajorPresent.selectAllMajor("0");
+                }
+                zb = 0;
                 break;
             case R.id.mmajor_tvzhuan:
                 mmajorVben.setVisibility(View.GONE);
                 mmajorVzhuan.setVisibility(View.VISIBLE);
-                mmajorPb.setVisibility(View.VISIBLE);
-                selectMajorPresent.selectAllMajor("1");
+                if(zhuan){
+                    treeViewZhuan.setVisibility(View.VISIBLE);
+                    treeViewSimple.setVisibility(View.GONE);
+                    return;
+                }
+                if (zb == 0) {
+                    mmajorPb.setVisibility(View.VISIBLE);
+                    selectMajorPresent.selectAllMajor("1");
+                }
+                zb = 1;
                 break;
         }
     }
+
 
 
 }

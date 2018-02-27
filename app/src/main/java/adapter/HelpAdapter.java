@@ -67,7 +67,7 @@ public class HelpAdapter extends RecyclerView.Adapter<HelpAdapter.MyViewHolder>{
                                          intent.putExtra("title1",substring);
                                          intent.putExtra("id",id+"");
                                          context.startActivity(intent);
-                                     }else {
+                                     }else if(listBaseBean.data.size()==1){
                                          Intent intent= new Intent(context,Help3Activity.class);
                                          String substring = list.get(position).getBook().substring(3);
                                          intent.putExtra("title2",substring);

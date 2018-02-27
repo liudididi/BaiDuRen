@@ -36,73 +36,38 @@
         android:background="#ccc"
         android:layout_below="@id/rl_mentality"></View>
 
-    <RelativeLayout
+    <ImageView
         android:id="@+id/rl1"
         android:layout_width="match_parent"
         android:layout_height="450px"
-        android:background="@drawable/yi"
+        android:background="@drawable/cp1"
         android:layout_marginLeft="50px"
         android:layout_marginRight="50px"
         android:layout_marginTop="50px"
-        android:layout_below="@id/view1">
-        <TextView
-            android:id="@+id/reported_primary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="MBTI特质测评   ￥0.01"
-            android:textColor="#fff"
-            android:gravity="center"
-            android:textSize="55px"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            android:background="@drawable/bg_mentality"
-            android:layout_margin="10px"
-            />
-    </RelativeLayout>
-    <RelativeLayout
+        android:layout_below="@id/view1"
+      >
+
+    </ImageView>
+    <ImageView
         android:id="@+id/rl2"
         android:layout_width="match_parent"
         android:layout_height="450px"
-        android:background="@drawable/er"
+        android:background="@drawable/cp2"
         android:layout_marginLeft="50px"
         android:layout_marginRight="50px"
         android:layout_marginTop="50px"
         android:layout_below="@id/rl1">
-        <TextView
-            android:id="@+id/reported_primary2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="雷兰德兴趣特质测评   ￥0.01"
-            android:textColor="#fff"
-            android:gravity="center"
-            android:textSize="55px"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            android:background="@drawable/bg_mentality"
-            android:layout_margin="10px"
-            />
-    </RelativeLayout>
-    <RelativeLayout
+
+    </ImageView>
+  <!--  <ImageView
         android:id="@+id/rl3"
         android:layout_width="match_parent"
         android:layout_height="450px"
-        android:background="@drawable/san"
+        android:background="@drawable/cp3"
         android:layout_marginLeft="50px"
         android:layout_marginRight="50px"
         android:layout_marginTop="50px"
         android:layout_below="@id/rl2">
-        <TextView
-            android:id="@+id/reported_primary3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="学能测试   ￥0.01"
-            android:textColor="#fff"
-            android:gravity="center"
-            android:textSize="55px"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            android:background="@drawable/bg_mentality"
-            android:layout_margin="10px"
-            />
-    </RelativeLayout>
+
+    </ImageView>-->
 </RelativeLayout>

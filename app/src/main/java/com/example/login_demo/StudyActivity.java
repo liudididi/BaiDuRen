@@ -294,7 +294,10 @@ public class StudyActivity extends BaseActivity implements StudyView{
                 study_ll1.setVisibility(View.GONE);
                 study_ll2.setVisibility(View.VISIBLE);
                 study_ll3.setVisibility(View.GONE);
-                list4.clear();
+                if(list4!=null){
+                    list4.clear();
+                }
+
                 studyPresent.StudyPresent("历年高考题",s1,s3,"","1","10");
 
                 break;

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView
-    android:scrollbars="none"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context="com.example.login_demo.SchoolDetailActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        >
 <RelativeLayout
     android:background="@color/white"
     android:id="@+id/schoold_rl"
@@ -57,7 +57,7 @@
         android:layout_height="250px" />
     <TextView
         android:layout_marginLeft="30px"
-        android:text="北京大学"
+        android:text=" "
         android:textSize="60px"
         android:layout_below="@+id/setting_title"
         android:layout_marginTop="290px"
@@ -70,7 +70,7 @@
 
     <TextView
         android:layout_marginLeft="30px"
-        android:text="北京海淀区颐和园路5号"
+        android:text=" "
         android:textSize="40px"
         android:layout_below="@+id/schoold_name"
         android:layout_marginTop="30px"
@@ -226,11 +226,16 @@
 
     </RelativeLayout>
 
-
-    <FrameLayout
-        android:id="@+id/school_fl"
+   <!-- <ScrollView
         android:layout_below="@+id/schoold_rl2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></FrameLayout>
-</RelativeLayout>
+        android:layout_height="match_parent"
+        >-->
+    <FrameLayout
+        android:id="@+id/school_fl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/schoold_rl2"></FrameLayout>
+    </RelativeLayout>
 </ScrollView>
+

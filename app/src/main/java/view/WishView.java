@@ -17,4 +17,10 @@ public interface WishView {
     //能上的大学
     void CanSchoolsuccess(BaseBean<CanSchoolBean> canSchoolBeanBaseBean);
     void CanSchoolfail(Throwable t);
+
+
+
+
+
+
 }

@@ -1,19 +1,20 @@
 package com.example.login_demo;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import base.BaseActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class ParticularsActivity extends BaseActivity {
 
@@ -22,6 +23,10 @@ public class ParticularsActivity extends BaseActivity {
     WebView webView;
     @BindView(R.id.progressBar1)
     ProgressBar pg1;
+    @BindView(R.id.particulars_iv_back)
+    ImageView particularsIvBack;
+    @BindView(R.id.particular_tv)
+    TextView particularTv;
 
     @Override
     public int getId() {
@@ -32,16 +37,17 @@ public class ParticularsActivity extends BaseActivity {
     public void InIt() {
         Intent intent = getIntent();
         String url = intent.getStringExtra("url");
+        String particulars_title = intent.getStringExtra("particulars_title");
+        particularTv.setText(particulars_title);
         pg1 = findViewById(R.id.progressBar1);
-        webView.setWebChromeClient(new WebChromeClient(){
+        webView.setWebChromeClient(new WebChromeClient() {
             @Override
             public void onProgressChanged(WebView view, int newProgress) {
                 // TODO 自动生成的方法存根
 
-                if(newProgress==100){
+                if (newProgress == 100) {
                     pg1.setVisibility(View.GONE);//加载完网页进度条消失
-                }
-                else{
+                } else {
                     pg1.setVisibility(View.VISIBLE);//开始加载网页时显示进度条
                     pg1.setProgress(newProgress);//设置进度值
                 }
@@ -53,10 +59,8 @@ public class ParticularsActivity extends BaseActivity {
         webSettings.setJavaScriptEnabled(true);
         // 让JavaScript可以自动打开windows
         webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
-        // 设置缓存
-        webSettings.setAppCacheEnabled(true);
-        // 设置缓存模式,一共有四种模式
-        webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+
+
         // 设置缓存路径
 //        webSettings.setAppCachePath("");
         // 支持缩放(适配到当前屏幕)
@@ -75,7 +79,7 @@ public class ParticularsActivity extends BaseActivity {
 
         webView.loadUrl(url);
 
-        webView.setWebViewClient(new WebViewClient(){
+        webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 return false;// 返回false
@@ -85,4 +89,14 @@ public class ParticularsActivity extends BaseActivity {
 
 
 
+
+    @OnClick({R.id.particulars_iv_back })
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.particulars_iv_back:
+                finish();
+                break;
+
+        }
+    }
 }

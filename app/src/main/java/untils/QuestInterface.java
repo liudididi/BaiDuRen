@@ -5,11 +5,13 @@ import java.util.List;
 
 import base.BaseBean;
 import bean.AreaBean;
+import bean.CampusBean;
 import bean.CanSchoolBean;
 import bean.CheckSchoolBean;
 import bean.CityBean;
 import bean.CollerMajorBean;
 import bean.CollerSchoolBean;
+import bean.FingerpostBean;
 import bean.ForecastBean;
 import bean.GailvBean;
 import bean.GradePolyBean;
@@ -30,6 +32,7 @@ import bean.RanKingSchoolBean;
 import bean.SchoolBean;
 import bean.SchoolBrochuresBean;
 import bean.SchoolEnrollBean;
+import bean.SchoolIntroduceBean;
 import bean.ScoreBean1;
 import bean.ScoreBean2;
 import bean.SearchBean;
@@ -264,9 +267,34 @@ public interface QuestInterface {
     Flowable<BaseBean<CanSchoolBean>>  canschool(@Query("province")String province, @Query("classify")String classify, @Query("score_min") String score_min, @Query("score_max") String score_max, @Query("page") String page, @Query("limit") String limit);
 
 
+ //能上的学校
+ @GET("/app/major/getUniversity")
+ Flowable<BaseBean<CanSchoolBean>>  completecanschool(@Query("score_min")String minScore,
+                                                      @Query("score_max")String maxScore,
+                                                      @Query("cityType") String cityType,
+                                                      @Query("isAccept") String isAccept,
+                                                      @Query("schoolType") String schoolType,
+                                                      @Query("isMS") String isMS,
+                                                      @Query("province") String province,
+                                                      @Query("classify") String classify
+                                                     );
 
 
-    //获取曲县
+
+
+    //校园生活
+    @GET("/app/schoollife/lifeMobil ")
+    Flowable<BaseBean<List<CampusBean>>> campus(@Query("name") String name);
+
+    //报考指南
+    @GET("/app/guidemobil/guiMobil")
+    Flowable<BaseBean<List<FingerpostBean>>> fingerpost(@Query("name") String name);
+
+    //校园介绍
+    @GET("/app/universityinfomobile/UnInfoMobil")
+    Flowable<BaseBean<List<SchoolIntroduceBean>>> schoolIntroduce(@Query("name") String name);
+
+ //获取曲县
     @GET("/app/areas/areaMobil")
     Flowable<BaseBean<List<AreaBean>>> getareas(@Query("cityid") String cityid);
 

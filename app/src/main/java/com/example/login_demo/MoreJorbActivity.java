@@ -68,6 +68,6 @@ public class MoreJorbActivity extends BaseActivity  implements MorJobView {
 
     @Override
     public void MorJobFail(String msg) {
-
+        moreJobPresent.selectAllJob();
     }
 }

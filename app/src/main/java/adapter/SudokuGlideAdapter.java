@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.Priority;
 import com.example.login_demo.MentalityActivity;
 import com.example.login_demo.MoreJorbActivity;
 import com.example.login_demo.MoreMajorActivity;
@@ -122,7 +123,9 @@ public class SudokuGlideAdapter extends BaseAdapter {
 
             }
         });
-        Glide.with(context).load(BaseApi.ImgApi+list.get(i).getExtimg()).into(sodoku_item_iv);
+        Glide.with(context).load(BaseApi.ImgApi+list.get(i).getExtimg())
+                .priority( Priority.HIGH )
+                .into(sodoku_item_iv);
         return view;
     }
 }

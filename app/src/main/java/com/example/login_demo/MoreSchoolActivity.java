@@ -223,8 +223,7 @@ public class MoreSchoolActivity extends BaseActivity  implements MoreSchoolView 
 
     @Override
     public void CheckFail(String msg) {
-
-
+        moreSchoolPresent.checkschool(area,sort+"类");
     }
 
     @Override

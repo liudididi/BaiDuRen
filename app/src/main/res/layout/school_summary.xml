@@ -50,23 +50,57 @@
             />
 
         <TextView
-            android:text="null"
+            android:id="@+id/school_tv_xq"
+            android:text="详情"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textSize="50px"
+            android:textColor="#3B9EFF"
+            android:layout_marginTop="50px"
+            android:layout_marginRight="90px"/>
+
+        <ImageView
+            android:src="@drawable/right_lan"
+            android:layout_marginTop="55px"
+            android:layout_marginRight="40px"
+            android:layout_width="45px"
+            android:layout_height="45px"
+            android:layout_alignParentRight="true"
+            />
+        <ImageView
+            android:src="@drawable/right_lan"
+            android:layout_marginTop="55px"
+            android:layout_marginRight="30px"
+            android:layout_width="45px"
+            android:layout_height="45px"
+            android:layout_alignParentRight="true"
+            />
+        <TextView
             android:id="@+id/ss_tvjs"
             android:layout_marginTop="50px"
-            android:layout_marginLeft="112px"
+            android:layout_marginLeft="50px"
+            android:layout_marginRight="50px"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/qj_tv"
-            android:textSize="35px"
+            android:textSize="45px"
+            android:maxLines="5"
+            android:ellipsize="end"
             />
 
     </RelativeLayout>
-
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="40px"
+        android:background="#fff"
+        android:layout_below="@+id/ss_r1"></View>
     <RelativeLayout
         android:layout_marginTop="30px"
         android:background="@color/white"
         android:id="@+id/ss_r2"
-        android:layout_below="@+id/ss_r1"
+        android:layout_below="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="150px">
         <View

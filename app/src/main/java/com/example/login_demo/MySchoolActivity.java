@@ -96,7 +96,7 @@ public class MySchoolActivity extends BaseActivity implements MySchoolView, XRec
 
     @Override
     public void getSchoolfail(String msg) {
-      Toast("网络慢，请重试");
+        mySchoolPresent.getSchollCollection(token);
     }
 
     @Override

@@ -57,7 +57,21 @@ public class WishPresent extends Basepresent {
         });
 
     }
+    public void CompleCanSchoolPresente(String minScore, String maxScore, String cityType, String isAccept,  String schoolType,String isMS,String province,String classify)
+    {
+       wishMoudle.completcanSchool(minScore, maxScore,cityType, isAccept, schoolType,isMS,province,classify, new WishMoudle.CanSchoolBack() {
+           @Override
+           public void CanSchoolsuccess(BaseBean<CanSchoolBean> canSchoolBeanBaseBean) {
+               wishView.CanSchoolsuccess(canSchoolBeanBaseBean);
+           }
 
+           @Override
+           public void CanSchoolfail(Throwable t) {
+               wishView.CanSchoolfail(t);
+           }
+       });
+
+    }
     public   void   onDestory(){
         this.onDeach();
         wishMoudle.onDestory();

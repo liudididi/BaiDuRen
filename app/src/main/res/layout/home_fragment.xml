@@ -142,18 +142,19 @@
                         <ImageView
                             android:layout_marginLeft="50px"
                             android:layout_marginTop="18px"
-                            android:layout_width="40px"
-                            android:layout_height="40px"
+                            android:layout_width="50px"
+                            android:layout_height="50px"
                            android:src="@drawable/compile"
                             />
                     <TextView
+
                         android:layout_gravity="bottom"
-                        android:paddingLeft="15px"
+                        android:paddingLeft="40px"
                         android:id="@+id/home_ed_grade"
                         android:text="500"
+                        android:paddingTop="10px"
                         android:textColor="#3B9EFF"
-                        android:textSize="32px"
-                        android:gravity="left"
+                        android:textSize="52px"
                         android:layout_width="180px"
                         android:layout_height="wrap_content" />
                     </LinearLayout>
@@ -164,14 +165,14 @@
                     android:layout_marginTop="20px">
                     <TextView
                     android:text="北京"
-                        android:textSize="32px"
+                        android:textSize="42px"
                         android:textColor="#666666"
                         android:id="@+id/home_area"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                     <TextView
                         android:text="文科"
-                        android:textSize="32px"
+                        android:textSize="42px"
                         android:textColor="#666666"
                         android:id="@+id/home_subtype"
                         android:layout_width="wrap_content"

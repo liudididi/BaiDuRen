@@ -22,6 +22,9 @@ import android.widget.ViewFlipper;
 
 import com.bumptech.glide.Glide;
 import com.example.login_demo.EstimateGradeActivity;
+import com.example.login_demo.MentalityActivity;
+import com.example.login_demo.MoreMajorActivity;
+import com.example.login_demo.MoreSchoolActivity;
 import com.example.login_demo.MyApp;
 import com.example.login_demo.ParticularsActivity;
 import com.example.login_demo.R;
@@ -107,6 +110,7 @@ public class Home_Fragment extends Basefragment implements SlideshowView, Observ
         slideshowPresenter.RecommenPresenter("精选推荐","全国","1","6");
         //高考头条
         slideshowPresenter.CollegePresenter("1","4");
+
 
         inin();
         //加点
@@ -274,15 +278,25 @@ public class Home_Fragment extends Basefragment implements SlideshowView, Observ
         xbanner.setOnItemClickListener(new XBanner.OnItemClickListener() {
             @Override
             public void onItemClick(XBanner banner, int position) {
-               Intent intent= new Intent(getContext(), ParticularsActivity.class);
-                 intent.putExtra("url",listBaseBean.data.get(position).getUrl());
-                getContext().startActivity(intent);
+                if(position==0){
+                    Intent intent= new Intent(getContext(), MoreSchoolActivity.class);
+                    getContext().startActivity(intent);
+                }else  if(position==1){
+                    Intent intent= new Intent(getContext(), MoreMajorActivity.class);
+                    getContext().startActivity(intent);
+                }else {
+                    Intent intent= new Intent(getContext(), MentalityActivity.class);
+                    getContext().startActivity(intent);
+                }
+
             }
         });
     }
 
     @Override
     public void Slideshowfail(Throwable t) {
+
+        slideshowPresenter.SlideshowPresenter(2);
      }
 
     //首页九宫格模块
@@ -302,7 +316,7 @@ public class Home_Fragment extends Basefragment implements SlideshowView, Observ
 
     @Override
     public void Sudokufail(Throwable t) {
-
+        slideshowPresenter.SudokuPresenter(3);
     }
 
     //热门专题数据
@@ -326,7 +340,7 @@ public class Home_Fragment extends Basefragment implements SlideshowView, Observ
 
     @Override
     public void HotTopfail(Throwable t) {
-
+        slideshowPresenter.HotTopPresenter("热门专题","全国","1","6");
     }
 
     //精选推荐
@@ -346,7 +360,7 @@ public class Home_Fragment extends Basefragment implements SlideshowView, Observ
 
     @Override
     public void Recommendfail(Throwable t) {
-
+        slideshowPresenter.RecommenPresenter("精选推荐","全国","1","6");
     }
 
     //高考新闻
@@ -397,7 +411,7 @@ public class Home_Fragment extends Basefragment implements SlideshowView, Observ
 
     @Override
     public void Collegefail(Throwable t) {
-
+        slideshowPresenter.CollegePresenter("1","4");
     }
 
     @Override

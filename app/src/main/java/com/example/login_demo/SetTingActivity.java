@@ -1,5 +1,6 @@
 package com.example.login_demo;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import bean.UserBean;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import untils.PermissionUtils;
 import untils.SPUtils;
 
 public class SetTingActivity extends BaseActivity {
@@ -127,10 +129,27 @@ public class SetTingActivity extends BaseActivity {
                 break;
                 //版本介绍
             case R.id.setting_verson:
-                Toast("版本介绍");
-                Intent intent=new Intent(SetTingActivity.this,DownApkServer.class);
-                intent.putExtra("downUrl","http://bdrvip.com:9096/app/bdr_beta_1.0.1.apk");
-                startService(intent);
+
+                PermissionUtils permissionUtils=new PermissionUtils(this);
+                boolean b = permissionUtils.hasPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+                if(b){
+                    new AlertDialog.Builder(this)
+                            .setTitle("版本更新")
+                            .setMessage("当前处于流量状态，建议wifi下更新！！！")
+                            .setPositiveButton("土豪任性", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    settingVerson.setEnabled(false);
+                                    Intent intent=new Intent(SetTingActivity.this,DownApkServer.class);
+                                    intent.putExtra("downUrl","http://bdrvip.com:9096/app/bdr_beta_1.0.1.apk");
+                                    startService(intent);
+                                }
+                            })
+                            .setNegativeButton("取消", null)
+                            .show();
+                }else {
+                    permissionUtils.requestPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE,10);
+                }
                 break;
             //用户协议
             case R.id.setting_useragreen:

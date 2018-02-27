@@ -25,7 +25,8 @@
 
         <activity android:name=".MainActivity" />
         <activity
-            android:name=".HomeActivity"
+            android:icon="@drawable/logo"
+            android:name=".GuidanceActivity"
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -55,7 +56,9 @@
         <activity android:name=".SelectCitysActivity" />
         <activity android:name=".SelectAreasActivity" />
         <activity android:name=".ReportedActivity" />
-        <activity android:name=".PrimaryActivity" />
+        <activity android:name=".PrimaryActivity"
+            android:launchMode="singleTask"
+            />
         <activity android:name=".ExamMessageActivity" />
         <activity android:name=".GradeActivity" />
         <activity android:name=".SelectSchoolActivity" />
@@ -78,10 +81,11 @@
         <activity android:name=".StudentsinActivity" />
         <activity android:name=".GradeColumnActivity" />
         <activity android:name=".SchoolBrouesDetailsActivity" />
-        <activity android:name=".GradePolyLineActivity"></activity>
-        <activity android:name=".Help2Activity"
-            />
-        <activity android:name=".Help3Activity"></activity>
+        <activity android:name=".GradePolyLineActivity" />
+        <activity android:name=".Help2Activity" />
+        <activity android:name=".Help3Activity" />
+        <activity android:name=".JJParticularsActivity" />
+
         <service
             android:name=".DownApkServer"
             android:exported="true" />
@@ -95,8 +99,9 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-
-
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".CompleteWishActivity"></activity>
+        <activity android:name=".SplashActivity"></activity>
     </application>
 
 </manifest>

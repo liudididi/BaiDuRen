@@ -290,7 +290,7 @@ public class MainActivity extends BaseActivity implements LoginView {
     @Override
     public void CaptChasuccess(String msg) {
         Toast(msg);
-        if(msg.equals("success")){
+        if(msg.equals("验证码发送成功")){
             time = 30;
             inItRunable();
             if(flag==true){

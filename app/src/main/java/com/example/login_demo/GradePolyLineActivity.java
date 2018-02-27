@@ -86,7 +86,7 @@ public class GradePolyLineActivity extends BaseActivity  implements GradePolyLin
         list.add("综合");
         list.add("语文");
         list.add("数学");
-        list.add("英语");
+        list.add("外语");
         list.add("物理");
         list.add("化学");
         list.add("生物");
@@ -137,8 +137,6 @@ public class GradePolyLineActivity extends BaseActivity  implements GradePolyLin
 
                     gradePolyLinePresent.getUserResultPng(testType,tvCondition.getText().toString(),token);
                 }
-
-
             }
         });
     }

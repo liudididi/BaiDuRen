@@ -13,7 +13,25 @@ public class CanSchoolBean {
      * pageSize : 5
      * totalPage : 10
      * currPage : 1
-     * list : [{"name":"北京大学","ranking":"全国1","typeRank":"综合1","address":"北京市","father":"教育部","univType":"大学","url":"/images/school/201202161100413470.jpg","info":null},{"name":"清华大学","ranking":"全国2","typeRank":"理工1","address":"北京市","father":"教育部","univType":"大学","url":"/images/school/201201090552434112.jpg","info":null},{"name":"中国人民大学","ranking":"全国8","typeRank":"综合7","address":"北京市","father":"教育部","univType":"大学","url":"/images/school/201202020436067980.jpg","info":null},{"name":"北京师范大学","ranking":"全国19","typeRank":"师范1","address":"北京市","father":"教育部","univType":"大学","url":"/images/school/201201300512159411.jpg","info":null},{"name":"北京航空航天大学","ranking":"全国23","typeRank":"理工6","address":"北京市","father":"工业和信息化部","univType":"大学","url":"/images/school/201201180153041855.jpg","info":null}]
+     * list : [{
+     * "name":"北京大学",
+     * "ranking":"全国1",
+     * "typeRank":"综合1",
+     * "address":"北京市",
+     * "father":"教育部",
+     * "univType":"大学",
+     * "url":"/images/school/201202161100413470.jpg",
+     * "info":null
+     * }
+     * ,{"name":"清华大学","ranking":"全国2","
+     * typeRank":"理工1",
+     * "address":"北京市","father":"教育部",
+     * "univType":"大学","url":"/images/school/201201090552434112.jpg",
+     * "info":null},{"name":"中国人民大学","ranking":"全国8","typeRank":"综合7",
+     * "address":"北京市","father":"教育部","univType":"大学",
+     * "url":"/images/school/201202020436067980.jpg","info":null
+     * },
+     * {"name":"北京师范大学","ranking":"全国19","typeRank":"师范1","address":"北京市","father":"教育部","univType":"大学","url":"/images/school/201201300512159411.jpg","info":null},{"name":"北京航空航天大学","ranking":"全国23","typeRank":"理工6","address":"北京市","father":"工业和信息化部","univType":"大学","url":"/images/school/201201180153041855.jpg","info":null}]
      */
 
     private int totalCount;

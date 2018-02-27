@@ -144,7 +144,6 @@ public class GradeActivity extends BaseActivity implements GradeView{
     @Override
     public void Gradesuccess(BaseBean baseBean) {
         finish();
-
         Toast.makeText(this, "添加成功", Toast.LENGTH_SHORT).show();
     }
 
@@ -171,7 +170,6 @@ public class GradeActivity extends BaseActivity implements GradeView{
             gradePolitics.setText( inquireBeanBaseBean.data.getPolitics()+"");
             gradeSpeciality.setText(inquireBeanBaseBean.data.getSpecialty()+"");
             System.out.println("特长生查询+"+inquireBeanBaseBean.data.getSpecialty()+"");
-
             flag=true;
         }
 
@@ -180,8 +178,8 @@ public class GradeActivity extends BaseActivity implements GradeView{
 
     @Override
     public void Inquirefail(Throwable t) {
-        Toast.makeText(this, "查询失败", Toast.LENGTH_SHORT).show();
         flag=false;
+        gradePresent.InquirePresente(form_int,month_index,token);
     }
 
     @Override

@@ -44,7 +44,9 @@ public class WishMoudle {
     //根据分数推荐的学校
     public void canSchool(String province, String classify, String score_min, String score_max, String page, String limit, final CanSchoolBack canSchoolBack)
     {
-        DisposableSubscriber<BaseBean<CanSchoolBean>> disposableSubscriber = MyQusetUtils.getInstance().getQuestInterface().canschool(province, classify, score_min, score_max, page, limit)
+        DisposableSubscriber<BaseBean<CanSchoolBean>> disposableSubscriber =
+                MyQusetUtils.getInstance().getQuestInterface()
+                        .canschool(province, classify, score_min, score_max, page, limit)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new DisposableSubscriber<BaseBean<CanSchoolBean>>() {
@@ -66,6 +68,33 @@ public class WishMoudle {
         compositeDisposable.add(disposableSubscriber);
     }
 
+
+    //根据分数推荐的学校
+    public void completcanSchool(String minScore, String maxScore, String cityType, String isAccept, String schoolType, String isMS,String province,String classify, final CanSchoolBack canSchoolBack)
+    {
+        DisposableSubscriber<BaseBean<CanSchoolBean>> disposableSubscriber =
+                MyQusetUtils.getInstance().getQuestInterface()
+                        .completecanschool(minScore, maxScore,cityType, isAccept, schoolType,isMS,province,classify)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribeWith(new DisposableSubscriber<BaseBean<CanSchoolBean>>() {
+                            @Override
+                            public void onNext(BaseBean<CanSchoolBean> canSchoolBeanBaseBean) {
+                                canSchoolBack.CanSchoolsuccess(canSchoolBeanBaseBean);
+                            }
+
+                            @Override
+                            public void onError(Throwable t) {
+                                canSchoolBack.CanSchoolfail(t);
+                            }
+
+                            @Override
+                            public void onComplete() {
+
+                            }
+                        });
+        compositeDisposable.add(disposableSubscriber);
+    }
     //能上的学校
     public interface CanSchoolBack
     {

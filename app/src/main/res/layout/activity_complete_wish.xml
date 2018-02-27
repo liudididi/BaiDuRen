@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context="com.example.login_demo.CompleteWishActivity">
+    <RelativeLayout
+        android:id="@+id/rl_add"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        >
+        <ImageView
+            android:padding="10px"
+            android:id="@+id/complete_iv_back"
+            android:layout_width="150px"
+            android:layout_height="90px"
+            android:layout_gravity="center"
+            android:src="@mipmap/left"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:text="高考志愿完善"
+            android:textColor="#2c2c2c"
+            android:textSize="50px"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </RelativeLayout>
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="3px"
+        android:background="#ccc"
+        android:layout_below="@id/rl_add">
+    </View>
+    
+    
+    
+    <RelativeLayout
+        android:id="@+id/complete_rl1"
+        android:layout_marginRight="50px"
+        android:layout_marginLeft="50px"
+        android:background="@drawable/back_squarecomplete"
+        android:layout_marginTop="130px"
+        android:layout_below="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="130px">
+        <TextView
+            android:layout_marginLeft="90px"
+            android:text="意愿城市"
+            android:textSize="40px"
+            android:id="@+id/complete_tvyi"
+            android:gravity="center_vertical"
+            android:layout_width="500px"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:id="@+id/ivyi_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/right"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="50px"
+            android:visibility="visible"/>
+        <ImageView
+            android:id="@+id/ivyi_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/next"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="50px"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/complete_rl2"
+        android:layout_marginRight="50px"
+        android:layout_marginLeft="50px"
+        android:background="@drawable/back_squarecomplete"
+        android:layout_marginTop="80px"
+        android:layout_below="@+id/complete_rl1"
+        android:layout_width="match_parent"
+        android:layout_height="130px">
+        <TextView
+            android:layout_marginLeft="90px"
+            android:text="优先设置"
+            android:textSize="40px"
+            android:id="@+id/complete_tver"
+            android:gravity="center_vertical"
+            android:layout_width="500px"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:id="@+id/iver_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/right"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="50px"
+            android:visibility="visible"/>
+        <ImageView
+            android:id="@+id/iver_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/next"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="50px"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+
+
+
+
+
+    <RelativeLayout
+        android:id="@+id/complete_rl3"
+        android:layout_marginRight="50px"
+        android:layout_marginLeft="50px"
+        android:background="@drawable/back_squarecomplete"
+        android:layout_marginTop="80px"
+        android:layout_below="@+id/complete_rl2"
+        android:layout_width="match_parent"
+        android:layout_height="130px">
+        <TextView
+            android:layout_marginLeft="90px"
+            android:text="院校类型"
+            android:textSize="40px"
+            android:id="@+id/complete_tvsan"
+            android:gravity="center_vertical"
+            android:layout_width="500px"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:id="@+id/ivsan_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/right"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="50px"
+            android:visibility="visible"/>
+        <ImageView
+            android:id="@+id/ivsan_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/next"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="50px"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/complete_rl4"
+        android:layout_marginRight="50px"
+        android:layout_marginLeft="50px"
+        android:background="@drawable/back_squarecomplete"
+        android:layout_marginTop="80px"
+        android:layout_below="@+id/complete_rl3"
+        android:layout_width="match_parent"
+        android:layout_height="130px">
+        <TextView
+            android:layout_marginLeft="90px"
+            android:text="是否接受专科"
+            android:textSize="40px"
+            android:id="@+id/complete_tvsi"
+            android:gravity="center_vertical"
+            android:layout_width="500px"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:id="@+id/ivsi_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/right"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="50px"
+            android:visibility="visible"/>
+        <ImageView
+            android:id="@+id/ivsi_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/next"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="50px"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/rllistyi"
+        android:visibility="gone"
+        android:background="@drawable/back_squareyi"
+        android:layout_marginRight="50px"
+        android:layout_marginLeft="50px"
+        android:layout_below="@+id/complete_rl1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ListView
+            android:id="@+id/completelv1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+        </ListView>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rllister"
+        android:visibility="gone"
+        android:background="@drawable/back_squareyi"
+        android:layout_marginRight="50px"
+        android:layout_marginLeft="50px"
+        android:layout_below="@+id/complete_rl2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ListView
+            android:id="@+id/completelv2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+        </ListView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rllistsan"
+        android:visibility="gone"
+        android:background="@drawable/back_squareyi"
+        android:layout_marginRight="50px"
+        android:layout_marginLeft="50px"
+        android:layout_below="@+id/complete_rl3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ListView
+            android:id="@+id/completelv3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+        </ListView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rllistsi"
+        android:visibility="gone"
+        android:background="@drawable/back_squareyi"
+        android:layout_marginRight="50px"
+        android:layout_marginLeft="50px"
+        android:layout_below="@+id/complete_rl4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ListView
+            android:id="@+id/completelv4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+        </ListView>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/complete_tvyes"
+        android:layout_marginTop="250px"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:layout_below="@+id/complete_rl4"
+        android:layout_marginRight="50px"
+        android:layout_marginLeft="50px"
+        android:background="@drawable/bg_setting_back"
+        android:gravity="center"
+        android:text="确定"
+        android:textColor="@color/white"
+        android:textSize="48px"
+
+        />
+
+</RelativeLayout>
