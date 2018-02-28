@@ -88,13 +88,13 @@
         android:textColor="@color/black"
         android:textSize="60px" />
 
-<GridView
+<untils.FlowLayout
     android:layout_marginTop="50px"
     android:id="@+id/grid_school"
     android:numColumns="3"
     android:layout_below="@+id/shtv1"
     android:layout_width="match_parent"
-    android:layout_height="400px"/>
+    android:layout_height="wrap_content"/>
 
     <TextView
         android:layout_marginLeft="50px"
@@ -106,15 +106,15 @@
         android:text="热搜专业"
         android:textColor="@color/black"
         android:textSize="60px" />
-    <GridView
+    <untils.FlowLayout
         android:layout_marginTop="50px"
         android:id="@+id/grid_major"
         android:numColumns="3"
         android:layout_below="@+id/shtv"
         android:layout_width="match_parent"
-        android:layout_height="400px">
+        android:layout_height="wrap_content">
 
-</GridView>
+</untils.FlowLayout>
 
 
 

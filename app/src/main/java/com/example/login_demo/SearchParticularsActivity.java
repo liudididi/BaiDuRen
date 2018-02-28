@@ -1,6 +1,7 @@
 package com.example.login_demo;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,6 +13,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +27,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import presenter.SearchPresent;
+import untils.FlowLayout;
 import view.SearchView;
 
 public class SearchParticularsActivity extends BaseActivity implements SearchView {
@@ -47,9 +50,9 @@ public class SearchParticularsActivity extends BaseActivity implements SearchVie
     @BindView(R.id.rl_search)
     RelativeLayout rlSearch;
     @BindView(R.id.grid_school)
-    GridView gridSchool;
+    FlowLayout gridSchool;
     @BindView(R.id.grid_major)
-    GridView gridMajor;
+    FlowLayout gridMajor;
 
     private SearchPresent searchPresent;
     private Search_Adapter search_adapter;
@@ -123,21 +126,54 @@ public class SearchParticularsActivity extends BaseActivity implements SearchVie
     }
 
     @Override
-    public void HotSuccess(List<HotBean> list) {
+    public void HotSuccess(final List<HotBean> list) {
+
+        List<String> schoollist = new ArrayList<>();
+        List<String> majorlist1 = new ArrayList<>();
+        final List<HotBean> majorlist=new ArrayList<>();
         if (list != null && list.size() > 0) {
             for (int i = 0; i < list.size(); i++) {
                 if (list.get(i).getHotType().equals("0")) {
-                    schoollist.add(list.get(i));
+                    schoollist.add(list.get(i).getHotName());
                 } else {
                     majorlist.add(list.get(i));
+                    majorlist1.add(list.get(i).getHotName());
                 }
             }
         }
-        HotAdapter school = new HotAdapter(this, schoollist);
-        HotAdapter major = new HotAdapter(this, majorlist);
+        gridSchool.setListData(schoollist);
+        gridSchool.setOnTagClickListener(new FlowLayout.OnTagClickListener() {
+            @Override
+            public void TagClick(String text) {
 
-        gridSchool.setAdapter(school);
-        gridMajor.setAdapter(major);
+                Intent intent=new Intent(SearchParticularsActivity.this, SchoolDetailActivity.class);
+                intent.putExtra("schoolname",text);
+                 startActivity(intent);
+
+
+            }
+        });
+        gridMajor.setListData(majorlist1);
+        gridMajor.setOnTagClickListener(new FlowLayout.OnTagClickListener() {
+            @Override
+            public void TagClick(String text) {
+                for (int i = 0; i <majorlist.size() ; i++) {
+                    if(text.equals(majorlist.get(i).getHotName())){
+                        String  id=majorlist.get(i).getStandby1();
+                        Intent intent=new Intent(SearchParticularsActivity.this,MajorDetailActivity .class);
+                        intent.putExtra("majorid",id);
+                        intent.putExtra("schoolname",text);
+                        startActivity(intent);
+                        return;
+                    }
+                }
+            }
+        });
+
+       /* HotAdapter school = new HotAdapter(this, schoollist);
+        HotAdapter major = new HotAdapter(this, majorlist);*/
+
+
 
 
     }

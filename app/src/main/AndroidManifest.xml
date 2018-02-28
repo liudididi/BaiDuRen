@@ -8,6 +8,14 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
+   <!-- bugly-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+
+
+
+
     <application
         android:name=".MyApp"
         android:allowBackup="true"
@@ -85,7 +93,7 @@
         <activity android:name=".Help2Activity" />
         <activity android:name=".Help3Activity" />
         <activity android:name=".JJParticularsActivity" />
-
+        <activity android:name=".CollegeTitleActivity"></activity>
         <service
             android:name=".DownApkServer"
             android:exported="true" />

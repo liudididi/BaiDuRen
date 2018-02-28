@@ -1,6 +1,7 @@
 package untils;
 
 import java.util.List;
+import java.util.Observable;
 
 
 import base.BaseBean;
@@ -49,6 +50,7 @@ import bean.UserBean;
 import io.reactivex.Flowable;
 
 import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -235,6 +237,21 @@ public interface QuestInterface {
     Flowable<BaseBean<List<ProviceBean>>> getprovinces();
 
 
+    @POST("/alipay/mobilePay")
+    @FormUrlEncoded
+    io.reactivex.Observable<String> getpayhfive(
+          /*  @Query("productId") String productId,
+            @Query("subject") String subject,
+            @Query("body") String body,
+            @Query("totalFee") String totalFee,
+            @Query("outTradeNo") String outTradeNo,
+            @Query("spbillCreateIp") String spbillCreateIp,
+            @Query("attach") String attach,
+            @Query("payType") String payType,
+            @Query("payWay") String payWay,
+            @Query("frontUrl") String frontUrl,
+            @Query("map") String map*/
+    );
     //获取城市
     @GET("/app/cities/cityMobil")
     Flowable<BaseBean<List<CityBean>>> getcitys(@Query("provinceid") String provinceid);

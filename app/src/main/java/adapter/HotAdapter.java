@@ -62,7 +62,6 @@ public class HotAdapter extends BaseAdapter {
                    intent.putExtra("schoolname",list.get(position).getHotName());
                    context.startActivity(intent);
                }else {
-
                    Intent intent=new Intent(context, MajorDetailActivity.class);
                    intent.putExtra("majorid",list.get(position).getStandby1());
                    intent.putExtra("major",list.get(position).getHotName());

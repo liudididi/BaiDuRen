@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_marginRight="20px"
+    android:id="@+id/hot_name"
+    android:text="北京大学"
+    android:textSize="35px"
+    android:textColor="#fff"
+    android:background="@drawable/back_capacityyi"
+    android:gravity="center"
+    android:layout_height="100px"
+    android:padding="20px"
+    android:layout_margin="20px"
+    >
+
+
+
+</TextView>

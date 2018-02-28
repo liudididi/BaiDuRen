@@ -16,7 +16,8 @@ public class ChangePhoneMoudle {
     private CompositeDisposable compositeDisposable=new CompositeDisposable();
 
     public  void  mobileUpdateCaptcha(String mobile, final ChangePhoneCaptChaBack changePhoneCaptChaBack) {
-        DisposableSubscriber<BaseBean> disposableSubscriber = MyQusetUtils.getInstance()
+        DisposableSubscriber<BaseBean> disposableSubscriber =
+                MyQusetUtils.getInstance()
                 .getQuestInterface().mobileUpdateCaptcha(mobile)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
