@@ -6,44 +6,51 @@
     <RelativeLayout
         android:id="@+id/rl"
         android:layout_width="match_parent"
-        android:layout_height="300px"
+        android:layout_height="240px"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_centerVertical="true">
+
         <com.meg7.widget.CustomShapeImageView
             android:id="@+id/studentsin_iv"
-            android:layout_width="200px"
-            android:layout_height="200px"
-            android:layout_margin="50px"
-            />
+            android:layout_width="150px"
+            android:layout_height="150px"
+            android:layout_margin="30px"
+            android:layout_centerVertical="true"/>
+
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center_vertical"
             android:layout_marginRight="100px"
-            android:layout_toRightOf="@id/studentsin_iv">
+            android:layout_toRightOf="@id/studentsin_iv"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
             <TextView
                 android:id="@+id/studentsin_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="北京联合大学"
-                android:textSize="50px"
-                android:maxLines="1"
                 android:ellipsize="end"
-                android:textColor="#000"/>
+                android:maxLines="1"
+                android:text="北京联合大学"
+                android:textColor="#000"
+                android:textSize="50px" />
+
             <TextView
                 android:id="@+id/studentsin_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="综合高校"
-                android:layout_marginTop="20px"/>
+                android:layout_marginTop="20px"
+                android:text="综合高校" />
         </LinearLayout>
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:src="@drawable/right_arrow"
             android:layout_centerVertical="true"
-            android:layout_marginRight="50px"/>
+            android:layout_marginRight="50px"
+            android:src="@drawable/right_arrow" />
     </RelativeLayout>
     <View
         android:layout_below="@id/rl"

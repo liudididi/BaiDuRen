@@ -84,7 +84,6 @@ public class AdvancedActivity extends BaseActivity implements WishView {
         isMS = (String) SPUtils.get(MyApp.context, "isMS", "");
 
         if(isMS !=null&& isMS !=""){
-
             String cityType = (String) SPUtils.get(MyApp.context, "cityType", "");
             String isAccept = (String) SPUtils.get(MyApp.context, "isAccept", "");
             String schoolType = (String) SPUtils.get(MyApp.context, "schoolType", "");
@@ -97,7 +96,7 @@ public class AdvancedActivity extends BaseActivity implements WishView {
 
         advancedSprint.setTextColor(Color.BLACK);
         list = new ArrayList<>();
-         registerReceiver();
+
 
     }
 
@@ -105,7 +104,7 @@ public class AdvancedActivity extends BaseActivity implements WishView {
     protected void onDestroy() {
         super.onDestroy();
         wishPresent.onDestory();
-        unregisterReceiver();
+
     }
 
     @Override
@@ -136,7 +135,6 @@ public class AdvancedActivity extends BaseActivity implements WishView {
                 view_minimum.setVisibility(View.GONE);
 
                 if(isMS !=null&& isMS !=""){
-
                     String cityType = (String) SPUtils.get(MyApp.context, "cityType", "");
                     String isAccept = (String) SPUtils.get(MyApp.context, "isAccept", "");
                     String schoolType = (String) SPUtils.get(MyApp.context, "schoolType", "");
@@ -164,7 +162,7 @@ public class AdvancedActivity extends BaseActivity implements WishView {
                     String isAccept = (String) SPUtils.get(MyApp.context, "isAccept", "");
                     String schoolType = (String) SPUtils.get(MyApp.context, "schoolType", "");
 
-                    wishPresent.CompleCanSchoolPresente(100 + "",tbarea,cityType,isAccept,schoolType, isMS,tbarea,tbsubtype);
+                    wishPresent.CompleCanSchoolPresente(100 + "",tbmaxfen,cityType,isAccept,schoolType, isMS,tbarea,tbsubtype);
 
                 }else {
 
@@ -181,8 +179,6 @@ public class AdvancedActivity extends BaseActivity implements WishView {
                 view_sprint.setVisibility(View.GONE);
                 view_reliable.setVisibility(View.GONE);
                 view_minimum.setVisibility(View.VISIBLE);
-
-
                 if(isMS !=null&& isMS !=""){
                     String cityType = (String) SPUtils.get(MyApp.context, "cityType", "");
                     String isAccept = (String) SPUtils.get(MyApp.context, "isAccept", "");

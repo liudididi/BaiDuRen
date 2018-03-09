@@ -27,6 +27,7 @@ import bean.MajorgkBean;
 import bean.MoreJobBean;
 import bean.NewsBean;
 import bean.OneTableBean;
+import bean.OneTableXQBean;
 import bean.ProviceBean;
 import bean.ProvinceBean;
 import bean.RanKingSchoolBean;
@@ -40,6 +41,7 @@ import bean.SearchBean;
 import bean.SelectMajorBean;
 import bean.SelectSchoolBean;
 import bean.SlideshowBean;
+import bean.StartFl;
 import bean.StudentFromBean;
 import bean.StudentsinBean;
 import bean.StudentsinNewsBean;
@@ -47,6 +49,7 @@ import bean.StudyBean;
 import bean.TeachBean;
 import bean.TitleBean;
 import bean.UserBean;
+import bean.VisionBean;
 import io.reactivex.Flowable;
 
 import okhttp3.RequestBody;
@@ -70,6 +73,20 @@ public interface QuestInterface {
  @GET(" /app/stufrom/from")
  Flowable<BaseBean<List<StudentFromBean>>> studentfrom(@Query("name") String name);
 
+    //一份一段表详情
+    @GET("/app/onetoone/getonetoone")
+    Flowable<BaseBean<List<OneTableXQBean>>> onetableXQ(@Query("type") String type, @Query("province") String province, @Query("year") String year);
+
+
+
+    //职业星空
+    @POST("/app/majortwojobclassify/jobsStarMobil")
+    Flowable<BaseBean<List<StartFl>>> jobsStarMobil(@Query("classify") String classify,@Query("type") String type,@Query("fenlei") String fenlei);
+
+
+ //版本更新
+ @GET("app/version/getversion")
+ Flowable<BaseBean<List<VisionBean>>> getversioninfo(@Query("versionType") String version_type);
 
  //成绩折线图
  @GET("/app/result/getUserResultPng")
@@ -112,6 +129,27 @@ public interface QuestInterface {
     //查询学校是否收藏
     @GET("/app/university/getUnivCollection")
     Flowable<BaseBean<List<CollerSchoolBean>>> getchoolisscollet(@Query("name") String name, @Header("token") String token);
+
+    //获取订单号
+    @POST("/app/productorder")
+    @FormUrlEncoded
+    Flowable<BaseBean<String>> productorder();
+    //创建订单
+
+    @POST("app/productorder/createNewOrder ")
+    Flowable<String> createNewOrder(
+            @Query("body") String body,
+            @Query("spbillCreateIp") String spbillCreateIp,
+            @Query("attach") String attach,
+            @Query("frontUrl") String frontUrl,
+            @Query("token") String token,
+            @Query("outTradeNo") String outTradeNo,
+            @Query("productId") String productId,
+            @Query("totalFee") String totalFee,
+            @Query("payWay") String payWay,
+            @Query("payType") String payType,
+            @Query("subject") String subject
+                                     );
 
     //职业详情
     @GET("/app/jobinfo/getjobinfo")

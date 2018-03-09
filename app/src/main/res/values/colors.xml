@@ -3,7 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-
+    <color name="guang">#33fffe63</color>
     <color name="news_info_text">#cecece</color>
     <color name="white">#ffffff</color>
     <color name="white_pressed">#d0d0d0</color>

@@ -264,7 +264,7 @@ public class School_Enroll  extends Basefragment implements SchoolEnrollView, Fo
 
     @Override
     public void GetlvBeanfail(String msg) {
-        Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
+
     }
 
     @Override

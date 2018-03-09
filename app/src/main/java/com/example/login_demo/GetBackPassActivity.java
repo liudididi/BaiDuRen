@@ -83,7 +83,7 @@ public class GetBackPassActivity extends BaseActivity implements GetBackView {
                 if (TextUtils.isEmpty(mobile)) {
                     Toast("手机号为空");
                     return;
-                } else if (mobile.length() <= 10) {
+                } else if (mobile.length()!=11) {
                     Toast("手机号格式错误");
                     return;
                 }
@@ -152,7 +152,7 @@ public class GetBackPassActivity extends BaseActivity implements GetBackView {
     @Override
     public void getBackSuccess(String msg) {
         Toast(msg);
-        if (msg.equals("success")) {
+        if (msg.equals("验证码发送成功")) {
             time = 30;
             getbackCountdown.setText(time + "S后重发");
             getbackCaptcha.setVisibility(View.GONE);
@@ -163,14 +163,14 @@ public class GetBackPassActivity extends BaseActivity implements GetBackView {
 
     @Override
     public void getBackfail(String msg) {
-        Toast(msg);
+
 
     }
 
     @Override
     public void getBackUpsuccess(String msg) {
         Toast(msg);
-        if (msg.equals("success")) {
+        if (msg.equals("找回密码成功")) {
             if( getbackString.equals("找回密码")){
                 intent(GetBackPassActivity.this, MainActivity.class);
                 SPUtils.put(this, "loginpage", true);
@@ -181,7 +181,7 @@ public class GetBackPassActivity extends BaseActivity implements GetBackView {
 
     @Override
     public void getBackUpfail(String msg) {
-        Toast(msg);
+
     }
 
 

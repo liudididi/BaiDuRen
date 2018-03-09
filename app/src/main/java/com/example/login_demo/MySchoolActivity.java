@@ -1,7 +1,6 @@
 package com.example.login_demo;
 
-import android.content.Intent;
-import android.os.Bundle;
+
 import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
@@ -18,10 +17,10 @@ import base.BaseActivity;
 import bean.MajorBean;
 import bean.SchoolBean;
 import butterknife.BindView;
-import butterknife.ButterKnife;
+
 import butterknife.OnClick;
 import presenter.MySchoolPresent;
-import untils.SPUtils;
+
 import view.MySchoolView;
 
 public class MySchoolActivity extends BaseActivity implements MySchoolView, XRecyclerView.LoadingListener {
@@ -49,12 +48,19 @@ public class MySchoolActivity extends BaseActivity implements MySchoolView, XRec
         myschoolXrecycle.setVisibility(View.GONE);
         token = getIntent().getStringExtra("token");
         mySchoolPresent = new MySchoolPresent(this);
-        mySchoolPresent.getSchollCollection(token);
+
         //设置布局管理器
         myschoolXrecycle.setLayoutManager(new LinearLayoutManager(this));
         myschoolXrecycle.setRefreshProgressStyle(16);
         myschoolXrecycle.setLoadingListener(this);
         myschoolXrecycle.setLoadingMoreEnabled(false);
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mySchoolPresent.getSchollCollection(token);
     }
 
     @Override

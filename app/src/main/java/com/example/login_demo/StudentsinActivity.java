@@ -140,7 +140,11 @@ public class StudentsinActivity extends BaseActivity implements StudentsinView{
         tv1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                 data.clear();
+                if(data!=null&&data.size()>0)
+                {
+                    data.clear();
+                }
+
                  address = list.get(i).toString();
                 studentsinPresent.StudentsinPresent(address,schooltype);
             }
@@ -231,7 +235,11 @@ public class StudentsinActivity extends BaseActivity implements StudentsinView{
                 viewStudentin1.setVisibility(View.GONE);
                 viewStudentin.setVisibility(View.VISIBLE);
 
-                data.clear();
+                if(data!=null&&data.size()>0)
+                {
+                    data.clear();
+                }
+
                 student2_tv1.setTextColor(Color.BLACK);
                 student2_tv2.setTextColor(Color.GRAY);
                 student2_tv3.setTextColor(Color.GRAY);
@@ -241,21 +249,33 @@ public class StudentsinActivity extends BaseActivity implements StudentsinView{
                 student2_tv1.setTextColor(Color.BLACK);
                 student2_tv2.setTextColor(Color.GRAY);
                 student2_tv3.setTextColor(Color.GRAY);
-                list.clear();
+                if(list.size()>0&&list!=null)
+                {
+                    list.clear();
+                }
+
                 studentsinPresent.StudentsinNewsPresent("艺考百科","全国","1","10");
                 break;
             case R.id.student2_rl2:
                 student2_tv1.setTextColor(Color.GRAY);
                 student2_tv2.setTextColor(Color.BLACK);
                 student2_tv3.setTextColor(Color.GRAY);
-                list.clear();
+                if(list.size()>0&&list!=null)
+                {
+                    list.clear();
+                }
+
                 studentsinPresent.StudentsinNewsPresent("历年真题","全国","1","10");
                 break;
             case R.id.student2_rl3:
                 student2_tv1.setTextColor(Color.GRAY);
                 student2_tv2.setTextColor(Color.GRAY);
                 student2_tv3.setTextColor(Color.BLACK);
-                list.clear();
+                if(list.size()>0&&list!=null)
+                {
+                    list.clear();
+                }
+
                 studentsinPresent.StudentsinNewsPresent("艺考资讯","全国","1","10");
                 break;
         }

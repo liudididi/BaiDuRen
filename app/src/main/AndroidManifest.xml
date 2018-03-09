@@ -7,14 +7,18 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
-   <!-- bugly-->
+    <!-- bugly -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_LOGS" />
 
-
-
+    <!-- 支付 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".MyApp"
@@ -33,8 +37,8 @@
 
         <activity android:name=".MainActivity" />
         <activity
-            android:icon="@drawable/logo"
             android:name=".GuidanceActivity"
+            android:icon="@drawable/logo"
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,7 +47,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".GetBackPassActivity" />
-        <activity android:name=".SetTingActivity" />
+        <activity
+            android:name=".SetTingActivity"
+            android:launchMode="singleTask" />
         <activity android:name=".MySchoolActivity" />
         <activity android:name=".PresonMessageActivity" />
         <activity android:name=".CharacterActivity" />
@@ -64,9 +70,9 @@
         <activity android:name=".SelectCitysActivity" />
         <activity android:name=".SelectAreasActivity" />
         <activity android:name=".ReportedActivity" />
-        <activity android:name=".PrimaryActivity"
-            android:launchMode="singleTask"
-            />
+        <activity
+            android:name=".PrimaryActivity"
+            android:launchMode="singleTask" />
         <activity android:name=".ExamMessageActivity" />
         <activity android:name=".GradeActivity" />
         <activity android:name=".SelectSchoolActivity" />
@@ -93,23 +99,54 @@
         <activity android:name=".Help2Activity" />
         <activity android:name=".Help3Activity" />
         <activity android:name=".JJParticularsActivity" />
-        <activity android:name=".CollegeTitleActivity"></activity>
+        <activity android:name=".CollegeTitleActivity" />
+        <activity android:name=".OneTableXQActivity" />
+
         <service
             android:name=".DownApkServer"
             android:exported="true" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="${applicationId}.myFileProvider"
+            android:authorities="com.example.login_demo.myFileProvider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
+                android:resource="@xml/provider_paths" />
         </provider>
+
         <activity android:name=".HomeActivity" />
-        <activity android:name=".CompleteWishActivity"></activity>
-        <activity android:name=".SplashActivity"></activity>
+        <activity android:name=".CompleteWishActivity" />
+        <activity android:name=".SplashActivity" />
+        <activity android:name=".WVActivity"></activity>
+        <!-- 支付 -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name="com.alipay.sdk.app.H5AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity android:name=".ProfessionStarActivity" />
+        <!-- 微信 -->
+        <activity
+            android:name="wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Translucent" />
+        <activity android:name=".startfenleiActivity" />
+
+        <meta-data
+            android:name="baiduren"
+            android:value="1" />
+
+        <activity android:name=".MajorStarActivity"></activity>
     </application>
 
 </manifest>

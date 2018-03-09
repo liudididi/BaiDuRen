@@ -77,8 +77,8 @@ public class ParticularsActivity extends BaseActivity {
 
         //webView.loadUrl("http://39.106.32.50/#/entrancenews?newsId=2");
 
-       // webView.loadUrl(url);
-        webView.loadData("<html>\n" +
+       webView.loadUrl(url);
+      /*  webView.loadData("<html>\n" +
                         "    <head>\n" +
                         "        <meta content=\"text/html; charset=utf-8\" http-equiv=\"Content-Type\" />\n" +
                         "        <title>支付宝电脑网站支付</title>\n" +
@@ -92,7 +92,7 @@ public class ParticularsActivity extends BaseActivity {
                         "    </body>\n" +
                         "</html>",
 
-                "text/html", "utf-8");
+                "text/html", "utf-8");*/
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -110,7 +110,6 @@ public class ParticularsActivity extends BaseActivity {
             case R.id.particulars_iv_back:
                 finish();
                 break;
-
         }
     }
 }

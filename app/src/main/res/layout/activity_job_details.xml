@@ -29,43 +29,57 @@
             />
     </RelativeLayout>
 
-
-    <RelativeLayout
-
-        android:id="@+id/fmgk_r2"
-        android:layout_below="@+id/rl_jobdtitle"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="150px">
-        <View
-            android:layout_marginLeft="50px"
-            android:layout_marginTop="50px"
-            android:background="#3B9EFF"
-            android:id="@+id/fmgk_v1"
-            android:layout_width="10px"
-            android:layout_height="60px">
-        </View>
-        <TextView
-            android:id="@+id/jobd_tvjob"
-            android:layout_toRightOf="@+id/fmgk_v1"
-            android:textSize="50px"
-            android:textColor="@color/black"
-            android:layout_marginLeft="50px"
-            android:layout_marginTop="50px"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="专业介绍"
-            />
-
-
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2px"
-                android:layout_alignParentBottom="true"
-            ></View>
-    </RelativeLayout>
-
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_jobdtitle"
+        android:scrollbars="none">
     <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:id="@+id/fmgk_r2"
+            android:layout_width="match_parent"
+            android:layout_height="150px">
+            <View
+                android:layout_marginLeft="50px"
+                android:layout_marginTop="50px"
+                android:background="#3B9EFF"
+                android:id="@+id/fmgk_v1"
+                android:layout_width="10px"
+                android:layout_height="60px">
+            </View>
+            <TextView
+                android:id="@+id/jobd_tvjob"
+                android:layout_toRightOf="@+id/fmgk_v1"
+                android:textSize="50px"
+                android:textColor="@color/black"
+                android:layout_marginLeft="50px"
+                android:layout_marginTop="50px"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="专业介绍"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                    android:layout_alignParentBottom="true"
+                ></View>
+        </RelativeLayout>
+        <TextView
+            android:textSize="43px"
+            android:textColor="#666666"
+            android:layout_marginTop="40px"
+            android:id="@+id/jobd_tvxq"
+            android:layout_marginLeft="50px"
+            android:layout_marginRight="50px"
+            android:layout_below="@+id/fmgk_r2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </RelativeLayout>
+    </ScrollView>
+   <!-- <RelativeLayout
         android:id="@+id/fmgk_r3"
         android:layout_marginRight="50px"
         android:layout_marginLeft="50px"
@@ -135,7 +149,6 @@
             android:layout_height="wrap_content"
             />
     </RelativeLayout>
-
     <RelativeLayout
         android:id="@+id/fmgk_r6"
         android:layout_marginRight="50px"
@@ -170,5 +183,5 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
-    </RelativeLayout>
+    </RelativeLayout>-->
 </RelativeLayout>

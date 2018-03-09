@@ -20,10 +20,10 @@ public class JobDetailsActivity extends BaseActivity implements GetJobinfoView {
     TextView jobdTvjob;
     @BindView(R.id.jobd_tvxq)
     TextView jobdTvxq;
-    @BindView(R.id.jobd_tvpx)
+   /* @BindView(R.id.jobd_tvpx)
     TextView jobdTvpx;
     @BindView(R.id.jobd_tvzpjy)
-    TextView jobdTvzpjy;
+    TextView jobdTvzpjy;*/
     @BindView(R.id.jobd_iv_back)
     ImageView jobdIvBack;
     private GetJobinfoPresent getJobinfoPresent;
@@ -59,9 +59,14 @@ public class JobDetailsActivity extends BaseActivity implements GetJobinfoView {
     public void GetJobinfoSuccess(List<JobInforBean> list) {
         if(list!=null&&list.size()>0){
             JobInforBean jobInforBean = list.get(0);
+            if(jobInforBean.getJobInfo().equals(""))
+            {
+                jobdTvxq.setText("暂无数据");
+                return;
+            }
             jobdTvxq.setText(jobInforBean.getJobInfo());
-            jobdTvpx.setText(jobInforBean.getJobEducation());
-            jobdTvzpjy.setText(jobInforBean.getJobRequirement());
+           /* jobdTvpx.setText(jobInforBean.getJobEducation());
+            jobdTvzpjy.setText(jobInforBean.getJobRequirement());*/
         }
     }
 

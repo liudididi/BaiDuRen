@@ -45,7 +45,7 @@ public class HomeActivity extends BaseActivity {
     public void InIt() {
         //初始化Fragment
         inItFragment();
-        registerReceiver();
+
         MyUserBean.checkLogin();
         DisplayMetrics dm = getResources().getDisplayMetrics();
         int heightPixels = dm.heightPixels;
@@ -129,7 +129,7 @@ public class HomeActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
         MyUserBean.onDestory();
-        unregisterReceiver();
+
     }
 
 

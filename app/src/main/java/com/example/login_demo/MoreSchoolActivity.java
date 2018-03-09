@@ -1,7 +1,8 @@
 package com.example.login_demo;
 
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Build;
-import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
@@ -9,30 +10,24 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
+import com.weavey.loading.lib.LoadingLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import adapter.MoreSchoolRecycle;
 import base.BaseActivity;
-import base.BaseBean;
 import bean.CheckSchoolBean;
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
-import io.reactivex.subscribers.DisposableSubscriber;
 import presenter.MoreSchoolPresent;
-import untils.MyQusetUtils;
+import untils.NetCheck;
 import untils.SPUtils;
 import view.MoreSchoolView;
 
-public class MoreSchoolActivity extends BaseActivity  implements MoreSchoolView  {
+public class MoreSchoolActivity extends BaseActivity implements MoreSchoolView {
     @BindView(R.id.mschool_iv_back)
     ImageView mschoolIvBack;
     @BindView(R.id.mschool_search)
@@ -46,15 +41,19 @@ public class MoreSchoolActivity extends BaseActivity  implements MoreSchoolView 
     Spinner mschoolSort;
     @BindView(R.id.mschool_xlist)
     XRecyclerView mschoolXlist;
+
     private List<String> arealist;
     private List<String> sortlist;
     private ArrayAdapter<String> area_adapter;
     private ArrayAdapter<String> sort_adapter;
-    private  String  area;
-    private  String  sort;
+    private String area;
+    private String sort;
     private MoreSchoolPresent moreSchoolPresent;
     private MoreSchoolRecycle adpter;
     private String token;
+    private ConnectionChangeReceiver myReceiver;
+
+
 
     @Override
     public int getId() {
@@ -65,12 +64,13 @@ public class MoreSchoolActivity extends BaseActivity  implements MoreSchoolView 
     @Override
     public void InIt() {
         initList();
+        this.loadingLayout=findViewById(R.id.lodiing);
         registerReceiver();
         token = (String) SPUtils.get(MyApp.context, "token", "");
         mschoolXlist.setPullRefreshEnabled(false);
         mschoolXlist.setLayoutManager(new LinearLayoutManager(this));
         moreSchoolPresent = new MoreSchoolPresent(this);
-        moreSchoolPresent.checkschool(area,sort+"类");
+        moreSchoolPresent.checkschool(area, sort + "类");
         //地区Spinner
         area_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arealist);
         area_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -84,10 +84,10 @@ public class MoreSchoolActivity extends BaseActivity  implements MoreSchoolView 
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int position, long id) {
                 //拿到被选择项的值
-                String  str = (String) mschoolArea.getSelectedItem();
-                area=str;
+                String str = (String) mschoolArea.getSelectedItem();
+                area = str;
 
-                moreSchoolPresent.checkschool(area,sort+"类");
+                moreSchoolPresent.checkschool(area, sort + "类");
 
             }
 
@@ -110,9 +110,9 @@ public class MoreSchoolActivity extends BaseActivity  implements MoreSchoolView 
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int position, long id) {
                 //拿到被选择项的值
-                String  str = (String) mschoolSort.getSelectedItem();
-                sort=str;
-                moreSchoolPresent.checkschool(area,sort+"类");
+                String str = (String) mschoolSort.getSelectedItem();
+                sort = str;
+                moreSchoolPresent.checkschool(area, sort + "类");
 
 
             }
@@ -175,8 +175,8 @@ public class MoreSchoolActivity extends BaseActivity  implements MoreSchoolView 
         sortlist.add("艺术");
         sortlist.add("林业");
         sortlist.add("体育");
-         area="北京市";
-        sort="综合";
+        area = "北京市";
+        sort = "综合";
     }
 
     @OnClick({R.id.mschool_iv_back, R.id.mschool_search})
@@ -187,7 +187,7 @@ public class MoreSchoolActivity extends BaseActivity  implements MoreSchoolView 
                 break;
             case R.id.mschool_search:
 
-                intent(this,SearchParticularsActivity.class);
+                intent(this, SearchParticularsActivity.class);
 
                 break;
         }
@@ -196,25 +196,26 @@ public class MoreSchoolActivity extends BaseActivity  implements MoreSchoolView 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        arealist=null;
-        sortlist=null;
+        arealist = null;
+        sortlist = null;
         moreSchoolPresent.onDestory();
-        unregisterReceiver();
+unregisterReceiver();
     }
 
     @Override
     public void CheckSuccess(List<CheckSchoolBean> list) {
-        if(list!=null&list.size()>0){
+        if (list != null & list.size() > 0) {
             img_none.setVisibility(View.GONE);
             mschoolXlist.setVisibility(View.VISIBLE);
-            if(adpter==null){
-                adpter = new MoreSchoolRecycle(this,list);
+            loadingLayout.setStatus(LoadingLayout.Success);
+            if (adpter == null) {
+                adpter = new MoreSchoolRecycle(this, list);
 
                 mschoolXlist.setAdapter(adpter);
-            }else {
+            } else {
                 adpter.Refsh(list);
             }
-        }else {
+        } else {
 
             img_none.setVisibility(View.VISIBLE);
             mschoolXlist.setVisibility(View.GONE);
@@ -223,12 +224,42 @@ public class MoreSchoolActivity extends BaseActivity  implements MoreSchoolView 
 
     @Override
     public void CheckFail(String msg) {
-        moreSchoolPresent.checkschool(area,sort+"类");
+
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
+    }
+
+    public void registerReceiver() {
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        //设置网络状态提示布局的状态
+//无网的时候，无网提示的展示View展示出来
+//重新联接上网络时，自动加载数据
+//这个是onresume中实现了数据的刷新，即是，网络连接后，重新拉取数据
+        myReceiver = new ConnectionChangeReceiver() {
+            @Override
+            public void changeNetStatus(boolean flag) {
+                //设置网络状态提示布局的状态
+                if (flag) {
+             loadingLayout.setStatus(LoadingLayout.No_Network);
+                    mschoolXlist.setVisibility(View.GONE);
+                } else {
+                    //有网
+                    moreSchoolPresent.checkschool(area, sort + "类");
+
+                }
+            }
+        };
+        this.registerReceiver(myReceiver, filter);
+    }
+
+    public void unregisterReceiver() {
+        if (myReceiver != null) {
+            this.unregisterReceiver(myReceiver);
+        }
     }
 }

@@ -2,6 +2,7 @@
 <resources>
 
     <paths>
-        <external-files-path name="name" path="path" />
+        <!--<external-files-path name="name" path="path" />-->
+        <external-path name="file_paths" path="Download"/>
     </paths>
 </resources>

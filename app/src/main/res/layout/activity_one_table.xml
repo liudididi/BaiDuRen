@@ -122,8 +122,15 @@
         android:layout_below="@id/view2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#fff">
+        android:background="#fff"
+        android:visibility="gone">
     </android.support.v7.widget.RecyclerView>
+    <ProgressBar
+        android:id="@+id/pb"
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:layout_centerInParent="true"
+        android:visibility="visible"/>
 
     <ImageView
         android:id="@+id/onetable_iv"

@@ -100,7 +100,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="50px"
-            android:text="学历层次 :  "
+            android:text="修学年限 :  "
             />
         <TextView
             android:id="@+id/fmgk_ccyear"
@@ -319,6 +319,12 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="110px"
         android:textSize="35px"
+        />
+
+    <View
+        android:layout_below="@+id/fmgk_nearzy"
+        android:layout_width="match_parent"
+        android:layout_height="70px"
         />
 
 </RelativeLayout>

@@ -2,8 +2,6 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-
     <RelativeLayout
         android:id="@+id/qj_r3"
         android:layout_width="match_parent"
@@ -65,20 +63,24 @@
             ></View>
     </RelativeLayout>
 
+<RelativeLayout
+    android:layout_below="@+id/qj_r3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
 
     <com.jcodecraeer.xrecyclerview.XRecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/qj_r3"
         android:id="@+id/majorschool_xrecycle"
         ></com.jcodecraeer.xrecyclerview.XRecyclerView>
+
 
     <ProgressBar
         android:visibility="visible"
         android:id="@+id/majorshool_pb"
+        android:layout_marginTop="600px"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
         android:layout_width="100px"
         android:layout_height="100px"
         />
@@ -87,11 +89,14 @@
         android:id="@+id/majorschool_none"
         android:layout_width="500px"
         android:layout_height="400px"
+        android:layout_marginTop="600px"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
         android:src="@drawable/none"
-
         />
+</RelativeLayout>
+
+
+
 
 
 

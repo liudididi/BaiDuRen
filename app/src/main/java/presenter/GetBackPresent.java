@@ -30,11 +30,8 @@ public class GetBackPresent extends Basepresent {
             public void CaptChasuccess(BaseBean listBasebean) {
                 String msg = listBasebean.msg;
                 System.out.println("msg========="+msg);
-                if(listBasebean.code==0){
                     getBackView.getBackSuccess(msg);
-                }else {
-                    getBackView.getBackfail(msg);
-                }
+
             }
 
             @Override
@@ -48,12 +45,9 @@ public class GetBackPresent extends Basepresent {
            @Override
            public void CaptChasuccess(BaseBean listBasebean) {
                String msg = listBasebean.msg;
-               System.out.println("msg========="+msg);
-               if(listBasebean.code==0){
+
                    getBackView.getBackUpsuccess(msg);
-               }else {
-                   getBackView.getBackUpfail(msg);
-               }
+
            }
 
            @Override

@@ -9,16 +9,15 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.weavey.loading.lib.LoadingLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import adapter.HotAdapter;
 import adapter.Search_Adapter;
 import base.BaseActivity;
 import bean.HotBean;
@@ -53,6 +52,8 @@ public class SearchParticularsActivity extends BaseActivity implements SearchVie
     FlowLayout gridSchool;
     @BindView(R.id.grid_major)
     FlowLayout gridMajor;
+    @BindView(R.id.lodiing)
+    LoadingLayout lodiing;
 
     private SearchPresent searchPresent;
     private Search_Adapter search_adapter;
@@ -67,11 +68,14 @@ public class SearchParticularsActivity extends BaseActivity implements SearchVie
 
     @Override
     public void InIt() {
-        schoollist=new ArrayList<>();
-        majorlist=new ArrayList<>();
+        schoollist = new ArrayList<>();
+        majorlist = new ArrayList<>();
         searchPresent = new SearchPresent(this);
+        loadingLayout=lodiing;
         searchPresent.queryHot();
         shRecycle.setLayoutManager(new LinearLayoutManager(this));
+
+
     }
 
     @Override
@@ -130,7 +134,7 @@ public class SearchParticularsActivity extends BaseActivity implements SearchVie
 
         List<String> schoollist = new ArrayList<>();
         List<String> majorlist1 = new ArrayList<>();
-        final List<HotBean> majorlist=new ArrayList<>();
+        final List<HotBean> majorlist = new ArrayList<>();
         if (list != null && list.size() > 0) {
             for (int i = 0; i < list.size(); i++) {
                 if (list.get(i).getHotType().equals("0")) {
@@ -145,24 +149,21 @@ public class SearchParticularsActivity extends BaseActivity implements SearchVie
         gridSchool.setOnTagClickListener(new FlowLayout.OnTagClickListener() {
             @Override
             public void TagClick(String text) {
-
-                Intent intent=new Intent(SearchParticularsActivity.this, SchoolDetailActivity.class);
-                intent.putExtra("schoolname",text);
-                 startActivity(intent);
-
-
+                Intent intent = new Intent(SearchParticularsActivity.this, SchoolDetailActivity.class);
+                intent.putExtra("schoolname", text);
+                startActivity(intent);
             }
         });
         gridMajor.setListData(majorlist1);
         gridMajor.setOnTagClickListener(new FlowLayout.OnTagClickListener() {
             @Override
             public void TagClick(String text) {
-                for (int i = 0; i <majorlist.size() ; i++) {
-                    if(text.equals(majorlist.get(i).getHotName())){
-                        String  id=majorlist.get(i).getStandby1();
-                        Intent intent=new Intent(SearchParticularsActivity.this,MajorDetailActivity .class);
-                        intent.putExtra("majorid",id);
-                        intent.putExtra("schoolname",text);
+                for (int i = 0; i < majorlist.size(); i++) {
+                    if (text.equals(majorlist.get(i).getHotName())) {
+                        String id = majorlist.get(i).getStandby1();
+                        Intent intent = new Intent(SearchParticularsActivity.this, MajorDetailActivity.class);
+                        intent.putExtra("majorid", id);
+                        intent.putExtra("schoolname", text);
                         startActivity(intent);
                         return;
                     }
@@ -172,8 +173,6 @@ public class SearchParticularsActivity extends BaseActivity implements SearchVie
 
        /* HotAdapter school = new HotAdapter(this, schoollist);
         HotAdapter major = new HotAdapter(this, majorlist);*/
-
-
 
 
     }

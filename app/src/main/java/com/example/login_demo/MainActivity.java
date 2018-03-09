@@ -270,10 +270,11 @@ public class MainActivity extends BaseActivity implements LoginView {
     @Override
     public void loginsuccess(String msg, BaseBean<UserBean> baseBean) {
         Toast(msg);
-        if(msg.equals("success")){
+
             SPUtils.put(MyApp.context,"token",baseBean.token);
             intent(MainActivity.this, HomeActivity.class);
-        }
+            finish();
+
 
     }
 
@@ -289,8 +290,7 @@ public class MainActivity extends BaseActivity implements LoginView {
      */
     @Override
     public void CaptChasuccess(String msg) {
-        Toast(msg);
-        if(msg.equals("验证码发送成功")){
+           Toast(msg);
             time = 30;
             inItRunable();
             if(flag==true){
@@ -304,7 +304,7 @@ public class MainActivity extends BaseActivity implements LoginView {
             }
             handler.postDelayed(runnable, 1000);
 
-        }
+
     }
     /**
      * 验证码获取失败

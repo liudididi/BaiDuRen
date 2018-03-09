@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageview3"
+        android:layout_width="500px"
+        android:layout_height="700px"
+        android:src="@drawable/xzby"
+        />
+    <ImageView
+        android:layout_toRightOf="@id/imageview3"
+        android:layout_width="match_parent"
+        android:layout_height="700px"
+        android:src="@drawable/xzcn"
+        />
+
+    <TextView
+        android:id="@+id/starttv8"
+        android:text="程序员"
+        android:textColor="#fff"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:layout_marginRight="200px"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="410px"
+        android:layout_marginTop="420px"
+        />
+    <TextView
+        android:id="@+id/starttv9"
+        android:text="程序员"
+        android:textColor="#fff"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="200px"
+        android:layout_marginTop="100px"
+        />
+    <TextView
+        android:id="@+id/starttv10"
+
+        android:text="程序员"
+        android:textColor="#fff"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="400px"
+        android:layout_marginTop="250px"
+        />
+
+    <TextView
+        android:id="@+id/starttv25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:gravity="center"
+        android:text="程序员"
+        android:textColor="#fff"
+        android:layout_marginTop="200px"
+         />
+    <TextView
+        android:id="@+id/starttv11"
+        android:text="程序员"
+        android:textColor="#fff"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="430px"
+        />
+    <TextView
+        android:id="@+id/starttv12"
+        android:text="程序员"
+        android:textColor="#fff"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="300px"
+        android:layout_marginTop="530px"
+        />
+
+    <TextView
+        android:id="@+id/starttv15"
+        android:text="程序员"
+        android:textColor="#fff"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="500px"
+        android:layout_marginTop="800px"
+        />
+
+    <TextView
+        android:id="@+id/starttv16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="700px"
+        android:layout_marginLeft="150px"
+        android:gravity="center"
+        android:text="程序员"
+        android:textColor="#fff"
+
+         />
+    <TextView
+        android:id="@+id/starttv14"
+        android:text="程序员"
+        android:textColor="#fff"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+
+        android:layout_marginTop="680px"
+        />
+</RelativeLayout>

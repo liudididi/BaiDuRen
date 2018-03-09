@@ -1,6 +1,11 @@
 package com.example.login_demo;
 
+import android.Manifest;
+import android.annotation.TargetApi;
 import android.app.DownloadManager;
+
+import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.Service;
 import android.content.BroadcastReceiver;
@@ -13,12 +18,18 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.FileProvider;
+import android.widget.RemoteViews;
 import android.widget.Toast;
 
 import java.io.File;
 
 import retrofit2.http.Query;
+import untils.PermissionUtils;
+
+import static com.example.login_demo.MyApp.context;
 
 /**
  * Created by 地地 on 2018/2/7.
@@ -29,6 +40,7 @@ public class DownApkServer extends Service {
     private BroadcastReceiver receiver;
     private DownloadManager dm;
     private long enqueue;
+    private  Context con;
 
     @Nullable
     @Override
@@ -41,6 +53,7 @@ public class DownApkServer extends Service {
         receiver=new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
+              con=context;
                 checkStatus();
                 stopSelf();
             }
@@ -51,39 +64,14 @@ public class DownApkServer extends Service {
         return Service.START_STICKY;
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void startDownload(String downUrl) {
 
         dm = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
-
-/*
-        mNotifManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        final Notification.Builder builder = new Notification.Builder(this);
-        builder.setSmallIcon(R.drawable.logo);//这里设置图标
-
+        /*final Notification.Builder builder = new Notification.Builder(this);
+        //这里设置图标
         final Notification notif = builder.build();
-        mNotifManager.notify("摆渡人",0,notif);
-        */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /**设置下载地址*/
+        mNotifManager.notify("摆渡人",1231,notif);*/
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(downUrl));
         /**设置下载文件的类型*/
         request.setMimeType("application/vnd.android.package-archive");
@@ -100,6 +88,21 @@ public class DownApkServer extends Service {
 
 
     }
+
+    private void checkIsAndroidO() {
+        if (Build.VERSION.SDK_INT >= 26) {
+            boolean b = getPackageManager().canRequestPackageInstalls();
+            if (b) {
+
+                install(this);
+
+            }
+        } else {
+
+            install(this);
+        }
+    }
+
 
      private void checkStatus() {
          DownloadManager.Query query=new DownloadManager.Query();
@@ -122,7 +125,10 @@ public class DownApkServer extends Service {
                      break;
                  //下载完成
                  case DownloadManager.STATUS_SUCCESSFUL:
-                     install(this);
+
+
+                     checkIsAndroidO();
+
                      break;
                  case DownloadManager.STATUS_FAILED:
                      Toast.makeText(this, "下载失败", Toast.LENGTH_SHORT).show();
@@ -138,6 +144,7 @@ public class DownApkServer extends Service {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+
         File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "摆渡人.apk");
         if (!file.exists()) {
             return;
@@ -146,8 +153,12 @@ public class DownApkServer extends Service {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
             downloadUri = Uri.fromFile(file);
         } else {
-            intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            downloadUri = FileProvider.getUriForFile(context, context.getApplicationContext().getPackageName() + ".provider", file);
+            Intent installApkIntent = new Intent();
+            installApkIntent.setAction(Intent.ACTION_VIEW);
+            installApkIntent.addCategory(Intent.CATEGORY_DEFAULT);
+            installApkIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            installApkIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            downloadUri = FileProvider.getUriForFile(context, context.getApplicationContext().getPackageName() + ".myFileProvider", file);
         }
         intent.setDataAndType(downloadUri, "application/vnd.android.package-archive");
         context.startActivity(intent);

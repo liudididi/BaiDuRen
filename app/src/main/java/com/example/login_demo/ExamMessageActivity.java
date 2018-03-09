@@ -113,9 +113,13 @@ public class ExamMessageActivity extends BaseActivity {
                 break;
             case R.id.tv_create:
                 //TODO  生成数据折线对比图
-                Intent intent=new Intent(this,GradePolyLineActivity.class);
-                intent.putExtra("testType",form_int);
-                startActivity(intent);
+
+                Boolean aBoolean = checLogin();
+                if(aBoolean){
+                    Intent intent=new Intent(this,GradePolyLineActivity.class);
+                    intent.putExtra("testType",form_int);
+                    startActivity(intent);
+                }
                 break;
         }
     }

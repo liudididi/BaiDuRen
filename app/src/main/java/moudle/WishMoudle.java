@@ -19,7 +19,8 @@ public class WishMoudle {
     private CompositeDisposable compositeDisposable=new CompositeDisposable();
     public void Wish(int board_id, final WishBack wishBack)
     {
-        DisposableSubscriber<BaseBean<List<SlideshowBean>>> disposableSubscriber = MyQusetUtils.getInstance().getQuestInterface().Wish(board_id)
+        DisposableSubscriber<BaseBean<List<SlideshowBean>>> disposableSubscriber =
+                MyQusetUtils.getInstance().getQuestInterface().Wish(board_id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new DisposableSubscriber<BaseBean<List<SlideshowBean>>>() {

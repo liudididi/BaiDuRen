@@ -37,6 +37,21 @@
         android:background="#ccc"
         android:layout_below="@id/user_rl">
     </View>
+
+
+    <com.weavey.loading.lib.LoadingLayout
+        android:id="@+id/lodiing"
+        android:layout_below="@id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:isFirstVisible="false">
+        <TextView
+            android:visibility="visible"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </com.weavey.loading.lib.LoadingLayout>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/user_rv"
         android:layout_below="@id/view2"

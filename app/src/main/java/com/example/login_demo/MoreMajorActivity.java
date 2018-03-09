@@ -55,7 +55,7 @@ public class MoreMajorActivity extends BaseActivity implements SelectMajorView {
     public void InIt() {
         selectMajorPresent = new SelectMajorPresent(this);
         selectMajorPresent.selectAllMajor("0");
-        registerReceiver();
+
     }
 
     @Override
@@ -63,7 +63,7 @@ public class MoreMajorActivity extends BaseActivity implements SelectMajorView {
 
         super.onDestroy();
         selectMajorPresent.onDestory();
-        unregisterReceiver();
+
 
     }
 

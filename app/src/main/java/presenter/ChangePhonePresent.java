@@ -26,17 +26,20 @@ public class ChangePhonePresent extends Basepresent {
         changePhoneMoudle.mobileUpdateCaptcha(mobile, new ChangePhoneMoudle.ChangePhoneCaptChaBack() {
             @Override
             public void CaptChasuccess(BaseBean listBasebean) {
-                String msg = listBasebean.msg;
+                   String msg = listBasebean.msg;
                 if(listBasebean.code==0){
                     changePhoneView.getCaptChaSuccess(msg);
                 }else {
                     changePhoneView.getCaptChafail(msg);
                 }
+
+
+
             }
 
             @Override
             public void CaptChafail(Throwable t) {
-                changePhoneView.getCaptChafail(t.toString());
+                changePhoneView.getCaptChafail("请稍后重试");
             }
         });
     }
@@ -54,7 +57,7 @@ public class ChangePhonePresent extends Basepresent {
 
             @Override
             public void CaptChafail(Throwable t) {
-               changePhoneView.oldPhonefail(t.toString());
+               changePhoneView.oldPhonefail("请稍后重试");
             }
         });
     }
@@ -73,7 +76,7 @@ public class ChangePhonePresent extends Basepresent {
 
             @Override
             public void CaptChafail(Throwable t) {
-                 changePhoneView.newPhonefail(t.toString());
+                 changePhoneView.newPhonefail("请稍后重试");
             }
         });
 

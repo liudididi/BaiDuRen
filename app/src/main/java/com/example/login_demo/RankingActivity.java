@@ -44,7 +44,7 @@ public class RankingActivity extends BaseActivity implements RankingView{
         ranKingPresent.RanKingPresent(page,10);
         rankingRv.setPullRefreshEnabled(false);
         rankingRv.setLoadingMoreEnabled(true);
-        registerReceiver();
+
     }
 
 
@@ -63,7 +63,7 @@ public class RankingActivity extends BaseActivity implements RankingView{
     protected void onDestroy() {
         super.onDestroy();
         ranKingPresent.onDestory();
-        unregisterReceiver();
+
     }
 
     //大学排序

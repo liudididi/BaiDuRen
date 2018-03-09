@@ -5,6 +5,7 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import com.tencent.bugly.crashreport.CrashReport;
+import com.weavey.loading.lib.LoadingLayout;
 import com.zhy.autolayout.config.AutoLayoutConifg;
 
 import java.io.BufferedReader;
@@ -35,6 +36,24 @@ public class MyApp extends Application {
 // 初始化Bugly
         CrashReport.initCrashReport(context, "51fb22d762", false, strategy);
 
+
+
+
+
+
+        LoadingLayout.getConfig()
+                .setErrorText("出错啦~请稍后重试！")
+                .setEmptyText("抱歉，暂无数据")
+                .setNoNetworkText("无网络连接，请检查您的网络···")
+                .setErrorImage(R.mipmap.error)
+                .setEmptyImage(R.mipmap.empty)
+                .setNoNetworkImage(R.drawable.nonenet)
+                .setAllTipTextColor(R.color.colorAccent)
+                .setAllTipTextSize(14)
+                .setReloadButtonText("点我重试哦")
+                .setReloadButtonTextSize(14)
+                .setReloadButtonTextColor(R.color.activity_invitation_detail_reply_user)
+                .setReloadButtonWidthAndHeight(150,40);
 
     }
 

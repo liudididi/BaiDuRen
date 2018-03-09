@@ -137,7 +137,11 @@ public class StudyActivity extends BaseActivity implements StudyView{
         study_spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                list4.clear();
+                if(list4!=null&&list4.size()>0)
+                {
+                    list4.clear();
+                }
+
                 s1 = list.get(i).toString();
                 System.out.println("地址++++"+s1+s3+s2);
                 studyPresent.StudyPresent("习题资料",s1,s3,s2,"1","10");
@@ -159,7 +163,11 @@ public class StudyActivity extends BaseActivity implements StudyView{
         study_spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                list4.clear();
+                if(list4!=null&&list4.size()>0)
+                {
+                    list4.clear();
+                }
+
                 s2 = list1.get(i).toString();
                 studyPresent.StudyPresent("习题资料",s1,s3,s2,"1","10");
             }
@@ -189,7 +197,11 @@ public class StudyActivity extends BaseActivity implements StudyView{
         study_spinner3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                list4.clear();
+                if(list4!=null&&list4.size()>0)
+                {
+                    list4.clear();
+                }
+
                 s3= list2.get(i).toString();
                 studyPresent.StudyPresent("习题资料",s1,s3,s2,"1","10");
             }
@@ -208,8 +220,11 @@ public class StudyActivity extends BaseActivity implements StudyView{
         study_ll2_spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-               // Toast.makeText(StudyActivity.this, list.get(i).toString(), Toast.LENGTH_SHORT).show();
-                list4.clear();
+                if(list4!=null&&list4.size()>0)
+                {
+                    list4.clear();
+                }
+
                 s1 = list.get(i).toString();
                 studyPresent.StudyPresent("历年高考题",s1,s3,"","1","10");
 
@@ -228,8 +243,11 @@ public class StudyActivity extends BaseActivity implements StudyView{
         study_ll2_spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                //Toast.makeText(StudyActivity.this, list2.get(i).toString(), Toast.LENGTH_SHORT).show();
-                list4.clear();
+                if(list4!=null&&list4.size()>0)
+                {
+                    list4.clear();
+                }
+
                 s3= list2.get(i).toString();
                 studyPresent.StudyPresent("历年高考题",s1,s3,"","1","10");
 
@@ -250,7 +268,11 @@ public class StudyActivity extends BaseActivity implements StudyView{
         study_ll3_spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                 list4.clear();
+                if(list4!=null&&list4.size()>0)
+                {
+                    list4.clear();
+                }
+
                 s3= list2.get(i).toString();
                 studyPresent.StudyPresent("真题演练","全国",s3,"","1","10");
 
@@ -280,7 +302,11 @@ public class StudyActivity extends BaseActivity implements StudyView{
                 study_ll1.setVisibility(View.VISIBLE);
                 study_ll2.setVisibility(View.GONE);
                 study_ll3.setVisibility(View.GONE);
-                list4.clear();
+                if(list4!=null&&list4.size()>0)
+                {
+                    list4.clear();
+                }
+
                 studyPresent.StudyPresent("习题资料",s1,s3,s2,"1","10");
                  break;
             case R.id.study_rl_two:
@@ -312,7 +338,11 @@ public class StudyActivity extends BaseActivity implements StudyView{
                 study_ll1.setVisibility(View.GONE);
                 study_ll2.setVisibility(View.GONE);
                 study_ll3.setVisibility(View.VISIBLE);
-                list4.clear();
+                if(list4!=null&&list4.size()>0)
+                {
+                    list4.clear();
+                }
+
                 studyPresent.StudyPresent("真题演练","全国",s3,"","1","10");
 
                 break;

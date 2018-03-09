@@ -97,13 +97,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="80px" />
             <TextView
+                android:id="@+id/setting_verinfo"
                 android:text="当前版本1.0"
                 android:textSize="50px"
                 android:gravity="center"
-                android:layout_marginRight="30px"
+                android:layout_marginRight="80px"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
+                android:layout_toLeftOf="@+id/img_hong"
+                />
+            <ImageView
+                android:layout_marginRight="10px"
+               android:visibility="invisible"
+                android:background="@mipmap/hong"
+                android:layout_width="40px"
+                android:layout_height="40px"
+                android:id="@+id/img_hong"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
                 />
         </RelativeLayout>
 

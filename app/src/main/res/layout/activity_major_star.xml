@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:background="@drawable/zyxkbj"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.login_demo.MajorStarActivity">
+
+    <RelativeLayout
+
+        android:id="@+id/majorstarrl"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:background="#99252848"
+        >
+        <ImageView
+            android:padding="20px"
+            android:id="@+id/majorstar_iv_back"
+            android:layout_width="150px"
+            android:layout_height="90px"
+            android:layout_gravity="center"
+            android:src="@drawable/while_arrow"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:text="智能专业推荐"
+            android:textColor="#ffffff"
+            android:textSize="48px"
+            android:textStyle="bold"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </RelativeLayout>
+<TextView
+    android:layout_marginTop="20px"
+    android:id="@+id/majorstartv"
+    android:layout_below="@+id/majorstarrl"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@color/white"
+    android:text="     经摆渡人EFC系统全面分析，已生成\n     喜欢的专业"
+    android:textSize="40px"
+    />
+    
+    <TextView
+        android:layout_marginTop="10px"
+        android:id="@+id/majorstartv1"
+        android:layout_marginLeft="50px"
+        android:textSize="33px"
+        android:layout_below="@+id/majorstartv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="请查看并点击您心动的专业(可多洗，最多选取6个专业)"
+        />
+    <TextView
+        android:layout_marginTop="20px"
+        android:id="@+id/majorstart1"
+        android:layout_below="@+id/majorstarrl"
+        android:layout_toRightOf="@id/majorstartv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ff6700"
+        android:text="20"
+        android:textSize="40px"
+        />
+    <TextView
+        android:layout_marginTop="20px"
+        android:id="@+id/majorstart2"
+        android:layout_below="@+id/majorstarrl"
+        android:layout_toRightOf="@id/majorstart1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="个您可能"
+        android:textSize="40px"
+        />
+
+    <RelativeLayout
+        android:id="@+id/rl_card_root"
+        android:layout_marginLeft="50px"
+        android:layout_marginRight="50px"
+        android:layout_marginTop="350px"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="150px"
+        >
+
+        <RelativeLayout
+            android:id="@+id/imageView_back"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/major_vp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                ></android.support.v4.view.ViewPager>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:visibility="invisible"
+            android:id="@+id/imageView_front"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+<include
+    layout="@layout/majorstater"
+    ></include>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <Button
+        android:layout_marginBottom="50px"
+        android:layout_centerHorizontal="true"
+        android:layout_width="382px"
+        android:layout_height="100px"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/back_capacityyi"
+        android:text="确认提交"
+        android:textSize="45px"
+        android:textColor="#fff"
+        />
+
+
+    <ImageView
+        android:layout_marginRight="50px"
+       android:id="@+id/imtwjj"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="250px"
+        android:layout_width="160px"
+        android:src="@drawable/ysc"
+        android:layout_height="160px" />
+    <TextView
+        android:layout_marginRight="76px"
+        android:layout_alignParentRight="true"
+        android:id="@+id/scnum"
+        android:textSize="50px"
+        android:text="0"
+        android:gravity="right"
+        android:textColor="@color/white"
+        android:layout_width="185px"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="265px"
+        />
+
+
+
+</RelativeLayout>

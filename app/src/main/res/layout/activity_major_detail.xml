@@ -162,6 +162,20 @@
                 ></View>
         </RelativeLayout>
     </LinearLayout>
+
+
+    <com.weavey.loading.lib.LoadingLayout
+        android:id="@+id/lodiing"
+        android:layout_below="@+id/mmajorll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:isFirstVisible="false">
+    <TextView
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+    </com.weavey.loading.lib.LoadingLayout>
     <ScrollView
         android:layout_below="@+id/mmajorll"
         android:layout_width="match_parent"

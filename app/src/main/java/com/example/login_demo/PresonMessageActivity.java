@@ -1,6 +1,8 @@
 package com.example.login_demo;
 
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -10,6 +12,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.meg7.widget.CustomShapeImageView;
+import com.weavey.loading.lib.LoadingLayout;
 
 import base.BaseActivity;
 import base.BaseBean;
@@ -45,7 +48,7 @@ public class PresonMessageActivity extends BaseActivity {
     TextView presonNear;
     @BindView(R.id.preson_highschool)
     TextView presonHighschool;
-
+    private ConnectionChangeReceiver myReceiver;
     @Override
     public int getId() {
         return R.layout.activity_preson_message;
@@ -53,7 +56,7 @@ public class PresonMessageActivity extends BaseActivity {
 
     @Override
     public void InIt() {
-
+        registerReceiver();
     }
 
     @Override
@@ -126,5 +129,41 @@ public class PresonMessageActivity extends BaseActivity {
 
                 break;
         }
+    }
+
+
+
+    public void registerReceiver() {
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        //设置网络状态提示布局的状态
+//无网的时候，无网提示的展示View展示出来
+//重新联接上网络时，自动加载数据
+//这个是onresume中实现了数据的刷新，即是，网络连接后，重新拉取数据
+        myReceiver = new ConnectionChangeReceiver() {
+            @Override
+            public void changeNetStatus(boolean flag) {
+                //设置网络状态提示布局的状态
+                if (flag) {
+
+                } else {
+                    //有网
+                   onResume();
+
+                }
+            }
+        };
+        this.registerReceiver(myReceiver, filter);
+    }
+
+    public void unregisterReceiver() {
+        if (myReceiver != null) {
+            this.unregisterReceiver(myReceiver);
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver();
     }
 }

@@ -65,7 +65,7 @@ public class GradePolyLineActivity extends BaseActivity  implements GradePolyLin
         initlist();
         token = (String) SPUtils.get(MyApp.context, "token", "");
         gradePolyLinePresent = new GradePolyLinePresent(this);
-        testType = getIntent().getIntExtra("testType",3);
+        testType = getIntent().getIntExtra("testType",2);
         gradePolyLinePresent.getUserResultPng(testType,"", token);
 
 

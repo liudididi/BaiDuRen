@@ -48,9 +48,14 @@ public class MaJorActivity extends BaseActivity implements  MySchoolView {
         mySchoolPresent = new MySchoolPresent(this);
         majorXrecycle.setVisibility(View.GONE);
         majorXrecycle.setLayoutManager(new LinearLayoutManager(this));
-        mySchoolPresent.getmajorCollection(token);
+
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mySchoolPresent.getmajorCollection(token);
+    }
 
     @OnClick({R.id.major_iv_back, R.id.major_see})
     public void onViewClicked(View view) {

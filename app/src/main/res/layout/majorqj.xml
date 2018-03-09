@@ -142,6 +142,7 @@
         android:layout_below="@+id/qj_r2"
         ></View>
     <RelativeLayout
+        android:visibility="gone"
         android:id="@+id/qj_r3"
         android:layout_below="@+id/qj_v3"
         android:layout_width="match_parent"

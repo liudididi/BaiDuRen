@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+
+    <untils.MyTableTextView
+        android:id="@+id/list_1_1"
+        android:layout_width="290px"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/list_1_2"
+        android:layout_alignTop="@+id/list_1_2"
+        android:gravity="center"
+        android:textColor="#000"
+        android:textSize="13sp" />
+
+    <untils.MyTableTextView
+        android:id="@+id/list_1_2"
+        android:layout_width="290px"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/list_1_1"
+        android:gravity="center"
+        android:textColor="#000"
+        android:textSize="13sp" />
+
+    <untils.MyTableTextView
+        android:id="@+id/list_1_3"
+        android:layout_width="290px"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/list_1_2"
+        android:layout_alignTop="@+id/list_1_2"
+        android:layout_toRightOf="@+id/list_1_2"
+        android:gravity="center"
+        android:textColor="#000"
+        android:textSize="13sp" />
+
+
+
+</RelativeLayout>

@@ -53,17 +53,16 @@
        android:layout_marginTop="75px"
         />
     <TextView
-        android:id="@+id/zc_Countdown"
+        android:visibility="gone"
+        android:layout_marginTop="75px"
         android:layout_width="270px"
         android:layout_height="90px"
-        android:layout_alignBaseline="@+id/zc_ed_phone"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
+        android:id="@+id/zc_Countdown"
         android:textColor="#e6e6e6"
         android:textSize="40px"
         android:layout_marginRight="45px"
         android:background="@drawable/back_countdown"
-        android:visibility="gone"
         android:gravity="center"
         android:text="" />
     <EditText

@@ -19,7 +19,8 @@ public class SchoolBrochuresMoudle {
     //招生简章
     public void Brochures(String name, final BrochuresBack brochuresBack)
     {
-        DisposableSubscriber<BaseBean<List<SchoolBrochuresBean>>> disposableSubscriber = MyQusetUtils.getInstance().getQuestInterface().schoolbrochures(name)
+        DisposableSubscriber<BaseBean<List<SchoolBrochuresBean>>> disposableSubscriber =
+                MyQusetUtils.getInstance().getQuestInterface().schoolbrochures(name)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new DisposableSubscriber<BaseBean<List<SchoolBrochuresBean>>>() {

@@ -271,7 +271,7 @@
 
         <TextView
             android:textColor="@color/black"
-            android:text="食堂饮食"
+            android:text="食宿情况"
             android:textSize="50px"
             android:gravity="center"
             android:layout_marginLeft="120px"
@@ -287,7 +287,7 @@
             android:layout_alignParentRight="true"
             />
     </RelativeLayout>
-    <RelativeLayout
+   <!-- <RelativeLayout
         android:background="@color/white"
         android:id="@+id/ss_sshj"
         android:layout_below="@+id/ss_stys"
@@ -319,7 +319,7 @@
             android:layout_height="45px"
             android:layout_alignParentRight="true"
             />
-    </RelativeLayout>
+    </RelativeLayout>-->
 
 
 
@@ -328,7 +328,7 @@
         android:layout_marginTop="30px"
         android:background="@color/white"
         android:id="@+id/ss_r4"
-        android:layout_below="@+id/ss_sshj"
+        android:layout_below="@+id/ss_stys"
         android:layout_width="match_parent"
         android:layout_height="150px">
         <View
@@ -386,22 +386,22 @@
         <TextView
             android:id="@+id/ss_tvshd"
             android:layout_width="200px"
-            android:layout_height="80px"
-            android:layout_marginLeft="80px"
-            android:layout_marginTop="30px"
+            android:layout_height="60px"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="26dp"
+            android:layout_marginStart="26dp"
             android:gravity="center"
             android:text="271"
             android:textColor="#3B9EFF"
-            android:textSize="50px" />
-
+            android:textSize="40px" />
         <TextView
             android:id="@+id/ss_tv7"
             android:layout_width="200px"
             android:layout_height="60px"
             android:layout_marginLeft="30px"
-            android:layout_marginTop="40px"
+            android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/ss_tvshd"
-            android:gravity="left"
+            android:gravity="center"
             android:text="硕士点"
             android:textSize="40px" />
 
@@ -409,32 +409,30 @@
             android:background="@color/trans_color"
             android:layout_width="3px"
             android:layout_height="100px"
-            android:layout_marginLeft="40px"
-            android:layout_marginTop="15px"
-            android:layout_toRightOf="@+id/ss_tv7"></View>
+            android:layout_centerInParent="true"></View>
 
         <TextView
             android:id="@+id/ss_tv8"
             android:layout_width="200px"
-            android:layout_height="50px"
+            android:layout_height="60px"
             android:layout_alignParentRight="true"
             android:layout_marginRight="30px"
-            android:layout_marginTop="40px"
-            android:gravity="left"
+             android:layout_centerVertical="true"
+             android:gravity="center"
             android:text="博士点"
             android:textSize="40px" />
 
         <TextView
             android:id="@+id/ss_bsd"
             android:layout_width="200px"
-            android:layout_height="80px"
+            android:layout_height="60px"
             android:layout_marginRight="50px"
-            android:layout_marginTop="30px"
+            android:layout_centerVertical="true"
             android:layout_toLeftOf="@id/ss_tv8"
             android:gravity="center"
             android:text="253"
             android:textColor="#3B9EFF"
-            android:textSize="50px" />
+            android:textSize="40px" />
     </RelativeLayout>
 
 
@@ -455,20 +453,19 @@
         <TextView
             android:id="@+id/ss_zdsys"
             android:layout_width="200px"
-            android:layout_height="80px"
+            android:layout_height="60px"
             android:layout_marginLeft="80px"
-            android:layout_marginTop="30px"
+            android:layout_centerVertical="true"
             android:gravity="center"
             android:text="11"
             android:textColor="#FF6700"
-            android:textSize="50px" />
+            android:textSize="40px" />
 
         <TextView
             android:id="@+id/ss_tv9"
-            android:layout_width="wrap_content"
-            android:layout_height="80px"
-            android:layout_marginLeft="30px"
-            android:layout_marginTop="30px"
+            android:layout_width="230px"
+            android:layout_height="60px"
+           android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/ss_zdsys"
             android:gravity="center"
             android:text="重点实验室"
@@ -478,18 +475,16 @@
             android:background="@color/trans_color"
             android:layout_width="3px"
             android:layout_height="100px"
-            android:layout_marginLeft="40px"
-            android:layout_marginTop="15px"
-            android:layout_toRightOf="@+id/ss_tv9"
+            android:layout_centerInParent="true"
             ></View>
 
         <TextView
             android:id="@+id/ss_tv10"
             android:layout_width="200px"
-            android:layout_height="80px"
+            android:layout_height="60px"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="50px"
-            android:layout_marginTop="30px"
+            android:layout_marginRight="30px"
+             android:layout_centerVertical="true"
             android:gravity="center"
             android:text="重点学科"
             android:textSize="40px" />
@@ -497,14 +492,14 @@
         <TextView
             android:id="@+id/ss_zdxk"
             android:layout_width="200px"
-            android:layout_height="80px"
-            android:layout_marginRight="30px"
-            android:layout_marginTop="30px"
+            android:layout_height="60px"
+            android:layout_marginRight="50px"
+            android:layout_centerVertical="true"
             android:layout_toLeftOf="@id/ss_tv10"
             android:gravity="center"
             android:text="13"
             android:textColor="#FF6700"
-            android:textSize="50px" />
+            android:textSize="40px" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -581,6 +576,16 @@
             android:id="@+id/ss_rlbin"
             >
         </RelativeLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ss_back"
+            android:src="@drawable/none"
+            android:visibility="gone"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="100px"
+             >
+        </ImageView>
 
 <LinearLayout
     android:id="@+id/ss_ll"

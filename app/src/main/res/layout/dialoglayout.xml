@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#fff"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="524px">
+        <TextView
+            android:layout_marginTop="50px"
+            android:layout_marginLeft="50px"
+            android:id="@+id/dlog_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="70px"
+            android:textColor="#333"
+            android:text="你好啊"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           android:layout_marginTop="140px"
+            android:layout_marginLeft="50px"
+            android:text="薪资状况:"
+            android:textColor="#333"
+            android:textSize="50px" />
+
+        <TextView
+            android:layout_marginTop="140px"
+            android:id="@+id/dlog_xz"
+            android:layout_marginLeft="290px"
+            android:layout_toRightOf="@+id/tvmajor1"
+            android:layout_below="@+id/tvmajorone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="50px"
+            android:text="￥5203"
+            android:textColor="#ff6700"
+            />
+
+        <TextView
+            android:layout_marginLeft="50px"
+            android:textColor="#333"
+            android:layout_marginTop="220px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="50px"
+            android:text="培养目标:"
+            />
+        <TextView
+            android:id="@+id/dlog_pymb"
+            android:layout_marginLeft="50px"
+            android:textColor="#333"
+            android:layout_marginTop="290px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="42px"
+            android:text="培养目标:"
+            />
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="20px"
+            android:background="#ccc"
+            ></View>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="362px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50px"
+            android:layout_marginLeft="50px"
+            android:text="就业方向:"
+            android:textColor="#333"
+            android:textSize="50px" />
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="20px"
+            android:background="#ccc"
+            ></View>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="442px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50px"
+            android:layout_marginLeft="50px"
+            android:text="相近专业:"
+            android:textColor="#333"
+            android:textSize="50px" />
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="20px"
+            android:background="#ccc"
+            ></View>
+    </RelativeLayout>
+</LinearLayout>

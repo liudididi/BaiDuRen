@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
+    android:scrollbars="none"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -50,7 +51,7 @@
     <com.meg7.widget.CustomShapeImageView
         android:id="@+id/schoold_icon"
         android:layout_marginTop="250px"
-        android:src="@drawable/boy"
+        android:src="@drawable/none"
         android:layout_marginLeft="70px"
         android:layout_below="@+id/setting_title"
         android:layout_width="250px"
@@ -231,11 +232,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >-->
-    <FrameLayout
-        android:id="@+id/school_fl"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/schoold_rl2"></FrameLayout>
+        <com.weavey.loading.lib.LoadingLayout
+            android:id="@+id/lodiing"
+            android:layout_width="match_parent"
+            android:layout_height="800px"
+            android:layout_below="@+id/schoold_rl2"
+            app:isFirstVisible="false">
+          <TextView
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" />
+        </com.weavey.loading.lib.LoadingLayout>
+        <FrameLayout
+            android:id="@+id/school_fl"
+            android:layout_below="@+id/schoold_rl2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            ></FrameLayout>
     </RelativeLayout>
 </ScrollView>
 

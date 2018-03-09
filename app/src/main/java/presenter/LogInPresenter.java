@@ -69,7 +69,7 @@ public class LogInPresenter  extends Basepresent {
             }
             @Override
             public void Loginfail(Throwable t) {
-                loginView.loginfail("网络有误");
+
             }
         });
     }
@@ -85,16 +85,18 @@ public class LogInPresenter  extends Basepresent {
         logInMoudle.Register(mobile,password,captcha, new LogInMoudle.RequestBack() {
             @Override
             public void Loginsuccess(BaseBean<UserBean> listBasebean) {
-                String msg = listBasebean.msg;
-                if(listBasebean.code==0){
-                    loginView.loginsuccess(msg,listBasebean);
-                }else {
-                    loginView.loginfail(msg);
-                }
+                     String msg = listBasebean.msg;
+                    if(listBasebean.code==0){
+                        loginView.loginsuccess(msg,listBasebean);
+                    }else {
+                        loginView.loginfail(msg);
+                    }
+
+
             }
             @Override
             public void Loginfail(Throwable t) {
-                loginView.loginfail("网络有误");
+                loginView.loginfail("发送失败，请稍后重试");
             }
         });
     }
@@ -106,16 +108,18 @@ public class LogInPresenter  extends Basepresent {
      logInMoudle.LogCaptcha(moble, new LogInMoudle.CaptChaBack() {
          @Override
          public void CaptChasuccess(BaseBean listBasebean) {
-             String msg = listBasebean.msg;
-             if(listBasebean.code==0){
-                 loginView.CaptChasuccess(msg);
-             }else {
-                 loginView.CaptChaFail(msg);
-             }
+                 String msg = listBasebean.msg;
+                 if(listBasebean.code==0){
+                     loginView.CaptChasuccess(msg);
+                 }else {
+                     loginView.CaptChaFail(msg);
+                 }
+
+
          }
          @Override
          public void CaptChafail(Throwable t) {
-             loginView.loginfail(t.toString());
+             loginView.CaptChaFail("请稍后重试");
          }
      });
     }
@@ -124,15 +128,15 @@ public class LogInPresenter  extends Basepresent {
             @Override
             public void CaptChasuccess(BaseBean listBasebean) {
                 String msg = listBasebean.msg;
-                if(listBasebean.code==0){
-                    loginView.CaptChasuccess(msg);
-                }else {
-                    loginView.CaptChaFail(msg);
-                }
+           if(listBasebean.code==0){
+               loginView.CaptChasuccess(msg);
+           }else {
+               loginView.loginfail(msg);
+           }
             }
             @Override
             public void CaptChafail(Throwable t) {
-                loginView.loginfail("网络有误");
+                loginView.loginfail("请稍后重试");
             }
         });
     }

@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -16,8 +17,9 @@ import adapter.OneTableAdapter;
 import base.BaseActivity;
 import base.BaseBean;
 import bean.OneTableBean;
+
 import butterknife.BindView;
-import butterknife.ButterKnife;
+
 import butterknife.OnClick;
 import presenter.OneTablePresent;
 import untils.SPUtils;
@@ -45,6 +47,8 @@ public class OneTableActivity extends BaseActivity implements OneTableView{
     RelativeLayout onetable_rl_science;
     @BindView(R.id.onetable_rv)
     RecyclerView onetable_rv;
+    @BindView(R.id.pb)
+    ProgressBar pb;
     private String tbarea;
     public static  String s="文科";
     private OneTablePresent oneTablePresent;
@@ -98,8 +102,10 @@ public class OneTableActivity extends BaseActivity implements OneTableView{
     //一分一段表
     @Override
     public void OneTablesuccess(BaseBean<List<OneTableBean>> listBaseBean) {
-
+        onetable_rv.setVisibility(View.VISIBLE);
+        pb.setVisibility(View.GONE);
         data = listBaseBean.data;
+
         if(data!=null&&data.size()>0)
         {
             OneTableAdapter oneTableAdapter=new OneTableAdapter(data,OneTableActivity.this);
@@ -117,6 +123,8 @@ public class OneTableActivity extends BaseActivity implements OneTableView{
     public void OneTablefail(Throwable t) {
 
     }
+
+
 
     @Override
     protected void onDestroy() {

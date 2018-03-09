@@ -146,7 +146,6 @@ public class perfectMessageActivity extends BaseActivity implements perfectMessa
                     case R.id.rg_six_gril:
                         six = "女";
                         break;
-
                 }
             }
         });

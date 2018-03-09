@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.login_demo.ProfessionStarActivity"
+    android:background="@drawable/prostar"
+    >
+    <RelativeLayout
+        android:id="@+id/rl_starrl1"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:background="#99252848"
+        >
+        <ImageView
+            android:padding="20px"
+            android:id="@+id/pro_iv_back"
+            android:layout_width="150px"
+            android:layout_height="90px"
+            android:layout_gravity="center"
+            android:src="@drawable/while_arrow"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:text="智能职业推荐"
+            android:textColor="#ffffff"
+            android:textSize="48px"
+            android:textStyle="bold"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/pro_startv"
+        android:textSize="52px"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:text="请选择你感兴趣的职业"
+        android:layout_marginTop="60px"
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:layout_below="@+id/rl_starrl1"
+        />
+    <TextView
+        android:id="@+id/pro_startv1"
+        android:textSize="44px"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:text="比 你 更 懂 自 己，最 适 合 的 才 是 最 好 的"
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:layout_below="@+id/pro_startv"
+        />
+
+    
+    
+    <RelativeLayout
+        android:background="@drawable/back_start"
+        android:layout_marginTop="160px"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/pro_startv1"
+        android:layout_width="800px"
+        android:layout_height="wrap_content">
+<TextView
+    android:id="@+id/pro_startv2"
+    android:background="#99252848"
+    android:layout_width="match_parent"
+    android:layout_height="134px"
+    android:text="职业分类"
+    android:gravity="center"
+    android:textColor="#ffffff"
+    android:textSize="54px"
+    />
+        <TextView
+            android:id="@+id/pro_startv3"
+            android:layout_marginTop="40px"
+            android:layout_marginLeft="44px"
+            android:layout_below="@+id/pro_startv2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="选择职业前先做个分类吧~"
+            android:textColor="#ffffff"
+            android:textSize="46px"
+            />
+        <RelativeLayout
+            android:id="@+id/pro_rl2"
+            android:layout_marginTop="66px"
+            android:layout_below="@+id/pro_startv3"
+            android:layout_width="match_parent"
+            android:layout_height="60px">
+
+            <TextView
+                android:layout_centerVertical="true"
+                android:id="@+id/pro_startv4"
+                android:layout_marginLeft="44px"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="您的专业方向是:"
+                android:textColor="#ffffff"
+                android:textSize="44px"
+                />
+
+            <LinearLayout
+                android:id="@+id/ll_wen"
+                android:layout_marginLeft="50px"
+                android:orientation="horizontal"
+                android:layout_toRightOf="@+id/pro_startv4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/img_wen"
+                    android:layout_width="30px"
+                    android:layout_height="30px"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/hong" />
+             <TextView
+                 android:layout_marginLeft="10px"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="文科"
+                 android:layout_gravity="center_vertical"
+                 android:textSize="44px"
+                 android:textColor="#ffffff"
+                 />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_li"
+                android:layout_marginLeft="30px"
+                android:orientation="horizontal"
+                android:layout_toRightOf="@+id/ll_wen"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                >
+
+                <ImageView
+                    android:id="@+id/img_li"
+                    android:layout_width="30px"
+                    android:layout_height="30px"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/bai1" />
+                <TextView
+                    android:layout_marginLeft="10px"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="44px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="理科"
+                    android:textColor="#ffffff"
+                    />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/pro_rl3"
+            android:layout_marginTop="60px"
+            android:layout_below="@+id/pro_rl2"
+            android:layout_width="match_parent"
+            android:layout_height="60px"
+            >
+
+            <TextView
+                android:layout_centerVertical="true"
+                android:id="@+id/pro_startv5"
+                android:layout_marginLeft="44px"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="您的预测成绩是:"
+                android:textColor="#ffffff"
+                android:textSize="44px"
+                />
+
+            <LinearLayout
+                android:id="@+id/ll_ben"
+                android:layout_marginLeft="50px"
+                android:orientation="horizontal"
+                android:layout_toRightOf="@+id/pro_startv5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/img_ben"
+                    android:layout_width="30px"
+                    android:layout_height="30px"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/hong" />
+                <TextView
+                    android:layout_marginLeft="10px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="本科"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="44px"
+                    android:textColor="#ffffff"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_zhuan"
+                android:layout_marginLeft="30px"
+                android:orientation="horizontal"
+                android:layout_toRightOf="@+id/ll_ben"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                >
+
+                <ImageView
+                    android:id="@+id/img_zhuan"
+                    android:layout_width="30px"
+                    android:layout_height="30px"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/bai1" />
+                <TextView
+                    android:layout_marginLeft="10px"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="44px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="专科"
+                    android:textColor="#ffffff"
+                    />
+            </LinearLayout>
+        </RelativeLayout>
+        
+        <TextView
+            android:id="@+id/pro_tvyes"
+            android:background="@drawable/back_capacityer"
+            android:textColor="#ffffff"
+            android:text="确认提交"
+            android:gravity="center"
+            android:textSize="44px"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60px"
+            android:layout_below="@+id/pro_rl3"
+            android:layout_width="400px"
+            android:layout_height="120px"
+            />
+        <View
+            android:layout_below="@+id/pro_tvyes"
+            android:layout_marginTop="62px"
+            android:layout_width="match_parent"
+            android:layout_height="1px"></View>
+    </RelativeLayout>
+
+</RelativeLayout>

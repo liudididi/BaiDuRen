@@ -77,12 +77,12 @@ public class Majorschool_Fragment extends Basefragment implements MajorSchoolVie
             majorschool_xrecycle.setNestedScrollingEnabled(false);
         }else {
             majorschool_none.setVisibility(View.VISIBLE);
-
+            majorshool_pb.setVisibility(View.GONE);
         }
     }
 
     @Override
     public void MarjorSchoolFail(String msg) {
-        Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
+
     }
 }

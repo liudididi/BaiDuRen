@@ -3,6 +3,7 @@ package fragment;
 
 
 import android.content.Intent;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
@@ -13,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.Priority;
 import com.example.login_demo.ExamMessageActivity;
 import com.example.login_demo.MyApp;
 import com.example.login_demo.R;
@@ -45,7 +47,7 @@ public class WishFragMent extends Basefragment implements WishView, CountdownVie
 
     private RecyclerView school_recycle;
     private XBanner ws_xbanner;
-    private ArrayList<String> list;
+    private ArrayList<Integer> list;
     private LinearLayout ll_back;
     private TextView wish_monthly;
     private TextView wish_midterm;
@@ -118,6 +120,60 @@ public class WishFragMent extends Basefragment implements WishView, CountdownVie
         wish_day2 = view.findViewById(R.id.wish_day2);
         wish_day3 = view.findViewById(R.id.wish_day3);
         list = new ArrayList<>();
+        list.add(R.drawable.gkdjs);
+        list.add(R.drawable.zydjs);
+        list.add(R.drawable.ymdjs);
+
+        ws_xbanner.setData(list,null);
+        ws_xbanner.setmAdapter(new XBanner.XBannerAdapter() {
+            @Override
+            public void loadBanner(XBanner banner, View view, int position) {
+                ws_xbanner.removeView(view);
+                ImageView imageView = (ImageView) view;
+                imageView.setImageResource(list.get(position));
+
+
+
+
+            }
+        });
+        ws_xbanner.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if(position==0)
+                {
+                    wish_day1.setVisibility(View.VISIBLE);
+                    wish_day2.setVisibility(View.GONE);
+                    wish_day3.setVisibility(View.GONE);
+
+                }
+                else if (position==1)
+                {
+                    wish_day1.setVisibility(View.GONE);
+                    wish_day2.setVisibility(View.VISIBLE);
+                    wish_day3.setVisibility(View.GONE);
+
+                }
+                else
+                {
+                    wish_day1.setVisibility(View.GONE);
+                    wish_day2.setVisibility(View.GONE);
+                    wish_day3.setVisibility(View.VISIBLE);
+
+
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
         //动态设置高度
         View view_bottom=view.findViewById(R.id.view_bottom);
         DisplayMetrics dm = getResources().getDisplayMetrics();
@@ -129,7 +185,7 @@ public class WishFragMent extends Basefragment implements WishView, CountdownVie
 
         //轮播图
         wishPresent = new WishPresent(this);
-        wishPresent.WishPresenter(5);
+
         //倒计时
         countdownPresent = new CountdownPresent(this);
         countdownPresent.CountdownPresent();
@@ -143,6 +199,7 @@ public class WishFragMent extends Basefragment implements WishView, CountdownVie
             wishPresent.CanSchoolPresente("北京","文科","0","500","1","5");
         }
         onClick();
+
     }
 
     @Override
@@ -201,43 +258,7 @@ public class WishFragMent extends Basefragment implements WishView, CountdownVie
     @Override
     public void Wishsuccess(BaseBean<List<SlideshowBean>> listBaseBean) {
 
-        List<SlideshowBean> data = listBaseBean.data;
-        for (int i = 0; i < data.size(); i++) {
-            list.add(BaseApi.ImgApi+data.get(i).getExtimg());
-        }
-        ws_xbanner.setData(list,null);
-        ws_xbanner.setmAdapter(new XBanner.XBannerAdapter() {
-            @Override
-            public void loadBanner(XBanner banner, View view, int position) {
-                ws_xbanner.removeView(view);
-                Glide.with(getContext()).load(list.get(position).toString()).into((ImageView) view);
 
-                if(position==1)
-                {
-                    wish_day1.setVisibility(View.VISIBLE);
-                    wish_day2.setVisibility(View.GONE);
-                    wish_day3.setVisibility(View.GONE);
-
-                }
-                else if (position==2)
-                {
-                    wish_day1.setVisibility(View.GONE);
-                    wish_day2.setVisibility(View.VISIBLE);
-                    wish_day3.setVisibility(View.GONE);
-
-                }
-                else
-                {
-                    wish_day1.setVisibility(View.GONE);
-                    wish_day2.setVisibility(View.GONE);
-                    wish_day3.setVisibility(View.VISIBLE);
-
-
-                }
-
-
-            }
-        });
     }
 
     @Override

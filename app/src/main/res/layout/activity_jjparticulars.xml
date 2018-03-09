@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="none"
     tools:context="com.example.login_demo.JJParticularsActivity">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+
     <RelativeLayout
         android:id="@+id/rl"
         android:layout_width="match_parent"
@@ -36,12 +34,20 @@
         android:layout_height="2px"
         android:background="#cccccc"
         android:layout_below="@id/rl"></View>
-    <TextView
-        android:id="@+id/school_tv_count"
-        android:layout_below="@id/view"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="30px"
-        />
-    </RelativeLayout>
-</ScrollView>
+        android:layout_below="@id/view"
+        android:scrollbars="none">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/school_tv_count"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="30px"
+            />
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

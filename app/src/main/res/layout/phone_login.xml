@@ -90,7 +90,7 @@
         android:background="@drawable/back_guanzhu"
         android:gravity="center"
         android:text="快速登录"
-        android:textColor="#e6e6e6"
+        android:textColor="#fff"
         android:textSize="45px" />
 
     <TextView

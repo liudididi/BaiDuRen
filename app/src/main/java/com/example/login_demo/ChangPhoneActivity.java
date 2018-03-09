@@ -134,25 +134,24 @@ public class ChangPhoneActivity extends BaseActivity implements ChangePhoneView 
 
     @Override
     public void getCaptChaSuccess(String msg) {
-        Toast(msg);
-        if (msg.equals("success")) {
+             Toast(msg);
             time = 30;
             changephoneTvCountdown.setText(time + "S后重发");
             changephoneTvCaptcha.setVisibility(View.GONE);
             changephoneTvCountdown.setVisibility(View.VISIBLE);
             inItRunable();
             handler.postDelayed(runnable, 1000);
-        }
+
     }
 
     @Override
     public void getCaptChafail(String msg) {
-        Toast(msg);
+Toast(msg);
     }
 
     @Override
     public void oldPhonesuccess(String msg) {
-        if(msg.equals("success")){
+
             changephoneRvOldphone.setVisibility(View.GONE);
             changephoneRvNewphone.setVisibility(View.VISIBLE);
             oldphone=true;
@@ -161,7 +160,7 @@ public class ChangPhoneActivity extends BaseActivity implements ChangePhoneView 
             changephoneTvCaptcha.setVisibility(View.VISIBLE);
             changephoneTvCountdown.setVisibility(View.GONE);
             changephoneTvCountdown.setText(time + "S后重发");
-        }
+
 
     }
 
@@ -172,11 +171,9 @@ public class ChangPhoneActivity extends BaseActivity implements ChangePhoneView 
 
     @Override
     public void newPhonesuccess(String msg) {
-        if (msg.equals("success")) {
             Intent intent=new Intent(ChangPhoneActivity.this,AccountMagActivity.class);
             startActivity(intent);
             finish();
-        }
     }
 
     @Override

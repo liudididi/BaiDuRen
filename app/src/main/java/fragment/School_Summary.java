@@ -3,6 +3,7 @@ package fragment;
 import android.content.Intent;
 import android.graphics.Color;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -54,6 +55,7 @@ public class School_Summary  extends Basefragment implements School_SummaryView 
     private RelativeLayout ss_sshj;
     private String eat;
     private String sleep;
+    private ImageView ss_back;
 
     @Override
     public int getLayoutid() {
@@ -119,7 +121,7 @@ public class School_Summary  extends Basefragment implements School_SummaryView 
                 if(data.size()>0&&data!=null)
                 {
                     eat = data.get(0).getEat();
-                    sleep = data.get(0).getSleep();
+                     //sleep = data.get(0).getSleep();
                 }
             }
 
@@ -165,12 +167,12 @@ public class School_Summary  extends Basefragment implements School_SummaryView 
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getContext(), JJParticularsActivity.class);
-                intent.putExtra("school_title","食堂饮食");
+                intent.putExtra("school_title","宿食情况");
                 intent.putExtra("history",eat);
                 startActivity(intent);
             }
         });
-        ss_sshj.setOnClickListener(new View.OnClickListener() {
+       /* ss_sshj.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getContext(), JJParticularsActivity.class);
@@ -178,7 +180,7 @@ public class School_Summary  extends Basefragment implements School_SummaryView 
                 intent.putExtra("history",sleep);
                 startActivity(intent);
             }
-        });
+        });*/
     }
 
     private void initid() {
@@ -193,7 +195,8 @@ public class School_Summary  extends Basefragment implements School_SummaryView 
         ss_sfbz = view.findViewById(R.id.ss_sfbz);
         ss_jjzz = view.findViewById(R.id.ss_jjzz);
         ss_stys = view.findViewById(R.id.ss_stys);
-        ss_sshj = view.findViewById(R.id.ss_sshj);
+        //ss_sshj = view.findViewById(R.id.ss_sshj);
+        ss_back = view.findViewById(R.id.ss_back);
     }
 
     @Override
@@ -201,11 +204,11 @@ public class School_Summary  extends Basefragment implements School_SummaryView 
      if(listBaseBean.size()>0&&listBaseBean!=null){
          StudentFromBean studentFromBean = listBaseBean.get(0);
          PieChatView pieChatView=new PieChatView(getContext());
-         pieChatView.setPadding(80,50,50,50);
+         pieChatView.setPadding(80,50,80,50);
          kindsMap.put("华北", studentFromBean.getHn());
          kindsMap.put("东北", studentFromBean.getEn());
          kindsMap.put("华东", studentFromBean.getHe());
-         kindsMap.put("华南", studentFromBean.getHn());
+         kindsMap.put("华南", studentFromBean.getHs());
          kindsMap.put("西北", studentFromBean.getWn());
          kindsMap.put("西南",studentFromBean.getWs());
          colors.add(Color.BLUE);//蓝色
@@ -222,7 +225,18 @@ public class School_Summary  extends Basefragment implements School_SummaryView 
          ss_rlbin.addView(pieChatView);
          tvwomen_bfb.setText(studentFromBean.getWoman()+"%");
          tvman_bfb.setText(studentFromBean.getMan()+"%");
+         ss_back.setVisibility(View.GONE);
+         System.out.println("1111111111"+studentFromBean.getHn());
+         if(studentFromBean.getWn()==0&&studentFromBean.getWs()==0&&studentFromBean.getHs()==0&&studentFromBean.getHe()==0&&studentFromBean.getHn()==0&&studentFromBean.getEn()==0)
+         {
+             ss_back.setVisibility(View.VISIBLE);
+         }
      }
+     else
+     {
+         ss_back.setVisibility(View.VISIBLE);
+     }
+
     }
 
     @Override
