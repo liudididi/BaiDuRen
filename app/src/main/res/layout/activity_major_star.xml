@@ -7,9 +7,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.login_demo.MajorStarActivity">
-
+    <Button
+        android:id="@+id/majorstarbyes"
+        android:layout_marginBottom="50px"
+        android:layout_centerHorizontal="true"
+        android:layout_width="582px"
+        android:layout_height="100px"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/back_capacityyi"
+        android:text="确认提交"
+        android:textSize="45px"
+        android:textColor="#fff"
+        />
     <RelativeLayout
-
         android:id="@+id/majorstarrl"
         android:layout_width="match_parent"
         android:layout_height="120px"
@@ -34,27 +44,26 @@
             />
     </RelativeLayout>
 <TextView
+    android:layout_marginLeft="60px"
     android:layout_marginTop="20px"
     android:id="@+id/majorstartv"
     android:layout_below="@+id/majorstarrl"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:textColor="@color/white"
-    android:text="     经摆渡人EFC系统全面分析，已生成\n     喜欢的专业"
+    android:text="经摆渡人EFC系统全面分析，已生成\n喜欢的专业"
     android:textSize="40px"
     />
-    
+
     <TextView
-        android:layout_marginTop="10px"
         android:id="@+id/majorstartv1"
-        android:layout_marginLeft="50px"
-        android:textSize="33px"
-        android:layout_below="@+id/majorstartv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
+       android:layout_marginLeft="60px"
+        android:layout_marginTop="240px"
         android:text="请查看并点击您心动的专业(可多洗，最多选取6个专业)"
-        />
+        android:textColor="@color/white"
+        android:textSize="33px" />
     <TextView
         android:layout_marginTop="20px"
         android:id="@+id/majorstart1"
@@ -82,7 +91,7 @@
         android:id="@+id/rl_card_root"
         android:layout_marginLeft="50px"
         android:layout_marginRight="50px"
-        android:layout_marginTop="350px"
+        android:layout_marginTop="320px"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="150px"
@@ -114,24 +123,12 @@
 
     </RelativeLayout>
 
-    <Button
-        android:layout_marginBottom="50px"
-        android:layout_centerHorizontal="true"
-        android:layout_width="382px"
-        android:layout_height="100px"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/back_capacityyi"
-        android:text="确认提交"
-        android:textSize="45px"
-        android:textColor="#fff"
-        />
-
-
+   
     <ImageView
         android:layout_marginRight="50px"
        android:id="@+id/imtwjj"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="250px"
+        android:layout_marginTop="220px"
         android:layout_width="160px"
         android:src="@drawable/ysc"
         android:layout_height="160px" />
@@ -145,8 +142,45 @@
         android:textColor="@color/white"
         android:layout_width="185px"
         android:layout_height="wrap_content"
-        android:layout_marginTop="265px"
+        android:layout_marginTop="235px"
         />
+ <RelativeLayout
+    android:id="@+id/rlyindao"
+    android:background="#cc222222"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+     <ImageView
+         android:id="@+id/maindex_yi"
+         android:layout_marginRight="170px"
+         android:layout_marginTop="370px"
+         android:layout_width="match_parent"
+         android:layout_height="400px"
+         android:src="@drawable/majindexyi"
+         />
+
+     <ImageView
+         android:visibility="gone"
+         android:id="@+id/maindex_er"
+         android:layout_marginLeft="590px"
+         android:layout_marginTop="365px"
+         android:layout_width="match_parent"
+         android:layout_height="500px"
+         android:src="@drawable/majindexer"
+         />
+
+<ImageView
+    android:visibility="gone"
+    android:id="@+id/maindex_san"
+    android:layout_marginRight="50px"
+    android:layout_marginLeft="110px"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="300px"
+    android:src="@drawable/majindexsan"
+    />
+
+
+</RelativeLayout>
 
 
 

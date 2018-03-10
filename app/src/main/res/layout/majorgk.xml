@@ -140,7 +140,7 @@
       <TextView
           android:id="@+id/fmgk_tv"
           android:layout_toRightOf="@+id/fmgk_v1"
-          android:textSize="50px"
+          android:textSize="55px"
           android:textColor="@color/black"
            android:layout_marginLeft="50px"
           android:layout_marginTop="50px"
@@ -176,7 +176,7 @@
         android:layout_height="wrap_content">
 <ImageView
     android:layout_marginLeft="10px"
-    android:layout_marginTop="6px"
+    android:layout_marginTop="16px"
     android:layout_width="30px"
     android:layout_height="30px"
     android:src="@drawable/back_circleblcak"
@@ -186,15 +186,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="所属大类"
-            android:textSize="40px"
+            android:textSize="50px"
             android:textColor="@color/black"
             android:layout_marginLeft="70px"
             />
         <TextView
             android:layout_marginTop="40px"
             android:id="@+id/fmgk_tvssdl"
-
-            android:textSize="35px"
+            android:textSize="45px"
             android:layout_marginLeft="70px"
             android:layout_below="@+id/fmgk_v2"
             android:layout_width="match_parent"
@@ -211,7 +210,7 @@
         android:layout_height="wrap_content">
         <ImageView
             android:layout_marginLeft="10px"
-            android:layout_marginTop="6px"
+            android:layout_marginTop="16px"
             android:layout_width="30px"
             android:layout_height="30px"
             android:src="@drawable/back_circleblcak"
@@ -221,7 +220,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="主要课程"
-            android:textSize="40px"
+            android:textSize="50px"
             android:textColor="@color/black"
             android:layout_marginLeft="70px"
             />
@@ -232,7 +231,7 @@
             android:layout_below="@+id/fmgk_v4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="35px"
+            android:textSize="45px"
             />
     </RelativeLayout>
 
@@ -246,7 +245,7 @@
         android:layout_height="wrap_content">
         <ImageView
             android:layout_marginLeft="10px"
-            android:layout_marginTop="6px"
+            android:layout_marginTop="16px"
             android:layout_width="30px"
             android:layout_height="30px"
             android:src="@drawable/back_circleblcak"
@@ -256,7 +255,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="培养需求"
-            android:textSize="40px"
+            android:textSize="50px"
             android:textColor="@color/black"
             android:layout_marginLeft="70px"
             />
@@ -267,7 +266,7 @@
             android:layout_below="@+id/fmgk_v5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="35px"
+            android:textSize="45px"
             />
     </RelativeLayout>
     <RelativeLayout
@@ -286,7 +285,7 @@
         <TextView
             android:id="@+id/fmgk_tv6"
             android:layout_toRightOf="@+id/fmgk_v8"
-            android:textSize="50px"
+            android:textSize="55px"
             android:textColor="@color/black"
             android:layout_marginLeft="50px"
             android:layout_marginTop="50px"
@@ -318,7 +317,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="110px"
-        android:textSize="35px"
+        android:textSize="45px"
         />
 
     <View

@@ -284,6 +284,7 @@ public class SetTingActivity extends BaseActivity implements VerSionView {
                                 SPUtils.remove(MyApp.context, "tbmaxfen");
                                 SPUtils.remove(MyApp.context, "tbarea");
                                 SPUtils.remove(MyApp.context, "tbsubtype");
+                                SPUtils.remove(MyApp.context, "majorindex");
                                 MyUserBean.setUserBean(null);
                                 finish();
                             }

@@ -563,6 +563,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+       android:id="@+id/ss_r9"
         android:layout_marginTop="10px"
         android:background="@color/white"
         android:layout_below="@+id/ss_r7"
@@ -714,7 +715,11 @@
 
 
     </RelativeLayout>
-
+<View
+    android:background="#fff"
+    android:layout_below="@+id/ss_r9"
+    android:layout_width="match_parent"
+    android:layout_height="50px"></View>
 
 </RelativeLayout>
 </ScrollView>

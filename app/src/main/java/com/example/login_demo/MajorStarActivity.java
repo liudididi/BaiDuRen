@@ -10,8 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -23,10 +23,9 @@ import base.BaseActivity;
 import bean.MajorstatBean;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import fragment.MajorStartFragment;
-import presenter.LogInPresenter;
 import untils.Rotatable;
+import untils.SPUtils;
 
 public class MajorStarActivity extends BaseActivity {
 
@@ -37,7 +36,6 @@ public class MajorStarActivity extends BaseActivity {
     ViewPager majorVp;
     @BindView(R.id.imtwjj)
     ImageView imtwjj;
-
 
 
     @BindView(R.id.mstartxzone)
@@ -105,12 +103,23 @@ public class MajorStarActivity extends BaseActivity {
     TextView mstartbtwu;
     @BindView(R.id.mstartbtliu)
     TextView mstartbtliu;
+    @BindView(R.id.tvmajor1)
+    TextView tvmajor1;
+    @BindView(R.id.maindex_yi)
+    ImageView maindexYi;
+    @BindView(R.id.maindex_er)
+    ImageView maindexEr;
+    @BindView(R.id.maindex_san)
+    ImageView maindexSan;
+    @BindView(R.id.rlyindao)
+    RelativeLayout rlyindao;
+    @BindView(R.id.majorstarbyes)
+    Button majorstarbyes;
 
 
     private List<MajorStartFragment> fraglist;
 
     public static TextView scnum;
-
 
 
     private RelativeLayout rlCardRoot;
@@ -120,8 +129,9 @@ public class MajorStarActivity extends BaseActivity {
     private List<ImageView> xhlist;
     private List<ImageView> ywlist;
     private List<RelativeLayout> rllist;
-    public static List<MajorstatBean> answerllist=new ArrayList<>();
+    public static List<MajorstatBean> answerllist = new ArrayList<>();
     private List<TextView> xzlist;
+    private int a;
 
     @Override
     public int getId() {
@@ -130,11 +140,39 @@ public class MajorStarActivity extends BaseActivity {
 
     @Override
     public void InIt() {
+        Boolean majorindex = (Boolean) SPUtils.get(MyApp.context, "majorindex", false);
+        if (majorindex == false) {
+            rlyindao.setVisibility(View.VISIBLE);
+            majorstarbyes.setVisibility(View.GONE);
+            rlyindao.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (a == 0) {
+                        maindexYi.setVisibility(View.GONE);
+                        maindexEr.setVisibility(View.VISIBLE);
+                        a += 1;
+                    } else if (a == 1) {
+                        maindexEr.setVisibility(View.GONE);
+                        maindexSan.setVisibility(View.VISIBLE);
+                        a += 1;
+                    } else {
+                        rlyindao.setVisibility(View.GONE);
+                        majorstarbyes.setVisibility(View.VISIBLE);
+                        SPUtils.put(MyApp.context, "majorindex", true);
+                    }
+                }
+            });
+
+        } else {
+            rlyindao.setVisibility(View.GONE);
+            majorstarbyes.setVisibility(View.VISIBLE);
+        }
+
         //卡片
         rlCardRoot = findViewById(R.id.rl_card_root);
         imageViewBack = findViewById(R.id.imageView_back);
         imageViewFront = findViewById(R.id.imageView_front);
-        ImageView majorstar=  findViewById(R.id.majorstar_iv_back);
+        ImageView majorstar = findViewById(R.id.majorstar_iv_back);
         majorstar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -158,65 +196,65 @@ public class MajorStarActivity extends BaseActivity {
         for (int i = 0; i < 3; i++) {
             MajorstatBean majorstatBean = new MajorstatBean();
             majorstatBean.title = "会计";
-            majorstatBean.xinzi = "5665"+i;
-            majorstatBean.xh=false;
+            majorstatBean.xinzi = "5665" + i;
+            majorstatBean.xh = false;
             majorstatBean.mubiao = "一个亿";
             list1.add(majorstatBean);
         }
         List<MajorstatBean> list2 = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
             MajorstatBean majorstatBean = new MajorstatBean();
-            majorstatBean.title = "程序员"+i;
+            majorstatBean.title = "程序员" + i;
             majorstatBean.xinzi = "56652";
             majorstatBean.mubiao = "二个亿";
-            majorstatBean.xh=false;
+            majorstatBean.xh = false;
             list2.add(majorstatBean);
         }
 
         List<MajorstatBean> list3 = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
             MajorstatBean majorstatBean = new MajorstatBean();
-            majorstatBean.title = "程序员"+i;
+            majorstatBean.title = "程序员" + i;
             majorstatBean.xinzi = "56653";
             majorstatBean.mubiao = "二个亿";
-            majorstatBean.xh=false;
+            majorstatBean.xh = false;
             list3.add(majorstatBean);
         }
 
         List<MajorstatBean> list4 = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
             MajorstatBean majorstatBean = new MajorstatBean();
-            majorstatBean.title = "程序员"+i;
+            majorstatBean.title = "程序员" + i;
             majorstatBean.xinzi = "56654";
             majorstatBean.mubiao = "二个亿";
-            majorstatBean.xh=false;
+            majorstatBean.xh = false;
             list4.add(majorstatBean);
         }
         List<MajorstatBean> list5 = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
             MajorstatBean majorstatBean = new MajorstatBean();
-            majorstatBean.title = "程序员"+i;
+            majorstatBean.title = "程序员" + i;
             majorstatBean.xinzi = "56655";
             majorstatBean.mubiao = "二个亿";
-            majorstatBean.xh=false;
+            majorstatBean.xh = false;
             list5.add(majorstatBean);
         }
         List<MajorstatBean> list6 = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
             MajorstatBean majorstatBean = new MajorstatBean();
-            majorstatBean.title = "程序员"+i;
+            majorstatBean.title = "程序员" + i;
             majorstatBean.xinzi = "56656";
             majorstatBean.mubiao = "二个亿";
-            majorstatBean.xh=false;
+            majorstatBean.xh = false;
             list6.add(majorstatBean);
         }
         List<MajorstatBean> list7 = new ArrayList<>();
         for (int i = 0; i < 2; i++) {
             MajorstatBean majorstatBean = new MajorstatBean();
-            majorstatBean.title = "程序员"+i;
+            majorstatBean.title = "程序员" + i;
             majorstatBean.xinzi = "56657";
             majorstatBean.mubiao = "二个亿";
-            majorstatBean.xh=false;
+            majorstatBean.xh = false;
             list7.add(majorstatBean);
         }
 
@@ -248,14 +286,14 @@ public class MajorStarActivity extends BaseActivity {
     }
 
     private void initlist() {
-          titlelist = new ArrayList<>();
-          titlelist.add(mstartbtone);
-          titlelist.add(mstartbttwo);
-          titlelist.add(mstartbtsan);
-          titlelist.add(mstartbtsi);
-          titlelist.add(mstartbtwu);
-          titlelist.add(mstartbtliu);
-          xhlist = new ArrayList<>();
+        titlelist = new ArrayList<>();
+        titlelist.add(mstartbtone);
+        titlelist.add(mstartbttwo);
+        titlelist.add(mstartbtsan);
+        titlelist.add(mstartbtsi);
+        titlelist.add(mstartbtwu);
+        titlelist.add(mstartbtliu);
+        xhlist = new ArrayList<>();
         xhlist.add(mstartxhone);
         xhlist.add(mstartxhtwo);
         xhlist.add(mstartxhsan);
@@ -267,9 +305,9 @@ public class MajorStarActivity extends BaseActivity {
             xhlist.get(i).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                  answerllist.get(finalI).xh=false;
-                  answerllist.remove(finalI);
-                  scnum.setText(answerllist.size()+"");
+                    answerllist.get(finalI).xh = false;
+                    answerllist.remove(finalI);
+                    scnum.setText(answerllist.size() + "");
                     for (int i1 = 0; i1 < fraglist.size(); i1++) {
                         fraglist.get(i1).onResume();
                     }
@@ -277,13 +315,13 @@ public class MajorStarActivity extends BaseActivity {
                         xhlist.get(j).setImageResource(R.drawable.bgxq);
                         rllist.get(j).setVisibility(View.INVISIBLE);
                     }
-                     if(answerllist.size()!=0){
-                         for (int i = 0; i < answerllist.size(); i++) {
-                             titlelist.get(i).setText(answerllist.get(i).title);
-                             rllist.get(i).setVisibility(View.VISIBLE);
-                             xzlist.get(i).setText(answerllist.get(i).xinzi);
-                         }
-                     }
+                    if (answerllist.size() != 0) {
+                        for (int i = 0; i < answerllist.size(); i++) {
+                            titlelist.get(i).setText(answerllist.get(i).title);
+                            rllist.get(i).setVisibility(View.VISIBLE);
+                            xzlist.get(i).setText(answerllist.get(i).xinzi);
+                        }
+                    }
 
                 }
             });
@@ -298,11 +336,11 @@ public class MajorStarActivity extends BaseActivity {
         for (int i = 0; i < ywlist.size(); i++) {
             final int finalI = i;
             ywlist.get(i).setOnClickListener(new View.OnClickListener() {
-              @Override
-              public void onClick(View v) {
-                  tanchuang(titlelist.get(finalI).getText().toString(),xzlist.get(finalI).getText().toString(),MajorStarActivity.this);
-              }
-          });
+                @Override
+                public void onClick(View v) {
+                    tanchuang(titlelist.get(finalI).getText().toString(), xzlist.get(finalI).getText().toString(), MajorStarActivity.this);
+                }
+            });
         }
         xzlist = new ArrayList<>();
         xzlist.add(mstartxzone);
@@ -323,10 +361,9 @@ public class MajorStarActivity extends BaseActivity {
     }
 
 
-
-    public static void tanchuang(String zhuan,String xz, Context context) {
-        final Dialog dialog = new Dialog( context, R.style.Theme_Light_Dialog);
-        View dialogView = LayoutInflater.from(context).inflate(R.layout.dialoglayout,null);
+    public static void tanchuang(String zhuan, String xz, Context context) {
+        final Dialog dialog = new Dialog(context, R.style.Theme_Light_Dialog);
+        View dialogView = LayoutInflater.from(context).inflate(R.layout.dialoglayout, null);
         //获得dialog的window窗口
         Window window = dialog.getWindow();
         //设置dialog在屏幕底部
@@ -335,7 +372,7 @@ public class MajorStarActivity extends BaseActivity {
         window.setWindowAnimations(R.style.dialogStyle);
         window.getDecorView().setPadding(0, 0, 0, 0);
         //获得window窗口的属性
-        android.view.WindowManager.LayoutParams lp = window.getAttributes();
+        WindowManager.LayoutParams lp = window.getAttributes();
         //设置窗口宽度为充满全屏
         lp.width = WindowManager.LayoutParams.MATCH_PARENT;
         //设置窗口高度为包裹内容
@@ -346,12 +383,11 @@ public class MajorStarActivity extends BaseActivity {
         dialog.setContentView(dialogView);
         dialog.show();
 
-        TextView dlog_title=dialogView.findViewById(R.id.dlog_title);
+        TextView dlog_title = dialogView.findViewById(R.id.dlog_title);
         dlog_title.setText(zhuan);
-        TextView dlog_xz= dialogView.findViewById(R.id.dlog_xz);
-        dlog_xz.setText("￥"+xz);
+        TextView dlog_xz = dialogView.findViewById(R.id.dlog_xz);
+        dlog_xz.setText("￥" + xz);
     }
-
 
 
     //卡片代码
@@ -391,7 +427,6 @@ public class MajorStarActivity extends BaseActivity {
             rotatable.rotate(Rotatable.ROTATE_Y, -180, 1000);
 
 
-
         } else if (View.VISIBLE == imageViewFront.getVisibility()) {
             Rotatable rotatable = new Rotatable.Builder(rlCardRoot)
                     .sides(R.id.imageView_back, R.id.imageView_front)
@@ -404,4 +439,10 @@ public class MajorStarActivity extends BaseActivity {
         }
     }
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
+    }
 }

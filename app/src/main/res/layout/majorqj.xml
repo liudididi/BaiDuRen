@@ -19,7 +19,7 @@
         <TextView
             android:id="@+id/fmgk_tv"
             android:layout_toRightOf="@+id/fmgk_v1"
-            android:textSize="50px"
+            android:textSize="55px"
             android:textColor="@color/black"
             android:layout_marginLeft="50px"
             android:layout_marginTop="50px"
@@ -48,7 +48,7 @@
 <TextView
     android:text="null"
     android:id="@+id/qj_tvqj"
-    android:textSize="35px"
+    android:textSize="45px"
     android:layout_marginTop="50px"
     android:layout_marginLeft="112px"
     android:layout_width="match_parent"
@@ -88,7 +88,7 @@
         <TextView
             android:id="@+id/fmgk_tv2"
             android:layout_toRightOf="@+id/fmgk_v2"
-            android:textSize="50px"
+            android:textSize="55px"
             android:textColor="@color/black"
             android:layout_marginLeft="50px"
             android:layout_marginTop="50px"
@@ -123,7 +123,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/qj_v2"
             android:text="null"
-            android:textSize="35px"
+            android:textSize="45px"
             />
 
         <View

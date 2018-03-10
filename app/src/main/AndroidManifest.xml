@@ -98,7 +98,6 @@
         <activity android:name=".GradePolyLineActivity" />
         <activity android:name=".Help2Activity" />
         <activity android:name=".Help3Activity" />
-        <activity android:name=".JJParticularsActivity" />
         <activity android:name=".CollegeTitleActivity" />
         <activity android:name=".OneTableXQActivity" />
 
@@ -119,7 +118,7 @@
         <activity android:name=".HomeActivity" />
         <activity android:name=".CompleteWishActivity" />
         <activity android:name=".SplashActivity" />
-        <activity android:name=".WVActivity"></activity>
+        <activity android:name=".WVActivity" />
         <!-- 支付 -->
         <activity
             android:name="com.alipay.sdk.app.H5PayActivity"
@@ -146,7 +145,7 @@
             android:name="baiduren"
             android:value="1" />
 
-        <activity android:name=".MajorStarActivity"></activity>
+        <activity android:name=".MajorStarActivity" />
     </application>
 
 </manifest>

@@ -80,7 +80,7 @@ public interface QuestInterface {
 
 
     //职业星空
-    @POST("/app/majortwojobclassify/jobsStarMobil")
+    @POST("/app/efc/jobsStarMobil")
     Flowable<BaseBean<List<StartFl>>> jobsStarMobil(@Query("classify") String classify,@Query("type") String type,@Query("fenlei") String fenlei);
 
 

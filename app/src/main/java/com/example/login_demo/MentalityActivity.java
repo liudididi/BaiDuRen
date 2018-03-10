@@ -164,10 +164,10 @@ public class MentalityActivity extends BaseActivity {
                         .build().toWXPayNotSign(this,"wxe2968cf994de5a67");*/
                 break;
             case R.id.rl2:
-              // intent(this,ProfessionStarActivity.class);
+               intent(this,ProfessionStarActivity.class);
 
                 //专业星空
-               intent(this,MajorStarActivity.class);
+              // intent(this,MajorStarActivity.class);
 
 
 
