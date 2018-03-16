@@ -61,4 +61,8 @@ dependencies {
     compile 'com.lai.weavey:loadinglayout:1.3.1'
     //微信支付
     compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
+
+    //蜘蛛网
+    implementation 'me.panpf:spider-web-score-view:1.0.1'
+
 }

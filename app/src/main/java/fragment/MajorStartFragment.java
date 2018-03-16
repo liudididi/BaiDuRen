@@ -1,6 +1,5 @@
 package fragment;
 
-import android.annotation.SuppressLint;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -14,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import base.Basefragment;
-import bean.MajorstatBean;
+import bean.jobStarBean;
 
 /**
  * Created by 地地 on 2018/3/7.
@@ -22,7 +21,7 @@ import bean.MajorstatBean;
  */
 
 public class MajorStartFragment extends Basefragment {
-    private List<MajorstatBean> list;
+    private List<jobStarBean> list;
     private List<TextView>  titlelist=new ArrayList<>();
     private List<TextView> xinzilist=new ArrayList<>();
     private List<TextView> mblist=new ArrayList<>();
@@ -39,7 +38,7 @@ public class MajorStartFragment extends Basefragment {
         return R.layout.majorstat;
     }
 
-    public void setList(List<MajorstatBean> list) {
+    public void setList(List<jobStarBean> list) {
         this.list = list;
     }
 
@@ -47,15 +46,24 @@ public class MajorStartFragment extends Basefragment {
     public void initView() {
         initid();
         for (int i = 0; i < list.size(); i++) {
-            titlelist.get(i).setText(list.get(i).title);
-            xinzilist.get(i).setText("￥"+list.get(i).xinzi);
-            mblist.get(i).setText(list.get(i).mubiao);
+            titlelist.get(i).setText(list.get(i).getMajor());
+            List<jobStarBean.MajorinfoBean> majorinfo = list.get(i).getMajorinfo();
+
+            if(majorinfo!=null&&majorinfo.size()>0){
+                    mblist.get(i).setText(majorinfo.get(0).getTraining_target());
+                    xinzilist.get(i).setText("￥"+majorinfo.get(0).getAveragesalary());
+            }
             relativeLayouts.get(i).setVisibility(View.VISIBLE);
             final int finalI = i;
             imageViews.get(i).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    MajorStarActivity.tanchuang(list.get(finalI).title,list.get(finalI).xinzi,getActivity());
+                    List<jobStarBean.MajorinfoBean> majorinfo = list.get(finalI).getMajorinfo();
+                    if(majorinfo!=null&&majorinfo.size()>0){
+                        MajorStarActivity.tanchuang(list.get(finalI).getMajor_id(),list.get(finalI).getMajor(),majorinfo.get(0).getAveragesalary()+"",getActivity());
+                    }else {
+                        Toast.makeText(getActivity(), "暂无信息", Toast.LENGTH_SHORT).show();
+                    }
                 }
             });
         }
@@ -65,7 +73,7 @@ public class MajorStartFragment extends Basefragment {
     public void onResume() {
         super.onResume();
         for (int i = 0; i < list.size(); i++) {
-            System.out.println("xhimageViews=="+xhimageViews.size());
+
             if(list.get(i).xh==true){
                 xhimageViews.get(i).setImageResource(R.drawable.bgxq);
             }else {

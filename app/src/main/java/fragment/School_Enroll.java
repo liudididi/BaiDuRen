@@ -279,8 +279,7 @@ public class School_Enroll  extends Basefragment implements SchoolEnrollView, Fo
         if(listBaseBean!=null&&listBaseBean.size()>0){
             for (int i = 0; i <listBaseBean.size() ; i++) {
                 if(listBaseBean.get(i).getScore()!=null){
-                    System.out.println("===="+listBaseBean.get(i).getScore());
-                    listfen.set(i,Integer.parseInt(listBaseBean.get(0).getScore()));
+                    listfen.set(i,Integer.parseInt(listBaseBean.get(i).getScore()));
                 }
             }
         }

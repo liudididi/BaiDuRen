@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -114,6 +115,13 @@ public class MainActivity extends BaseActivity implements LoginView {
             register.setVisibility(View.GONE);
             zc.setVisibility(View.GONE);
         }
+      /*  edMobile.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+               Toast(edMobile.getText().toString());
+                return false;
+            }
+        });*/
         logInPresenter = new LogInPresenter(this);
         inItRunable();
     }
@@ -176,7 +184,6 @@ public class MainActivity extends BaseActivity implements LoginView {
                 }
                 logInPresenter.Register(zcedPhone,zcedpassword,zcedcaptcha);
                 break;
-
             case R.id.zc_captcha:
                 mobile = zcEdphone.getText().toString();
                 if (TextUtils.isEmpty(mobile)) {

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.login_demo.ComlitEFCActivity">
+    <RelativeLayout
+        android:id="@+id/comlitefc_title"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:background="#ffff"
+        >
+        <ImageView
+            android:id="@+id/comlitefc_rl_iv"
+            android:padding="10px"
+            android:layout_width="150px"
+            android:layout_height="90px"
+            android:layout_gravity="center"
+            android:src="@mipmap/left"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:text="学业摆渡人"
+            android:textColor="#2c2c2c"
+            android:textSize="50px"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </RelativeLayout>
+<TextView
+    android:layout_marginTop="180px"
+    android:textColor="#F39501"
+    android:textSize="70px"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+     android:text="恭喜完成EFC所有测评！"
+    />
+
+
+
+    <ImageView
+        android:id="@+id/comlit_iv"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher"
+        android:layout_marginTop="300px"
+        android:layout_width="match_parent"
+        android:layout_height="700px" />
+    <TextView
+        android:id="@+id/re_tvdjs"
+        android:layout_below="@+id/comlit_iv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="----  等待倒计时   ----"
+        android:gravity="center"
+        android:textSize="50px"
+        />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_below="@+id/re_tvdjs"
+        android:layout_width="match_parent"
+        android:layout_height="150px">
+<ImageView
+    android:layout_marginRight="30px"
+    android:layout_marginLeft="150px"
+    android:src="@mipmap/ic_launcher"
+    android:layout_width="150px"
+    android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/tv_hour"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#000"
+            android:gravity="center"
+            android:padding="15px"
+            android:text="01"
+            android:textColor="#fff"
+            android:textSize="70px" />
+        <TextView
+            android:layout_marginLeft="10px"
+            android:gravity="bottom"
+            android:text="时"
+            android:textSize="50px"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/tv_minute"
+            android:padding="15px"
+            android:gravity="center"
+            android:textSize="70px"
+            android:background="#000"
+            android:text="01"
+            android:textColor="#fff"
+            android:layout_width="130px"
+            android:layout_height="match_parent" />
+        <TextView
+            android:layout_marginLeft="10px"
+            android:gravity="bottom"
+            android:text="分"
+            android:textSize="50px"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/tv_miao"
+            android:padding="15px"
+            android:gravity="center"
+            android:textSize="70px"
+            android:background="#000"
+            android:text="01"
+            android:textColor="#fff"
+            android:layout_width="130px"
+            android:layout_height="match_parent" />
+        <TextView
+            android:layout_marginLeft="10px"
+            android:gravity="bottom"
+            android:text="秒"
+            android:textSize="50px"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+
+
+
+   <Button
+       android:layout_centerHorizontal="true"
+       android:background="@drawable/back_capacityyi"
+       android:id="@+id/but_chakan"
+       android:layout_width="862px"
+       android:layout_height="100px"
+       android:textColor="#fff"
+       android:text="我的EFC学业规划报告"
+       android:layout_marginBottom="50px"
+       android:layout_alignParentBottom="true"
+       />
+
+</RelativeLayout>

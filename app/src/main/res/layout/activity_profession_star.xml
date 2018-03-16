@@ -88,7 +88,7 @@
             />
         <RelativeLayout
             android:id="@+id/pro_rl2"
-            android:layout_marginTop="66px"
+            android:layout_marginTop="36px"
             android:layout_below="@+id/pro_startv3"
             android:layout_width="match_parent"
             android:layout_height="60px">
@@ -158,7 +158,7 @@
 
         <RelativeLayout
             android:id="@+id/pro_rl3"
-            android:layout_marginTop="60px"
+            android:layout_marginTop="30px"
             android:layout_below="@+id/pro_rl2"
             android:layout_width="match_parent"
             android:layout_height="60px"
@@ -225,7 +225,79 @@
                     />
             </LinearLayout>
         </RelativeLayout>
-        
+
+
+
+
+
+        <RelativeLayout
+            android:id="@+id/pro_rl4"
+            android:layout_marginTop="30px"
+            android:layout_below="@+id/pro_rl3"
+            android:layout_width="match_parent"
+            android:layout_height="60px"
+            >
+
+            <TextView
+                android:layout_centerVertical="true"
+                android:id="@+id/pro_startv20"
+                android:layout_marginLeft="44px"
+                android:layout_width="392px"
+                android:layout_height="wrap_content"
+                android:text="您的性别是:"
+                android:textColor="#ffffff"
+                android:textSize="44px"
+                />
+
+            <LinearLayout
+                android:id="@+id/ll_nan"
+                android:orientation="horizontal"
+                android:layout_toRightOf="@+id/pro_startv20"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/img_nan"
+                    android:layout_width="30px"
+                    android:layout_height="30px"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/hong" />
+                <TextView
+                    android:layout_marginLeft="10px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="男"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="44px"
+                    android:textColor="#ffffff"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_nv"
+                android:layout_marginLeft="70px"
+                android:orientation="horizontal"
+                android:layout_toRightOf="@+id/ll_nan"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                >
+
+                <ImageView
+                    android:id="@+id/img_nv"
+                    android:layout_width="30px"
+                    android:layout_height="30px"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/bai1" />
+                <TextView
+                    android:layout_marginLeft="20px"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="44px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="女"
+                    android:textColor="#ffffff"
+                    />
+            </LinearLayout>
+        </RelativeLayout>
         <TextView
             android:id="@+id/pro_tvyes"
             android:background="@drawable/back_capacityer"
@@ -234,7 +306,7 @@
             android:gravity="center"
             android:textSize="44px"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="60px"
+            android:layout_marginTop="130px"
             android:layout_below="@+id/pro_rl3"
             android:layout_width="400px"
             android:layout_height="120px"

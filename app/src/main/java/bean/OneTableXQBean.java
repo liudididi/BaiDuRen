@@ -18,9 +18,9 @@ public class OneTableXQBean {
      * standby1 : null
      * standby2 : null
      * standby3 : null
-     * score : 90
-     * people : 3
-     * allpeople : 14736
+     * score : 689
+     * people : 1
+     * allpeople : 2
      */
 
     private Object id;
@@ -33,7 +33,7 @@ public class OneTableXQBean {
     private Object standby1;
     private Object standby2;
     private Object standby3;
-    private int score;
+    private String score;
     private int people;
     private int allpeople;
 
@@ -117,11 +117,11 @@ public class OneTableXQBean {
         this.standby3 = standby3;
     }
 
-    public int getScore() {
+    public String getScore() {
         return score;
     }
 
-    public void setScore(int score) {
+    public void setScore(String score) {
         this.score = score;
     }
 

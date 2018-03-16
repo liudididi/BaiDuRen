@@ -19,7 +19,8 @@ public class OneTableXQMoudle {
     //一分一表的详情
     public void OnTableXQ(String type, String province, String year, final OneTableXQBack oneTableXQBack)
     {
-        DisposableSubscriber<BaseBean<List<OneTableXQBean>>> disposableSubscriber = MyQusetUtils.getInstance().getQuestInterface().onetableXQ(type, province, year)
+        DisposableSubscriber<BaseBean<List<OneTableXQBean>>> disposableSubscriber =
+                MyQusetUtils.getInstance().getQuestInterface().onetableXQ(type, province, year)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new DisposableSubscriber<BaseBean<List<OneTableXQBean>>>() {

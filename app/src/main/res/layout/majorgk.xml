@@ -6,7 +6,7 @@
 <RelativeLayout
     android:id="@+id/fmgk_rl"
     android:layout_width="match_parent"
-    android:layout_height="300px">
+    android:layout_height="370px">
 
 
     <LinearLayout
@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="50px"
-            android:text="专业代码 :"
+            android:text="null"
             />
     </LinearLayout>
 
@@ -87,9 +87,8 @@
 
 
     <LinearLayout
-         android:layout_alignParentRight="true"
-        android:layout_below="@id/fmgk_ll"
-         android:layout_marginRight="50px"
+        android:layout_marginLeft="50px"
+        android:layout_below="@id/fmgk_l2"
         android:layout_marginTop="50px"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

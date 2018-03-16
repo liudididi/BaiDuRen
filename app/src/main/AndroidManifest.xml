@@ -100,6 +100,7 @@
         <activity android:name=".Help3Activity" />
         <activity android:name=".CollegeTitleActivity" />
         <activity android:name=".OneTableXQActivity" />
+        <activity android:name=".JJParticularsActivity" />
 
         <service
             android:name=".DownApkServer"
@@ -119,6 +120,9 @@
         <activity android:name=".CompleteWishActivity" />
         <activity android:name=".SplashActivity" />
         <activity android:name=".WVActivity" />
+        <activity android:name=".BuyActivity" />
+        <activity android:name=".AnswerActivity" />
+        <activity android:name=".EvaluatingActivity" />
         <!-- 支付 -->
         <activity
             android:name="com.alipay.sdk.app.H5PayActivity"
@@ -146,6 +150,17 @@
             android:value="1" />
 
         <activity android:name=".MajorStarActivity" />
+        <activity android:name=".Buy2Activity" />
+        <activity android:name=".EFCJieSuoActivity" />
+        <activity android:name=".XlcsActivity" />
+        <activity android:name=".XueYeGuiHuaActivity" />
+        <activity android:name=".ComlitEFCActivity" />
+        <activity android:name=".XQcsActivity" />
+        <activity android:name=".ChangQuessonActivity" />
+        <activity android:name=".BuyEFCActivity" />
+        <activity android:name=".CeShiShuoMingActivity" />
+        <activity android:name=".XGcsActivity" />
+        <activity android:name=".MBI_CSActivity"></activity>
     </application>
 
 </manifest>

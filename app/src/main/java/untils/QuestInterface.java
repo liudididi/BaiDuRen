@@ -5,6 +5,7 @@ import java.util.Observable;
 
 
 import base.BaseBean;
+import bean.AnswerBean;
 import bean.AreaBean;
 import bean.CampusBean;
 import bean.CanSchoolBean;
@@ -24,6 +25,7 @@ import bean.LuquXianBean;
 import bean.MajorBean;
 import bean.MajorSchoolBean;
 import bean.MajorgkBean;
+import bean.MajorstatXQBean;
 import bean.MoreJobBean;
 import bean.NewsBean;
 import bean.OneTableBean;
@@ -50,10 +52,14 @@ import bean.TeachBean;
 import bean.TitleBean;
 import bean.UserBean;
 import bean.VisionBean;
+import bean.WeiXinBean;
+import bean.XDingdanBean;
+import bean.jobStarBean;
 import io.reactivex.Flowable;
 
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
+import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -82,6 +88,25 @@ public interface QuestInterface {
     //职业星空
     @POST("/app/efc/jobsStarMobil")
     Flowable<BaseBean<List<StartFl>>> jobsStarMobil(@Query("classify") String classify,@Query("type") String type,@Query("fenlei") String fenlei);
+    //提交心理测试答案
+    @POST("/app/psychologicalevaluation/commit")
+    Call<ResponseBody> tijiao(@Query("pe_type") String pe_type, @Body RequestBody requestBody);
+
+
+    //获取星空测评结合专业
+    @POST("/app/efc/jobsStarMajorMobil")
+   Call<BaseBean<List<jobStarBean>>> jobsStarMajorMobil(@Query("hld") String hld,@Query("mbti") String mbti,@Query("gender") String gender, @Body RequestBody requestBody);
+
+
+    //星空专业详情
+
+    @GET("/app/efc/jobStarInfo")
+    Flowable<BaseBean<List<MajorstatXQBean>>> zyxq(@Query("major_id") String major_id);
+
+
+    //心理测试题
+    @GET("/app/psychologicalevaluation/query ")
+    Flowable<BaseBean<List<AnswerBean>>> answer(@Query("pe_type") String pe_type);
 
 
  //版本更新
@@ -131,12 +156,19 @@ public interface QuestInterface {
     Flowable<BaseBean<List<CollerSchoolBean>>> getchoolisscollet(@Query("name") String name, @Header("token") String token);
 
     //获取订单号
-    @POST("/app/productorder")
-    @FormUrlEncoded
-    Flowable<BaseBean<String>> productorder();
-    //创建订单
+    @POST("/app/productorder/appDownOrder")
+    Flowable<BaseBean<XDingdanBean>> productorder(@Query("token")String token,@Query("productId")String productId,@Query("payWay")String payWay,@Query("payType")String payType);
 
-    @POST("app/productorder/createNewOrder ")
+    //支付宝支付
+    @POST("/alipay/appPay")
+    Flowable<BaseBean<String>> ZFBpay(@Query("outTradeNo")String outTradeNo);
+
+    //微信支付
+    @POST("/weixinMobile/appdopay")
+    Flowable<BaseBean<WeiXinBean>> WXpay(@Query("outTradeNo")String outTradeNo,@Query("code")String code);
+
+    //创建订单
+    @POST("/app/productorder/createNewOrder ")
     Flowable<String> createNewOrder(
             @Query("body") String body,
             @Query("spbillCreateIp") String spbillCreateIp,

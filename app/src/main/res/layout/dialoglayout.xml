@@ -1,21 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:background="#fff"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <RelativeLayout
+        android:id="@+id/rela_title"
         android:layout_width="match_parent"
-        android:layout_height="524px">
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_marginRight="30px"
+            android:layout_marginTop="30px"
+            android:layout_alignParentRight="true"
+            android:id="@+id/dilog_chahao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/cha"
+            android:layout_marginLeft="38px"
+           />
         <TextView
             android:layout_marginTop="50px"
             android:layout_marginLeft="50px"
             android:id="@+id/dlog_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="70px"
+            android:textSize="64px"
             android:textColor="#333"
             android:text="你好啊"
             />
@@ -27,7 +37,7 @@
             android:layout_marginLeft="50px"
             android:text="薪资状况:"
             android:textColor="#333"
-            android:textSize="50px" />
+            android:textSize="46px" />
 
         <TextView
             android:layout_marginTop="140px"
@@ -37,7 +47,7 @@
             android:layout_below="@+id/tvmajorone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="50px"
+            android:textSize="46px"
             android:text="￥5203"
             android:textColor="#ff6700"
             />
@@ -48,7 +58,7 @@
             android:layout_marginTop="220px"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="50px"
+            android:textSize="46px"
             android:text="培养目标:"
             />
         <TextView
@@ -58,55 +68,172 @@
             android:layout_marginTop="290px"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="42px"
+
             android:text="培养目标:"
             />
         <View
-            android:layout_alignParentBottom="true"
+           android:layout_below="@+id/dlog_pymb"
             android:layout_width="match_parent"
-            android:layout_height="20px"
+            android:layout_height="10px"
             android:background="#ccc"
             ></View>
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/rela_jyzk"
+        android:layout_below="@+id/rela_title"
         android:layout_width="match_parent"
-        android:layout_height="362px">
+        android:layout_height="wrap_content">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50px"
             android:layout_marginLeft="50px"
-            android:text="就业方向:"
+            android:text="就业状况:"
             android:textColor="#333"
-            android:textSize="50px" />
+            android:textSize="46px" />
+
+        <TextView
+            android:id="@+id/tv_ranking"
+            android:layout_width="200px"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="160px"
+            android:layout_marginLeft="50px"
+            android:text="第 3 名 (教育学)"
+
+            />
+
+        <TextView
+            android:layout_marginTop="20px"
+            android:layout_below="@+id/tv_ranking"
+            android:id="@+id/tv_address"
+            android:layout_width="200px"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50px"
+            android:text="北京"
+
+
+            />
+
+        <TextView
+            android:layout_marginTop="90px"
+            android:layout_below="@+id/tv_ranking"
+            android:id="@+id/tv_nearjob"
+            android:layout_width="200px"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50px"
+            android:text="北京"
+
+            />
+
+
         <View
-            android:layout_alignParentBottom="true"
+            android:id="@+id/view_hx"
+            android:background="#ccc"
+            android:layout_width="1px"
+            android:layout_height="220px"
+             android:layout_marginLeft="300px"
+            android:layout_marginTop="160px"
+            ></View>
+        <TextView
+            android:id="@+id/tv_rank"
+            android:layout_marginLeft="10px"
+            android:layout_marginRight="30px"
+            android:layout_marginTop="160px"
+            android:layout_toRightOf="@+id/view_hx"
             android:layout_width="match_parent"
-            android:layout_height="20px"
+            android:layout_height="wrap_content"
+            />
+
+        <TextView
+            android:id="@+id/tv_pro_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tv_rank"
+            android:layout_alignStart="@+id/tv_rank"
+            android:layout_below="@+id/tv_rank"
+            android:layout_marginTop="8dp" />
+
+
+        <TextView
+            android:layout_below="@+id/tv_pro_address"
+            android:id="@+id/tv_pro_job"
+            android:layout_marginLeft="10px"
+            android:layout_marginRight="30px"
+            android:layout_marginTop="30px"
+            android:layout_toRightOf="@+id/view_hx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+       <View
+           android:layout_marginTop="30px"
+            android:layout_below="@+id/tv_pro_job"
+            android:layout_width="match_parent"
+            android:layout_height="10px"
             android:background="#ccc"
             ></View>
     </RelativeLayout>
 
 
     <RelativeLayout
+        android:id="@+id/rela_jyfx"
+        android:layout_below="@+id/rela_jyzk"
         android:layout_width="match_parent"
-        android:layout_height="442px">
-
+        android:layout_height="wrap_content">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50px"
             android:layout_marginLeft="50px"
-            android:text="相近专业:"
+            android:text="就业方向"
             android:textColor="#333"
-            android:textSize="50px" />
-        <View
-            android:layout_alignParentBottom="true"
+            android:textSize="46px" />
+        <TextView
+
+            android:id="@+id/tv_direction_employment"
+            android:layout_marginLeft="50px"
+            android:layout_marginRight="50px"
             android:layout_width="match_parent"
-            android:layout_height="20px"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120px"
+            />
+        <View
+            android:layout_marginTop="10px"
+            android:layout_below="@+id/tv_direction_employment"
+            android:layout_width="match_parent"
+            android:layout_height="10px"
             android:background="#ccc"
             ></View>
     </RelativeLayout>
-</LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rela_kcsgw"
+        android:layout_below="@+id/rela_jyfx"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50px"
+            android:layout_marginLeft="50px"
+            android:text="可从事岗位"
+            android:textColor="#333"
+            android:textSize="46px" />
+<GridView
+    android:id="@+id/grid_jobinfo"
+        android:layout_marginLeft="50px"
+        android:layout_marginRight="50px"
+        android:layout_marginTop="120px"
+        android:numColumns="4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </GridView>
+        <View
+            android:layout_below="@+id/grid_jobinfo"
+            android:layout_width="match_parent"
+            android:layout_height="50px"
+            ></View>
+    </RelativeLayout>
+
+</RelativeLayout>

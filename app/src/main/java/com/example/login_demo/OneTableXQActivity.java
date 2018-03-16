@@ -38,7 +38,6 @@ public class OneTableXQActivity extends BaseActivity implements OnTableXQView {
     TextView tvYear;
     @BindView(R.id.rl)
     RelativeLayout rl;
-
     @BindView(R.id.lodiing)
     LoadingLayout lodiing;
     @BindView(R.id.rl_title)
@@ -98,11 +97,11 @@ public class OneTableXQActivity extends BaseActivity implements OnTableXQView {
 
     @Override
     public void OneTableXQsuccess(BaseBean<List<OneTableXQBean>> listBaseBean) {
-        initData();
+        pgb.setVisibility(View.GONE);
         rl.setVisibility(View.VISIBLE);
+        initData();
         List<OneTableXQBean> data = listBaseBean.data;
         if (data.size() > 0 && data != null) {
-            pgb.setVisibility(View.GONE);
             loadingLayout.setStatus(LoadingLayout.Success);
             scroll.setVisibility(View.VISIBLE);
             for (int i = 0; i < data.size(); i++) {
@@ -124,7 +123,7 @@ public class OneTableXQActivity extends BaseActivity implements OnTableXQView {
 
     @Override
     public void OneTableXQfail(Throwable t) {
-
+       Toast("网络不给力");
     }
 
 
@@ -134,8 +133,6 @@ public class OneTableXQActivity extends BaseActivity implements OnTableXQView {
         onTableXQPresent.onDestory();
         unregisterReceiver();
     }
-
-
     @OnClick({R.id.onetablexq_iv_back})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -161,8 +158,8 @@ public class OneTableXQActivity extends BaseActivity implements OnTableXQView {
                     pgb.setVisibility(View.GONE);
                 } else {
                     loadingLayout.setStatus(LoadingLayout.Success);
-                    onTableXQPresent.OneTableXQPresent(type, province, year);
-                    pgb.setVisibility(View.VISIBLE);
+                    pgb.setVisibility(View.GONE);
+                    scroll.setVisibility(View.VISIBLE);
                 }
             }
         };

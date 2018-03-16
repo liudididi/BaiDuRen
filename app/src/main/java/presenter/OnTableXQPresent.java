@@ -32,6 +32,7 @@ public class OnTableXQPresent extends Basepresent{
             @Override
             public void OneTableXQsuccess(BaseBean<List<OneTableXQBean>> listBaseBean) {
                 onTableXQView.OneTableXQsuccess(listBaseBean);
+
             }
 
             @Override

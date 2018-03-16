@@ -26,7 +26,7 @@
     android:layout_width="500px"
     android:layout_height="wrap_content"
     android:textSize="52px"
-    android:text="经济统计学"
+    android:text="暂无信息"
     android:textColor="#fff"
     />
     <TextView
@@ -45,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="50px"
-        android:text="￥5203"
+        android:text="暂无信息"
         android:textColor="#ff6700"
         />
     <ImageView
@@ -91,7 +91,7 @@
             android:layout_width="500px"
             android:layout_height="wrap_content"
             android:textSize="52px"
-            android:text="经济统计学"
+            android:text="暂无信息"
             android:textColor="#fff"
             />
         <TextView
@@ -109,7 +109,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="50px"
-            android:text="￥5203"
+            android:text="暂无信息"
             android:textColor="#ff6700"
             />
         <ImageView
@@ -155,7 +155,7 @@
             android:layout_width="500px"
             android:layout_height="wrap_content"
             android:textSize="52px"
-            android:text="经济统计学"
+            android:text="暂无信息"
             android:textColor="#fff"
             />
         <TextView
@@ -173,7 +173,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="50px"
-            android:text="￥5203"
+            android:text="暂无信息"
             android:textColor="#ff6700"
             />
         <ImageView
@@ -224,7 +224,7 @@
             android:layout_width="500px"
             android:layout_height="wrap_content"
             android:textSize="52px"
-            android:text="经济统计学"
+            android:text="暂无信息"
             android:textColor="#fff"
             />
         <TextView
@@ -242,7 +242,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="50px"
-            android:text="￥5203"
+            android:text="暂无信息"
             android:textColor="#ff6700"
             />
         <ImageView
@@ -286,7 +286,7 @@
             android:layout_width="500px"
             android:layout_height="wrap_content"
             android:textSize="52px"
-            android:text="经济统计学"
+            android:text="暂无信息"
             android:textColor="#fff"
             />
         <TextView
@@ -304,7 +304,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="50px"
-            android:text="￥5203"
+            android:text="暂无信息"
             android:textColor="#ff6700"
             />
         <ImageView

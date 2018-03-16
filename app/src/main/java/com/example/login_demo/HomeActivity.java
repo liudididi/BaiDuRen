@@ -66,7 +66,6 @@ public class HomeActivity extends BaseActivity {
                         break;
                     case R.id.tab_wish:
                         switchFragment(wish_FragMent).commitAllowingStateLoss();
-
                         break;
                     case R.id.tab_my:
                         switchFragment(my_fragment).commitAllowingStateLoss();
@@ -74,6 +73,8 @@ public class HomeActivity extends BaseActivity {
                 }
             }
         });
+
+
     }
 
 

@@ -144,7 +144,18 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="235px"
         />
+
+ <TextView
+     android:id="@+id/major_tvtishi"
+     android:layout_centerVertical="true"
+     android:textSize="50px"
+     android:textColor="#fff"
+     android:gravity="center"
+     android:text="系统正在筛选适合您的专业,请稍等---"
+     android:layout_width="match_parent"
+     android:layout_height="100px" />
  <RelativeLayout
+     android:visibility="gone"
     android:id="@+id/rlyindao"
     android:background="#cc222222"
     android:layout_width="match_parent"

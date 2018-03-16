@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.login_demo.MBI_CSActivity">
+    <RelativeLayout
+        android:background="#fff"
+        android:id="@+id/rl_mbititle"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        >
+        <ImageView
+            android:padding="10px"
+            android:id="@+id/mbi_iv_back"
+            android:layout_width="150px"
+            android:layout_height="90px"
+            android:layout_gravity="center"
+            android:src="@mipmap/left"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:id="@+id/grade_month"
+            android:text="MBTI测试报告"
+            android:textColor="#2c2c2c"
+            android:textSize="50px"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_above="@+id/mbi_di"
+        android:layout_below="@+id/rl_mbititle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:src="@drawable/mbtibg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_marginTop="120px"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="100px">
+                    <TextView
+                        android:text="I"
+                        android:textSize="70px"
+                        android:textColor="#f00"
+                        android:layout_marginLeft="310px"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+                    <TextView
+                        android:text="N"
+                        android:textSize="70px"
+                        android:textColor="#f00"
+                        android:layout_marginLeft="110px"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+                    <TextView
+                        android:text="T"
+                        android:textSize="70px"
+                        android:textColor="#f00"
+                        android:layout_marginLeft="110px"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+                    <TextView
+                        android:text="J"
+                        android:textSize="70px"
+                        android:textColor="#f00"
+                        android:layout_marginLeft="110px"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/mbi_ll"
+                android:orientation="horizontal"
+                android:layout_marginLeft="40px"
+                android:layout_marginRight="40px"
+                android:background="#fff"
+                android:layout_marginTop="390px"
+                android:layout_width="match_parent"
+                android:layout_height="150px">
+
+                <TextView
+                    android:textColor="#000"
+                    android:layout_marginLeft="200px"
+                    android:gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="50px"
+                    android:text="INTJ型人"
+                    />
+                <TextView
+                    android:layout_marginLeft="50px"
+                    android:gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="50px"
+                    android:text="灵性特质的作家"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/mbi_ll1"
+                android:layout_below="@+id/mbi_ll"
+                android:orientation="vertical"
+                android:layout_marginLeft="40px"
+                android:layout_marginRight="40px"
+                android:background="#fff"
+                android:layout_width="match_parent"
+                android:layout_height="500px">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="50px"
+                    android:layout_width="match_parent"
+                    android:layout_height="100px">
+                    <TextView
+                        android:layout_marginLeft="30px"
+                        android:text="外向"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_marginLeft="10px"
+                        android:text="(E)"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <ProgressBar
+                        android:id="@+id/pb1"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="270px"
+                        android:layout_height="20px"
+                        android:max="100"
+                        android:progress="100"
+                        android:layout_marginLeft="10px"
+                        android:progressDrawable="@drawable/progressbg"/>
+                    <ProgressBar
+                        android:id="@+id/pb2"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="270px"
+                        android:layout_height="20px"
+                        android:max="100"
+                        android:progress="35"
+                        android:layout_marginLeft="30px"
+                        android:progressDrawable="@drawable/progressbg1"/>
+
+                    <TextView
+                        android:layout_marginLeft="30px"
+                        android:text="(I)"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_marginLeft="10px"
+                        android:text="内向"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="100px">
+                    <TextView
+                        android:layout_marginLeft="30px"
+                        android:text="感觉"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_marginLeft="10px"
+                        android:text="(S)"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <ProgressBar
+                        android:id="@+id/pb3"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="270px"
+                        android:layout_height="20px"
+                        android:max="100"
+                        android:progress="100"
+                        android:layout_marginLeft="10px"
+                        android:progressDrawable="@drawable/progressbg2"/>
+                    <ProgressBar
+                        android:id="@+id/pb4"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="270px"
+                        android:layout_height="20px"
+                        android:max="100"
+                        android:progress="45"
+                        android:layout_marginLeft="30px"
+                        android:progressDrawable="@drawable/progressbg3"/>
+
+                    <TextView
+                        android:layout_marginLeft="30px"
+                        android:text="(N)"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_marginLeft="10px"
+                        android:text="直觉"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="100px">
+                    <TextView
+                        android:layout_marginLeft="30px"
+                        android:text="思考"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_marginLeft="10px"
+                        android:text="(T)"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <ProgressBar
+                        android:id="@+id/pb5"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="270px"
+                        android:layout_height="20px"
+                        android:max="100"
+                        android:progress="100"
+                        android:layout_marginLeft="10px"
+                        android:progressDrawable="@drawable/progressbg4"/>
+                    <ProgressBar
+                        android:id="@+id/pb6"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="270px"
+                        android:layout_height="20px"
+                        android:max="100"
+                        android:progress="55"
+                        android:layout_marginLeft="30px"
+                        android:progressDrawable="@drawable/progressbg5"/>
+
+                    <TextView
+                        android:layout_marginLeft="30px"
+                        android:text="(F)"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_marginLeft="10px"
+                        android:text="情感"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="100px">
+                    <TextView
+                        android:layout_marginLeft="30px"
+                        android:text="判断"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_marginLeft="10px"
+                        android:text="(J)"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <ProgressBar
+                        android:id="@+id/pb7"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="270px"
+                        android:layout_height="20px"
+                        android:max="100"
+                        android:progress="100"
+                        android:layout_marginLeft="10px"
+                        android:progressDrawable="@drawable/progressbg6"/>
+                    <ProgressBar
+                        android:id="@+id/pb8"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="270px"
+                        android:layout_height="20px"
+                        android:max="100"
+                        android:progress="65"
+                        android:layout_marginLeft="30px"
+                        android:progressDrawable="@drawable/progressbg7"/>
+
+                    <TextView
+                        android:layout_marginLeft="30px"
+                        android:text="(P)"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_marginLeft="10px"
+                        android:text="直觉"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/mbi_ll2"
+                android:layout_marginLeft="40px"
+                android:layout_marginRight="40px"
+                android:layout_marginTop="50px"
+                android:layout_below="@+id/mbi_ll1"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:background="#fff"
+                    android:id="@+id/rl_jbfxbg"
+                    android:layout_width="match_parent"
+                    android:layout_height="130px">
+
+                    <ImageView
+                        android:padding="20px"
+                        android:layout_marginRight="50px"
+                        android:layout_alignParentRight="true"
+                        android:scaleType="centerCrop"
+                        android:layout_centerVertical="true"
+                        android:layout_width="60px"
+                        android:layout_height="60px"
+                        android:src="@drawable/shangjt"
+                        />
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="100px"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="基本分析报告"
+                        />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="#ccc"
+                        android:layout_alignParentBottom="true"
+                        ></View>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:background="#fff"
+                    android:id="@+id/rl_zyfzfxbg"
+                    android:layout_width="match_parent"
+                    android:layout_height="130px">
+
+                    <ImageView
+                        android:padding="20px"
+                        android:layout_marginRight="50px"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="50px"
+                        android:scaleType="centerCrop"
+                        android:layout_centerVertical="true"
+                        android:layout_width="60px"
+                        android:layout_height="60px"
+                        android:src="@drawable/shangjt"
+                        />
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="100px"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="职业发展分析报告"
+                        />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="#ccc"
+                        android:layout_alignParentBottom="true"
+                        ></View>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:background="#fff"
+                    android:id="@+id/rl_gzhjbg"
+                    android:layout_width="match_parent"
+                    android:layout_height="130px">
+
+                    <ImageView
+                        android:padding="20px"
+                        android:layout_marginRight="50px"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="50px"
+                        android:scaleType="centerCrop"
+                        android:layout_centerVertical="true"
+                        android:layout_width="60px"
+                        android:layout_height="60px"
+                        android:src="@drawable/shangjt"
+                        />
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="100px"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="工作环境分析报告"
+                        />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="#ccc"
+                        android:layout_alignParentBottom="true"
+                        ></View>
+                </RelativeLayout>
+            </LinearLayout>
+
+
+
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+
+
+
+
+    <RelativeLayout
+        android:id="@+id/mbi_di"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="10px"
+        android:background="#fff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/cxcp"
+            />
+
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

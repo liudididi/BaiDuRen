@@ -11,19 +11,44 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
+import adapter.GridjobinfoAdapter;
 import adapter.MarjorViewpageradpter;
 import base.BaseActivity;
-import bean.MajorstatBean;
+import base.BaseApi;
+import base.BaseBean;
+import bean.MajorstatXQBean;
+import bean.jobStarBean;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import fragment.MajorStartFragment;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
+import io.reactivex.subscribers.DisposableSubscriber;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import untils.MyQusetUtils;
+import untils.NetInterceptor;
+import untils.QuestInterface;
 import untils.Rotatable;
 import untils.SPUtils;
 
@@ -115,6 +140,8 @@ public class MajorStarActivity extends BaseActivity {
     RelativeLayout rlyindao;
     @BindView(R.id.majorstarbyes)
     Button majorstarbyes;
+    @BindView(R.id.major_tvtishi)
+    TextView majorTvtishi;
 
 
     private List<MajorStartFragment> fraglist;
@@ -129,9 +156,10 @@ public class MajorStarActivity extends BaseActivity {
     private List<ImageView> xhlist;
     private List<ImageView> ywlist;
     private List<RelativeLayout> rllist;
-    public static List<MajorstatBean> answerllist = new ArrayList<>();
+    public static List<jobStarBean> answerllist = new ArrayList<>();
     private List<TextView> xzlist;
     private int a;
+
 
     @Override
     public int getId() {
@@ -142,6 +170,7 @@ public class MajorStarActivity extends BaseActivity {
     public void InIt() {
         Boolean majorindex = (Boolean) SPUtils.get(MyApp.context, "majorindex", false);
         if (majorindex == false) {
+            majorTvtishi.setVisibility(View.GONE);
             rlyindao.setVisibility(View.VISIBLE);
             majorstarbyes.setVisibility(View.GONE);
             rlyindao.setOnClickListener(new View.OnClickListener() {
@@ -158,6 +187,7 @@ public class MajorStarActivity extends BaseActivity {
                     } else {
                         rlyindao.setVisibility(View.GONE);
                         majorstarbyes.setVisibility(View.VISIBLE);
+                        majorTvtishi.setVisibility(View.VISIBLE);
                         SPUtils.put(MyApp.context, "majorindex", true);
                     }
                 }
@@ -166,6 +196,7 @@ public class MajorStarActivity extends BaseActivity {
         } else {
             rlyindao.setVisibility(View.GONE);
             majorstarbyes.setVisibility(View.VISIBLE);
+            majorTvtishi.setVisibility(View.VISIBLE);
         }
 
         //卡片
@@ -188,101 +219,138 @@ public class MajorStarActivity extends BaseActivity {
         });
         //集合
         initlist();
-
-        // 加点
         scnum = findViewById(R.id.scnum);
-        fraglist = new ArrayList<>();
-        List<MajorstatBean> list1 = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
-            MajorstatBean majorstatBean = new MajorstatBean();
-            majorstatBean.title = "会计";
-            majorstatBean.xinzi = "5665" + i;
-            majorstatBean.xh = false;
-            majorstatBean.mubiao = "一个亿";
-            list1.add(majorstatBean);
+        //请求专业
+        Map<String, String> map = new HashMap<>();
+        for (int i = 0; i < startfenleiActivity.fenlieanswerlist.size(); i++) {
+            System.out.println("data==" + startfenleiActivity.fenlieanswerlist.get(i));
+            map.put(startfenleiActivity.fenlieanswerlist.get(i), "");
         }
-        List<MajorstatBean> list2 = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
-            MajorstatBean majorstatBean = new MajorstatBean();
-            majorstatBean.title = "程序员" + i;
-            majorstatBean.xinzi = "56652";
-            majorstatBean.mubiao = "二个亿";
-            majorstatBean.xh = false;
-            list2.add(majorstatBean);
-        }
+        Gson gson = new Gson();
+        String route = gson.toJson(map);
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .addInterceptor(NetInterceptor.REWRITE_RESPONSE_INTERCEPTOR_LOG)
+                .addInterceptor(NetInterceptor.REWRITE_RESPONSE_INTERCEPTOR_OFFLINE)
+                .addNetworkInterceptor(NetInterceptor.REWRITE_RESPONSE_INTERCEPTOR)
+                .addInterceptor(NetInterceptor.REWRITE_RESPONSE_MYINTERCEPTOR)
+                .connectTimeout(MyQusetUtils.TIMEOUT, TimeUnit.SECONDS)
+                .readTimeout(MyQusetUtils.TIMEOUT, TimeUnit.SECONDS)
+                .writeTimeout(MyQusetUtils.TIMEOUT, TimeUnit.SECONDS)
+                .retryOnConnectionFailure(false)
+                .build();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BaseApi.Api)
+                .client(okHttpClient)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        QuestInterface questInterface = retrofit.create(QuestInterface.class);
+        RequestBody body = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), route);
+        Call<BaseBean<List<jobStarBean>>> baseBeanCall = questInterface.jobsStarMajorMobil("CAS", "INFP", "1", body);
+        baseBeanCall.enqueue(new Callback<BaseBean<List<jobStarBean>>>() {
+            @Override
+            public void onResponse(Call<BaseBean<List<jobStarBean>>> call, Response<BaseBean<List<jobStarBean>>> response) {
+                final BaseBean<List<jobStarBean>> body = response.body();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (body.code == 0) {
+                            List<jobStarBean> data = body.data;
+                            if (data != null && data.size()>= 20) {
+                                majorTvtishi.setVisibility(View.GONE);
+                                List<jobStarBean> list1 = new ArrayList<>();
+                                for (int i = 0; i < data.size(); i++) {
+                                    data.get(i).xh = false;
+                                    if (i >= 0 && i < 3) {
+                                        list1.add(data.get(i));
+                                    }
+                                }
+                                fraglist = new ArrayList<>();
+                                List<jobStarBean> list2 = new ArrayList<>();
+                                for (int i = 3; i < 6; i++) {
+                                    list2.add(data.get(i));
+                                }
+                                List<jobStarBean> list3 = new ArrayList<>();
+                                for (int i = 6; i < 9; i++) {
+                                    list3.add(data.get(i));
+                                }
+                                List<jobStarBean> list4 = new ArrayList<>();
+                                for (int i = 9; i < 12; i++) {
+                                    list4.add(data.get(i));
+                                }
+                                List<jobStarBean> list5 = new ArrayList<>();
+                                for (int i = 12; i < 15; i++) {
+                                    list5.add(data.get(i));
+                                }
+                                List<jobStarBean> list6 = new ArrayList<>();
+                                for (int i = 15; i < 18; i++) {
+                                    list6.add(data.get(i));
+                                }
+                                List<jobStarBean> list7 = new ArrayList<>();
+                                for (int i = 18; i < 20; i++) {
+                                    list7.add(data.get(i));
+                                }
+                                MajorStartFragment majorStartFragment1 = new MajorStartFragment();
+                                majorStartFragment1.setList(list1);
+                                MajorStartFragment majorStartFragment2 = new MajorStartFragment();
+                                majorStartFragment2.setList(list2);
+                                MajorStartFragment majorStartFragment3 = new MajorStartFragment();
+                                majorStartFragment3.setList(list3);
+                                MajorStartFragment majorStartFragment4 = new MajorStartFragment();
+                                majorStartFragment4.setList(list4);
+                                MajorStartFragment majorStartFragment5 = new MajorStartFragment();
+                                majorStartFragment5.setList(list5);
+                                MajorStartFragment majorStartFragment6 = new MajorStartFragment();
+                                majorStartFragment6.setList(list6);
+                                MajorStartFragment majorStartFragment7 = new MajorStartFragment();
+                                majorStartFragment7.setList(list7);
+                                fraglist.add(majorStartFragment1);
+                                fraglist.add(majorStartFragment2);
+                                fraglist.add(majorStartFragment3);
+                                fraglist.add(majorStartFragment4);
+                                fraglist.add(majorStartFragment5);
+                                fraglist.add(majorStartFragment6);
+                                fraglist.add(majorStartFragment7);
+                                MarjorViewpageradpter marjorViewpageradpter = new MarjorViewpageradpter(getSupportFragmentManager(), fraglist);
+                                majorVp.setAdapter(marjorViewpageradpter);
+                                majorVp.setOffscreenPageLimit(6);
 
-        List<MajorstatBean> list3 = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
-            MajorstatBean majorstatBean = new MajorstatBean();
-            majorstatBean.title = "程序员" + i;
-            majorstatBean.xinzi = "56653";
-            majorstatBean.mubiao = "二个亿";
-            majorstatBean.xh = false;
-            list3.add(majorstatBean);
-        }
-
-        List<MajorstatBean> list4 = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
-            MajorstatBean majorstatBean = new MajorstatBean();
-            majorstatBean.title = "程序员" + i;
-            majorstatBean.xinzi = "56654";
-            majorstatBean.mubiao = "二个亿";
-            majorstatBean.xh = false;
-            list4.add(majorstatBean);
-        }
-        List<MajorstatBean> list5 = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
-            MajorstatBean majorstatBean = new MajorstatBean();
-            majorstatBean.title = "程序员" + i;
-            majorstatBean.xinzi = "56655";
-            majorstatBean.mubiao = "二个亿";
-            majorstatBean.xh = false;
-            list5.add(majorstatBean);
-        }
-        List<MajorstatBean> list6 = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
-            MajorstatBean majorstatBean = new MajorstatBean();
-            majorstatBean.title = "程序员" + i;
-            majorstatBean.xinzi = "56656";
-            majorstatBean.mubiao = "二个亿";
-            majorstatBean.xh = false;
-            list6.add(majorstatBean);
-        }
-        List<MajorstatBean> list7 = new ArrayList<>();
-        for (int i = 0; i < 2; i++) {
-            MajorstatBean majorstatBean = new MajorstatBean();
-            majorstatBean.title = "程序员" + i;
-            majorstatBean.xinzi = "56657";
-            majorstatBean.mubiao = "二个亿";
-            majorstatBean.xh = false;
-            list7.add(majorstatBean);
-        }
+                            }else {
+                             intent(MajorStarActivity.this,ProfessionStarActivity.class);
+                                finish();
+                            }
+                        } else {
+                            Toast(body.msg);
+                        }
 
 
-        MajorStartFragment majorStartFragment1 = new MajorStartFragment();
-        majorStartFragment1.setList(list1);
-        MajorStartFragment majorStartFragment2 = new MajorStartFragment();
-        majorStartFragment2.setList(list2);
-        MajorStartFragment majorStartFragment3 = new MajorStartFragment();
-        majorStartFragment3.setList(list3);
-        MajorStartFragment majorStartFragment4 = new MajorStartFragment();
-        majorStartFragment4.setList(list4);
-        MajorStartFragment majorStartFragment5 = new MajorStartFragment();
-        majorStartFragment5.setList(list5);
-        MajorStartFragment majorStartFragment6 = new MajorStartFragment();
-        majorStartFragment6.setList(list6);
-        MajorStartFragment majorStartFragment7 = new MajorStartFragment();
-        majorStartFragment7.setList(list7);
-        fraglist.add(majorStartFragment1);
-        fraglist.add(majorStartFragment2);
-        fraglist.add(majorStartFragment3);
-        fraglist.add(majorStartFragment4);
-        fraglist.add(majorStartFragment5);
-        fraglist.add(majorStartFragment6);
-        fraglist.add(majorStartFragment7);
-        MarjorViewpageradpter marjorViewpageradpter = new MarjorViewpageradpter(getSupportFragmentManager(), fraglist);
-        majorVp.setAdapter(marjorViewpageradpter);
-        majorVp.setOffscreenPageLimit(6);
+                    }
+                });
+
+            }
+
+            @Override
+            public void onFailure(Call<BaseBean<List<jobStarBean>>> call, Throwable t) {
+                Toast(t.toString());
+
+            }
+        });
+        majorstarbyes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+              intent(MajorStarActivity.this,ComlitEFCActivity.class);
+               finish();
+            }
+        });
+
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        answerllist.clear();
+        startfenleiActivity.fenlieanswerlist.clear();
+        startfenleiActivity.fenlieanswerlist = null;
     }
 
     private void initlist() {
@@ -317,9 +385,13 @@ public class MajorStarActivity extends BaseActivity {
                     }
                     if (answerllist.size() != 0) {
                         for (int i = 0; i < answerllist.size(); i++) {
-                            titlelist.get(i).setText(answerllist.get(i).title);
+                            titlelist.get(i).setText(answerllist.get(i).getMajor());
                             rllist.get(i).setVisibility(View.VISIBLE);
-                            xzlist.get(i).setText(answerllist.get(i).xinzi);
+                            List<jobStarBean.MajorinfoBean> majorinfo = answerllist.get(i).getMajorinfo();
+                            if (majorinfo != null && majorinfo.size() > 0) {
+                                xzlist.get(i).setText("￥" + majorinfo.get(0).getAveragesalary());
+                            }
+
                         }
                     }
 
@@ -338,7 +410,12 @@ public class MajorStarActivity extends BaseActivity {
             ywlist.get(i).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    tanchuang(titlelist.get(finalI).getText().toString(), xzlist.get(finalI).getText().toString(), MajorStarActivity.this);
+                    List<jobStarBean.MajorinfoBean> majorinfo = answerllist.get(finalI).getMajorinfo();
+                    if (majorinfo != null && majorinfo.size() > 0) {
+                        tanchuang(answerllist.get(finalI).getMajor_id(), titlelist.get(finalI).getText().toString(), majorinfo.get(0).getAveragesalary() + "", MajorStarActivity.this);
+                    } else {
+                        Toast("暂无信息");
+                    }
                 }
             });
         }
@@ -361,32 +438,91 @@ public class MajorStarActivity extends BaseActivity {
     }
 
 
-    public static void tanchuang(String zhuan, String xz, Context context) {
-        final Dialog dialog = new Dialog(context, R.style.Theme_Light_Dialog);
-        View dialogView = LayoutInflater.from(context).inflate(R.layout.dialoglayout, null);
-        //获得dialog的window窗口
-        Window window = dialog.getWindow();
-        //设置dialog在屏幕底部
-        window.setGravity(Gravity.BOTTOM);
-        //设置dialog弹出时的动画效果，从屏幕底部向上弹出
-        window.setWindowAnimations(R.style.dialogStyle);
-        window.getDecorView().setPadding(0, 0, 0, 0);
-        //获得window窗口的属性
-        WindowManager.LayoutParams lp = window.getAttributes();
-        //设置窗口宽度为充满全屏
-        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
-        //设置窗口高度为包裹内容
-        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
-        //将设置好的属性set回去
-        window.setAttributes(lp);
-        //将自定义布局加载到dialog上
-        dialog.setContentView(dialogView);
-        dialog.show();
+    public static void tanchuang(String id, final String zhuan, final String xz, final Context context) {
+        MyQusetUtils.getInstance().getQuestInterface().zyxq(id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(new DisposableSubscriber<BaseBean<List<MajorstatXQBean>>>() {
+                    @Override
+                    public void onNext(BaseBean<List<MajorstatXQBean>> listBaseBean) {
+                        if (listBaseBean.code == 0) {
+                            if (listBaseBean.data != null && listBaseBean.data.size() > 0) {
 
-        TextView dlog_title = dialogView.findViewById(R.id.dlog_title);
-        dlog_title.setText(zhuan);
-        TextView dlog_xz = dialogView.findViewById(R.id.dlog_xz);
-        dlog_xz.setText("￥" + xz);
+                                MajorstatXQBean majorstatXQBean = listBaseBean.data.get(0);
+                                final Dialog dialog = new Dialog(context, R.style.Theme_Light_Dialog);
+                                View dialogView = LayoutInflater.from(context).inflate(R.layout.dialoglayout, null);
+                                //获得dialog的window窗口
+                                Window window = dialog.getWindow();
+                                //设置dialog在屏幕底部
+                                window.setGravity(Gravity.BOTTOM);
+                                //设置dialog弹出时的动画效果，从屏幕底部向上弹出
+                                window.setWindowAnimations(R.style.dialogStyle);
+                                window.getDecorView().setPadding(0, 0, 0, 0);
+                                //获得window窗口的属性
+                                WindowManager.LayoutParams lp = window.getAttributes();
+                                //设置窗口宽度为充满全屏
+                                lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+                                //设置窗口高度为包裹内容
+                                lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+                                //将设置好的属性set回去
+                                window.setAttributes(lp);
+                                //将自定义布局加载到dialog上
+                                dialog.setContentView(dialogView);
+                                dialog.show();
+
+                                TextView dlog_title = dialogView.findViewById(R.id.dlog_title);
+                                dlog_title.setText(zhuan);
+                                TextView dlog_xz = dialogView.findViewById(R.id.dlog_xz);
+                                dlog_xz.setText("￥" + xz);
+
+                                TextView tv_ranking = dialogView.findViewById(R.id.tv_ranking);
+                                tv_ranking.setText(majorstatXQBean.getRanking());
+                                TextView tv_address = dialogView.findViewById(R.id.tv_address);
+                                tv_address.setText(majorstatXQBean.getNeed_address());
+
+                                TextView tv_nearjob = dialogView.findViewById(R.id.tv_nearjob);
+                                tv_nearjob.setText(majorstatXQBean.getNeed_major());
+                                TextView tv_rank = dialogView.findViewById(R.id.tv_rank);
+                                tv_rank.setText(majorstatXQBean.getRank());
+                                TextView tv_pro_address = dialogView.findViewById(R.id.tv_pro_address);
+                                tv_pro_address.setText(majorstatXQBean.getPro_address());
+                                TextView tv_pro_job = dialogView.findViewById(R.id.tv_pro_job);
+                                tv_pro_job.setText(majorstatXQBean.getPro_job());
+                                TextView tv_direction_employment = dialogView.findViewById(R.id.tv_direction_employment);
+                                tv_direction_employment.setText(majorstatXQBean.getDirection_employment());
+                                TextView dlog_pymb = dialogView.findViewById(R.id.dlog_pymb);
+                                dlog_pymb.setText(majorstatXQBean.getTraining_target());
+                                List<MajorstatXQBean.JobinfoBean> jobinfo = majorstatXQBean.getJobinfo();
+                                GridView grid_jobinfo = dialogView.findViewById(R.id.grid_jobinfo);
+                                ImageView dilog_chahao = dialogView.findViewById(R.id.dilog_chahao);
+                                dilog_chahao.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        dialog.cancel();
+                                    }
+                                });
+                                if (jobinfo != null && jobinfo.size() > 0) {
+                                    GridjobinfoAdapter gridjobinfoAdapter = new GridjobinfoAdapter(jobinfo, context);
+                                    grid_jobinfo.setAdapter(gridjobinfoAdapter);
+                                }
+                            } else {
+                                Toast.makeText(context, "暂无数据", Toast.LENGTH_SHORT).show();
+                            }
+
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable t) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+
     }
 
 
@@ -410,9 +546,12 @@ public class MajorStarActivity extends BaseActivity {
             }
 
             for (int i = 0; i < answerllist.size(); i++) {
-                titlelist.get(i).setText(answerllist.get(i).title);
+                titlelist.get(i).setText(answerllist.get(i).getMajor());
                 rllist.get(i).setVisibility(View.VISIBLE);
-                xzlist.get(i).setText(answerllist.get(i).xinzi);
+                List<jobStarBean.MajorinfoBean> majorinfo = answerllist.get(i).getMajorinfo();
+                if (majorinfo != null && majorinfo.size() > 0) {
+                    xzlist.get(i).setText("￥" + majorinfo.get(0).getAveragesalary());
+                }
             }
             ObjectAnimator icon_anim = ObjectAnimator.ofFloat(imageViewFront, "rotationY", 0.0F, 180.0F);
             icon_anim.setRepeatCount(1);
@@ -439,10 +578,6 @@ public class MajorStarActivity extends BaseActivity {
         }
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
+
+
 }

@@ -1,5 +1,6 @@
 package com.example.login_demo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -50,6 +51,9 @@ public class ReportedActivity extends BaseActivity {
                 break;
                 //精选志愿表
             case R.id.reported_accurate:
+               Intent intent=new Intent(this,BuyEFCActivity.class);
+               intent.putExtra("price","698");
+               startActivity(intent);
                 break;
         }
     }

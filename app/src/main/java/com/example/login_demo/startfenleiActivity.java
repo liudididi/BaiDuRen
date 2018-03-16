@@ -1,6 +1,7 @@
 package com.example.login_demo;
 
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -99,7 +100,7 @@ public class startfenleiActivity extends BaseActivity  implements StartFView{
     private int min;
     private int max;
     private List<TextView> tvlist;
-    private List<String> answerlist;
+    public   static  List<String> fenlieanswerlist;
     private List<String> newlist;
     private String type;
     private String classify;
@@ -124,8 +125,7 @@ public class startfenleiActivity extends BaseActivity  implements StartFView{
         startFlPresent.getStartfl(classify,type,fenlei);
 
         newlist = new ArrayList<>();
-        answerlist = new ArrayList<>();
-
+        fenlieanswerlist = new ArrayList<>();
         for (int i = 0; i < tvlist.size(); i++) {
             tvlist.get(i).setTextSize(TypedValue.COMPLEX_UNIT_PX, min);
             tvlist.get(i).setText("");
@@ -136,10 +136,10 @@ public class startfenleiActivity extends BaseActivity  implements StartFView{
                     int textSize = (int) tvlist.get(finalI).getTextSize();
                     if (textSize == min) {
                         tvlist.get(finalI).setTextSize(TypedValue.COMPLEX_UNIT_PX, max);
-                        answerlist.add(tvlist.get(finalI).getText().toString());
+                        fenlieanswerlist.add(tvlist.get(finalI).getText().toString());
                     } else {
                         tvlist.get(finalI).setTextSize(TypedValue.COMPLEX_UNIT_PX, min);
-                        answerlist.remove(tvlist.get(finalI).getText().toString());
+                        fenlieanswerlist.remove(tvlist.get(finalI).getText().toString());
                     }
                 }
             });
@@ -181,7 +181,7 @@ public class startfenleiActivity extends BaseActivity  implements StartFView{
         startFlPresent.onDestory();
     }
 
-    @OnClick({R.id.pro_iv_back, R.id.start_imgfl, R.id.starttv1, R.id.starttv2, R.id.starttv3, R.id.starttv4, R.id.starttv5, R.id.starttv6, R.id.starttv7, R.id.starttv8, R.id.starttv9, R.id.starttv10, R.id.starttv25, R.id.starttv11, R.id.starttv12, R.id.starttv13, R.id.starttv15, R.id.starttv16, R.id.starttv14, R.id.starttv17, R.id.starttv18, R.id.starttv19, R.id.starttv20, R.id.starttv21, R.id.starttv24, R.id.starttv23, R.id.starttv22, R.id.pro_yes, R.id.pro_rmzy, R.id.pro_shl, R.id.pro_lxgc, R.id.pro_ysrw, R.id.pro_zrl})
+    @OnClick({R.id.pro_iv_back, R.id.start_imgfl, R.id.pro_yes, R.id.pro_rmzy, R.id.pro_shl, R.id.pro_lxgc, R.id.pro_ysrw, R.id.pro_zrl})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.pro_iv_back:
@@ -191,60 +191,10 @@ public class startfenleiActivity extends BaseActivity  implements StartFView{
               intent(this,ProfessionStarActivity.class);
               finish();
                 break;
-            case R.id.starttv1:
-                break;
-            case R.id.starttv2:
-                break;
-            case R.id.starttv3:
-                break;
-            case R.id.starttv4:
-                break;
-            case R.id.starttv5:
-                break;
-            case R.id.starttv6:
-                break;
-            case R.id.starttv7:
-                break;
-            case R.id.starttv8:
-                break;
-            case R.id.starttv9:
-                break;
-            case R.id.starttv10:
-                break;
-            case R.id.starttv25:
-                break;
-            case R.id.starttv11:
-                break;
-            case R.id.starttv12:
-                break;
-            case R.id.starttv13:
-                break;
-            case R.id.starttv15:
-                break;
-            case R.id.starttv16:
-                break;
-            case R.id.starttv14:
-                break;
-            case R.id.starttv17:
-                break;
-            case R.id.starttv18:
-                break;
-            case R.id.starttv19:
-                break;
-            case R.id.starttv20:
-                break;
-            case R.id.starttv21:
-                break;
-            case R.id.starttv24:
-                break;
-            case R.id.starttv23:
-                break;
-            case R.id.starttv22:
-                break;
             case R.id.pro_yes:
-                for (int i = 0; i < answerlist.size(); i++) {
-                    System.out.println("answerlist==" + answerlist.get(i));
-                }
+                Intent intent=new Intent(this,MajorStarActivity.class);
+                startActivity(intent);
+                finish();
                 break;
             case R.id.pro_rmzy:
                 fenlei="hot";
@@ -317,7 +267,7 @@ public class startfenleiActivity extends BaseActivity  implements StartFView{
              if (newlist.get(i) != null) {
                  tvlist.get(i).setText(newlist.get(i));
              }
-             if (answerlist.contains(newlist.get(i))) {
+             if (fenlieanswerlist.contains(newlist.get(i))) {
                  tvlist.get(i).setTextSize(TypedValue.COMPLEX_UNIT_PX, max);
              } else {
                  tvlist.get(i).setTextSize(TypedValue.COMPLEX_UNIT_PX, min);

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="300px">
+
+<TextView
+    android:id="@+id/ghitem_title"
+    android:layout_marginTop="50px"
+    android:layout_marginLeft="50px"
+    android:textSize="50px"
+    android:text="哲学"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/tv_bywn"
+        android:layout_marginTop="180px"
+        android:layout_marginLeft="50px"
+        android:textSize="40px"
+        android:text="毕业五年平均薪资"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/ghitem_xinzi"
+        android:layout_toRightOf="@+id/tv_bywn"
+        android:layout_marginTop="180px"
+        android:layout_marginLeft="50px"
+        android:textSize="40px"
+        android:text="7000"
+        android:textColor="#f00"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_toRightOf="@+id/ghitem_xinzi"
+        android:layout_marginTop="180px"
+        android:layout_marginLeft="10px"
+        android:textSize="40px"
+        android:text="元"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+      android:layout_alignParentRight="true"
+        android:layout_marginRight="50px"
+        android:layout_marginTop="180px"
+        android:layout_marginLeft="10px"
+        android:textSize="40px"
+        android:text="职业匹配度"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <View
+        android:layout_below="@+id/tv_bywn"
+        android:layout_width="match_parent"
+        android:layout_height="30px"
+        ></View>
+</RelativeLayout>

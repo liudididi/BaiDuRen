@@ -8,8 +8,8 @@
         android:color="#3B9EFF"
         ></solid>
     <size
-        android:width="600px"
+        android:width="400px"
         android:height="200px"></size>
    <corners
-       android:radius="40px"></corners>
+       android:radius="20px"></corners>
 </shape>

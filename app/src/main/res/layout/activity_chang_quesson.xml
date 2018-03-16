@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3F3F3"
+    tools:context="com.example.login_demo.ChangQuessonActivity">
+    <RelativeLayout
+        android:background="#fff"
+        android:id="@+id/quesson_title"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        >
+        <ImageView
+            android:padding="10px"
+            android:id="@+id/quesson_iv_back"
+            android:layout_width="150px"
+            android:layout_height="90px"
+            android:layout_gravity="center"
+            android:src="@mipmap/left"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:text="EFC学业规划报告"
+            android:textColor="#2c2c2c"
+            android:textSize="50px"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#ccc"
+            android:layout_alignParentBottom="true"
+            ></View>
+    </RelativeLayout>
+
+    <ScrollView
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/quesson_title"
+        >
+<RelativeLayout
+    android:layout_marginLeft="50px"
+    android:layout_marginRight="50px"
+    android:layout_marginTop="50px"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/cjwtbg"
+        />
+
+</RelativeLayout>
+
+    </ScrollView>
+</RelativeLayout>

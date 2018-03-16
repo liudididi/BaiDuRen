@@ -62,6 +62,7 @@ public class WishFragMent extends Basefragment implements WishView, CountdownVie
     private TextView wish_day3;
     private CountdownPresent countdownPresent;
     private ImageView wish_school_none;
+    public static String djs=null;
 
 
     @Override
@@ -164,7 +165,6 @@ public class WishFragMent extends Basefragment implements WishView, CountdownVie
                     wish_day1.setVisibility(View.GONE);
                     wish_day2.setVisibility(View.GONE);
                     wish_day3.setVisibility(View.VISIBLE);
-
 
                 }
             }
@@ -298,10 +298,10 @@ public class WishFragMent extends Basefragment implements WishView, CountdownVie
     //倒计时
     @Override
     public void Countdownsuccess(BaseBean baseBean) {
-       String  s = baseBean.data.toString();
-        wish_day1.setText(s);
-        wish_day2.setText((Integer.parseInt(s)+2)+"");
-        wish_day3.setText((Integer.parseInt(s)+85)+"");
+        djs = baseBean.data.toString();
+        wish_day1.setText(djs);
+        wish_day2.setText((Integer.parseInt(djs)+2)+"");
+        wish_day3.setText((Integer.parseInt(djs)+85)+"");
     }
 
     @Override
